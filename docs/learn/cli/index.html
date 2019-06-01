@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67538650-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-67538650-2');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use YAML front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
+    <meta name="author" content="Jeffrey Schwartz">
+    <meta name="generator" content="Trio v0.0.6">
+    <title>Using The Command Line</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/gettriossg/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
+    <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.1f862672074f047f310a807355f84f27.css">
+    <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+<body>
+    <header class="header header--fixed">
+        <div class="container">
+            <div class="header__promo">
+                <div class="header__promo-text">Trio
+                    <span class="header__promo-text-version">v0.0.6</span>
+                </div>
+            </div>
+            <label class="hamburger-helper" for="hamburger-checkbox">
+            <div class="hamburger header-hamburger">
+                <div class="hamburger__bun">
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                </div>
+            </div>
+        </label>
+            <input class="hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/gettriossg">Home</a>
+                    </li>
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/gettriossg/docs/v1/">Docs</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a id="trio-blog-link" class="header__nav-item-link" href="/gettriossg/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="container">
+        <main class="learnhowto">
+            <h1 id="using-the-command-line">Using The Command Line</h1>
+            <img src="/gettriossg/media/terminal-general-help.2b300481c8db93fbaae55d51a4806304.png">
+
+            <p>While developing your web site you will frequently engage with the command line to get things done. Below are all the commands supported by the Trio CLI.</p>
+            <h2 id="commands">Commands</h2>
+            <h3 id="get-the-current-version">Get The Current Version</h3>
+            <pre><code class="language-shell">$ trio -v|--version</code></pre>
+            <h3 id="get-general-help">Get General Help</h3>
+            <pre><code class="language-shell">$ trio -h|--help</code></pre>
+            <h3 id="get-command-specific-help">Get Command Specific Help</h3>
+            <pre><code class="language-shell">$ trio -h|--help &lt;command&gt;</code></pre>
+            <h3 id="create-a-new-project">Create A New Project</h3>
+            <pre><code class="language-shell">$ trio n|new [path/to/new/project]</code></pre>
+            <h3 id="build-project-for-development">Build Project For Development</h3>
+            <pre><code class="language-shell">$ trio b|build</code></pre>
+            <p><strong>!</strong> see <a href="#building-project-for-development-and-for-release"> below </a> for the difference between building project for development and for release</p>
+            <h3 id="build-project-for-release">Build Project For Release</h3>
+            <pre><code class="language-shell">$ trio r|release</code></pre>
+            <p><strong>!</strong> see <a href="#building-project-for-development-and-for-release"> below </a> for the difference between building project for development and for release</p>
+            <h3 id="serve-project">Serve Project</h3>
+            <pre><code class="language-shell">$ trio -s|--serve</code></pre>
+            <h3 id="build-project-for-development-and-serve-it">Build Project For Development And Serve It</h3>
+            <pre><code class="language-shell">$ trio b|build &amp;&amp; trio s|serve</code></pre>
+            <h3 id="build-project-for-release-and-serve-it">Build Project For Release And Serve It</h3>
+            <pre><code class="language-shell">$ trio r|release &amp;&amp; trio s|serve</code></pre>
+            <h2 id="building-project-for-development-and-for-release">Building Project For Development And For Release</h2>
+            <p>The table below describes the different actions that Trio takes when building for <code>development</code> and building for <code>release</code>:</p>
+            <table class="dev-vs-release-build">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Development</th>
+                        <th>Release</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ignore &quot;work in progress&quot; blog articles</td>
+                        <td><span class="cross">&#x2717;</span></td>
+                        <td><span class="check">&#x2713;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Beautify HTML</td>
+                        <td><span class="check">&#x2713;</span></td>
+                        <td><span class="check">&#x2713;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Generate CSS Vendor Prefixes</td>
+                        <td><span class="check">&#x2713;</span></td>
+                        <td><span class="check">&#x2713;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Copies files found in source/etc to root of<br>public folder</td>
+                        <td><span class="check">&#x2713;</span></td>
+                        <td><span class="check">&#x2713;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Generate CSS Map</td>
+                        <td><span class="check">&#x2713;</span></td>
+                        <td><span class="cross">&#x2717;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Remove data-trio-* Attributes</td>
+                        <td><span class="cross">&#x2717;</span></td>
+                        <td><span class="check">&#x2713;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Remove HTML Comments</td>
+                        <td><span class="cross">&#x2717;</span></td>
+                        <td><span class="check">&#x2713;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Prefix URLS</td>
+                        <td><span class="cross">&#x2717;</span></td>
+                        <td><span class="check">&#x2713;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Writes .nojekyll file to public folder if config<br>option &quot;nojekyll&quot; is declared in trio.json</td>
+                        <td><span class="cross">&#x2717;</span></td>
+                        <td><span class="check">&#x2713;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Cache Bust Files</td>
+                        <td><span class="cross">&#x2717;</span></td>
+                        <td><span class="check">&#x2713;</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+        <br>
+        <a href="/gettriossg/docs/learn">&lt;&#xA0;Back To Learning Guides</a>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>Created by <a target="_blank" href="https://twitter.com/jefftschwartz"> <strong>@jefftschwartz</strong></a><br>with <span class="footer__heart">&#x2665;</span> for the Web and passion for simplifying complex things.</p>
+            <p>&#xA9;2018 Jeffrey Schwartz All Rights Reserved.</p>
+            <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
+            <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
+            <strong>Trio <span>v0.0.6</span></strong></a>.</p>
+            <p>Page Updated: <span>2019-6-1 16:55:52.</span> </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

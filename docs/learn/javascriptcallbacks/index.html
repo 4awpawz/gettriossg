@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67538650-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-67538650-2');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use YAML front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
+    <meta name="author" content="Jeffrey Schwartz">
+    <meta name="generator" content="Trio v0.0.6">
+    <title>JavaScript Callbacks</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/gettriossg/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
+    <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.1f862672074f047f310a807355f84f27.css">
+    <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+<body>
+    <header class="header header--fixed">
+        <div class="container">
+            <div class="header__promo">
+                <div class="header__promo-text">Trio
+                    <span class="header__promo-text-version">v0.0.6</span>
+                </div>
+            </div>
+            <label class="hamburger-helper" for="hamburger-checkbox">
+            <div class="hamburger header-hamburger">
+                <div class="hamburger__bun">
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                </div>
+            </div>
+        </label>
+            <input class="hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/gettriossg">Home</a>
+                    </li>
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/gettriossg/docs/v1/">Docs</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a id="trio-blog-link" class="header__nav-item-link" href="/gettriossg/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="container">
+        <main class="learnhowto">
+            <h1 id="javascript-callbacks">JavaScript Callbacks</h1>
+            <p><strong>!</strong> Please review <a href="/gettriossg/docs/learn/metadata">Metadata</a> before continuing with this guide.</p>
+            <p>Unlike other static site generators that require you to pepper your markup with template tags, Trio lets you keep your markup clean and use JavaScript along with <a href=" https://github.com/cheeriojs/cheerio" target="_blank">cheerio</a>,
+                a JavaScript implementation of core jQuery designed specifically for the server, to compose web pages.</p>
+            <p>The ability to compose web pages using JavaScript and the extensive collection of metadata that Trio generates is certainly one of Trio&apos;s best features, especially for those of us who love working with JavaScript. </p>
+            <p><strong>!</strong> Please see <a href="/gettriossg/docs/learn/createawebpage">Create A Web Page</a> for a hands on exercise that includes using JavaScript and metadata to compose a web page.</p>
+            <h2 id="declaring-javascript-callbacks-in-front-matter">Declaring JavaScript Callbacks In Front Matter</h2>
+            <p>Trio checks every include and page fragment associated with a composite for callbacks declared in their front matter. The following shows how to declare a single callback</p>
+            <pre><code class="language-YAML">&lt;!--
+callback: someCallback
+--&gt;</code></pre>
+            <p>and the following shows how to declare multiple callbacks</p>
+            <pre><code class="language-YAML">&lt;!--
+callback:
+- someCallback
+- someOtherCallback
+--&gt;</code></pre>
+            <h2 id="javascript-callback-modules-and-the-context-argument">JavaScript Callback Modules And The Context Argument</h2>
+            <p>Trio expects JavaScript callbacks to export a single function, not an object. For each callback declared in include or page fragment front matter, Trio will require it and then synchronously call its exported function, passing it a single
+                argument called context.</p>
+            <p>The context argument that Trio passes to callbacks declared in include front matter has 4 properties as described below</p>
+            <pre><code class="language-javascript">{
+    $, // a cheerio object that wraps the include
+    include, // the metadata associated with the include, including its front matter
+    site, // all the metadata Trio has generated
+    cheerio // a cheerio constructor should you need to create new cheerio objects
+}</code></pre>
+            <p>and could be declared as follows:</p>
+            <pre><code class="language-javascript">module.exports = context =&gt; {...};</code></pre>
+            <p>We can apply destructuring to context to access its properties</p>
+            <pre><code class="language-javascript">module.exports = ({ $, include, site, cheerio }) =&gt; {...};</code></pre>
+            <p>or, if you prefer, this style:</p>
+            <pre><code class="language-javascript">module.exports = context =&gt; {
+    const { $, include, site, cheerio } = context;
+    ...
+};</code></pre>
+            <p>The context argument that Trio passes to callbacks declared in page fragment front matter has 4 properties as described below</p>
+            <pre><code class="language-javascript">{
+    $, // a cheerio object that wraps the composite (i.e. include, page fragment and page template)
+    page, // the metadata associated with the composite&apos;s page fragment, including its front matter
+    site, // all the metadata Trio has generated
+    cheerio // the cheerio constructor should you need to construct new cheerio objects
+}</code></pre>
+            <p>and could be declared as follows:</p>
+            <pre><code class="language-javascript">module.exports = context =&gt; {...};</code></pre>
+            <p>We can apply destructuring to context to access its properties</p>
+            <pre><code class="language-javascript">module.exports = ({ $, page, site, cheerio }) =&gt; {...};</code></pre>
+            <p>or, if you prefer, this style:</p>
+            <pre><code class="language-javascript">module.exports = context =&gt; {
+    const { $, page, site, cheerio } = context;
+    ...
+};</code></pre>
+        </main>
+        <br>
+        <a href="/gettriossg/docs/learn">&lt;&#xA0;Back To Learning Guides</a>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>Created by <a target="_blank" href="https://twitter.com/jefftschwartz"> <strong>@jefftschwartz</strong></a><br>with <span class="footer__heart">&#x2665;</span> for the Web and passion for simplifying complex things.</p>
+            <p>&#xA9;2018 Jeffrey Schwartz All Rights Reserved.</p>
+            <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
+            <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
+            <strong>Trio <span>v0.0.6</span></strong></a>.</p>
+            <p>Page Updated: <span>2019-6-1 16:55:52.</span> </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

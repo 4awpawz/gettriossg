@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67538650-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-67538650-2');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use YAML front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
+    <meta name="author" content="Jeffrey Schwartz">
+    <meta name="generator" content="Trio v0.0.6">
+    <title>Building A Blog</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/gettriossg/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
+    <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.1f862672074f047f310a807355f84f27.css">
+    <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+<body>
+    <header class="header header--fixed">
+        <div class="container">
+            <div class="header__promo">
+                <div class="header__promo-text">Trio
+                    <span class="header__promo-text-version">v0.0.6</span>
+                </div>
+            </div>
+            <label class="hamburger-helper" for="hamburger-checkbox">
+            <div class="hamburger header-hamburger">
+                <div class="hamburger__bun">
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                </div>
+            </div>
+        </label>
+            <input class="hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/gettriossg">Home</a>
+                    </li>
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/gettriossg/docs/v1/">Docs</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a id="trio-blog-link" class="header__nav-item-link" href="/gettriossg/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="container">
+        <main class="learnhowto">
+            <h1 id="building-a-blog">Building A blog</h1>
+            <p><strong>!</strong> A sample blogging project complete with categories and tags <a target="_blank" href="https://github.com/4awpawz/trio-blog-example">is available on Github</a> and a live version of the sample blog project <a target="_blank"
+                    href="https://4awpawz.github.io/trio-blog-example-pages/">can be viewed here</a>.</p>
+            <p>Blogs typically have the following assortment and relationship of pages:</p>
+            <ul>
+                <li>
+                    <p>One or more blog article pages. If the blog has many articles it is common for these pages to have navigational elements that allow the viewer to navigate between them. In addition, if the blog is using categories and/or tags then
+                        these pages may also present lists of links to articles related by category and/or tags as well. </p>
+                </li>
+                <li>
+                    <p>One or more blog pages on which ordered lists of links to blog articles are presented for the viewer of the blog to select from. If the blog has many blog articles it is common for these pages to have navigational elements that allow
+                        the viewer to navigate between them. In addition, if the blog is using categories and/or tags then these pages may also present these categories and tags as links to category and tag pages to the user as well.</p>
+                </li>
+                <li>
+                    <p>One category page for each category used by the blog on which all articles with the same category are listed.</p>
+                </li>
+                <li>
+                    <p>One tag page for each tag used by the blog on which all articles with the same tag are listed.</p>
+                </li>
+            </ul>
+            <h2 id="blog-related-metadata">Blog Related Metadata</h2>
+            <p>As can be seen from the above, &quot;stitching together&quot; the assortment of pages required by a typical blog can be intimidating if not somewhat complex. To make building out a blog easier to reason about, Trio generates numerous blog
+                specific metadata collections that can make implementing a typical blog much easier. Trio also saves this collection of metadata to root/trio.manifest.json after every build or release is run. Below is a list of the blog specific metadata
+                items and collections that Trio makes available to <a href="/gettriossg/docs/learn/javascriptcallbacks">JavaScript callbacks</a>:</p>
+            <ul>
+                <li>
+                    <p>articlesCount: total number of articles</p>
+                </li>
+                <li>
+                    <p>site.articlesCatalog:</p>
+                    <p> Included in each site.articlesCatalog item:</p>
+                    <ul>
+                        <li>
+                            <p>relatedArticlesByTag: if the article has 1 or more tags.</p>
+                        </li>
+                        <li>
+                            <p>relatedArticlesByTagFlattened: if the article has 1 or more tags.</p>
+                        </li>
+                        <li>
+                            <p>relatedArticlesByCategory: if the article is categorized.</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <p>site.categoriesCatalog: if 1 or more articles are categorized.</p>
+                </li>
+                <li>
+                    <p>site.sortedTagCatalog: if 1 or more articles are categorized.</p>
+                </li>
+            </ul>
+            <p><strong>!</strong> Article lists are sorted in descending date and title order.</p>
+            <h2 id="configuring-the-blog-folder-name">Configuring The Blog Folder Name</h2>
+            <p>By default, when generating your web site, Trio will host your blog in the <code>public/blog</code> folder. If you would prefer to use a different name for the folder you can by setting the <code>blogFolderName</code> property in your root/trio.json
+                configuration file.</p>
+            <p>For example, using the configuration below</p>
+            <pre><code class="language-json">{
+    &quot;blogFolderName&quot;: &quot;differentblogname&quot;
+}</code></pre>
+            <p>Trio will, when generating your web site, host your blog in the <code>public/differentblogname</code> folder.</p>
+        </main>
+        <br>
+        <a href="/gettriossg/docs/learn">&lt;&#xA0;Back To Learning Guides</a>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>Created by <a target="_blank" href="https://twitter.com/jefftschwartz"> <strong>@jefftschwartz</strong></a><br>with <span class="footer__heart">&#x2665;</span> for the Web and passion for simplifying complex things.</p>
+            <p>&#xA9;2018 Jeffrey Schwartz All Rights Reserved.</p>
+            <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
+            <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
+            <strong>Trio <span>v0.0.6</span></strong></a>.</p>
+            <p>Page Updated: <span>2019-6-1 16:55:52.</span> </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67538650-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-67538650-2');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use YAML front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
+    <meta name="author" content="Jeffrey Schwartz">
+    <meta name="generator" content="Trio v0.0.6">
+    <title>How Pages Are Created</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/gettriossg/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
+    <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.1f862672074f047f310a807355f84f27.css">
+    <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+<body>
+    <header class="header header--fixed">
+        <div class="container">
+            <div class="header__promo">
+                <div class="header__promo-text">Trio
+                    <span class="header__promo-text-version">v0.0.6</span>
+                </div>
+            </div>
+            <label class="hamburger-helper" for="hamburger-checkbox">
+            <div class="hamburger header-hamburger">
+                <div class="hamburger__bun">
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                </div>
+            </div>
+        </label>
+            <input class="hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/gettriossg">Home</a>
+                    </li>
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/gettriossg/docs/v1/">Docs</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a id="trio-blog-link" class="header__nav-item-link" href="/gettriossg/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="container">
+        <main class="learnhowto">
+            <h1 id="how-pages-are-composed">How Pages Are Composed</h1>
+            <p>Trio uses the following project assets to compose web pages:</p>
+            <ol>
+                <li>
+                    <p>Includes, located in the source/includes folder, are either HTML or markdown files that can contain front matter or content or both.</p>
+                </li>
+                <li>
+                    <p>Page Fragments, located in the source/fragments folder, are either HTML or markdown files that must contain front matter and may or may not contain content and are always associated with a page template. </p>
+                </li>
+                <li>
+                    <p>Page Templates, located in the source/templates folder, are HTML files that provide the overall structure of the web pages you create with Trio.</p>
+                </li>
+            </ol>
+            <p><strong>!</strong> Besides the above, Trio unleashes the full power of JavaScript to empower you to further compose your web pages through its <a href="/gettriossg/docs/learn/javascriptcallbacks">JavaScript callback mechanism</a>.</p>
+            <h2 id="includes">Includes</h2>
+            <p>For every include file Trio finds in the source/includes folder it performs the following action:</p>
+            <ol>
+                <li>
+                    <p>If the include has front matter and its front matter declares one or more JavaScript callbacks, Trio will synchronously call each of the callbacks, passing them a single argument called a context whose properties can be destructured
+                        and used by the callback to further compose the include file&apos;s content.</p>
+
+                </li>
+            </ol>
+            <h2 id="includes-page-fragments-page-templates-and-composites">Includes, Page Fragments, Page Templates And Composites</h2>
+            <p>For every page fragment file Trio finds in the source/fragments folder, it performs the following actions:</p>
+            <ol>
+                <li>
+                    <p>Trio creates a composite that represents the page fragment&apos;s associated page template.</p>
+                </li>
+                <li>
+                    <p>Trio merges any content that might be contributed by the page fragment into the composite.</p>
+                </li>
+                <li>
+                    <p>If the composite contains one or more HTML tags that have a <code>data-trio-include</code> attribute, Trio will merge the content of each requested include into the composite.</p>
+                </li>
+                <li>
+                    <p>If the page fragment&apos;s front matter declares one or more JavaScript callbacks, Trio will synchronously call each of the callbacks, passing them a single argument called a context whose properties can be destructured and used by
+                        the callback to further compose the composite. </p>
+                </li>
+                <li>
+                    <p>Trio then saves the composite to the public folder with a path and file name as explained in <a href="/gettriossg/docs/learn/filenamesandpermalinks">File Names And Permalinks</a>.</p>
+                </li>
+            </ol>
+            <h2 id="includes-and-page-fragments-used-for-side-effects-only">Includes And Page Fragments Used For Side Effects Only</h2>
+            <p>It is perfectly acceptable for includes and page fragments to contain no content, in which case they are being used for side effects only, meaning that they declare JavaScript callbacks in their front matter which, when called, are used to
+                dynamically compose their content.</p>
+        </main>
+        <br>
+        <a href="/gettriossg/docs/learn">&lt;&#xA0;Back To Learning Guides</a>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>Created by <a target="_blank" href="https://twitter.com/jefftschwartz"> <strong>@jefftschwartz</strong></a><br>with <span class="footer__heart">&#x2665;</span> for the Web and passion for simplifying complex things.</p>
+            <p>&#xA9;2018 Jeffrey Schwartz All Rights Reserved.</p>
+            <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
+            <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
+            <strong>Trio <span>v0.0.6</span></strong></a>.</p>
+            <p>Page Updated: <span>2019-6-1 16:55:52.</span> </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

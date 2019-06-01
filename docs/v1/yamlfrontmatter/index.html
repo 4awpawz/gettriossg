@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67538650-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-67538650-2');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use YAML front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
+    <meta name="author" content="Jeffrey Schwartz">
+    <meta name="generator" content="Trio v0.0.6">
+    <title>YAML Front Matter</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
+    <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
+    <link rel="stylesheet" href="/gettriossg/css/main.1f862672074f047f310a807355f84f27.css">
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+<body>
+    <header class="header header--fixed">
+        <div class="container">
+            <div class="header__promo">
+                <div class="header__promo-text">Trio
+                    <span class="header__promo-text-version">v0.0.6</span>
+                </div>
+            </div>
+            <label class="hamburger-helper" for="hamburger-checkbox">
+            <div class="hamburger header-hamburger">
+                <div class="hamburger__bun">
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                </div>
+            </div>
+        </label>
+            <input class="hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/gettriossg">Home</a>
+                    </li>
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/gettriossg/docs/v1/">Docs</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a id="trio-blog-link" class="header__nav-item-link" href="/gettriossg/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container doc-page">
+        <aside class="doc-page-index">
+            <section class="doc-page-index__container">
+                <h2 class="doc-page-index__container-header">Trio v1</h2>
+                <label class="doc-page-index__container-header-version" for="versions">
+                        <select class="doc-page__header-version" name="versions" id="versions">
+                            <option value="v1">v1</option>
+                            <option value="prior v1">prior v1</option>
+                        </select>
+                    </label>
+                <aside class="doc-page-index__list-container">
+                    <ul class="doc-page-index__list">
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/">About</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/gettingstarted/">Getting
+                                    Started</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/keyconcepts/">Key
+                                    Concepts</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/guides/">Guides</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/tutorials/">Tutorials</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/projectstructure">Project Structure</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/pagegeneration">Page Generation</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link doc-page-index__list-item-link--current" href="/gettriossg/docs/v1/yamlfrontmatter">YAML Front Matter</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/htmltagattributes">HTML Tag Attributes</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/template">Template</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/fragment">Fragment</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/include">Include</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/jsondata">JSON Data</a></li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/metadata">Metadata</a></li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/tagbasedjavascriptcallbacks">Tag-Based JavaScript Callbacks</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="">SCSS/SASS/CSS</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="">Blogging</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="">Command
+                                    Line</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="">Incremental Build</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="">Configuration Options</a>
+                        </li>
+                    </ul>
+
+                </aside>
+            </section>
+        </aside>
+        <article class="doc-page-content">
+            <section class="notification">Documentation is evolving and is a WIP</section>
+            <section class="doc-page-content__copy">
+                <h1>YAML Front Matter</h1>
+
+                <p>YAML front matter must be placed at the very top of a fragment and include file and must be delimited by opening and closing HTML comment tags, between which you add both predefined and custom front matter properties.</p>
+
+                <p>Below is an example of front matter used in a fragment asset</p>
+
+                <figure>
+                    <pre><code class="html">&lt;!--
+template: helloworld.html
+title: Hello, World!
+appendToTarget: true
+--&gt;
+
+&lt;h1&gt;Hello, World!&lt;/h1&gt;</code></pre>
+                    <figcaption>Fragment With Front Matter Example</figcaption>
+                </figure>
+
+                <p>and below is the front matter from the above example converted to a JavaScript.</p>
+
+                <figure>
+                    <pre><code class="js">matter: {
+    content: &quot;&lt;h1&gt;Hello, World!&lt;/h1&gt;&quot;,
+    data: {
+        template: &quot;helloworld.html&quot;,
+        title: &quot;Hello, World!&quot;,
+        appendToTarget: true
+    },
+    isEmpty: false,
+    excerpt: &quot;&quot;
+}</code></pre>
+                    <figcaption>Front Matter Converted To JavaScript Example</figcaption>
+                </figure>
+
+                <p><mark>Front matter properties are accessible in tag-based JavaScript callbacks.</mark></p>
+
+                <h2>Predefined Front Matter Properties</h2>
+
+                <h3>Fragments</h3>
+                <p>The inclusion of front matter in fragments is <em>required</em>.</p>
+
+                <ul>
+                    <li><strong>template</strong>: <em>required</em>, type <em>string</em></li>
+                    <ul>
+                        <li>is used to name the template that the fragment is associated with</li>
+                        <li>when creating the composite, Trio will merge the fragment&apos;s content with the <em>target tag</em> in the template that contains the <em>data-trio-fragment attribute</em></li>
+                    </ul>
+                    <li><strong>title</strong>: <em>required</em>, type <em>string</em> and is used to set the title tag of the web page</li>
+                    <li><strong>appendToTarget</strong>: <em>optional</em>, type <em>boolean</em>, default value <em>false</em></li>
+                    <ul>
+                        <li>if set to <em>true</em> Trio appends the fragment&apos;s content to the template&apos;s target tag</li>
+                        <li>if set to <em>false</em> Trio replaces the the template&apos;s target tag with the fragment&apos;s content</li>
+                    </ul>
+                    <li><strong>custom properties</strong>: <em>supported</em>, type <em>any supported front matter data type</em></li>
+                </ul>
+
+                <h3>Includes</h3>
+
+                <p>The inclusion of front matter in includes is <em>optional</em>.</p>
+
+                <ul>
+                    <li><strong>appendToTarget</strong>: <em>optional</em>, type <em>boolean</em>, default value <em>false</em></li>
+                    <ul>
+                        <li>if set to <em>true</em> Trio appends the include&apos;s content to the template&apos;s or fragment&apos;s target tag</li>
+                        <li>if set to <em>false</em> Trio replaces the the template&apos;s or fragment&apos;s target tag with the include&apos;s content</li>
+                    </ul>
+                    <li><strong>custom properties</strong>: <em>not supported</em></li>
+                </ul>
+
+                <h2>Predefined Blog Specific Front Matter Properties</h2>
+
+                <p>Tag, category and article fragment assets support the following additional blog-specific front matter properties.</p>
+
+                <h3>Tag Fragments</h3>
+
+                <ul>
+                    <li><strong>forTag</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em></li>
+                    <ul>
+                        <li>can be used in tag-based JavaScript callbacks to find all matching blog articles by their <em>tag property</em> value.</li>
+                    </ul>
+                </ul>
+
+                <h3>Category Fragments</h3>
+
+                <ul>
+                    <li><strong>forCategory</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em></li>
+                    <ul>
+                        <li>can be used in tag-based JavaScript callbacks to find all matching blog articles by their <em>category property</em> value.</li>
+                    </ul>
+                </ul>
+
+                <h3>Article Fragments</h3>
+
+                <ul>
+                    <li><strong>tag</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em></li>
+                    <ul>
+                        <li>can be used in tag-based JavaScript callbacks to find all matching blog articles by their <em>tag property</em> value</li>
+                    </ul>
+                    <li><strong>category</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em></li>
+                    <ul>
+                        <li>can be used in tag-based JavaScript callbacks to find all matching blog articles by their <em>category property</em> value</li>
+                    </ul>
+                </ul>
+
+                <h3>Blog Related Data Catalogs For Implementing Sophisticated Blog Sites</h3>
+
+                <p>Trio uses the above blog-specific front matter properties to generate numerous blog related data catalogs for you. You can access these data catalogs in your tag-based JavaScript callbacks and you can view them in file <em>root/trio.manifest.json</em>.</p>
+
+                <p>There are many ways you can take advantage of these data catalogs, such as using them to create lists of articles grouped by tags in your tag pages or lists of articles grouped by category in your category pages, for instance. These are
+                    common elements in many sophisticated blog sites and Trio makes it easy for you to implement them in your site.</p>
+
+                <h2>Links To Related Information</h2>
+            </section>
+            <footer class="doc-page-content__footer">
+                <section class="doc-page-content__footer-container">
+                    <p>Created by <a target="_blank" href="https://twitter.com/jefftschwartz"> <strong>@jefftschwartz</strong></a><br>with <span class="footer__heart">&#x2665;</span> for the Web and passion for simplifying complex things.</p>
+                    <p>&#xA9;2018 Jeffrey Schwartz All Rights Reserved.</p>
+                    <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
+                    <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
+            <strong>Trio <span>v0.0.6</span></strong></a>.</p>
+                    <p>Page Updated: <span>2019-6-1 16:55:52.</span> </p>
+                </section>
+            </footer>
+        </article>
+    </main>
+
+</body>
+
+</html>

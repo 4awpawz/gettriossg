@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67538650-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-67538650-2');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use YAML front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
+    <meta name="author" content="Jeffrey Schwartz">
+    <meta name="generator" content="Trio v0.0.6">
+    <title>Tag-Based JavaScript Callbacks</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
+    <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
+    <link rel="stylesheet" href="/gettriossg/css/main.1f862672074f047f310a807355f84f27.css">
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+<body>
+    <header class="header header--fixed">
+        <div class="container">
+            <div class="header__promo">
+                <div class="header__promo-text">Trio
+                    <span class="header__promo-text-version">v0.0.6</span>
+                </div>
+            </div>
+            <label class="hamburger-helper" for="hamburger-checkbox">
+            <div class="hamburger header-hamburger">
+                <div class="hamburger__bun">
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                </div>
+            </div>
+        </label>
+            <input class="hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/gettriossg">Home</a>
+                    </li>
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/gettriossg/docs/v1/">Docs</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a id="trio-blog-link" class="header__nav-item-link" href="/gettriossg/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container doc-page">
+        <aside class="doc-page-index">
+            <section class="doc-page-index__container">
+                <h2 class="doc-page-index__container-header">Trio v1</h2>
+                <label class="doc-page-index__container-header-version" for="versions">
+                        <select class="doc-page__header-version" name="versions" id="versions">
+                            <option value="v1">v1</option>
+                            <option value="prior v1">prior v1</option>
+                        </select>
+                    </label>
+                <aside class="doc-page-index__list-container">
+                    <ul class="doc-page-index__list">
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/">About</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/gettingstarted/">Getting
+                                    Started</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/keyconcepts/">Key
+                                    Concepts</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/guides/">Guides</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/tutorials/">Tutorials</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/projectstructure">Project Structure</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/pagegeneration">Page Generation</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/yamlfrontmatter">YAML Front Matter</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/htmltagattributes">HTML Tag Attributes</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/template">Template</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/fragment">Fragment</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/include">Include</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/jsondata">JSON Data</a></li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/metadata">Metadata</a></li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link doc-page-index__list-item-link--current" href="/gettriossg/docs/v1/tagbasedjavascriptcallbacks">Tag-Based JavaScript Callbacks</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="">SCSS/SASS/CSS</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="">Blogging</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="">Command
+                                    Line</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="">Incremental Build</a>
+                        </li>
+                        <li class="doc-page-index__list-item">
+                            <a class="doc-page-index__list-item-link" href="">Configuration Options</a>
+                        </li>
+                    </ul>
+
+                </aside>
+            </section>
+        </aside>
+        <article class="doc-page-content">
+            <section class="notification">Documentation is evolving and is a WIP</section>
+            <section class="doc-page-content__copy">
+                <h1>Tag-Based JavaScript Callbacks</h1>
+
+                <p>Tag-based JavaScript callbacks are Node modules that are located in your project&apos;s <em>root/source/callbacks</em> folder, which Trio calls asynchronously using <em>async/await</em> when it encounters an HTML tag decorated with the
+                    <em>data-trio-callback</em> attribute.</p>
+
+                <p>Each callback module must export a function which, when called by Trio, is passed a single object from which it can destructure any or all of the following properties:</p>
+
+                <ul>
+                    <li><strong>$tag</strong>: a Cheerio-wrapped object around the tag that declared the callback</li>
+                    <li><strong>$</strong>: a Cheerio-wrapped object around the composite that contains the tag</li>
+                    <li><strong>asset</strong>: the metadata for the fragment associated with the composite</li>
+                    <li><strong>site</strong>: all the metadata that Trio has accumulated for the composite</li>
+                    <li><strong>Cheerio</strong>: an instance of Cheerio that can be used to create new Cheerio wrappers around objects should the need arise</li>
+                </ul>
+
+                <h2>Declaring Tag-Based JavaScript Callbacks</h2>
+
+                <p>Declaring a tag-based JavaScript callback is as simple as picking any tag in a template, fragment or include asset and decorating it with the <em>data-trio-callback</em> attribute and assigning it the name of a callback in the <em>root/source/callbacks</em>                    folder:</p>
+
+                <figure>
+                    <pre><code class="html">&lt;ul data-trio-callback=&quot;blogtaglist&quot;&gt;&lt;/ul&gt;
+</code></pre>
+                    <figcaption>Declaring A Tag-Based JavaScript Callback Example</figcaption>
+                </figure>
+
+                <h2>Implementing Callbacks</h2>
+
+                <p>Callbacks can be implemented to run <em>synchronously</em></p>
+
+                <figure>
+                    <pre><code class="js">module.exports = ({ $tag, site }) =&gt; {
+    site.sortedTagCatalog.forEach(item =&gt; {
+        $tag.append(`
+            &lt;li class=&quot;tag__list-item&quot;&gt;
+                &lt;a data-trio-link class=&quot;tag__list-item-link&quot;
+                href=&quot;/blog/tag/${item.tag.toLowerCase()}&quot;&gt;${item.tag}&lt;/a&gt;
+            &lt;/li&gt;
+        `);
+    });
+};
+</code></pre>
+                    <figcaption>Synchronous JavaScript Callback Example</figcaption>
+                </figure>
+
+                <p>or <em>asynchronously</em>, using async/await.</p>
+
+                <figure>
+                    <pre><code class="js">module.exports = async ({ $tag, site }) =&gt; {
+    const catalog = await getCatalogFromCloud(...);
+    catalog.forEach(item =&gt; {
+        $tag.append(`
+            &lt;li class=&quot;catalog-item__list-item&quot;&gt;
+                &lt;a data-trio-link class=&quot;catalog-item__list-item-link&quot;
+                href=&quot;/catalog/item/${item.name}&quot;&gt;${item.price.toFixed(2)}&lt;/a&gt;
+            &lt;/li&gt;
+        `)
+    });
+};
+</code></pre>
+                    <figcaption>Asynchronous JavaScript Callback Example</figcaption>
+                </figure>
+            </section>
+            <footer class="doc-page-content__footer">
+                <section class="doc-page-content__footer-container">
+                    <p>Created by <a target="_blank" href="https://twitter.com/jefftschwartz"> <strong>@jefftschwartz</strong></a><br>with <span class="footer__heart">&#x2665;</span> for the Web and passion for simplifying complex things.</p>
+                    <p>&#xA9;2018 Jeffrey Schwartz All Rights Reserved.</p>
+                    <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
+                    <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
+            <strong>Trio <span>v0.0.6</span></strong></a>.</p>
+                    <p>Page Updated: <span>2019-6-1 16:55:52.</span> </p>
+                </section>
+            </footer>
+        </article>
+    </main>
+
+</body>
+
+</html>

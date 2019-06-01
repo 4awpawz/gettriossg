@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67538650-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-67538650-2');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use YAML front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
+    <meta name="author" content="Jeffrey Schwartz">
+    <meta name="generator" content="Trio v0.0.6">
+    <title>data-trio-* Tag Attributes</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/gettriossg/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
+    <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.1f862672074f047f310a807355f84f27.css">
+    <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+<body>
+    <header class="header header--fixed">
+        <div class="container">
+            <div class="header__promo">
+                <div class="header__promo-text">Trio
+                    <span class="header__promo-text-version">v0.0.6</span>
+                </div>
+            </div>
+            <label class="hamburger-helper" for="hamburger-checkbox">
+            <div class="hamburger header-hamburger">
+                <div class="hamburger__bun">
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                </div>
+            </div>
+        </label>
+            <input class="hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/gettriossg">Home</a>
+                    </li>
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/gettriossg/docs/v1/">Docs</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a id="trio-blog-link" class="header__nav-item-link" href="/gettriossg/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="container">
+        <main class="learnhowto">
+            <h1 id="data-trio-tag-attributes">data-trio-* Tag Attributes</h1>
+            <p>Trio recognizes numerous <em>data attributes</em> in HTML tags that begin with <code>data-trio-</code>. The presence of these attributes instruct Trio to take unique actions according to each specific data attribute.</p>
+            <p>Below is a complete list of these attributes along with their descriptions.</p>
+            <h2 id="data-trio-fragment"><code>data-trio-fragment</code></h2>
+            <pre><code class="language-html">&lt;main data-trio-fragment&gt;&lt;/main&gt;</code></pre>
+            <p>This attribute is used in page templates and instructs Trio to target this HTML tag when creating the composite consisting of the page fragment&apos;s content and this page template&apos;s content.</p>
+            <p><strong>!</strong> <em>data-trio-fragment can be omitted if the page template is designed to be used by page fragments that do not contribute content.</em></p>
+            <p>By default, Trio replaces the HTML tag with the content from the page fragment. To append the content to this HTML tag, declare <code>appendToTarget: true</code> in your page fragment&apos;s front matter. For more information see <a href="/gettriossg/docs/learn/frontmatter/#appendtotarget">appendToTarget</a>.</p>
+            <h2 id="data-trio-include"><code>data-trio-include</code></h2>
+            <pre><code class="language-html">&lt;header data-trio-include=&quot;header.html&quot;&gt;&lt;/header&gt;</code></pre>
+            <p>This attribute, which can be used in page fragments and page templates, instructs Trio to target this HTML tag when merging the specified include file&apos;s content.</p>
+            <p>By default, Trio replaces the HTML tag with the content from the include file. To append the content to this HTML tag, declare <code>appendToTarget: true</code> in your include file front matter. For more information see <a href="/gettriossg/docs/learn/frontmatter/#appendtotarget">appendToTarget</a>.</p>
+            <h3 id="static-vs-dynamic-includes">Static vs Dynamic Includes</h3>
+            <p>Trio supports both <code>static</code> and <code>dynamic</code> include file declarations. Static include file declarations hard code the include file&apos;s name. Dynamic include file declarations use one level of indirection to resolve the
+                include file&apos;s name.</p>
+            <h4 id="static-include-file-declaration">Static Include File Declaration</h4>
+            <p>To statically declare an include file in a page fragment or page template, add the data attribute <code>data-trio-include</code> to an HTML tag and assign its value the name of the include file, including its file type of either .md or .html,
+                as its value:</p>
+            <pre><code class="language-html">&lt;header data-trio-include=&quot;header.html&quot;&gt;&lt;/header&gt;</code></pre>
+            <h4 id="dynamic-include-file-declaration">Dynamic Include File Declaration</h4>
+            <p>To dynamically declare an include file in a page fragment or page template, add the data attribute <code>data-trio-include</code> to an HTML tag and assign its value the name of a <code>front matter property</code> that Trio expects to resolve
+                to the name of an include file, including its file type of either .md or .html.</p>
+            <p>Dynamic includes are useful in those situations where a page template is associated with more than one page fragment and each page fragment contributes a different include file.</p>
+            <p>For example, a page template named <code>default.html</code> is associated with two page fragments and in its content dynamically declares an include file as follows:</p>
+            <pre><code class="language-html">&lt;header data-trio-include=&quot;header&quot;&gt;&lt;/header&gt;</code></pre>
+            <p>One of the page fragments associated with the page template has the following properties in its front matter:</p>
+            <pre><code class="language-YAML">&lt;!--
+template: default.html
+header: simpleheader.html
+--&gt;</code></pre>
+            <p>The other page fragment associated with the page template has the following properties in its front matter:</p>
+            <pre><code class="language-YAML">&lt;!--
+template: default.html
+header: complexheader.html
+--&gt;</code></pre>
+            <p>Both page fragments are associated with the same page template yet each page fragment is including a different include file.</p>
+            <h2 id="data-trio-link"><code>data-trio-link</code></h2>
+            <pre><code class="language-html">&lt;link data-trio-link rel=&quot;stylesheet&quot; href=&quot;/css/style.css&quot;&gt;
+
+&lt;a data-trio-link href=&quot;/&quot;&gt;
+
+&lt;a data-trio-link href=&quot;/about&quot;&gt;
+
+&lt;img data-trio-link src=&quot;/media/mist-niagara-falls-river.jpg&quot;&gt;</code></pre>
+            <p>This attribute, which can be used in includes, page fragments and page templates, instructs Trio to prepend a <em>base url</em> to this tag&apos;s <code>src</code> or <code>href</code> attribute&apos;s value when you run a <em>release build</em>.
+                You declare your site&apos;s base url in your project&apos;s <code>root/trio.json</code> configuration file.</p>
+            <p><strong>!</strong> Some static site hosting services, such as Github for example, may require this.</p>
+            <p>For example, if you declare <code>baseUrl</code> in your root/trio.json configuration file as follows</p>
+            <pre><code class="language-json">{
+    &quot;baseUrl&quot;: &quot;/xyz&quot;,
+}</code></pre>
+            <p>then when you run a release build (i.e. <code>trio release|r</code>), Trio will generate the following:</p>
+            <pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;/xyz/css/style.css&quot;&gt;
+
+&lt;a href=&quot;/xyz&quot;&gt;
+
+&lt;a href=&quot;/xyz/about&quot;&gt;
+
+&lt;img src=&quot;/xyz/media/mist-niagara-falls-river.jpg&quot;&gt;</code></pre>
+        </main>
+        <br>
+        <a href="/gettriossg/docs/learn">&lt;&#xA0;Back To Learning Guides</a>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>Created by <a target="_blank" href="https://twitter.com/jefftschwartz"> <strong>@jefftschwartz</strong></a><br>with <span class="footer__heart">&#x2665;</span> for the Web and passion for simplifying complex things.</p>
+            <p>&#xA9;2018 Jeffrey Schwartz All Rights Reserved.</p>
+            <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
+            <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
+            <strong>Trio <span>v0.0.6</span></strong></a>.</p>
+            <p>Page Updated: <span>2019-6-1 16:55:52.</span> </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67538650-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-67538650-2');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use YAML front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
+    <meta name="author" content="Jeffrey Schwartz">
+    <meta name="generator" content="Trio v0.0.6">
+    <title>Project Structure</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/gettriossg/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
+    <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.1f862672074f047f310a807355f84f27.css">
+    <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+<body>
+    <header class="header header--fixed">
+        <div class="container">
+            <div class="header__promo">
+                <div class="header__promo-text">Trio
+                    <span class="header__promo-text-version">v0.0.6</span>
+                </div>
+            </div>
+            <label class="hamburger-helper" for="hamburger-checkbox">
+            <div class="hamburger header-hamburger">
+                <div class="hamburger__bun">
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                    <div class="hamburger__patty"></div>
+                </div>
+            </div>
+        </label>
+            <input class="hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/gettriossg">Home</a>
+                    </li>
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/gettriossg/docs/v1/">Docs</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a id="trio-blog-link" class="header__nav-item-link" href="/gettriossg/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="container">
+        <main class="learnhowto">
+            <h1 id="project-structure">Project Structure</h1>
+            <p>The following describes a Trio project&apos;s structure.</p>
+            <h2 id="root-"><code>root/</code></h2>
+            <p>The project&apos;s root folder.</p>
+            <h2 id="root-public-"><code>root/public/</code></h2>
+            <p>The folder where the generated website is saved to whenever Trio builds the project&apos;s source folder.</p>
+            <h2 id="root-source-"><code>root/source/</code></h2>
+            <p>The development folder.</p>
+            <h2 id="root-source-callbacks-"><code>root/source/callbacks/</code></h2>
+            <p>The folder where JavaScript callback modules, which are referenced by page fragments and includes, live. See <a href="/gettriossg/docs/learn/javascriptcallbacks">JavaScript Callbacks</a> for more information.</p>
+            <h2 id="root-source-css-"><code>root/source/css/</code></h2>
+            <p>The folder where CSS files live.</p>
+            <h2 id="root-source-data-"><code>root/source/data/</code></h2>
+            <p>The folder where JSON data files, exposed as &quot;file name&quot;: [file content] in the site.dataCatalog metadata object passed to JavaScript callbacks, live.</p>
+            <p>For example, the content of the file /source/data/personalization.json would be exposed as:</p>
+            <pre><code class="language-json">&quot;dataCatalog&quot;: {
+    &quot;personalization&quot;: {
+        &quot;name&quot;: &quot;John Doe&quot;,
+        &quot;twitter&quot;: &quot;@johndoe&quot;
+    },
+    &quot;someotherfile&quot;: {...}
+}</code></pre>
+            <p><strong>!</strong> See <a href="/gettriossg/docs/learn/metadata/#datacatalog">dataCatalog</a> for more information.</p>
+            <h2 id="root-source-etc-"><code>root/source/etc/</code></h2>
+            <p><em>Introduced in v0.0.4.</em></p>
+            <p>The folder where files like <code>favicon.ico, robots.txt, sitemaps, .nojekyll, .etc</code> live. Files contained in this folder are copied as is to the root of the public folder whenever you build your project.</p>
+            <h2 id="root-source-fragments-"><code>root/source/fragments/</code></h2>
+            <p>The folder where .md and .html page fragments live.</p>
+            <h2 id="root-source-fragments-blog"><code>root/source/fragments/blog</code></h2>
+            <p>The folder where blog specific .md and .html page fragments live.</p>
+            <h2 id="root-source-fragments-blog-articles"><code>root/source/fragments/blog/articles</code></h2>
+            <p>The folder where blog article specific .md and .html page fragments live.</p>
+            <h2 id="root-source-fragments-blog-category"><code>root/source/fragments/blog/category</code></h2>
+            <p>The folder where blog category specific .md and .html page fragments live.</p>
+            <h2 id="root-source-fragments-blog-tag"><code>root/source/fragments/blog/tag</code></h2>
+            <p>The folder where blog tag specific .md and .html page fragments live.</p>
+            <h2 id="root-source-includes-"><code>root/source/includes/</code></h2>
+            <p>The folder where .md and .html include files live.</p>
+            <h2 id="root-source-media-"><code>root/source/media/</code></h2>
+            <p>The folder where media (e.g. .jpg, .gif, .pdf, .etc) files live.</p>
+            <h2 id="root-source-sass-"><code>root/source/sass/</code></h2>
+            <p>The folder where Sass files live.</p>
+            <h2 id="root-source-scripts-"><code>root/source/scripts/</code></h2>
+            <p>The folder where run-time JavaScript dependencies live.</p>
+            <h2 id="root-source-templates-"><code>root/source/templates/</code></h2>
+            <p>The folder where .html page templates live.</p>
+            <h2 id="root-trio-json"><code>root/trio.json</code></h2>
+            <p>The project&apos;s configuration file. See <a href="/gettriossg/docs/learn/configuration">Configuration</a> for more information.</p>
+            <h2 id="root-trio-manifest-json"><code>root/trio.manifest.json</code></h2>
+            <p>File which contains collections of metadata that are generated every time Trio builds the project.</p>
+        </main>
+        <br>
+        <a href="/gettriossg/docs/learn">&lt;&#xA0;Back To Learning Guides</a>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <p>Created by <a target="_blank" href="https://twitter.com/jefftschwartz"> <strong>@jefftschwartz</strong></a><br>with <span class="footer__heart">&#x2665;</span> for the Web and passion for simplifying complex things.</p>
+            <p>&#xA9;2018 Jeffrey Schwartz All Rights Reserved.</p>
+            <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
+            <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
+            <strong>Trio <span>v0.0.6</span></strong></a>.</p>
+            <p>Page Updated: <span>2019-6-1 16:55:52.</span> </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
