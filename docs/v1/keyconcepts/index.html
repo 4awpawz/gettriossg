@@ -22,9 +22,9 @@
     <title>Key Concepts</title>
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
-    <link rel="stylesheet" href="/gettriossg/css/main.1f862672074f047f310a807355f84f27.css">
+    <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.css">
+    <script src="/gettriossg/scripts/highlight.pack.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script>
@@ -76,21 +76,21 @@
                 <aside class="doc-page-index__list-container">
                     <ul class="doc-page-index__list">
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/">About</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1">About</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/gettingstarted/">Getting
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/gettingstarted">Getting
                                     Started</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link doc-page-index__list-item-link--current" href="/gettriossg/docs/v1/keyconcepts/">Key
+                            <a class="doc-page-index__list-item-link doc-page-index__list-item-link--current" href="/gettriossg/docs/v1/keyconcepts">Key
                                     Concepts</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/guides/">Guides</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/guides">Guides</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/tutorials/">Tutorials</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/tutorials">Tutorials</a>
                         </li>
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/projectstructure">Project Structure</a>
@@ -121,20 +121,19 @@
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/tagbasedjavascriptcallbacks">Tag-Based JavaScript Callbacks</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="">SCSS/SASS/CSS</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/scsssasscss">SCSS/SASS/CSS</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="">Blogging</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/blogging">Blogging</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="">Command
-                                    Line</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/commandline">Command Line</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="">Incremental Build</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/incrementalbuild">Incremental Build</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="">Configuration Options</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/configurationoptions">Configuration Options</a>
                         </li>
                     </ul>
 
@@ -164,7 +163,7 @@
                 <h2>Page Composition</h2>
 
                 <figure>
-                    <img src="/gettriossg/media/composite.15f2b20c3eca55f71ad9add373b4d51f.png" alt="composite image">
+                    <img src="/gettriossg/media/composite.png" alt="composite image">
                     <figcaption>A Composite Composed Of Assets</figcaption>
                 </figure>
 
@@ -244,36 +243,35 @@
 
                 <h2>Metadata</h2>
 
-                <p>The metadata that Trio collects from your project&apos;s assets is used internally to build your web pages and web site.</p>
+                <p>Trio collects metadata from your project&apos;s assets and configuration file and uses it internally to build your site. Trio also makes this data accessible to your project&apos;s tag-based JavaScript callbacks.</p>
 
-                <p>For example, you can use this metadata in your tag-based JavaScript callbacks to create:</p>
+                <p><mark>Trio organizes its metadata in a structured format that makes using it easier to reason about.</mark></p>
+
+                <p>For example, you can use this metadata in your tag-based JavaScript callbacks to:</p>
 
                 <ul>
-                    <li>Links to other web pages on your web site.</li>
-                    <li>Lists of blog articles sorted by date or lists of blog articles grouped by their categories and tags.</li>
-                    <li>Links to the next and and previous blog article sorted by date.</li>
-                    <li>Markup that is based on any JSON data you may have added to your project or is based on any data that you may have added to a fragment or to an include asset&apos;s front matter.</li>
+                    <li>Create links to other web pages on your web site.</li>
+                    <li>Generate content based on JSON data or from custom front matter properties.</li>
+                    <li>Make lists of blog articles related by their categories and tags.</li>
+                    <li>Construct links to the next and and previous blog article based on their published dates.</li>
                 </ul>
 
                 <p>After each build of your project, Trio persists most of the metadata that it collects to a file named <em>root/trio.manifest.json</em>. You can view the contents of this file to assist you when you are coding your tag-based JavaScript
                     callbacks.</p>
 
-                <p><mark>Trio organizes the metadata that it exposes to tag-based JavaScript callbacks in a structured format that makes using it easier to reason about.</mark></p>
-
-                <h2>Freedom To Create</h2>
-
-                <p><mark>The possibilities that are afforded to you by Trio&apos;s composition and its collection of metadata, when combined with its tag-based JavaScript callback mechanism, are only limited by your imagination and creativity.</mark></p>
+                <p><mark>Trio&apos;s use of common metaphors for its project assets, its approach to page composition, its organized collections of metadata and its tag-based JavaScript callback mechanism serve to create a powerful but easy to learn and use platform upon which to create your static sites.</mark></p>
 
                 <h2>Links To Related Information</h2>
             </section>
             <footer class="doc-page-content__footer">
                 <section class="doc-page-content__footer-container">
-                    <p>Created by <a target="_blank" href="https://twitter.com/jefftschwartz"> <strong>@jefftschwartz</strong></a><br>with <span class="footer__heart">&#x2665;</span> for the Web and passion for simplifying complex things.</p>
+                    <p>Created by <a target="_blank" href="https://twitter.com/jefftschwartz"> <strong>@jefftschwartz</strong></a></p>
+                    <p>with <span class="footer__heart">&#x2665;</span> for the Web and passion for simplifying complex things.</p>
                     <p>&#xA9;2018 Jeffrey Schwartz All Rights Reserved.</p>
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-1 16:55:52.</span> </p>
+                    <p>Page Updated: <span>2019-6-2 16:25:46.</span> </p>
                 </section>
             </footer>
         </article>

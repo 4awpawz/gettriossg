@@ -19,7 +19,7 @@
     <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use YAML front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
     <meta name="author" content="Jeffrey Schwartz">
     <meta name="generator" content="Trio v0.0.6">
-    <title>Page Generation</title>
+    <title>Incremental Build</title>
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.css">
@@ -96,7 +96,7 @@
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/projectstructure">Project Structure</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link doc-page-index__list-item-link--current" href="/gettriossg/docs/v1/pagegeneration">Page Generation</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/pagegeneration">Page Generation</a>
                         </li>
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/yamlfrontmatter">YAML Front Matter</a>
@@ -130,7 +130,7 @@
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/commandline">Command Line</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/incrementalbuild">Incremental Build</a>
+                            <a class="doc-page-index__list-item-link doc-page-index__list-item-link--current" href="/gettriossg/docs/v1/incrementalbuild">Incremental Build</a>
                         </li>
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/configurationoptions">Configuration Options</a>
@@ -143,67 +143,7 @@
         <article class="doc-page-content">
             <section class="notification">Documentation is evolving and is a WIP</section>
             <section class="doc-page-content__copy">
-                <h1>Page Generation</h1>
-
-                <p>When Trio outputs pages to the root/public folder, it employs a convention that results in URLs that are <a href="https://en.wikipedia.org/wiki/Permalink" target="_blank">permalink</a> friendly and easy to share externally, such as on
-                    social media or via email.</p>
-
-                <h2>For Non Blog Article Pages</h2>
-
-                <ul>
-                    <li>File <em>source/fragments/index.md</em> would be output to <em>public/index.html</em> and its URL would be <em>/</em>.</li>
-                    <li>File <em>source/fragments/about.md</em> would be output to <em>public/about/index.html</em> and its URL would be <em>/about</em>.</li>
-                    <li>File <em>source/fragments/abc/index.md</em> would be output to <em>public/abc/index.html</em> and its URL would be <em>/abc</em>.</li>
-                    <li>File <em>source/fragments/abc/contact.md</em> would be output to <em>public/abc/contact/index.html</em> and its URL would be <em>/abc/contact</em>.</li>
-                </ul>
-
-                <p><mark>As the examples above demonstrate, when Trio creates your non blog-related web pages in the project&apos;s public folder, Trio will create the appropriate parent folders for the page if they don&apos;t already exist.</mark></p>
-
-                <h2>For Blog Article Pages</h2>
-
-                <ul>
-                    <li>When naming your blog article, use the form <em>yyyy-mm-dd-articlename.md|.html</em>, where:</li>
-                    <ul>
-                        <li><strong>yyyy</strong>: is the 4 digit year</li>
-                        <li><strong>mm</strong>: is the 2 digit month</li>
-                        <li><strong>dd</strong>: is the 2 digit day</li>
-                    </ul>
-                    <li>File <em>source/fragments/blog/articles/2018-11-18-articlename.md</em> would be output to <em>public/blog/2018/11/18/articlename/index.html</em> and its URL would be <em>/blog/2018/11/18/articlename/</em>.
-                    </li>
-                    <li>File <em>source/fragments/blog/articles/2018-11-18-articlename.md</em> declares <em>category: abc</em> in its front matter and would be output to <em>public/blog/abc/2018/11/18/articlename/index.html</em> and its URL would be <em>/blog/abc/2018/11/18/articlename/</em>.</li>
-                </ul>
-
-                <p><mark>As the examples above demonstrate, when Trio creates your blog-related web pages in the project&apos;s public blog folder, Trio will create the appropriate parent folders for the page if they don&apos;t already exist.</mark></p>
-
-                <p><mark>If you would rather name your blog folder to something other than &quot;blog&quot;, you can by simply adding the configuration property &quot;blogFolderName&quot; to your project&apos;s configuration file, which is root/trio.json, and assign it the name you prefer.</mark></p>
-
-                <h2>Linking Conventions</h2>
-
-                <p>The following linking conventions are supported:</p>
-
-                <ul>
-                    <li><strong>Absolute URLs</strong>: <em>https://4awpawz.github.io/trio-docs-pages/docs/</em> is appropriate to use when linking to remote/non-internal resource but inappropriate to use when linking to your site&apos;s internal resources
-                        because it is brittle; a change in the sites domain would require a global refactoring of your site to change each occurrence.</li>
-                    <li><strong>Root Relative URLs</strong>: <em>/docs</em> is appropriate for internal links; the beginning <em>/</em> means that the link is relative to the root of your site.</li>
-                    <li><strong>Relative URLs</strong>: <em>../docs</em> is appropriate for internal links; it is relative to the page in which it is being used.</li>
-                </ul>
-
-                <h2>Base URL</h2>
-
-                <p>Some Web hosting services will host your site in a subfolder and will require that your URLs be prepended with a base URL. For example, the site <em>https://4awpawz.github.io/trio-docs-pages</em> is hosted on Github Pages and linking with
-                    <em>&lt;a href=&quot;/docs/v1&quot;&gt;Documentation&lt;/a&gt;</em> wouldn&apos;t work but <em>&lt;a href=&quot;/trio-docs-pages/docs/v1&quot;&gt;Documentation&lt;/a&gt;</em> would work.</p>
-
-                <p>In this case, you can decorate your links using the <em>data-trio-link</em> attribute (e.g <em>&lt;a data-trio-link href=&quot;/docs/v1&quot;&gt;Documentation&lt;/a&gt;</em>) along with a base URL, such as <em>/trio-docs-pages</em>, that
-                    you define in your project&apos;s <em>root/trio.js</em> configuration file and Trio will prepend it to your link&apos;s URL to produce <em>&lt;a data-trio-link href=&quot;/trio-docs-pages/docs/v1&quot;&gt;Documentation&lt;/a&gt;</em>.</p>
-
-                <h2>WIP Pages</h2>
-
-                <p>Fragment file name&apos;s that you prepend with an underscore (i.e. &quot;_&quot;) marks them as a &quot;<em>work in progress</em>&quot; and will be ignored during a release build of your project. This allows you to develop new pages without
-                    impacting your release builds.</p>
-
-                <p><mark>For example, during a release build, article `source/fragments/blog/articles/_2019-01-01-about2019.md` would be ignored.</mark></p>
-
-                <h2>Links To Related Information</h2>
+                <h1>Incremental Build</h1>
             </section>
             <footer class="doc-page-content__footer">
                 <section class="doc-page-content__footer-container">

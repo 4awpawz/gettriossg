@@ -22,10 +22,10 @@
     <title>Trio Documentation</title>
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="/gettriossg/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
-    <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.1f862672074f047f310a807355f84f27.css">
-    <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
+    <link rel="stylesheet" href="/gettriossg/css/libs/github/github-markdown.css">
+    <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.css">
+    <script src="/gettriossg/scripts/highlight.pack.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script>
@@ -79,8 +79,8 @@
         <article class="benefit-1">
             <section class="container">
                 <h2>Build your static site using just the fundamental building blocks of the web!</h2>
-                <p>You use <em>HTML</em>, <em>CSS</em> and <em>JavaScript</em> to prototype and implement your design, which makes Trio the perfect tool for those who love to design in the browser.<br><br>Using common metaphors for page assets, such as <em>Templates</em>,
-                    <em>Fragments</em> and <em>Includes</em>, makes Trio easy to learn.</p>
+                <p>You use <em>HTML</em>, <em>CSS</em> and <em>JavaScript</em> to prototype and implement your design, which makes Trio the perfect tool for those who love to design in the browser.<br><br>Trio&apos;s use of common metaphors for its project
+                    assets, its approach to page composition, its organized collections of metadata and its tag-based JavaScript callback mechanism serve to create a powerful but easy to learn and use platform upon which to create your static sites.</p>
             </section>
         </article>
 
@@ -96,7 +96,7 @@
                 <aside class="benefit-2__sample">
                     <h3 class="benefit-2__sample-title">In file source/fragments/products.html:</h3>
                     <pre class="benefit-2__sample-example"><code class="benefit-2__sample-example-code">&lt;!--
-template: index.html
+template: products.html
 title: Products By Category
 appendToTarget: true
 data: productsByCategory.json
@@ -157,7 +157,7 @@ data: productsByCategory.json
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
     &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
     &lt;title&gt;Document&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.1f862672074f047f310a807355f84f27.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.css&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;main&gt;
@@ -167,7 +167,7 @@ data: productsByCategory.json
 &lt;/html&gt;
         </code></pre>
                     <h3 class="benefit-2__sample-title">With some styling added to the composite created by the contributions of the above fragment, data, callback and template, Trio generates the webpage public/products/index.html which, when rendered in the browser, will look like this:</h3>
-                    <img src="/gettriossg/media/homepage_demoProductsByCategory.c68aa6709359c013f0746c9dd4548eab.png" alt="demo products by category image">
+                    <img src="/gettriossg/media/homepage_demoProductsByCategory.png" alt="demo products by category image">
                 </aside>
             </section>
         </article>
@@ -176,17 +176,17 @@ data: productsByCategory.json
             <h2 class="benefit-3__title">Features</h2>
             <section class="container benefit-card-deck">
                 <article class="benefit-card-deck__card">
-                    <img class="benefit-deck__card-icon" src="/gettriossg/media/homepage_magnifyingglass.87531ca9f7299749d63315d0c4941982.png" alt="magnifying glass image">
+                    <img class="benefit-deck__card-icon" src="/gettriossg/media/homepage_magnifyingglass.png" alt="magnifying glass image">
                     <h3 class="benefit-card-deck__card-title">Integrity<br>Checking!</h3>
                     <p class="benefit-card-deck__card-copy">Checks your project&apos;s chains of dependencies and notifies you when assets can&apos;t be resolved.</p>
                 </article>
                 <article class="benefit-card-deck__card">
-                    <img class="benefit-deck__card-icon" src="/gettriossg/media/homepage_timer.63119889c69e80dc6e2b68f0956e2cfd.png" alt="timer image">
+                    <img class="benefit-deck__card-icon" src="/gettriossg/media/homepage_timer.png" alt="timer image">
                     <h3 class="benefit-card-deck__card-title">Incremental<br>Builds!</h3>
                     <p class="benefit-card-deck__card-copy">Reduces project build times by limiting processing to only stale assets.</p>
                 </article>
                 <article class="benefit-card-deck__card">
-                    <img class="benefit-deck__card-icon" src="/gettriossg/media/homepage_tools.d14afae257601c772d69eeec3fe4e968.png" alt="tool image">
+                    <img class="benefit-deck__card-icon" src="/gettriossg/media/homepage_tools.png" alt="tool image">
                     <h3 class="benefit-card-deck__card-title">Built-in<br>Toolchain!</h3>
                     <p class="benefit-card-deck__card-copy">Beautifies Your Markup.<br>Sass Compilation, Vendor Prefixes, Minification, CSS Maps.<br>Project Cache Busting.</p>
                 </article>
@@ -195,12 +195,13 @@ data: productsByCategory.json
     </main>
     <footer class="footer">
         <div class="container">
-            <p>Created by <a target="_blank" href="https://twitter.com/jefftschwartz"> <strong>@jefftschwartz</strong></a><br>with <span class="footer__heart">&#x2665;</span> for the Web and passion for simplifying complex things.</p>
+            <p>Created by <a target="_blank" href="https://twitter.com/jefftschwartz"> <strong>@jefftschwartz</strong></a></p>
+            <p>with <span class="footer__heart">&#x2665;</span> for the Web and passion for simplifying complex things.</p>
             <p>&#xA9;2018 Jeffrey Schwartz All Rights Reserved.</p>
             <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
             <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-            <p>Page Updated: <span>2019-6-1 16:55:52.</span> </p>
+            <p>Page Updated: <span>2019-6-2 16:25:46.</span> </p>
         </div>
     </footer>
 
