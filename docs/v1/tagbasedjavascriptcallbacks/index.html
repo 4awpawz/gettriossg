@@ -22,9 +22,9 @@
     <title>Tag-Based JavaScript Callbacks</title>
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.css">
-    <script src="/gettriossg/scripts/highlight.pack.js"></script>
+    <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.159f4bdffe61531cc90da3c458c6c858.css">
+    <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script>
@@ -148,14 +148,14 @@
                 <p>Tag-based JavaScript callbacks are Node modules that are located in your project&apos;s <em>root/source/callbacks</em> folder, which Trio calls asynchronously using <em>async/await</em> when it encounters an HTML tag decorated with the
                     <em>data-trio-callback</em> attribute.</p>
 
-                <p>Each callback module must export a function which, when called by Trio, is passed a single object from which it can destructure any or all of the following properties:</p>
+                <p>Each callback module must export a single function which, when called by Trio, is passed a single object from which it can destructure any or all of the following properties:</p>
 
                 <ul>
-                    <li><strong>$tag</strong>: a Cheerio-wrapped object around the tag that declared the callback</li>
-                    <li><strong>$</strong>: a Cheerio-wrapped object around the composite that contains the tag</li>
-                    <li><strong>asset</strong>: the metadata for the fragment associated with the composite</li>
-                    <li><strong>site</strong>: all the metadata that Trio has accumulated for the composite</li>
-                    <li><strong>Cheerio</strong>: an instance of Cheerio that can be used to create new Cheerio wrappers around objects should the need arise</li>
+                    <li><strong>$</strong>: A Cheerio-wrapped object around the composite that contains the tag. See <a href="/gettriossg/docs/v1/metadata#property$">Property $</a> in Metadata for more information.</li>
+                    <li><strong>$tag</strong>: A Cheerio-wrapped object around the tag that declared the callback. See <a href="/gettriossg/docs/v1/metadata#property$tag">Property $tag</a> in Metadata for more information.</li>
+                    <li><strong>asset</strong>: The metadata related to the fragment associated with the composite. See <a href="/gettriossg/docs/v1/metadata#propertyasset">Property asset</a> in Metadata for more information.</li>
+                    <li><strong>site</strong>: All the metadata related to the site. See <a href="/gettriossg/docs/v1/metadata#propertysite">Property site</a> in Metadata for more information.</li>
+                    <li><strong>Cheerio</strong>: An instance of Cheerio that can be used to create new Cheerio wrappers around objects should the need arise. See <a href="/gettriossg/docs/v1/keyconcepts#htmltagbasedjavascriptcallbacks">HTML Tag-Based JavaScript Callbacks</a>                        in Key Concepts for more information.</li>
                 </ul>
 
                 <h2>Declaring Tag-Based JavaScript Callbacks</h2>
@@ -163,8 +163,7 @@
                 <p>Declaring a tag-based JavaScript callback is as simple as picking any tag in a template, fragment or include asset and decorating it with the <em>data-trio-callback</em> attribute and assigning it the name of a callback in the <em>root/source/callbacks</em>                    folder:</p>
 
                 <figure>
-                    <pre><code class="html">&lt;ul data-trio-callback=&quot;blogtaglist&quot;&gt;&lt;/ul&gt;
-</code></pre>
+                    <pre><code class="html">&lt;ul data-trio-callback=&quot;blogtaglist&quot;&gt;&lt;/ul&gt;</code></pre>
                     <figcaption>Declaring A Tag-Based JavaScript Callback Example</figcaption>
                 </figure>
 
@@ -174,7 +173,7 @@
 
                 <figure>
                     <pre><code class="js">module.exports = ({ $tag, site }) =&gt; {
-    site.sortedTagCatalog.forEach(item =&gt; {
+    site.tagsCatalog.forEach(item =&gt; {
         $tag.append(`
             &lt;li class=&quot;tag__list-item&quot;&gt;
                 &lt;a data-trio-link class=&quot;tag__list-item-link&quot;
@@ -182,8 +181,7 @@
             &lt;/li&gt;
         `);
     });
-};
-</code></pre>
+};</code></pre>
                     <figcaption>Synchronous JavaScript Callback Example</figcaption>
                 </figure>
 
@@ -200,10 +198,53 @@
             &lt;/li&gt;
         `)
     });
-};
-</code></pre>
+};</code></pre>
                     <figcaption>Asynchronous JavaScript Callback Example</figcaption>
                 </figure>
+
+                <h2>Property Usage</h2>
+
+                <ul>
+                    <li>
+                        <p>Use the <em>$tag</em> property when targeting the tag&apos;s content.</p>
+
+                        <figure>
+                            <pre><code class="js">module.exports = ({ $tag, site }) =&gt; {
+    site.tagsCatalog.forEach(item =&gt; {
+        $tag.append(`
+            &lt;li class=&quot;tag__list-item&quot;&gt;
+                &lt;a data-trio-link class=&quot;tag__list-item-link&quot;
+                href=&quot;/blog/tag/${item.tag.toLowerCase()}&quot;&gt;${item.tag}&lt;/a&gt;
+            &lt;/li&gt;
+        `);
+    });
+};</code></pre>
+                            <figcaption>Targeting A Tag&apos;s Content Using $tag Example </figcaption>
+                        </figure>
+
+                    </li>
+
+                    <li>
+                        <p>Use the <em>$</em> property when targeting the composite&apos;s content outsdie of the tag.</p>
+
+                        <figure>
+                            <pre><code class="js">module.exports = ({ site }) =&gt; {
+    site.tagsCatalog.forEach(item =&gt; {
+        $.find(&quot;ul.tag__list&quot;).append(`
+            &lt;li class=&quot;tag__list-item&quot;&gt;
+                &lt;a data-trio-link class=&quot;tag__list-item-link&quot;
+                href=&quot;/blog/tag/${item.tag.toLowerCase()}&quot;&gt;${item.tag}&lt;/a&gt;
+            &lt;/li&gt;
+        `);
+    });
+};</code></pre>
+                            <figcaption>Targeting A Tag&apos;s Content Using $tag Example </figcaption>
+                        </figure>
+
+                    </li>
+                    <li>Use <em>asset</em> when retrieving data from fragment front matter.</li>
+                    <li>Use <em>site</em> when retrieving data from root/source/data/*.json files or in trio.json.</li>
+                </ul>
             </section>
             <footer class="doc-page-content__footer">
                 <section class="doc-page-content__footer-container">
@@ -213,7 +254,7 @@
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-2 16:25:46.</span> </p>
+                    <p>Page Updated: <span>2019-6-5 06:41:26.</span> </p>
                 </section>
             </footer>
         </article>
