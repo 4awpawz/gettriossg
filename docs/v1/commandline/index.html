@@ -145,21 +145,27 @@
             <section class="doc-page-content__copy">
                 <h1>Command Line</h1>
 
-                <p>The following commands are available to you in your terminal application:</p>
+                <p>Help is available to you in your terminal application:</p>
 
                 <ul>
                     <li><strong>trio -h</strong>: display general help information</li>
-                    <li><strong>trio -h build | release | serve</strong>: display command specific help information</li>
-                    <li><strong>trio new path/to/project</strong>: creates an empty project in path/to/project</li>
-                    <li><strong>trio build | b</strong>: builds your site</li>
-                    <li><strong>trio build | b -i</strong>: incrementally builds your site</li>
-                    <li><strong>trio build | b -w</strong>: builds your site any time a change is made to a file in the root/source folder</li>
-                    <li><strong>trio build | b -iw</strong>: incrementally builds your site any time a change is made to a file in the root/source folder</li>
-                    <li><strong>trio build | b -ws</strong>: builds your site any time a change is made to a file in the root/source folder and serves it in the default browser</li>
-                    <li><strong>trio build | b -iws</strong>: incrementally builds your site any time a change is made to a file in the root/source folder and serves it in the default browser</li>
-                    <li><strong>trio release | r</strong>: build the site for release</li>
-                    <li><strong>trio release | r -b</strong>: build the site for release with cache busting applied</li>
-                    <li><strong>trio serve | s</strong>: serves your site in the default browser</li>
+                    <li><strong>trio -h &lt;command&gt;</strong>: display command specific help information</li>
+                </ul>
+
+                <p>The following commands are available to you in your terminal application:</p>
+
+                <ul>
+                    <li><strong>trio new &lt;path/to/project&gt;</strong>: creates an empty project in path/to/project</li>
+                    <li><strong>trio build | b</strong>: builds your site targeting the public folder</li>
+                    <li><strong>trio build | b -i</strong>: incrementally builds your site targeting the public folder</li>
+                    <li><strong>trio build | b -w</strong>: builds your site targeting the public folder any time a change is made to a file in the root/source folder</li>
+                    <li><strong>trio build | b -iw</strong>: incrementally builds your site targeting the public folder any time a change is made to a file in the root/source folder</li>
+                    <li><strong>trio build | b -ws</strong>: builds your site targeting the public folder any time a change is made to a file in the root/source folder and serves it in the default browser</li>
+                    <li><strong>trio build | b -iws</strong>: incrementally builds your site targeting the public folder any time a change is made to a file in the root/source folder and serves it in the default browser</li>
+                    <li><strong>trio release | r</strong>: build the site targeting the release folder for release</li>
+                    <li><strong>trio release | r -b</strong>: build the site targeting the release folder for release with cache busting applied</li>
+                    <li><strong>trio serve | s</strong>: serves your site from the public folder in the default browser</li>
+                    <li><strong>trio serve | s -r</strong>: serves your site from the release folder in the default browser</li>
                 </ul>
 
                 <h2>Build Vs. Release</h2>
@@ -177,7 +183,7 @@
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-7 18:35:45.</span> </p>
+                    <p>Page Updated: <span>2019-6-7 19:27:20.</span> </p>
                 </section>
             </footer>
         </article>

@@ -151,11 +151,11 @@
                 <p>Each callback module must export a single function which, when called by Trio, is passed a single object from which it can destructure any or all of the following properties:</p>
 
                 <ul>
-                    <li><strong>$</strong>: A cheerio object wrapping the composite that contains the tag. Useful for when you want to target</li>
-                    <li><strong>$tag</strong>: A cheerio object wrapping the tag that declared the callback.</li>
-                    <li><strong>asset</strong>: The fragment&apos;s metadata. See <a href="/gettriossg/docs/v1/metadata#fragment">fragment</a> in Metadata for more information.</li>
-                    <li><strong>site</strong>: The entire collection of metadata for the site. See <a href="/gettriossg/docs/v1/metadata">Metadata</a> for more information.</li>
-                    <li><strong>cheerio</strong>: An instance of cheerio that can be used to create new cheerio wrappers, should the need arise. See <a target="_blank" href="https://www.npmjs.com/package/cheerio">cheerio</a> for more information.</li>
+                    <li><strong>$</strong>: A cheerio object that wraps the composite.</li>
+                    <li><strong>$tag</strong>: A cheerio object that wraps the tag.</li>
+                    <li><strong>asset</strong>: The fragment&apos;s metadata.</li>
+                    <li><strong>site</strong>: The entire collection of metadata for the site.</li>
+                    <li><strong>cheerio</strong>: An instance of cheerio that can be used to create new cheerio wrappers.</li>
                 </ul>
 
                 <h2>Declaring Tag-Based JavaScript Callbacks</h2>
@@ -257,8 +257,10 @@
                 <h2>See Also</h2>
 
                 <ul>
+                    <li><a href="/gettriossg/docs/v1/fragment">Fragment</a></li>
                     <li><a href="/gettriossg/docs/v1/yamlfrontmatter">YAML Front Matter</a></li>
                     <li><a href="/gettriossg/docs/v1/metadata">Metadata</a></li>
+                    <li><a target="_blank" href="https://www.npmjs.com/package/cheerio">cheerio</a></li>
                 </ul>
             </section>
             <footer class="doc-page-content__footer">
@@ -269,7 +271,7 @@
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-7 18:35:45.</span> </p>
+                    <p>Page Updated: <span>2019-6-7 19:27:20.</span> </p>
                 </section>
             </footer>
         </article>
