@@ -23,7 +23,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.159f4bdffe61531cc90da3c458c6c858.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.c45ff4d55b81b6c4435e7efb11c13dfb.css">
     <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -151,11 +151,11 @@
                 <p>Each callback module must export a single function which, when called by Trio, is passed a single object from which it can destructure any or all of the following properties:</p>
 
                 <ul>
-                    <li><strong>$</strong>: A Cheerio-wrapped object around the composite that contains the tag. See <a href="/gettriossg/docs/v1/metadata#property$">Property $</a> in Metadata for more information.</li>
-                    <li><strong>$tag</strong>: A Cheerio-wrapped object around the tag that declared the callback. See <a href="/gettriossg/docs/v1/metadata#property$tag">Property $tag</a> in Metadata for more information.</li>
-                    <li><strong>asset</strong>: The metadata related to the fragment associated with the composite. See <a href="/gettriossg/docs/v1/metadata#propertyasset">Property asset</a> in Metadata for more information.</li>
-                    <li><strong>site</strong>: All the metadata related to the site. See <a href="/gettriossg/docs/v1/metadata#propertysite">Property site</a> in Metadata for more information.</li>
-                    <li><strong>Cheerio</strong>: An instance of Cheerio that can be used to create new Cheerio wrappers around objects should the need arise. See <a href="/gettriossg/docs/v1/keyconcepts#htmltagbasedjavascriptcallbacks">HTML Tag-Based JavaScript Callbacks</a>                        in Key Concepts for more information.</li>
+                    <li><strong>$</strong>: A cheerio object wrapping the composite that contains the tag. Useful for when you want to target</li>
+                    <li><strong>$tag</strong>: A cheerio object wrapping the tag that declared the callback.</li>
+                    <li><strong>asset</strong>: The fragment&apos;s metadata. See <a href="/gettriossg/docs/v1/metadata#fragment">fragment</a> in Metadata for more information.</li>
+                    <li><strong>site</strong>: The entire collection of metadata for the site. See <a href="/gettriossg/docs/v1/metadata">Metadata</a> for more information.</li>
+                    <li><strong>cheerio</strong>: An instance of cheerio that can be used to create new cheerio wrappers, should the need arise. See <a target="_blank" href="https://www.npmjs.com/package/cheerio">cheerio</a> for more information.</li>
                 </ul>
 
                 <h2>Declaring Tag-Based JavaScript Callbacks</h2>
@@ -204,12 +204,13 @@
 
                 <h2>Property Usage</h2>
 
-                <ul>
-                    <li>
-                        <p>Use the <em>$tag</em> property when targeting the tag&apos;s content.</p>
+                <h3><em>$tag</em></h3>
+                <p> Use when targeting the tag and its content.</p>
+                <h3><em>site</em></h3>
+                <p>Use when retrieving metadata other than that from the fragment.</p>
 
-                        <figure>
-                            <pre><code class="js">module.exports = ({ $tag, site }) =&gt; {
+                <figure>
+                    <pre><code class="js">module.exports = ({ $tag, site }) =&gt; {
     site.tagsCatalog.forEach(item =&gt; {
         $tag.append(`
             &lt;li class=&quot;tag__list-item&quot;&gt;
@@ -219,16 +220,14 @@
         `);
     });
 };</code></pre>
-                            <figcaption>Targeting A Tag&apos;s Content Using $tag Example </figcaption>
-                        </figure>
+                    <figcaption>Targeting A Tag&apos;s Content Using $tag Example </figcaption>
+                </figure>
 
-                    </li>
+                <h3><em>$</em></h3>
+                <p>Use when targeting content in the composite but outside of the tag and its content.</p>
 
-                    <li>
-                        <p>Use the <em>$</em> property when targeting the composite&apos;s content outsdie of the tag.</p>
-
-                        <figure>
-                            <pre><code class="js">module.exports = ({ site }) =&gt; {
+                <figure>
+                    <pre><code class="js">module.exports = ({ $, site }) =&gt; {
     site.tagsCatalog.forEach(item =&gt; {
         $.find(&quot;ul.tag__list&quot;).append(`
             &lt;li class=&quot;tag__list-item&quot;&gt;
@@ -238,12 +237,28 @@
         `);
     });
 };</code></pre>
-                            <figcaption>Targeting A Tag&apos;s Content Using $tag Example </figcaption>
-                        </figure>
+                    <figcaption>Targeting A Tag&apos;s Content Using $tag Example </figcaption>
+                </figure>
 
-                    </li>
-                    <li>Use <em>asset</em> when retrieving data from fragment front matter.</li>
-                    <li>Use <em>site</em> when retrieving data from root/source/data/*.json files or in trio.json.</li>
+                <h3><em>asset</em></h3>
+                <p>Use when retrieving metadata from the fragment asset.</p>
+
+                <figure>
+                    <pre><code class="js">module.exports = ({ $tag, asset }) =&gt; {
+    const data = asset.matter.data;
+    $tag.find(&quot;h1.article__title&quot;).append(data.title);
+    $tag.find(&quot;span.article__category&quot;).append(`&quot;${data.category}&quot;`);
+    $tag.find(&quot;span.article__date&quot;).append(asset.articleDate);
+    $tag.find(&quot;img.article__img&quot;).attr(&quot;src&quot;, `/media/${asset.matter.data.image}`);
+};</code></pre>
+                    <figcaption>Targeting A Tag&apos;s Content Using $tag Example </figcaption>
+                </figure>
+
+                <h2>See Also</h2>
+
+                <ul>
+                    <li><a href="/gettriossg/docs/v1/yamlfrontmatter">YAML Front Matter</a></li>
+                    <li><a href="/gettriossg/docs/v1/metadata">Metadata</a></li>
                 </ul>
             </section>
             <footer class="doc-page-content__footer">
@@ -254,7 +269,7 @@
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-5 06:41:26.</span> </p>
+                    <p>Page Updated: <span>2019-6-7 12:49:17.</span> </p>
                 </section>
             </footer>
         </article>

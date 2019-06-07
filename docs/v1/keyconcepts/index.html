@@ -23,7 +23,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.159f4bdffe61531cc90da3c458c6c858.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.c45ff4d55b81b6c4435e7efb11c13dfb.css">
     <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -156,7 +156,7 @@
                     <li><strong>fragments</strong>: either .html or .md files which contain either markup or markdown content and which must always include YAML front matter at the very top of the file.</li>
                     <li><strong>includes</strong>: either .html or .md files which contain either markup or markdown content and which may or may not include YAML front matter at the very top of the file.</li>
                     <li><strong>JSON data</strong>: JSON data that you provide to your project in .json data files.</li>
-                    <li><strong>metadata</strong>: all the data that Trio collects from your project&apos;s template, fragment, include and JSON data assets and which Trio makes available to your project&apos;s tag-based JavaScript callbacks to use.</li>
+                    <li><strong>metadata</strong>: data collected from your project&apos;s templates, fragments, includes and JSON data assets, which Trio uses internally to build your project and also makes available to your tag-based JavaScript callbacks.</li>
                     <li><strong>tag-based JavaScript callbacks</strong>: JavaScript Node modules that export a single function which Trio calls when composing your web pages.</li>
                 </ul>
 
@@ -200,46 +200,47 @@
                         matter property to be found in the fragment asset whose value is the name of the file) as the attributes value.</li>
                 </ul>
 
-                <h4 id="htmltagbasedjavascriptcallbacks">HTML Tag-Based JavaScript Callbacks</h4>
+                <h4 id="htmltagbasedjavascriptcallbacks">Tag-Based JavaScript Callbacks</h4>
 
-                <p>Unlike other static website generators, Trio doesn&apos;t use a templating engine such as Handlebars or Liquid Templates, for example. Instead, Trio exposes its underpinnings, which is JavaScript, to you through tag-based JavaScript callbacks,
-                    allowing you to use JavaScript to dynamically compose your web pages with it, which is kind of awesome if you think about it.</p>
+                <p>Unlike other static site generators, Trio doesn&apos;t provide a templating engine such as Handlebars or Liquid Templates, for example, to you for extending your composites. Instead, Trio exposes its underpinnings, which is JavaScript,
+                    to you through its tag-based JavaScript callback mechanism. This allows you to use JavaScript to extend your composites, which is kind of awesome if you think about it.</p>
 
-                <p>And because Trio is built on top of Node, you have all the latest ES6+ goodies that it implements at your disposal without having to transpile. In addition, and this is a biggie, your markup stays clean and readable because it isn&apos;t
-                    littered with scattered bits of templating statements.</p>
+                <p>And because Trio is built on top of Node v8 LTS, you have all the latest ES6+ goodies at your disposal without having to transpile. In addition, and this is a biggie, your markup stays clean and readable because it isn&apos;t littered
+                    with scattered bits of templating statements.</p>
 
                 <ul>
-                    <li>Internally Trio treats all you markup and markdown as simple text and parses it using jQuery-like selector semantics using an awesome OS library called <a class="doc-page__decorated-link" target="_blank" href="https://www.npmjs.com/package/cheerio"><em>Cheerio</em></a>,
-                        which you should acquaint yourself with but if you have ever used jQuery then you should already know how to use Cheerio&apos;s selector semantics.</li>
-                    <li>Tag-based JavaScript callbacks can be assigned to HTML tags in your templates, fragments and includes simply by adding <em>data-trio-callback attributes</em> to them and assigning them the names of the JavaScript modules that you want
-                        to be called as their values.</li>
+                    <li>Internally Trio treats all you markup and markdown as simple text and parses it using jQuery-like selector semantics with an awesome OS library called <a class="doc-page__decorated-link" target="_blank" href="https://www.npmjs.com/package/cheerio"><em>cheerio</em></a>,
+                        which you should acquaint yourself with but if you have ever used jQuery then you should already know how to use cheerio&apos;s selector semantics.</li>
+                    <li>Tag-based JavaScript callbacks can be assigned to the HTML tags in your template, fragment and include assets simply by decorating them with the <em>data-trio-callback</em> attribute and assigning them the name of the JavaScript module
+                        to call as their values.</li>
                     <li>After creating your web page&apos;s composite (the result of its template, fragment and any include assets), Trio scans the composite for any tag-based callbacks and calls each one <em>asynchronously</em>, passing each one an object
-                        whose properties can be destructured and used with Cheerio to manipulate the composite <em>as if you were actually using jQuery to manipulate the DOM</em>.</li>
+                        whose properties can be destructured and used with cheerio to manipulate the composite <em>as if you were actually using jQuery to manipulate the DOM</em>.</li>
                 </ul>
 
                 <h2>HTML Tag Attributes</h2>
 
-                <p>As you may have noticed while reading this page, numerous HTML tag attributes were discussed, such as the data-trio-fragment and data-trio-include. These and other data-trio-* attributes are markers and their presence indicates to Trio
-                    that it is to take certain actions when it encounters one of them, such as appending or replacing the tag with the content from a fragment or an include.</p>
+                <p>As you may have noticed while reading this page, numerous HTML tag attributes were discussed, such as the <em>data-trio-fragment</em> and <em>data-trio-include</em>. These and other data-trio-* attributes are markers and their presence
+                    indicates to Trio that it should take certain actions when it encounters one of them, such as appending to or replacing the tag with the content from a fragment or an include.</p>
 
-                <h2>YAML</h2>
+                <h2>YAML Front Matter</h2>
 
-                <p>YAML, which stands for &quot;Yet Another Markup Language&quot;, is used to assign properties to various assets in your project.</p>
+                <p>YAML is a human readable data serialization language (don&apos;t let that intimidate you -- it is actually very simple to use) that is used to add configuration data properties to your project&apos;s fragment and include assets. Because
+                    it&apos;s required to be added to the very top of a file, it can also just be called &quot;front matter&quot;, which is a convention that you will often see used here in the documentation.</p>
 
                 <p>Trio predefines numerous front matter properties that it expects to find in your assets, which it uses internally when composing your web pages.</p>
 
-                <p>For example, Trio retrieves the name of the fragment&apos;s associated template from the fragment&apos;s predefined front matter <em>template property</em>.</p>
+                <p>For example, Trio expects to retrieve the name of the template that the fragment is associated with from the fragment&apos;s front matter predefined <em>template</em> property.</p>
 
                 <p><mark>In addition to Trio&apos;s predefined front matter properties, <em>your can also define custom front matter properties in fragment assets</em>.</mark></p>
 
-                <p><mark>All the front matter properties from all the composite&apos;s assets are accessible to all the composite&apos;s tag-based JavaScript callbacks.</mark></p>
+                <p><mark>All the front matter properties from all the composite&apos;s assets are accessible to all the tag-based JavaScript callbacks.</mark></p>
 
                 <p>Trio uses the awesome OS library called <a class="doc-page__decorated-link" target="_blank" href="https://www.npmjs.com/package/gray-matter"><em>gray-matter</em></a> to implement its YAML front matter support.</p>
 
                 <h2>JSON Data</h2>
 
-                <p>You can create any number of JSON data-files and use the data they contain in your tag-based JavaScript callbacks to compose your pages.</p>
-                <p><mark>You can hand-code these data files or you can create NPM tasks that you run to either retrieve the data from a local or remote database or from a remote service.</mark></p>
+                <p>You can create any number of JSON data-files and use their data in your tag-based JavaScript callbacks to extend your pages.</p>
+                <p><mark>You can hand-code these data files or you can create NPM tasks that you run to retrieve the data from a database or from a remote service.</mark></p>
 
                 <h2>Metadata</h2>
 
@@ -260,8 +261,6 @@
                     callbacks.</p>
 
                 <p><mark>Trio&apos;s use of common metaphors for its project assets, its approach to page composition, its organized collections of metadata and its tag-based JavaScript callback mechanism serve to create a powerful but easy to learn and use platform upon which to create your static sites.</mark></p>
-
-                <h2>Links To Related Information</h2>
             </section>
             <footer class="doc-page-content__footer">
                 <section class="doc-page-content__footer-container">
@@ -271,7 +270,7 @@
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-5 06:41:26.</span> </p>
+                    <p>Page Updated: <span>2019-6-7 12:49:17.</span> </p>
                 </section>
             </footer>
         </article>

@@ -23,7 +23,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.159f4bdffe61531cc90da3c458c6c858.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.c45ff4d55b81b6c4435e7efb11c13dfb.css">
     <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -145,7 +145,11 @@
             <section class="doc-page-content__copy">
                 <h1>Include</h1>
 
-                <p>An include is an asset that provides a block of common markup or markdown, such as for headers and footers, for example, that can be used across numerous web pages.</p>
+                <p>An include is an optional asset that contributes its content to <a href="/gettriossg/docs/v1/fragment"><em>fragment</em></a> and <a href="/gettriossg/docs/v1/template"><em>template</em></a> assets. Template and fragment assets declare
+                    where they want an include&apos;s content to be merged by decorating a tag with the <em>data-trio-include=&quot;name of include&quot;</em> <a href="/gettriossg/docs/v1/htmltagattributes"><em>attribute</em></a>. Template and fragment
+                    assets can declare multiple includes.</p>
+
+                <p><mark>When composing a web page, Trio merges the fragment&apos;s content with the tag in the template that is decorated with the <a href="/gettriossg/docs/v1/htmltagattributes"><em>data-trio-fragment</em></a> attribute. The merging of content from a single template with a single fragment, followed by the merging of any content from any <a href="/gettriossg/docs/v1/include"><em>include</em></a> assets that either asset may declare, forms the basis of a composite, which Trio saves as a web page.</mark></p>
 
                 <figure>
                     <pre><code class="html">&lt;!--
@@ -158,14 +162,22 @@ appendToTarget: true
 
                 <ul>
                     <li><strong>file location</strong>: root/source/includes</li>
-                    <li><strong>file type and content</strong>: .html and markup or .md and markdown</li>
+                    <li><strong>file type/content</strong>: .html/HTML or .md/Markdown</li>
                     <li><strong>front matter required</strong>: no</li>
                     <li><strong>required predefined front matter properties</strong>: none</li>
                     <li><strong>optional predefined front matter properties</strong>: appendToTarget</li>
                     <li><strong>applicable data-trio-* attributes</strong>: data-trio-callback, data-trio-data, data-trio-link</li>
                 </ul>
 
-                <h2>Links To Related Information</h2>
+                <h2>See Also</h2>
+
+                <ul>
+                    <li><a href="/gettriossg/docs/v1/template">Template</a></li>
+                    <li><a href="/gettriossg/docs/v1/fragment">Fragment</a></li>
+                    <li><a href="/gettriossg/docs/v1/tagbasedjavascriptcallbacks">Tag-Based JavaScript Callbacks</a></li>
+                    <li><a href="/gettriossg/docs/v1/yamlfrontmatter">YAML Front Matter</a></li>
+                    <li><a href="/gettriossg/docs/v1/htmltagattributes">HTML Tag Attributes</a></li>
+                </ul>
             </section>
             <footer class="doc-page-content__footer">
                 <section class="doc-page-content__footer-container">
@@ -175,7 +187,7 @@ appendToTarget: true
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-5 06:41:26.</span> </p>
+                    <p>Page Updated: <span>2019-6-7 12:49:17.</span> </p>
                 </section>
             </footer>
         </article>

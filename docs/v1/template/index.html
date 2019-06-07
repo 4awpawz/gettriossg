@@ -19,11 +19,11 @@
     <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use YAML front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
     <meta name="author" content="Jeffrey Schwartz">
     <meta name="generator" content="Trio v0.0.6">
-    <title>Fragment</title>
+    <title>Template</title>
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.159f4bdffe61531cc90da3c458c6c858.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.c45ff4d55b81b6c4435e7efb11c13dfb.css">
     <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -145,8 +145,10 @@
             <section class="doc-page-content__copy">
                 <h1>Template</h1>
 
-                <p>A template is a required asset that is associated with one or more fragment assets (i.e. multiple fragments can associate with a single template). The association between a template and a fragment is made by the fragment in its front matter
-                    using the predefined &quot;template&quot; front matter property and assigning it the name of a template. When composing a web page, Trio merges the fragment&apos;s content within the template&apos;s tag that has the <em>data-trio-fragment</em>                    attribute. The combined content of a single template and a single fragment forms the basis of a composite, which Trio saves as a web page in your project&apos;s root/public folder.</p>
+                <p>A template is a required asset that is associated with one or more <a href="/gettriossg/docs/v1/fragment"><em>fragment</em></a> assets. The association between a template and a fragment is made by the fragment, using the predefined &quot;template&quot;
+                    <a href="/gettriossg/docs/v1/yamlfrontmatter"><em>front matter</em></a> property and assigning it the name of the template it is associated with.</p>
+
+                <p><mark>When composing a web page, Trio merges the fragment&apos;s content with the tag in the template that is decorated with the <a href="/gettriossg/docs/v1/htmltagattributes"><em>data-trio-fragment</em></a> attribute. The merging of content from a single template with a single fragment, followed by the merging of any content from any <a href="/gettriossg/docs/v1/include"><em>include</em></a> assets that either asset may declare, forms the basis of a composite, which Trio saves as a web page.</mark></p>
 
                 <figure>
                     <pre><code class="html">&lt;!DOCTYPE html&gt;
@@ -168,12 +170,19 @@
 
                 <ul>
                     <li><strong>file location</strong>: root/source/templates</li>
-                    <li><strong>file type and content</strong>: .html and markup</li>
+                    <li><strong>file type/content</strong>: .html/HTML</li>
                     <li><strong>applicable data-trio-* attributes</strong>: data-trio-fragment, data-trio-include, data-trio-callback, data-trio-data, data-trio-link</li>
                 </ul>
 
-                <h2>Links To Related Information</h2>
-                <a href="/gettriossg/docs/v1/yamlfrontmatter">YAML Front Matter</a>
+                <h2>See Also</h2>
+
+                <ul>
+                    <li><a href="/gettriossg/docs/v1/fragment">Fragment</a></li>
+                    <li><a href="/gettriossg/docs/v1/include">Include</a></li>
+                    <li><a href="/gettriossg/docs/v1/tagbasedjavascriptcallbacks">Tag-Based JavaScript Callbacks</a></li>
+                    <li><a href="/gettriossg/docs/v1/yamlfrontmatter">YAML Front Matter</a></li>
+                    <li><a href="/gettriossg/docs/v1/htmltagattributes">HTML Tag Attributes</a></li>
+                </ul>
             </section>
             <footer class="doc-page-content__footer">
                 <section class="doc-page-content__footer-container">
@@ -183,7 +192,7 @@
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-5 06:41:26.</span> </p>
+                    <p>Page Updated: <span>2019-6-7 12:49:17.</span> </p>
                 </section>
             </footer>
         </article>

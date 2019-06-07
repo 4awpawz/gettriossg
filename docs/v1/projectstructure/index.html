@@ -23,7 +23,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.159f4bdffe61531cc90da3c458c6c858.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.c45ff4d55b81b6c4435e7efb11c13dfb.css">
     <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -151,96 +151,85 @@
 
                 <ul>
                     <li>
-                        <h3>root/</h3>
-                        <p>Project root folder.</p>
+                        <h3>root/.cache/</h3>
+                        <p>Contains metadata that Trio maintains and uses to implement incremental building of your project.</p>
                     </li>
-                    <ul>
-                        <li>
-                            <h4>root/.cache/</h4>
-                            <p>Contains metadata that Trio maintains and uses to implement incremental building of your project.</p>
-                        </li>
-                        <li>
-                            <h4>root/trio.json</h4>
-                            <p>Project configuration file. See <a href="/gettriossg/docs/learn/configuration">Configuration</a> for more information.</p>
-                        </li>
-                        <li>
-                            <h4>root/trio.manifest.json</h4>
-                            <p>File which contains collections of metadata that are generated every time Trio builds the project.</p>
-                        </li>
-                        <li>
-                            <h4>root/public/</h4>
-                            <p>Contains the generated website.</p>
-                        </li>
-                        <li>
-                            <h3>root/source/</h3>
-                            <p>Contains the following folders which are used for the development of your web site.</p>
-                        </li>
-                        <ul>
-                            <li>
-                                <h4>root/source/callbacks/</h4>
-                                <p>Contains tag-based JavaScript callback modules, which are referenced by HTML tags in templates, fragments and includes using the data-trio-callback tag attribute. See <a href="/gettriossg/docs/v1/javascriptcallbacks">JavaScript Callbacks</a>                                    for more information.</p>
-                            </li>
-                            <li>
-                                <h4>root/source/css/</h4>
-                                <p>Contains .css files.</p>
-                            </li>
-                            <li>
-                                <h4>root/source/data/</h4>
-                                <p>Contains <em>JSON</em> data files whose contents are exposed to tag-based JavaScript callbacks.</p>
-                            </li>
-                            <li>
-                                <h4>root/source/etc/</h4>
-                                <p>Contains files, such as <em>favicon.ico, robots.txt, sitemaps, .nojekyll, .etc</em>, for example, that are to be copied &quot;as is&quot; to the root of the public folder.</p>
-                            </li>
-                            <li>
-                                <h3>root/source/fragments/</h3>
-                                <p>Contains .md and .html fragment files and folders.</p>
-                            </li>
-                            <ul>
-                                <li>
-                                    <h3>root/source/fragments/blog/</h3>
-                                    <p>Contains .md and .html blog-specific fragment files and folders.</p>
-                                </li>
-                                <ul>
-                                    <li>
-                                        <h4>root/source/fragments/blog/articles/</h4>
-                                        <p>Contains .md and .html blog-specific article fragment files and folders.</p>
-                                    </li>
-                                    <li>
-                                        <h4>root/source/fragments/blog/category/</h4>
-                                        <p>Contains .md and .html blog-specific category fragment files and folders.</p>
-                                    </li>
-                                    <li>
-                                        <h4>root/source/fragments/blog/tag/</h4>
-                                        <p>Contains .md and .html blog-specific tag fragment files and folders.</p>
-                                    </li>
-                                </ul>
-                            </ul>
-                        </ul>
-                        <li>
-                            <h4>root/source/includes/</h4>
-                            <p>Contains .md and .html include fragments.</p>
-                        </li>
-                        <li>
-                            <h4>root/source/media/</h4>
-                            <p>Contains media specific files (e.g. .jpg, .gif, .pdf, .etc).</p>
-                        </li>
-                        <li>
-                            <h4>root/source/sass/</h4>
-                            <p>Contains .sass, .scsss and .css files.</p>
-                        </li>
-                        <li>
-                            <h4>root/source/scripts/</h4>
-                            <p>Contains run-time JavaScirpt files.</p>
-                        </li>
-                        <li>
-                            <h4>root/source/templates/</h4>
-                            <p>Contains .html template files.</p>
-                        </li>
-                    </ul>
-                </ul>
+                    <li>
+                        <h3>root/trio.json</h3>
+                        <p>Project configuration file. See <a href="/gettriossg/docs/learn/configuration">Configuration</a> for more information.</p>
+                    </li>
+                    <li>
+                        <h3>root/trio.manifest.json</h3>
+                        <p>File which contains collections of metadata that are generated every time Trio builds the project.</p>
+                    </li>
+                    <li>
+                        <h3>root/public/</h3>
+                        <p>Folder targeted by the build command.</p>
+                    </li>
+                    <h3>root/release/</h3>
+                    <p>Folder targeted by the release command.</p>
 
-                <h2>Links To Related Information</h2>
+                    <li>
+                        <h3>root/source/</h3>
+                        <p>Contains the following folders which are used for the development of your web site.</p>
+                    </li>
+                    <li>
+                        <h3>root/source/callbacks/</h3>
+                        <p>Contains tag-based JavaScript callback modules, which are referenced by HTML tags in templates, fragments and includes using the data-trio-callback tag attribute. See <a href="/gettriossg/docs/v1/javascriptcallbacks">JavaScript Callbacks</a>                            for more information.</p>
+                    </li>
+                    <li>
+                        <h3>root/source/css/</h3>
+                        <p>Contains .css files.</p>
+                    </li>
+                    <li>
+                        <h3>root/source/data/</h3>
+                        <p>Contains <em>JSON</em> data files whose contents are exposed to tag-based JavaScript callbacks.</p>
+                    </li>
+                    <li>
+                        <h3>root/source/etc/</h3>
+                        <p>Contains files, such as <em>favicon.ico, robots.txt, sitemaps, .nojekyll, .etc</em>, for example, that are to be copied &quot;as is&quot; to the root of the public folder.</p>
+                    </li>
+                    <li>
+                        <h3>root/source/fragments/</h3>
+                        <p>Contains .md and .html fragment files and folders.</p>
+                    </li>
+                    <li>
+                        <h3>root/source/fragments/blog/</h3>
+                        <p>Contains .md and .html blog-specific fragment files and folders.</p>
+                    </li>
+                    <li>
+                        <h3>root/source/fragments/blog/articles/</h3>
+                        <p>Contains .md and .html blog-specific article fragment files and folders.</p>
+                    </li>
+                    <li>
+                        <h3>root/source/fragments/blog/category/</h3>
+                        <p>Contains .md and .html blog-specific category fragment files and folders.</p>
+                    </li>
+                    <li>
+                        <h3>root/source/fragments/blog/tag/</h3>
+                        <p>Contains .md and .html blog-specific tag fragment files and folders.</p>
+                    </li>
+                    <li>
+                        <h3>root/source/includes/</h3>
+                        <p>Contains .md and .html include fragments.</p>
+                    </li>
+                    <li>
+                        <h3>root/source/media/</h3>
+                        <p>Contains media specific files (e.g. .jpg, .gif, .pdf, .etc).</p>
+                    </li>
+                    <li>
+                        <h3>root/source/sass/</h3>
+                        <p>Contains .sass, .scsss and .css files.</p>
+                    </li>
+                    <li>
+                        <h3>root/source/scripts/</h3>
+                        <p>Contains run-time JavaScirpt files.</p>
+                    </li>
+                    <li>
+                        <h3>root/source/templates/</h3>
+                        <p>Contains .html template files.</p>
+                    </li>
+                </ul>
             </section>
             <footer class="doc-page-content__footer">
                 <section class="doc-page-content__footer-container">
@@ -250,7 +239,7 @@
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-5 06:41:26.</span> </p>
+                    <p>Page Updated: <span>2019-6-7 12:49:17.</span> </p>
                 </section>
             </footer>
         </article>

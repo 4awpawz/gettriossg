@@ -23,7 +23,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.159f4bdffe61531cc90da3c458c6c858.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.c45ff4d55b81b6c4435e7efb11c13dfb.css">
     <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -145,7 +145,9 @@
             <section class="doc-page-content__copy">
                 <h1>YAML Front Matter</h1>
 
-                <p>YAML front matter must be placed at the very top of a fragment and include file and must be delimited by opening and closing HTML comment tags, between which you add both predefined and custom front matter properties.</p>
+                <p>The inclusion of YAML front matter is required for <a href="/gettriossg/docs/v1/fragment"><em>fragment</em></a> assets and is optional for <a href="/gettriossg/docs/v1/include"><em>include</em></a> assets. It must be placed at the very
+                    top of the file and it must be delimited by opening and closing HTML comment tags <code><em>&quot;&lt;!--&quot;, &quot;--&gt;&quot;</em></code>, between which you add both predefined and custom front matter properties. Front matter
+                    can also include an <em>excerpt</em>, which is delimited using <code><em>&lt;!-- end --&gt;</em></code>.</p>
 
                 <p>Below is an example of front matter used in a fragment asset</p>
 
@@ -155,12 +157,14 @@ template: helloworld.html
 title: Hello, World!
 appendToTarget: true
 --&gt;
+This will be in the excerpt.
+&lt;!-- end --&gt;
 
 &lt;h1&gt;Hello, World!&lt;/h1&gt;</code></pre>
-                    <figcaption>Fragment With Front Matter Example</figcaption>
+                    <figcaption>Front Matter Example</figcaption>
                 </figure>
 
-                <p>and below is the front matter from the above example converted to a JavaScript.</p>
+                <p>and below is the JavaScript object that it is converted to.</p>
 
                 <figure>
                     <pre><code class="js">matter: {
@@ -171,79 +175,60 @@ appendToTarget: true
         appendToTarget: true
     },
     isEmpty: false,
-    excerpt: &quot;&quot;
+    excerpt: &quot;This will be in the excerpt.&quot;
 }</code></pre>
-                    <figcaption>Front Matter Converted To JavaScript Example</figcaption>
+                    <figcaption>JavaScript Object Converted From Front Matter Example</figcaption>
                 </figure>
-
-                <p><mark>Front matter properties are accessible in tag-based JavaScript callbacks.</mark></p>
 
                 <h2>Predefined Front Matter Properties</h2>
 
-                <h3>Fragments</h3>
-                <p>The inclusion of front matter in fragments is <em>required</em>.</p>
+                <p>Trio predefines numerous required and optional front matter properties for you to use in your fragment and include asset&apos;s front matter.</p>
+
+                <h3>All Fragments</h3>
 
                 <ul>
-                    <li><strong>template</strong>: <em>required</em>, type <em>string</em></li>
-                    <ul>
-                        <li>is used to name the template that the fragment is associated with</li>
-                        <li>when creating the composite, Trio will merge the fragment&apos;s content with the <em>target tag</em> in the template that contains the <em>data-trio-fragment attribute</em></li>
-                    </ul>
+                    <li><strong>template</strong>: <em>required</em>, type <em>string</em> and is used to name the <a href="/gettriossg/docs/v1/template">template</a> that the fragment is associated with</li>
                     <li><strong>title</strong>: <em>required</em>, type <em>string</em> and is used to set the title tag of the web page</li>
                     <li><strong>appendToTarget</strong>: <em>optional</em>, type <em>boolean</em>, default value <em>false</em></li>
                     <ul>
-                        <li>if set to <em>true</em> Trio appends the fragment&apos;s content to the template&apos;s target tag</li>
-                        <li>if set to <em>false</em> Trio replaces the the template&apos;s target tag with the fragment&apos;s content</li>
+                        <li>if <em>true</em> Trio appends the fragment&apos;s content to the tag in the template that is decorated with the <em>data-trio-fragment</em> attribute</li>
+                        <li>if <em>false</em> Trio replaces the tag in the template that is decorated with the <em>data-trio-fragment</em> attribute with the fragment&apos;s content</li>
                     </ul>
                     <li><strong>custom properties</strong>: <em>supported</em>, type <em>any supported front matter data type</em></li>
                 </ul>
 
-                <h3>Includes</h3>
+                <h3>Blog Specific Fragments</h3>
 
-                <p>The inclusion of front matter in includes is <em>optional</em>.</p>
+                <p>In addition to the above, <a href="/gettriossg/docs/v1/blogging">blog specific fragment assets</a> - <em>tag</em>, <em>category</em> and <em>article</em> - support the following additional front matter properties.</p>
+
+                <h4>Tag Fragments</h4>
+
+                <ul>
+                    <li><strong>forTag</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em> and can be used in tag-based JavaScript callbacks to filter blog articles by their <em>tag property</em>.</li>
+                </ul>
+
+                <h4>Category Fragments</h4>
+
+                <ul>
+                    <li><strong>forCategory</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em> and can be used in tag-based JavaScript callbacks to filter articles by their <em>category property</em>.</li>
+                </ul>
+
+                <h4>Article Fragments</h4>
+
+                <ul>
+                    <li><strong>tag</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em> and can be used in tag-based JavaScript callbacks to find all matching blog articles by their <em>tag property</em>.</li>
+                    <li><strong>category</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em> and can be used in tag-based JavaScript callbacks to find all matching blog articles by their <em>category property</em>.</li>
+                </ul>
+
+                <h3>Includes</h3>
 
                 <ul>
                     <li><strong>appendToTarget</strong>: <em>optional</em>, type <em>boolean</em>, default value <em>false</em></li>
                     <ul>
-                        <li>if set to <em>true</em> Trio appends the include&apos;s content to the template&apos;s or fragment&apos;s target tag</li>
-                        <li>if set to <em>false</em> Trio replaces the the template&apos;s or fragment&apos;s target tag with the include&apos;s content</li>
+                        <li>if <em>true</em> Trio appends the include&apos;s content to the tag in the fragment or template that is decorated with the <em>data-trio-include</em> attribute that names the include</li>
+                        <li>if <em>false</em> Trio replaces the tag in the fragment or template that is decorated with the <em>data-trio-include</em> attribute that names the include with the include&apos;s content</li>
                     </ul>
                     <li><strong>custom properties</strong>: <em>not supported</em></li>
-                </ul>
-
-                <h2>Predefined Blog Specific Front Matter Properties</h2>
-
-                <p>Tag, category and article fragment assets support the following additional blog-specific front matter properties.</p>
-
-                <h3>Tag Fragments</h3>
-
-                <ul>
-                    <li><strong>forTag</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em></li>
-                    <ul>
-                        <li>can be used in tag-based JavaScript callbacks to find all matching blog articles by their <em>tag property</em> value.</li>
-                    </ul>
-                </ul>
-
-                <h3>Category Fragments</h3>
-
-                <ul>
-                    <li><strong>forCategory</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em></li>
-                    <ul>
-                        <li>can be used in tag-based JavaScript callbacks to find all matching blog articles by their <em>category property</em> value.</li>
-                    </ul>
-                </ul>
-
-                <h3>Article Fragments</h3>
-
-                <ul>
-                    <li><strong>tag</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em></li>
-                    <ul>
-                        <li>can be used in tag-based JavaScript callbacks to find all matching blog articles by their <em>tag property</em> value</li>
-                    </ul>
-                    <li><strong>category</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em></li>
-                    <ul>
-                        <li>can be used in tag-based JavaScript callbacks to find all matching blog articles by their <em>category property</em> value</li>
-                    </ul>
                 </ul>
 
                 <h3>Blog Related Data Catalogs For Implementing Sophisticated Blog Sites</h3>
@@ -253,7 +238,14 @@ appendToTarget: true
                 <p>There are many ways you can take advantage of these data catalogs, such as using them to create lists of articles grouped by tags in your tag pages or lists of articles grouped by category in your category pages, for instance. These are
                     common elements in many sophisticated blog sites and Trio makes it easy for you to implement them in your site.</p>
 
-                <h2>Links To Related Information</h2>
+                <h2>See Also</h2>
+
+                <ul>
+                    <li><a href="/gettriossg/docs/v1/fragment">Fragment</a></li>
+                    <li><a href="/gettriossg/docs/v1/include">Include</a></li>
+                    <li><a href="/gettriossg/docs/v1/tagbasedjavascriptcallbacks">Tag-Based JavaScript Callbacks</a></li>
+                    <li><a href="/gettriossg/docs/v1/blogging">Blogging</a></li>
+                </ul>
             </section>
             <footer class="doc-page-content__footer">
                 <section class="doc-page-content__footer-container">
@@ -263,7 +255,7 @@ appendToTarget: true
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-5 06:41:26.</span> </p>
+                    <p>Page Updated: <span>2019-6-7 12:49:17.</span> </p>
                 </section>
             </footer>
         </article>

@@ -23,7 +23,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.159f4bdffe61531cc90da3c458c6c858.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.c45ff4d55b81b6c4435e7efb11c13dfb.css">
     <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -145,221 +145,218 @@
             <section class="doc-page-content__copy">
                 <h1>Metadata</h1>
 
-                <p>Trio organizes the metadata that it exposes to tag-based JavaScript callbacks in a structured format that makes using the data easier to reason about.</p>
+                <p>When building your site, Trio gathers metadata from your project&apos;s assets and massages it into organized collections of data that you can use in your tag-based JavaScript callbacks.</p>
 
-                <p><mark>After each build of your project, Trio persists most of the metadata that it collects to a file named <em>root/trio.manifest.json</em>. You can view the contents of this file to assist you when coding tag-based JavaScript callbacks.</mark></p>
+                <p><mark>After each build of your project, Trio persists most of the metadata that it has collected to a file named <em>root/trio.manifest.json</em>. You can view the contents of this file to assist you when coding tag-based JavaScript callbacks.</mark></p>
 
-                <p>Trio calls each tag-based JavaScript callback with a single argument whose properties are <em>$</em>, <em>$tag</em>, <em>asset</em> and <em>site</em>, which provide access to its metadata.</p>
+                <p>Below is a full inventory of all the metadata that is available to you.</p>
 
-                <h2 id="property$">Property $</h2>
-                <p>The <em>$</em> property is a Cheerio wrapper around the composite that contains the tag-based JavaScript callback tag.</p>
+                <h2 id="fragment">fragment</h2>
+                <p><em>fragment</em> is an object containing all the metadata associated with a fragment.</p>
 
-                <h2 id="property$tag">Property $tag</h2>
-                <p>The <em>$tag</em> property is a Cheerio wrapper around the tag whose <em>data-trio-callback</em> attribute initiated the callback.</p>
-
-                <h2 id="propertyasset">Property asset</h2>
-                <p>The <em>asset</em> property is an object containing all the metadata associated with a fragment.</p>
-
-                <h3>asset.path</h3>
+                <h3>fragment.path</h3>
                 <p>The <em>path</em> property is the path to the fragment file in the source/fragment folder. It is used internally by Trio during page generation.</p>
 
-                <h3>asset.mtimeMs</h3>
+                <h3>fragment.mtimeMs</h3>
                 <p>The <em>mtimeMs</em> property is a timestamp that represent the time, in milliseconds, when the fragment was last modified. It is used internally by Trio to determine a file&apos;s staleness for incremental builds.</p>
 
-                <h3>asset.type</h3>
-                <p>The <em>type</em> property is a string which indicates the type of asset that a file is and is used internally by trio for incremental builds.</p>
+                <h3>fragment.type</h3>
+                <p>The <em>type</em> property is a string which indicates the type of fragment that a file is and is used internally by trio for incremental builds.</p>
 
-                <h3>asset.isStale</h3>
+                <h3>fragment.isStale</h3>
                 <p>The <em>isStale</em> property is a boolean which indicates if the fragment was marked as stale and is used internally by trio for incremental builds.</p>
 
-                <h3>asset.matter</h3>
+                <h3>fragment.matter</h3>
                 <p>The <em>matter</em> property is the fragment&apos;s front matter.</p>
 
-                <h4>asset.matter.content</h4>
+                <h4>fragment.matter.content</h4>
                 <p>The <em>matter.content</em> property is a string which contains the fragment&apos;s HTML content.</p>
 
-                <h4>asset.matter.data</h4>
+                <h4>fragment.matter.data</h4>
                 <p>The <em>matter.data</em> property is an object with properties for each property declared in the front matter.</p>
 
-                <h4>asset.matter.isEmpty</h4>
+                <h4>fragment.matter.isEmpty</h4>
                 <p>The <em>matter.isEmpty</em> property is a boolean which indicates if the front matter&apos;s content property is empty.</p>
 
-                <h4>asset.matter.excerpt</h4>
+                <h4>fragment.matter.excerpt</h4>
                 <p>The <em>matter.excerpt</em> property is a string which contains the HTML, if any, from the front matter&apos;s excerpt.</p>
 
-                <h3>asset.id</h3>
-                <p>The <em>id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from site.frags, site.articlesCatalog, site.categoriesCatalog, site.tagsCatalog, asset.relatedArticlesByCategory,
-                    asset.relatedArticlesByTag and assetRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
+                <h3>fragment.id</h3>
+                <p>The <em>id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory,
+                    fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
 
-                <h3>asset.destPath</h3>
+                <h3>fragment.destPath</h3>
                 <p>The <em>destPath</em> property contains the path to the page in the the public folder.</p>
 
-                <h3>asset.url</h3>
+                <h3>fragment.url</h3>
                 <p>The <em>url</em> property contains the URL of the page.</p>
 
-                <h3>asset.articleDate</h3>
-                <p>Only relevant for blogging sites, the <em>articleDate</em> property is a string which contains the date of the article in &quot;YYYY-MM-DD&quot; format.</p>
+                <h3>fragment.articleDate</h3>
+                <p>Only relevant for blog sites, the <em>articleDate</em> property is a string which contains the date of the article in &quot;YYYY-MM-DD&quot; format.</p>
 
-                <h3>asset.nextArticleUrl</h3>
-                <p>Only relevant for blogging sites, the <em>nextArticleUrl</em> property contains the URL to the next article.</p>
+                <h3>fragment.nextArticleUrl</h3>
+                <p>Only relevant for blog sites, the <em>nextArticleUrl</em> property contains the URL to the next article.</p>
 
-                <h3>asset.previousArticleUrl</h3>
-                <p>Only relevant for blogging sites, the <em>previousArticleUrl</em> property contains the URL to the previous article.</p>
+                <h3>fragment.previousArticleUrl</h3>
+                <p>Only relevant for blog sites, the <em>previousArticleUrl</em> property contains the URL to the previous article.</p>
 
-                <h3>asset.relatedArticlesByCategory</h3>
-                <p>Only relevant for blogging sites that use tags, the <em>relatedArticlesByCategory</em> property is an object that catalogs other articles related to this article by its category.</p>
+                <h3>fragment.relatedArticlesByCategory</h3>
+                <p>Only relevant for blog sites that use categories, the <em>relatedArticlesByCategory</em> property is an object that catalogs other articles related to this article by its category.</p>
 
-                <h4>asset.relatedArticlesByCategory.category</h4>
+                <h4>fragment.relatedArticlesByCategory.category</h4>
                 <p>The <em>relatedArticlesByCategory.category</em> property is the page&apos;s category.</p>
 
-                <h4>asset.relatedArticlesByCategory.related</h4>
+                <h4>fragment.relatedArticlesByCategory.related</h4>
                 <p>The <em>relatedArticlesByCategory.related</em> property is an array of related articles in descending order by article date and article title.</p>
 
-                <h5>asset.relatedArticlesByCategory.related[n].articleDate</h5>
-                <p>The <em>relatedArticlesByCategory.related[n].articleDate</em> property is a string which contains the date of the article in &quot;YYYY-MM-DD&quot; format.</p>
+                <h5>fragment.relatedArticlesByCategory.related[n].articleDate</h5>
+                <p>The <em>related[n].articleDate</em> property is a string which contains the date of the article in &quot;YYYY-MM-DD&quot; format.</p>
 
-                <h5>asset.relatedArticlesByCategory.related[n].url</h5>
-                <p>The <em>relatedArticlesByCategory.related[n].url</em> property is the related article&apos;s URL.</p>
+                <h5>fragment.relatedArticlesByCategory.related[n].url</h5>
+                <p>The <em>related[n].url</em> property is the related article&apos;s URL.</p>
 
-                <h5>asset.relatedArticlesByCategory.related[n].title</h5>
-                <p>The <em>relatedArticlesByCategory.related[n].title</em> property is the related article&apos;s title.</p>
+                <h5>fragment.relatedArticlesByCategory.related[n].title</h5>
+                <p>The <em>related[n].title</em> property is the related article&apos;s title.</p>
 
-                <h5>asset.relatedArticlesByCategory.related[n].id</h5>
-                <p>The <em>id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from site.frags, site.articlesCatalog, site.categoriesCatalog, site.tagsCatalog, asset.relatedArticlesByCategory,
-                    asset.relatedArticlesByTag and assetRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
+                <h5>fragment.relatedArticlesByCategory.related[n].id</h5>
+                <p>The <em>related[n].id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory,
+                    fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
 
-                <h5>asset.relatedArticlesByCategory.related[n].excerpt</h5>
-                <p>The <em>relatedArticlesByCategory.related[n].excerpt</em> property is a string which contains the HTML, if any, from the front matter&apos;s excerpt.</p>
+                <h5>fragment.relatedArticlesByCategory.related[n].excerpt</h5>
+                <p>The <em>related[n].excerpt</em> property is a string which contains the HTML, if any, from the front matter&apos;s excerpt.</p>
 
-                <h3>asset.relatedArticlesByTag</h3>
-                <p>Only relevant for blogging sites that use tags, the <em>relatedArticlesByTag</em> property is an array that catalogs other articles related to this article grouped in ascending order by tag.</p>
+                <h3>fragment.relatedArticlesByTag</h3>
+                <p>Only relevant for blog sites that use tags, the <em>relatedArticlesByTag</em> property is an array that catalogs other articles related to this article grouped in ascending order by tag.</p>
 
-                <h4>asset.relatedArticlesByTag[n].tag</h4>
+                <h4>fragment.relatedArticlesByTag[n].tag</h4>
                 <p>The <em>relatedArticlesByTag[n].tag</em> property is an article tag.</p>
 
-                <h4>asset.relatedArticlesByTag[n].related</h4>
-                <p>The <em>relatedArticlesByTag[n].related</em> property is an array of articles related to this article by asset.relatedArticlesByTag[n].tag.</p>
+                <h4>fragment.relatedArticlesByTag[n].related</h4>
+                <p>The <em>relatedArticlesByTag[n].related</em> property is an array of articles related to this article by fragment.relatedArticlesByTag[n].tag.</p>
 
-                <h5>asset.relatedArticlesByTag[n].related[n].articleDate</h5>
-                <p>The <em>relatedArticlesByTag[n].related[n].articleDate</em> property is a string which contains the date of the article in &quot;YYYY-MM-DD&quot; format.</p>
+                <h5>fragment.relatedArticlesByTag[n].related[n].articleDate</h5>
+                <p>The <em>related[n].articleDate</em> property is a string which contains the date of the article in &quot;YYYY-MM-DD&quot; format.</p>
 
-                <h5>asset.relatedArticlesByTag[n].related[n].url</h5>
-                <p>The <em>relatedArticlesByTag[n].related[n].url</em> property is the related article&apos;s URL.</p>
+                <h5>fragment.relatedArticlesByTag[n].related[n].url</h5>
+                <p>The <em>related[n].url</em> property is the related article&apos;s URL.</p>
 
-                <h5>asset.relatedArticlesByTag[n].related[n].title</h5>
-                <p>The <em>relatedArticlesByTag[n].related[n].title</em> property is the related article&apos;s title.</p>
+                <h5>fragment.relatedArticlesByTag[n].related[n].title</h5>
+                <p>The <em>related[n].title</em> property is the related article&apos;s title.</p>
 
-                <h5>asset.relatedArticlesByTag[n].related[n].id</h5>
-                <p>The <em>id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from site.frags, site.articlesCatalog, site.categoriesCatalog, site.tagsCatalog, asset.relatedArticlesByCategory,
-                    asset.relatedArticlesByTag and assetRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
+                <h5>fragment.relatedArticlesByTag[n].related[n].id</h5>
+                <p>The <em>related[n].id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory,
+                    fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
 
-                <h5>asset.relatedArticlesByTag[n].related[n].excerpt</h5>
-                <p>The <em>relatedArticlesByTag.related[n].excerpt</em> property is a string which contains the HTML, if any, from the front matter&apos;s excerpt.</p>
+                <h5>fragment.relatedArticlesByTag[n].related[n].excerpt</h5>
+                <p>The <em>related[n].excerpt</em> property is a string which contains the HTML, if any, from the front matter&apos;s excerpt.</p>
 
-                <h3>asset.relatedArticlesByTagFlattened</h3>
-                <p>The <em>relatedArticlesByTagFlattened</em> property is an array that catalogs other articles related to this article and is similar to <em>asset.relatedArticlesByTag</em> but flattened for when you aren&apos;t concerned about each related
+                <h3>fragment.relatedArticlesByTagFlattened</h3>
+                <p>The <em>relatedArticlesByTagFlattened</em> property is an array that catalogs other articles related to this article and is similar to <em>fragment.relatedArticlesByTag</em> but flattened for when you aren&apos;t concerned about each related
                     article&apos;s tag.</p>
 
-                <h4>asset.relatedArticlesByTagFlattened[n].related</h4>
+                <h4>fragment.relatedArticlesByTagFlattened[n].related</h4>
                 <p>The <em>relatedArticlesByTagFlattened[n].related</em> property is an array of relate articles.</p>
 
-                <h5>asset.relatedArticlesByTagFlattened[n].related[n].articleDate</h5>
-                <p>The <em>relatedArticlesByTagFlattened[n].related[n].articleDate</em> property is a string which contains the date of the article in &quot;YYYY-MM-DD&quot; format.</p>
+                <h5>fragment.relatedArticlesByTagFlattened[n].related[n].articleDate</h5>
+                <p>The <em>related[n].articleDate</em> property is a string which contains the date of the article in &quot;YYYY-MM-DD&quot; format.</p>
 
-                <h5>asset.relatedArticlesByTagFlattened[n].related[n].url</h5>
-                <p>The <em>relatedArticlesByTagFlattened[n].related[n].url</em> property is the related article&apos;s URL.</p>
+                <h5>fragment.relatedArticlesByTagFlattened[n].related[n].url</h5>
+                <p>The <em>related[n].url</em> property is the related article&apos;s URL.</p>
 
-                <h5>asset.relatedArticlesByTagFlattened[n].related[n].title</h5>
-                <p>The <em>relatedArticlesByTagFlattened[n].related[n].title</em> property is the related article&apos;s title.</p>
+                <h5>fragment.relatedArticlesByTagFlattened[n].related[n].title</h5>
+                <p>The <em>related[n].title</em> property is the related article&apos;s title.</p>
 
-                <h5>asset.relatedArticlesByTagFlattened[n].related[n].id</h5>
-                <p>The <em>id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from site.frags, site.articlesCatalog, site.categoriesCatalog, site.tagsCatalog, asset.relatedArticlesByCategory,
-                    asset.relatedArticlesByTag and assetRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
+                <h5>fragment.relatedArticlesByTagFlattened[n].related[n].id</h5>
+                <p>The <em>related[n].id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory,
+                    fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
 
-                <h5>asset.relatedArticlesByTagFlattened.related[n].excerpt</h5>
-                <p>The <em>relatedArticlesByTagFlattened.related[n].excerpt</em> property is a string which contains the HTML, if any, from the front matter&apos;s excerpt.</p>
+                <h5>fragment.relatedArticlesByTagFlattened.related[n].excerpt</h5>
+                <p>The <em>related[n].excerpt</em> property is a string which contains the HTML, if any, from the front matter&apos;s excerpt.</p>
 
-                <h2 id="propertysite">Property site</h2>
-                <p>The <em>site</em> property provides information about the site.</p>
-
-                <h3><em>site.timestamp</em></h3>
+                <h3><em>timestamp</em></h3>
                 <p>The <em>timestamp</em> property is the date and time of the current build in &quot;YYYY-MM-DD HH:MM:SS&quot; format.</p>
 
-                <h3>site.version</h3>
+                <h3>version</h3>
                 <p>The <em>version</em> property is the version of Trio used to build the project in semantic versioning format.</p>
 
-                <h3>site.buildType</h3>
+                <h3>buildType</h3>
                 <p>The <em>buildType</em> property can be either &quot;development&quot; or &quot;release&quot;, depending on the build options.</p>
 
-                <h3>site.userConfig</h3>
+                <h3>userConfig</h3>
                 <p>The <em>userConfig</em> property contains the contents of the <em>trio.json</em> file.</p>
 
-                <h3>site.frags</h3>
-                <p>The <em>frags</em> property is an array of all non blog-article fragments. See <a class="doc-page__decorated-link" href="./#propertyasset">Property asset</a> above for information pertaining to each array item&apos;s format.</p>
+                <h3>frags</h3>
+                <p>The <em>frags</em> property is an array of all non blog-article fragments. See <a class="doc-page__decorated-link" href="./#fragment">Property fragment</a> above for information pertaining to each array item&apos;s format.</p>
 
-                <h3>site.wipsCount</h3>
+                <h3>wipsCount</h3>
                 <p>The <em>wipsCount</em> property is an integer whose value is the site&apos;s total number of &quot;work in progress&quot; fragments.</p>
 
-                <h3>site.articlesCount</h3>
+                <h3>articlesCount</h3>
                 <p>The <em>articlesCount</em> property is an integer whose value is the site&apos;s total number of blog articles.</p>
 
-                <h3>site.articlesCatalog</h3>
-                <p>Only relevant for blogging sites, the <em>articlesCatalog</em> property is an array that catalogs the site&apos;s blog article&apos;s sorted in ascending order by article date and article title. See <a class="doc-page__decorated-link"
-                        href="./#propertyasset">Property asset</a> above for information pertaining to each array item&apos;s format.</p>
+                <h3>articlesCatalog</h3>
+                <p>Only relevant for blog sites, the <em>articlesCatalog</em> property is an array that catalogs the site&apos;s blog article&apos;s sorted in ascending order by article date and article title. See <a class="doc-page__decorated-link" href="./#fragment">Property fragment</a>                    above for information pertaining to each array item&apos;s format.</p>
 
-                <h3>site.categoriesCatalog</h3>
-                <p>Only relevant for blogging sites that use categories, the <em>categoriesCatalog</em> property is an array that catalogs the site&apos;s blog articles grouped in ascending order by category.</p>
+                <h3>categoriesCatalog</h3>
+                <p>Only relevant for blog sites that use categories, the <em>categoriesCatalog</em> property is an array that catalogs the site&apos;s blog articles grouped in ascending order by category.</p>
 
-                <h4>site.categoriesCatalog[n].category</h4>
+                <h4>categoriesCatalog[n].category</h4>
                 <p>The <em>categoriesCatalog[n].category</em> property is the category.</p>
 
-                <h4>site.categoriesCatalog[n].related</h4>
-                <p>The <em>site.categoriesCatalog[n].related</em> property is an array of related articles in descending order by article date and article title.</p>
+                <h4>categoriesCatalog[n].related</h4>
+                <p>The <em>categoriesCatalog[n].related</em> property is an array of related articles in descending order by article date and article title.</p>
 
-                <h5>site.categoriesCatalog[n].related[n].articleDate</h5>
-                <p>The <em>categoriesCatalog[n].related[n].related[n].articleDate</em> property is a string which contains the date of the article in &quot;YYYY-MM-DD&quot; format.</p>
+                <h5>categoriesCatalog[n].related[n].articleDate</h5>
+                <p>The <em>related[n].articleDate</em> property is a string which contains the date of the article in &quot;YYYY-MM-DD&quot; format.</p>
 
-                <h5>site.categoriesCatalog[n].related[n].url</h5>
-                <p>The <em>categoriesCatalog[n].related[n].url</em> property is the related article&apos;s URL.</p>
+                <h5>categoriesCatalog[n].related[n].url</h5>
+                <p>The <em>related[n].url</em> property is the related article&apos;s URL.</p>
 
-                <h5>site.categoriesCatalog.related[n].title</h5>
-                <p>The <em>categoriesCatalog.related[n].title</em> property is the related article&apos;s title.</p>
+                <h5>categoriesCatalog.related[n].title</h5>
+                <p>The <em>related[n].title</em> property is the related article&apos;s title.</p>
 
-                <h5>site.categoriesCatalog.related[n].id</h5>
-                <p>The <em>id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from site.frags, site.articlesCatalog, site.categoriesCatalog, site.tagsCatalog, asset.relatedArticlesByCategory,
-                    asset.relatedArticlesByTag and assetRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
+                <h5>categoriesCatalog.related[n].id</h5>
+                <p>The <em>related[n].id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory,
+                    fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
 
-                <h5>site.categoriesCatalog.related[n].excerpt</h5>
-                <p>The <em>categoriesCatalog.related[n].excerpt</em> property is a string which contains the HTML, if any, from the front matter&apos;s excerpt.</p>
+                <h5>categoriesCatalog.related[n].excerpt</h5>
+                <p>The <em>related[n].excerpt</em> property is a string which contains the HTML, if any, from the front matter&apos;s excerpt.</p>
 
-                <h3>site.tagsCatalog</h3>
-                <p>Only relevant for blogging sites that use tags, the <em>tagsCatalog</em> property is an array that catalogs the site&apos;s blog articles grouped in ascending order by tag.</p>
+                <h3>tagsCatalog</h3>
+                <p>Only relevant for blog sites that use tags, the <em>tagsCatalog</em> property is an array that catalogs the site&apos;s blog articles grouped in ascending order by tag.</p>
 
-                <h4>site.tagsCatalog[n].tag</h4>
+                <h4>tagsCatalog[n].tag</h4>
                 <p>The <em>tagsCatalog[n].tag</em> property is the tag.</p>
 
-                <h4>site.tagsCatalog[n].related</h4>
-                <p>The <em>site.tagsCatalog[n].related</em> property is an array of related articles in descending order by article date and article title.</p>
+                <h4>tagsCatalog[n].related</h4>
+                <p>The <em>tagsCatalog[n].related</em> property is an array of related articles in descending order by article date and article title.</p>
 
-                <h5>site.tagsCatalog[n].related[n].articleDate</h5>
-                <p>The <em>tagsCatalog[n].related[n].related[n].articleDate</em> property is a string which contains the date of the article in &quot;YYYY-MM-DD&quot; format.</p>
+                <h5>tagsCatalog[n].related[n].articleDate</h5>
+                <p>The <em>related[n].articleDate</em> property is a string which contains the date of the article in &quot;YYYY-MM-DD&quot; format.</p>
 
-                <h5>site.tagsCatalog[n].related[n].url</h5>
-                <p>The <em>tagsCatalog[n].related[n].url</em> property is the related article&apos;s URL.</p>
+                <h5>tagsCatalog[n].related[n].url</h5>
+                <p>The <em>related[n].url</em> property is the related article&apos;s URL.</p>
 
-                <h5>site.tagsCatalog.related[n].title</h5>
-                <p>The <em>tagsCatalog.related[n].title</em> property is the related article&apos;s title.</p>
+                <h5>tagsCatalog.related[n].title</h5>
+                <p>The <em>related[n].title</em> property is the related article&apos;s title.</p>
 
-                <h5>site.tagsCatalog.related[n].id</h5>
-                <p>The <em>id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from site.frags, site.articlesCatalog, site.categoriesCatalog, site.tagsCatalog, asset.relatedArticlesByCategory,
-                    asset.relatedArticlesByTag and assetRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
+                <h5>tagsCatalog.related[n].id</h5>
+                <p>The <em>related[n].id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory,
+                    fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
 
-                <h5>site.tagsCatalog.related[n].excerpt</h5>
-                <p>The <em>tagsCatalog.related[n].excerpt</em> property is a string which contains the HTML, if any, from the front matter&apos;s excerpt.</p>
+                <h5>tagsCatalog.related[n].excerpt</h5>
+                <p>The <em>related[n].excerpt</em> property is a string which contains the HTML, if any, from the front matter&apos;s excerpt.</p>
 
-                <h3>site.dataCatalog</h3>
+                <h3>dataCatalog</h3>
                 <p>The <em>dataCatalog</em> property is an array that catalogs the site&apos;s JSON files in root/source/data along with their content. Each item in the array represents a single JSON file. Please note that this catalog is not persisted to
                     the root/trio.manifest.json file. See <a class="doc-page__decorated-link" href="/gettriossg/docs/v1/jsondata">JSON Data</a> for more information.</p>
+
+                <h2>See Also</h2>
+
+                <ul>
+                    <li><a href="/gettriossg/docs/v1/tagbasedjavascriptcallbacks">Tag-Based JavaScript Callbacks</a></li>
+                    <li><a href="/gettriossg/docs/v1/blogging">Blogging</a></li>
+                </ul>
             </section>
             <footer class="doc-page-content__footer">
                 <section class="doc-page-content__footer-container">
@@ -369,7 +366,7 @@
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-5 06:41:26.</span> </p>
+                    <p>Page Updated: <span>2019-6-7 12:49:17.</span> </p>
                 </section>
             </footer>
         </article>
