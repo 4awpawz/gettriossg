@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.c45ff4d55b81b6c4435e7efb11c13dfb.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.54d15d7461e9cdab28802e6735030de3.css">
     <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -86,15 +86,13 @@
 
         <article class="benefit-2">
             <section class="container benefit-2__copy-container">
-                <p class="benefit-2__copy">Trio&apos;s <em>tag-based JavaScript callbacks</em> provide a much more powerful and expressive means to add dynamic content to your pages than any templating engine could provide.<br><br> Including the <em>data-trio-callback</em> attribute
-                    in any HTML tag instructs Trio to call a JavaScript module that you name, passing it the tag, your data and all the metadata that Trio has collected while analyzing your project.
-                </p>
-                <h2 class="benefit-2__copy-title">Compose Your Pages Using ES6+ JavaScript!</h2>
+                <p class="benefit-2__copy">Trio doesn&apos;t require a templating engine or a front-end framework for extending your composites. Instead, Trio exposes its <em>tag-based JavaScript callback mechanism</em>.<br><br>Include the <em>data-trio-callback attribute</em>                    in any HTML tag and Trio will call the JavaScript module that it names, passing it the tag, and the metadata that Trio has collected.</p>
+                <h2 class="benefit-2__copy-title">Extend Your Pages With ES6+ JavaScript!</h2>
 
             </section>
             <section class="container">
                 <aside class="benefit-2__sample">
-                    <h3 class="benefit-2__sample-title">In file source/fragments/products.html:</h3>
+                    <h3 class="benefit-2__sample-title">In fragment file source/fragments/products.html:</h3>
                     <pre class="benefit-2__sample-example"><code class="benefit-2__sample-example-code">&lt;!--
 template: products.html
 title: Products By Category
@@ -110,7 +108,24 @@ data: productsByCategory.json
     &lt;/li&gt;
 &lt;/ul&gt;
         </code></pre>
-                    <h3 class="benefit-2__sample-title">In file source/data/productsByCategory.json:</h3>
+                    <h3 class="benefit-2__sample-title">In template file source/templates/products.html:</h3>
+                    <pre class="benefit-2__sample-example"><code class="benefit-2__sample-example-code">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.54d15d7461e9cdab28802e6735030de3.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;main&gt;
+        &lt;article data-trio-fragment&gt;&lt;/article&gt;
+    &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+                    <h3 class="benefit-2__sample-title">In JSON file source/data/productsByCategory.json:</h3>
                     <pre class="benefit-2__sample-example"><code class="benefit-2__sample-example-code">[
     {
         &quot;category&quot;: &quot;fruit&quot;,
@@ -137,7 +152,7 @@ data: productsByCategory.json
         &quot;inStock&quot;: false
     },
     ...</code></pre>
-                    <h3 class="benefit-2__sample-title">In file source/callbacks/listAllProductsByCategory.js:</h3>
+                    <h3 class="benefit-2__sample-title">In tag-based JavaScript file source/callbacks/listAllProductsByCategory.js:</h3>
                     <pre class="benefit-2__sample-example"><code class="benefit-2__sample-example-code">module.exports = ({$tag, site}) =&gt;
     site.dataCatalog.productsByCategory
         .filter(prod =&gt; prod.inStock)
@@ -149,24 +164,7 @@ data: productsByCategory.json
             &lt;/li&gt;
         `));
         </code></pre>
-                    <h3 class="benefit-2__sample-title">In file source/templates/products.html:</h3>
-                    <pre class="benefit-2__sample-example"><code class="benefit-2__sample-example-code">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.c45ff4d55b81b6c4435e7efb11c13dfb.css&quot;&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;main&gt;
-        &lt;article data-trio-fragment&gt;&lt;/article&gt;
-    &lt;/main&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-        </code></pre>
-                    <h3 class="benefit-2__sample-title">With some styling added to the composite created by the contributions of the above fragment, data, callback and template, Trio generates the webpage public/products/index.html which, when rendered in the browser, will look like this:</h3>
+                    <h3 class="benefit-2__sample-title">From the above assets Trio generates a composite, and saves it to public/products/index.html. Rendered in the browser, the page would look like this:</h3>
                     <img src="/gettriossg/media/homepage_demoProductsByCategory.c68aa6709359c013f0746c9dd4548eab.png" alt="demo products by category image">
                 </aside>
             </section>
@@ -201,7 +199,7 @@ data: productsByCategory.json
             <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
             <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-            <p>Page Updated: <span>2019-6-7 12:49:17.</span> </p>
+            <p>Page Updated: <span>2019-6-7 18:35:45.</span> </p>
         </div>
     </footer>
 
