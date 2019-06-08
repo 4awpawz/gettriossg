@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.54d15d7461e9cdab28802e6735030de3.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.ec415e9decbe6b631bdcf66add223e76.css">
     <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -67,8 +67,8 @@
     <main class="container">
         <article class="benefit-hero">
             <section class="container">
-                <h1 class="benefit-hero__title">A Static Website Generator</h1>
-                <h2 class="benefit-hero__subtitle">built for those who love HTML, CSS and JavaScript</h2>
+                <h1 class="benefit-hero__title">Trio</h1>
+                <h2 class="benefit-hero__subtitle">a static site generator built for those who love HTML, CSS and JavaScript</h2>
                 <div class="buttons-tray">
                     <a class="button-primary" href="/gettriossg/docs/v1/gettingstarted">Get&#xA0;Started</a>
                     <a class="button-secondary" href="/gettriossg/docs/v1/keyconcepts">Key Concepts</a>
@@ -80,19 +80,41 @@
             <section class="container">
                 <h2>Build your static site using just the fundamental building blocks of the web!</h2>
                 <p>You use <em>HTML</em>, <em>CSS</em> and <em>JavaScript</em> to prototype and implement your design, which makes Trio the perfect tool for those who love to design in the browser.<br><br>Trio&apos;s use of common metaphors for its project
-                    assets, its approach to page composition, its organized collections of metadata and its tag-based JavaScript callback mechanism serve to create a powerful but easy to learn and use platform upon which to create your static sites.</p>
+                    assets, its approach to page composition, its organized collections of metadata and its tag-based JavaScript callback mechanism serve to create an easy to learn and use, highly adaptable and powerful platform upon which to create your
+                    static sites.</p>
+            </section>
+        </article>
+
+        <article class="benefit-4">
+            <h2 class="benefit-4__title">Features</h2>
+            <section class="container benefit-card-deck">
+                <article class="benefit-card-deck__card">
+                    <img class="benefit-deck__card-icon" src="/gettriossg/media/homepage_magnifyingglass.87531ca9f7299749d63315d0c4941982.png" alt="magnifying glass image">
+                    <h3 class="benefit-card-deck__card-title">Integrity<br>Checking!</h3>
+                    <p class="benefit-card-deck__card-copy">Checks your project&apos;s chains of dependencies and notifies you when assets can&apos;t be resolved.</p>
+                </article>
+                <article class="benefit-card-deck__card">
+                    <img class="benefit-deck__card-icon" src="/gettriossg/media/homepage_timer.63119889c69e80dc6e2b68f0956e2cfd.png" alt="timer image">
+                    <h3 class="benefit-card-deck__card-title">Incremental<br>Builds!</h3>
+                    <p class="benefit-card-deck__card-copy">Reduces project build times by limiting processing to only stale assets.</p>
+                </article>
+                <article class="benefit-card-deck__card">
+                    <img class="benefit-deck__card-icon" src="/gettriossg/media/homepage_tools.d14afae257601c772d69eeec3fe4e968.png" alt="tool image">
+                    <h3 class="benefit-card-deck__card-title">Built-in<br>Toolchain!</h3>
+                    <p class="benefit-card-deck__card-copy">Beautifies Your Markup.<br>Sass Compilation, Vendor Prefixes, Minification, CSS Maps.<br>Project Cache Busting.</p>
+                </article>
             </section>
         </article>
 
         <article class="benefit-2">
             <section class="container benefit-2__copy-container">
                 <p class="benefit-2__copy">Trio doesn&apos;t require a templating engine or a front-end framework for extending your composites. Instead, Trio exposes its <em>tag-based JavaScript callback mechanism</em>.<br><br>Include the <em>data-trio-callback attribute</em>                    in any HTML tag and Trio will call the JavaScript module that it names, passing it the tag, and the metadata that Trio has collected.</p>
-                <h2 class="benefit-2__copy-title">Extend Your Pages With ES6+ JavaScript!</h2>
+                <h2 class="benefit-2__copy-title">Extend Your Composites Using Tag-Based JavaScript (ES6+) Callbacks!</h2>
 
             </section>
             <section class="container">
                 <aside class="benefit-2__sample">
-                    <h3 class="benefit-2__sample-title">In fragment file source/fragments/products.html:</h3>
+                    <h3 class="benefit-2__sample-title">Fragment asset source/fragments/products.html:</h3>
                     <pre class="benefit-2__sample-example"><code class="benefit-2__sample-example-code">&lt;!--
 template: products.html
 title: Products By Category
@@ -108,7 +130,7 @@ data: productsByCategory.json
     &lt;/li&gt;
 &lt;/ul&gt;
         </code></pre>
-                    <h3 class="benefit-2__sample-title">In template file source/templates/products.html:</h3>
+                    <h3 class="benefit-2__sample-title">Template asset source/templates/products.html:</h3>
                     <pre class="benefit-2__sample-example"><code class="benefit-2__sample-example-code">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -116,7 +138,7 @@ data: productsByCategory.json
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
     &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
     &lt;title&gt;Document&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.54d15d7461e9cdab28802e6735030de3.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.ec415e9decbe6b631bdcf66add223e76.css&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;main&gt;
@@ -125,7 +147,7 @@ data: productsByCategory.json
 &lt;/body&gt;
 &lt;/html&gt;
         </code></pre>
-                    <h3 class="benefit-2__sample-title">In JSON file source/data/productsByCategory.json:</h3>
+                    <h3 class="benefit-2__sample-title">JSON asset source/data/productsByCategory.json:</h3>
                     <pre class="benefit-2__sample-example"><code class="benefit-2__sample-example-code">[
     {
         &quot;category&quot;: &quot;fruit&quot;,
@@ -152,7 +174,7 @@ data: productsByCategory.json
         &quot;inStock&quot;: false
     },
     ...</code></pre>
-                    <h3 class="benefit-2__sample-title">In tag-based JavaScript file source/callbacks/listAllProductsByCategory.js:</h3>
+                    <h3 class="benefit-2__sample-title">Tag-based JavaScript asset source/callbacks/listAllProductsByCategory.js:</h3>
                     <pre class="benefit-2__sample-example"><code class="benefit-2__sample-example-code">module.exports = ({$tag, site}) =&gt;
     site.dataCatalog.productsByCategory
         .filter(prod =&gt; prod.inStock)
@@ -164,30 +186,18 @@ data: productsByCategory.json
             &lt;/li&gt;
         `));
         </code></pre>
-                    <h3 class="benefit-2__sample-title">From the above assets Trio generates a composite, and saves it to public/products/index.html. Rendered in the browser, the page would look like this:</h3>
+                    <h3 class="benefit-2__sample-title">Trio creates a composite from the above template and fragment assets. It then calls the tag-based JavaScript callback declared in the fragment asset. The tag-based JavaScript callback then extends the composite using the data from
+                        the productsByCategory.json file to produce the &quot;Product List By Category&quot; report.</h3>
                     <img src="/gettriossg/media/homepage_demoProductsByCategory.c68aa6709359c013f0746c9dd4548eab.png" alt="demo products by category image">
                 </aside>
             </section>
         </article>
 
         <article class="benefit-3">
-            <h2 class="benefit-3__title">Features</h2>
-            <section class="container benefit-card-deck">
-                <article class="benefit-card-deck__card">
-                    <img class="benefit-deck__card-icon" src="/gettriossg/media/homepage_magnifyingglass.87531ca9f7299749d63315d0c4941982.png" alt="magnifying glass image">
-                    <h3 class="benefit-card-deck__card-title">Integrity<br>Checking!</h3>
-                    <p class="benefit-card-deck__card-copy">Checks your project&apos;s chains of dependencies and notifies you when assets can&apos;t be resolved.</p>
-                </article>
-                <article class="benefit-card-deck__card">
-                    <img class="benefit-deck__card-icon" src="/gettriossg/media/homepage_timer.63119889c69e80dc6e2b68f0956e2cfd.png" alt="timer image">
-                    <h3 class="benefit-card-deck__card-title">Incremental<br>Builds!</h3>
-                    <p class="benefit-card-deck__card-copy">Reduces project build times by limiting processing to only stale assets.</p>
-                </article>
-                <article class="benefit-card-deck__card">
-                    <img class="benefit-deck__card-icon" src="/gettriossg/media/homepage_tools.d14afae257601c772d69eeec3fe4e968.png" alt="tool image">
-                    <h3 class="benefit-card-deck__card-title">Built-in<br>Toolchain!</h3>
-                    <p class="benefit-card-deck__card-copy">Beautifies Your Markup.<br>Sass Compilation, Vendor Prefixes, Minification, CSS Maps.<br>Project Cache Busting.</p>
-                </article>
+            <section class="container">
+                <h2>Create Modern-Day Blogs With The Features That Your Readers Have Come To Expect</h2>
+                <p>Trio was built from the ground up to be used as a blogging platform.<br><br>Features, such as article categories and tags, category, tag, and archive pages, article page navigation, are a snap to implement using Trio&apos;s structured
+                    blog-specific metadata and its tag-based JavaScript callback mechanism.</p>
             </section>
         </article>
     </main>
@@ -199,7 +209,7 @@ data: productsByCategory.json
             <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
             <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-            <p>Page Updated: <span>2019-6-7 19:27:20.</span> </p>
+            <p>Page Updated: <span>2019-6-8 10:02:35.</span> </p>
         </div>
     </footer>
 
