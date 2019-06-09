@@ -23,7 +23,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.ec415e9decbe6b631bdcf66add223e76.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.cadb0c00396bf02c515a4931aac75147.css">
     <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -133,7 +133,7 @@
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/incrementalbuild">Incremental Build</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/configurationoptions">Configuration Options</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/configuration">Configuration</a>
                         </li>
                     </ul>
 
@@ -145,9 +145,11 @@
             <section class="doc-page-content__copy">
                 <h1>YAML Front Matter</h1>
 
-                <p>The inclusion of YAML front matter is required for <a href="/gettriossg/docs/v1/fragment"><em>fragment</em></a> assets and is optional for <a href="/gettriossg/docs/v1/include"><em>include</em></a> assets. It must be placed at the very
-                    top of the file and it must be delimited by opening and closing HTML comment tags <code><em>&quot;&lt;!--&quot;, &quot;--&gt;&quot;</em></code>, between which you add both predefined and custom front matter properties. Front matter
-                    can also include an <em>excerpt</em>, which is delimited using <code><em>&lt;!-- end --&gt;</em></code>.</p>
+                <p>The inclusion of YAML front matter is required for <a href="/gettriossg/docs/v1/fragment"><em>fragment</em></a> assets and is optional for <a href="/gettriossg/docs/v1/include"><em>include</em></a> and <a href="/gettriossg/docs/v1/tagbasedjavascriptcallbacks">tag-based JavaScript callback</a>                    assets.</p>
+
+                <p> YAML front matter must be placed at the very top of the file and it must be surrounded by opening and closing delimiters that are appropriate for the asset&apos;s file type.</p>
+
+                <p><mark>Excerpts are supported in fragment assets but are not supported in include and tag-based JavaScript callback assets.</mark></p>
 
                 <p>Below is an example of front matter used in a fragment asset</p>
 
@@ -179,6 +181,12 @@ This will be in the excerpt.
 }</code></pre>
                     <figcaption>JavaScript Object Converted From Front Matter Example</figcaption>
                 </figure>
+
+                <h2>Appropriate Delimiters By Asset Type</h2>
+
+                <p>Fragment and include assets use opening and closing HTML comment tags <code><em>&quot;&lt;!--&quot;, &quot;--&gt;&quot;</em></code> as their front matter delimiters.</p>
+
+                <p>Tag-based JavaScript callbacks use opening and closing JavaScript block comment tags <code><em>&quot;/*&quot;, &quot;*/&quot;</em></code> as their front matter delimiters.</p>
 
                 <h2>Predefined Front Matter Properties</h2>
 
@@ -231,6 +239,19 @@ This will be in the excerpt.
                     <li><strong>custom properties</strong>: <em>not supported</em></li>
                 </ul>
 
+                <h3>Tag-Based JavaScript Callbacks</h3>
+                <ul>
+                    <li><strong>dataDependencies</strong>: <em>optional</em>, type <em>list</em>, default value <em>none</em></li>
+                    <ul>
+                        <li>a list of JSON data file dependencies. See <a href="/gettriossg/docs/v1/incrementalbuild">Incremental Build</a> for details.</li>
+                    </ul>
+                    <li><strong>moduleDependencies</strong>: <em>optional</em>, type <em>list</em>, default value <em>none</em></li>
+                    <ul>
+                        <li>a list of Node module dependencies. See <a href="/gettriossg/docs/v1/incrementalbuild">Incremental Build</a> for details.</li>
+                    </ul>
+                    <li><strong>custom properties</strong>: <em>not supported</em></li>
+                </ul>
+
                 <h3>Blog Related Data Catalogs For Implementing Sophisticated Blog Sites</h3>
 
                 <p>Trio uses the above blog-specific front matter properties to generate numerous blog related data catalogs for you. You can access these data catalogs in your tag-based JavaScript callbacks and you can view them in file <em>root/trio.manifest.json</em>.</p>
@@ -245,6 +266,7 @@ This will be in the excerpt.
                     <li><a href="/gettriossg/docs/v1/include">Include</a></li>
                     <li><a href="/gettriossg/docs/v1/tagbasedjavascriptcallbacks">Tag-Based JavaScript Callbacks</a></li>
                     <li><a href="/gettriossg/docs/v1/blogging">Blogging</a></li>
+                    <li><a href="/gettriossg/docs/v1/incrementalbuild">Incremental Build</a></li>
                 </ul>
             </section>
             <footer class="doc-page-content__footer">
@@ -255,7 +277,7 @@ This will be in the excerpt.
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-8 10:02:35.</span> </p>
+                    <p>Page Updated: <span>2019-6-9 15:57:41.</span> </p>
                 </section>
             </footer>
         </article>

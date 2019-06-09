@@ -23,7 +23,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.ec415e9decbe6b631bdcf66add223e76.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.cadb0c00396bf02c515a4931aac75147.css">
     <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -133,7 +133,7 @@
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/incrementalbuild">Incremental Build</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/configurationoptions">Configuration Options</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/configuration">Configuration</a>
                         </li>
                     </ul>
 
@@ -148,14 +148,30 @@
                 <p>Tag-based JavaScript callbacks are Node modules that are located in your project&apos;s <em>root/source/callbacks</em> folder, which Trio calls asynchronously using <em>async/await</em> when it encounters an HTML tag decorated with the
                     <em>data-trio-callback</em> attribute.</p>
 
-                <p>Each callback module must export a single function which, when called by Trio, is passed a single object from which it can destructure any or all of the following properties:</p>
+                <figure>
+                    <pre><code class="JavaScript">/*
+moduleDependencies: ./lib/capitalize
+*/
+const capitalize = require(&quot;./lib/capitalize&quot;);
+
+module.exports = ({ $tag, site }) =&gt; {
+    site.articlesCount &amp;&amp; site.articlesCatalog.forEach(item =&gt; {
+        const data = item.matter.data;
+        $tag.append(
+                &lt;li&gt;
+                    &lt;a data-trio-link href=&quot;${item.url}&quot;&gt;
+                        ${data.title} - Posted to ${capitalize(data.category[0])} - ${item.articleDate}
+                    &lt;/a&gt;
+                &lt;/li&gt;
+            `);
+    });
+};</code></pre>
+                    <figcaption>Tag-Based JavaScript Callback Example</figcaption>
+                </figure>
 
                 <ul>
-                    <li><strong>$</strong>: A cheerio object that wraps the composite.</li>
-                    <li><strong>$tag</strong>: A cheerio object that wraps the tag.</li>
-                    <li><strong>asset</strong>: The fragment&apos;s metadata.</li>
-                    <li><strong>site</strong>: The entire collection of metadata for the site.</li>
-                    <li><strong>cheerio</strong>: An instance of cheerio that can be used to create new cheerio wrappers.</li>
+                    <li><strong>file location</strong>: root/source/callbacks</li>
+                    <li><strong>file type/content</strong>: .js/JavaScript</li>
                 </ul>
 
                 <h2>Declaring Tag-Based JavaScript Callbacks</h2>
@@ -168,6 +184,8 @@
                 </figure>
 
                 <h2>Implementing Callbacks</h2>
+
+                <p>Each module must export a single function which, when called by Trio, is passed a single argument which can be destructured to access its properties.</p>
 
                 <p>Callbacks can be implemented to run <em>synchronously</em></p>
 
@@ -202,13 +220,36 @@
                     <figcaption>Asynchronous JavaScript Callback Example</figcaption>
                 </figure>
 
-                <h2>Property Usage</h2>
+                <h2>Argument Properties</h2>
 
-                <h3><em>$tag</em></h3>
-                <p> Use when targeting the tag and its content.</p>
-                <h3><em>site</em></h3>
-                <p>Use when retrieving metadata other than that from the fragment.</p>
+                <h3>$</h3>
+                <p>A <em>cheerio wrapper</em> around the composite. Use when targeting the composite&apos;s content.</p>
+                <figure>
+                    <pre><code class="js">module.exports = ({ $, site }) =&gt; {
+    site.tagsCatalog.forEach(item =&gt; {
+        $.find(&quot;ul.tag__list&quot;).append(`
+            &lt;li class=&quot;tag__list-item&quot;&gt;
+                &lt;a data-trio-link class=&quot;tag__list-item-link&quot;
+                href=&quot;/blog/tag/${item.tag.toLowerCase()}&quot;&gt;${item.tag}&lt;/a&gt;
+            &lt;/li&gt;
+        `);
+    });
+    $.find(&quot;div.page-modified-date&quot;).append(new Date().toDateString());
+};</code></pre>
+                    <figcaption>Targeting A Composite&apos;s Content Using $tag Example </figcaption>
+                </figure>
 
+                <h3>$tag</h3>
+                <p>A <em>cheerio wrapper</em> around the tag. Use when targeting the tag and its content.</p>
+                <figure>
+                    <pre><code class="js">module.exports = ({ $tag }) =&gt; {
+    $tag.append(new Date().toDateString());
+};</code></pre>
+                    <figcaption>Targeting A Tag&apos;s Content Using $tag Example </figcaption>
+                </figure>
+
+                <h3>site</h3>
+                <p>Contains the complete collection of metadata</p>
                 <figure>
                     <pre><code class="js">module.exports = ({ $tag, site }) =&gt; {
     site.tagsCatalog.forEach(item =&gt; {
@@ -223,26 +264,8 @@
                     <figcaption>Targeting A Tag&apos;s Content Using $tag Example </figcaption>
                 </figure>
 
-                <h3><em>$</em></h3>
-                <p>Use when targeting content in the composite but outside of the tag and its content.</p>
-
-                <figure>
-                    <pre><code class="js">module.exports = ({ $, site }) =&gt; {
-    site.tagsCatalog.forEach(item =&gt; {
-        $.find(&quot;ul.tag__list&quot;).append(`
-            &lt;li class=&quot;tag__list-item&quot;&gt;
-                &lt;a data-trio-link class=&quot;tag__list-item-link&quot;
-                href=&quot;/blog/tag/${item.tag.toLowerCase()}&quot;&gt;${item.tag}&lt;/a&gt;
-            &lt;/li&gt;
-        `);
-    });
-};</code></pre>
-                    <figcaption>Targeting A Tag&apos;s Content Using $tag Example </figcaption>
-                </figure>
-
-                <h3><em>asset</em></h3>
-                <p>Use when retrieving metadata from the fragment asset.</p>
-
+                <h3>asset</h3>
+                <p>Contains the fragment&apos;s metadata.</p>
                 <figure>
                     <pre><code class="js">module.exports = ({ $tag, asset }) =&gt; {
     const data = asset.matter.data;
@@ -254,10 +277,46 @@
                     <figcaption>Targeting A Tag&apos;s Content Using $tag Example </figcaption>
                 </figure>
 
+                <h2>Declaring Internal Dependencies To Trigger Incremental Builds</h2>
+
+                <p>When using incremental build, Trio will detect that you have made modifications to your tag-based JavaScript callbacks, and it will trigger a build to regenerate only those pages whose assets relate by way of their chains of dependencies
+                    to the callback. However, Trio will not automatically trigger a build when:</p>
+
+                <ul>
+                    <li> it detects that you have made modifications to modules that your tag-based JavaScript callbacks might requires, such as to a library that you created in root/source/callbacks/lib</li>
+                    <li> it detects that you have made modifications to JSON files in the root/source/data folder that your tag-based JavaScript callbacks might require</li>
+                </ul>
+
+                <p>To remedy these 2 situations, you can optionally add front matter to your tag-based JavaScript callbacks, and include in them the properties discussed below, that will inform Trio to trigger a build whenever these internal dependencies
+                    are modified.</p>
+
+                <h3>Declaring Your Module Dependencies</h3>
+                <p>Declare your module dependencies using the <mark>moduleDependencies</mark> property.</p>
+                <figure>
+                    <pre><code class="js">/*
+moduleDependencies:
+- ./lib/getDate
+- ./lib/getTime
+*/</code></pre>
+                    <figcaption>Declaring Module Dependencies Example </figcaption>
+                </figure>
+
+                <h3>Declaring Your JSON Data File Dependencies</h3>
+                <p>Declare your JSON file dependencies using the <mark>dataDependencies</mark> property.</p>
+                <figure>
+                    <pre><code class="js">/*
+dataDependencies:
+- contactInfo
+- portfolio
+*/</code></pre>
+                    <figcaption>Declaring JSON File Dependencies Example </figcaption>
+                </figure>
+
                 <h2>See Also</h2>
 
                 <ul>
                     <li><a href="/gettriossg/docs/v1/fragment">Fragment</a></li>
+                    <li><a href="/gettriossg/docs/v1/htmltagattributes">HTML Tag Attributes</a></li>
                     <li><a href="/gettriossg/docs/v1/yamlfrontmatter">YAML Front Matter</a></li>
                     <li><a href="/gettriossg/docs/v1/metadata">Metadata</a></li>
                     <li><a target="_blank" href="https://www.npmjs.com/package/cheerio">cheerio</a></li>
@@ -271,7 +330,7 @@
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-8 10:02:35.</span> </p>
+                    <p>Page Updated: <span>2019-6-9 15:57:41.</span> </p>
                 </section>
             </footer>
         </article>

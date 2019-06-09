@@ -23,7 +23,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.ec415e9decbe6b631bdcf66add223e76.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.cadb0c00396bf02c515a4931aac75147.css">
     <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -133,7 +133,7 @@
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/incrementalbuild">Incremental Build</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/configurationoptions">Configuration Options</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/configuration">Configuration</a>
                         </li>
                     </ul>
 
@@ -159,7 +159,7 @@
 
                 <p><mark>As the examples above demonstrate, when Trio creates your non blog-related web pages in the project&apos;s public folder, Trio will create the appropriate parent folders for the page if they don&apos;t already exist.</mark></p>
 
-                <h2>For Blog Article Pages</h2>
+                <h2 id="forblogarticlepages">For Blog Article Pages</h2>
 
                 <ul>
                     <li>When naming your blog article, use the form <em>yyyy-mm-dd-articlename.md|.html</em>, where:</li>
@@ -175,7 +175,7 @@
 
                 <p><mark>As the examples above demonstrate, when Trio creates your blog-related web pages in the project&apos;s public blog folder, Trio will create the appropriate parent folders for the page if they don&apos;t already exist.</mark></p>
 
-                <p><mark>If you would rather name your blog folder to something other than &quot;blog&quot;, you can by simply adding the configuration property &quot;blogFolderName&quot; to your project&apos;s configuration file, which is root/trio.json, and assign it the name you prefer.</mark></p>
+                <p><mark>If you would rather name your public blog folder to something other than &quot;blog&quot;, you can by simply adding the configuration property &quot;blogFolderName&quot; to your project&apos;s configuration file, which is root/trio.json, and assign it the name you prefer.</mark></p>
 
                 <h2>Linking Conventions</h2>
 
@@ -188,7 +188,7 @@
                     <li><strong>Relative URLs</strong>: <em>../docs</em> is appropriate for internal links; it is relative to the page in which it is being used.</li>
                 </ul>
 
-                <h2>Base URL</h2>
+                <h2 id="baseurl">Base URL</h2>
 
                 <p>Some Web hosting services that host your site in a subfolder will require that your site&apos;s <em>root relative</em> URLs begin with the subfolder&apos;s name. For example, the site at <em>https://4awpawz.github.io/trio-docs-pages</em>                    is hosted on Github Pages and linking with <em>&lt;a href=&quot;/docs/v1&quot;&gt;Documentation&lt;/a&gt;</em> wouldn&apos;t work but linking with <em>&lt;a href=&quot;/trio-docs-pages/docs/v1&quot;&gt;Documentation&lt;/a&gt;</em>                    would work.</p>
 
@@ -210,6 +210,7 @@
                     <li><a href="/gettriossg/docs/v1/include">Include</a></li>
                     <li><a href="/gettriossg/docs/v1/tagbasedjavascriptcallbacks">Tag-Based JavaScript Callbacks</a></li>
                     <li><a href="/gettriossg/docs/v1/blogging">Blogging</a></li>
+                    <li><a href="/gettriossg/docs/v1/configuration">Configuration</a></li>
                 </ul>
             </section>
             <footer class="doc-page-content__footer">
@@ -220,7 +221,7 @@
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-8 10:02:35.</span> </p>
+                    <p>Page Updated: <span>2019-6-9 15:57:41.</span> </p>
                 </section>
             </footer>
         </article>
