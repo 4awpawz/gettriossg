@@ -16,14 +16,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Cache-control" content="no-cache">
-    <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use YAML front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
+    <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
     <meta name="author" content="Jeffrey Schwartz">
     <meta name="generator" content="Trio v0.0.6">
     <title>Fragment</title>
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.cadb0c00396bf02c515a4931aac75147.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.23e41876c98fb4f349730899fad2a12d.css">
     <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -99,10 +99,10 @@
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/pagegeneration">Page Generation</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/yamlfrontmatter">YAML Front Matter</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/frontmatter">Front Matter</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/htmltagattributes">HTML Tag Attributes</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/tagattributes">Tag Attributes</a>
                         </li>
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/template">Template</a>
@@ -118,7 +118,7 @@
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/metadata">Metadata</a></li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/tagbasedjavascriptcallbacks">Tag-Based JavaScript Callbacks</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/tagbasedcallbacks">Tag-Based Callbacks</a>
                         </li>
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/scsssasscss">SCSS/SASS/CSS</a>
@@ -147,9 +147,9 @@
                 <h1>Fragment</h1>
 
                 <p>A fragment is a required asset that is associated with a single <a href="/gettriossg/docs/v1/template"><em>template</em></a> asset. The association between a template and a fragment is made by the fragment, using the predefined &quot;template&quot;
-                    <a href="/gettriossg/docs/v1/yamlfrontmatter"><em>front matter</em></a> property and assigning it the name of the template it is associated with.</p>
+                    <a href="/gettriossg/docs/v1/frontmatter"><em>front matter</em></a> property and assigning it the name of the template it is associated with.</p>
 
-                <p><mark>When composing a web page, Trio merges the fragment&apos;s content with the tag in the template that is decorated with the <a href="/gettriossg/docs/v1/htmltagattributes"><em>data-trio-fragment</em></a> attribute. The merging of content from a single template with a single fragment, followed by the merging of any content from any <a href="/gettriossg/docs/v1/include"><em>include</em></a> assets that either asset may declare, forms the basis of a composite, which Trio saves as a web page.</mark></p>
+                <p><mark>When composing a page, Trio merges the fragment&apos;s content with the tag in the template that is decorated with the <a href="/gettriossg/docs/v1/tagattributes"><em>data-trio-fragment</em></a> attribute. The merging of content from a single template with a single fragment, followed by the merging of any content from any <a href="/gettriossg/docs/v1/include"><em>include</em></a> assets that either asset may declare, forms the basis of a composite, which Trio saves as a page.</mark></p>
 
                 <figure>
                     <pre><code class="html">&lt;!--
@@ -160,7 +160,7 @@ appendToTarget: true
 
 &lt;h1&gt;Fragment&lt;/h1&gt;
 
-&lt;p&gt;A fragment is a required asset that provides additional structure and content to an associated template asset, whose combined content forms the basis of a composite, which Trio saves as a web page in your project&apos;s root/public folder.&lt;/p&gt;</code></pre>
+&lt;p&gt;A fragment is a required asset that provides additional structure and content to an associated template asset, whose combined content forms the basis of a composite, which Trio saves as a page in your project&apos;s root/public folder.&lt;/p&gt;</code></pre>
                     <figcaption>Fragment With Front Matter Example</figcaption>
                 </figure>
 
@@ -178,9 +178,9 @@ appendToTarget: true
                 <ul>
                     <li><a href="/gettriossg/docs/v1/template">Template</a></li>
                     <li><a href="/gettriossg/docs/v1/include">Include</a></li>
-                    <li><a href="/gettriossg/docs/v1/tagbasedjavascriptcallbacks">Tag-Based JavaScript Callbacks</a></li>
-                    <li><a href="/gettriossg/docs/v1/yamlfrontmatter">YAML Front Matter</a></li>
-                    <li><a href="/gettriossg/docs/v1/htmltagattributes">HTML Tag Attributes</a></li>
+                    <li><a href="/gettriossg/docs/v1/tagbasedcallbacks">Tag-Based Callbacks</a></li>
+                    <li><a href="/gettriossg/docs/v1/yamlfrontmatter">Front Matter</a></li>
+                    <li><a href="/gettriossg/docs/v1/tagattributes">Tag Attributes</a></li>
                 </ul>
             </section>
             <footer class="doc-page-content__footer">
@@ -191,7 +191,7 @@ appendToTarget: true
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-9 15:57:41.</span> </p>
+                    <p>Page Updated: <span>2019-6-11 17:08:36.</span> </p>
                 </section>
             </footer>
         </article>

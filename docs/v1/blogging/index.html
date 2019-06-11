@@ -16,14 +16,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Cache-control" content="no-cache">
-    <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use YAML front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
+    <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
     <meta name="author" content="Jeffrey Schwartz">
     <meta name="generator" content="Trio v0.0.6">
     <title>Blogging</title>
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.cadb0c00396bf02c515a4931aac75147.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.23e41876c98fb4f349730899fad2a12d.css">
     <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -99,10 +99,10 @@
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/pagegeneration">Page Generation</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/yamlfrontmatter">YAML Front Matter</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/frontmatter">Front Matter</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/htmltagattributes">HTML Tag Attributes</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/tagattributes">Tag Attributes</a>
                         </li>
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/template">Template</a>
@@ -118,7 +118,7 @@
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/metadata">Metadata</a></li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/tagbasedjavascriptcallbacks">Tag-Based JavaScript Callbacks</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/tagbasedcallbacks">Tag-Based Callbacks</a>
                         </li>
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/scsssasscss">SCSS/SASS/CSS</a>
@@ -146,11 +146,42 @@
                 <h1>Blogging</h1>
 
                 <p>Trio was built from the ground up to be used as a blogging platform. Trio supports the creation of modern-day blogs with the features that your readers have come to expect, such as categories and tags, and Trio&apos;s structured blog-specific
-                    metadata and its tag-based JavaScript callback mechanism makes implementing modern blogs a snap.</p>
+                    metadata and its tag-based callback mechanism makes implementing modern blogs a snap.</p>
+
+                <h2>Blog Specific Metadata</h2>
+
+                <p>The following lists all the blog-specific items that are available in metadata. See <a href="/gettriossg/docs/v1/metadata">Metadata</a> for details:</p>
+
+                <ul>
+                    <li>fragment.articleDate</li>
+                    <li>fragment.nextArticleUrl</li>
+                    <li>fragment.previousArticleUrl</li>
+                    <li>fragment.relatedArticlesByCategory</li>
+                    <li>fragment.relatedArticlesByTag</li>
+                    <li>fragment.relatedArticlesByTagFlattened</li>
+                    <li>articlesCount</li>
+                    <li>articlesCatalog</li>
+                    <li>categoriesCatalog</li>
+                    <li>tagsCatalog</li>
+                </ul>
+
+                <p>The following lists all the predefined blog-specific front matter properties that are available in blog-specific fragments. See <a href="/gettriossg/docs/v1/frontmatter">Front Matter</a> for details:</p>
+
+                <ul>
+                    <li>forTag</li>
+                    <li>forCategory</li>
+                    <li>tag</li>
+                    <li>category</li>
+                </ul>
 
                 <p>A <em>sample blog project</em> that incorporates categories, tags, intricate page linking and also demonstrates Trio&apos;s many numerous features in general is available at <a href="https://github.com/4awpawz/trio-blog-example" target="_blank">4awpawz/trio-blog-example</a>                    and is viewable at <a href="https://4awpawz.github.io/trio-blog-example-pages" target="_blank">https://4awpawz.github.io/trio-blog-example-pages</a>.</p>
 
                 <p>Please feel free to clone the sample blog project and then build it, run it and examine its code.</p>
+
+                <h2>Sell Also</h2>
+                <ul>
+                    <li><a href="/gettriossg/docs/v1/tagbasedcallbacks">Tag-Based Callbacks</a></li>
+                </ul>
             </section>
             <footer class="doc-page-content__footer">
                 <section class="doc-page-content__footer-container">
@@ -160,7 +191,7 @@
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-9 15:57:41.</span> </p>
+                    <p>Page Updated: <span>2019-6-11 17:08:36.</span> </p>
                 </section>
             </footer>
         </article>

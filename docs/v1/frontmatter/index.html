@@ -16,14 +16,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Cache-control" content="no-cache">
-    <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use YAML front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
+    <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
     <meta name="author" content="Jeffrey Schwartz">
     <meta name="generator" content="Trio v0.0.6">
-    <title>YAML Front Matter</title>
+    <title>Front Matter</title>
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.cadb0c00396bf02c515a4931aac75147.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.23e41876c98fb4f349730899fad2a12d.css">
     <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -99,10 +99,10 @@
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/pagegeneration">Page Generation</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link doc-page-index__list-item-link--current" href="/gettriossg/docs/v1/yamlfrontmatter">YAML Front Matter</a>
+                            <a class="doc-page-index__list-item-link doc-page-index__list-item-link--current" href="/gettriossg/docs/v1/frontmatter">Front Matter</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/htmltagattributes">HTML Tag Attributes</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/tagattributes">Tag Attributes</a>
                         </li>
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/template">Template</a>
@@ -118,7 +118,7 @@
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/metadata">Metadata</a></li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/tagbasedjavascriptcallbacks">Tag-Based JavaScript Callbacks</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/tagbasedcallbacks">Tag-Based Callbacks</a>
                         </li>
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/scsssasscss">SCSS/SASS/CSS</a>
@@ -143,13 +143,13 @@
         <article class="doc-page-content">
             <section class="notification">Documentation is evolving and is a WIP</section>
             <section class="doc-page-content__copy">
-                <h1>YAML Front Matter</h1>
+                <h1>Front Matter</h1>
 
-                <p>The inclusion of YAML front matter is required for <a href="/gettriossg/docs/v1/fragment"><em>fragment</em></a> assets and is optional for <a href="/gettriossg/docs/v1/include"><em>include</em></a> and <a href="/gettriossg/docs/v1/tagbasedjavascriptcallbacks">tag-based JavaScript callback</a>                    assets.</p>
+                <p>The inclusion of front matter is required for <a href="/gettriossg/docs/v1/fragment"><em>fragment</em></a> assets and is optional for <a href="/gettriossg/docs/v1/include"><em>include</em></a> and <a href="/gettriossg/docs/v1/tagbasedcallbacks">tag-based callback</a>                    assets.</p>
 
-                <p> YAML front matter must be placed at the very top of the file and it must be surrounded by opening and closing delimiters that are appropriate for the asset&apos;s file type.</p>
+                <p> front matter must be placed at the very top of the file and it must be surrounded by opening and closing delimiters that are appropriate for the asset&apos;s file type.</p>
 
-                <p><mark>Excerpts are supported in fragment assets but are not supported in include and tag-based JavaScript callback assets.</mark></p>
+                <p><mark>Excerpts are supported in fragment assets but are not supported in include and tag-based callback assets.</mark></p>
 
                 <p>Below is an example of front matter used in a fragment asset</p>
 
@@ -186,7 +186,7 @@ This will be in the excerpt.
 
                 <p>Fragment and include assets use opening and closing HTML comment tags <code><em>&quot;&lt;!--&quot;, &quot;--&gt;&quot;</em></code> as their front matter delimiters.</p>
 
-                <p>Tag-based JavaScript callbacks use opening and closing JavaScript block comment tags <code><em>&quot;/*&quot;, &quot;*/&quot;</em></code> as their front matter delimiters.</p>
+                <p>Tag-based callbacks use opening and closing JavaScript block comment tags <code><em>&quot;/*&quot;, &quot;*/&quot;</em></code> as their front matter delimiters.</p>
 
                 <h2>Predefined Front Matter Properties</h2>
 
@@ -196,7 +196,7 @@ This will be in the excerpt.
 
                 <ul>
                     <li><strong>template</strong>: <em>required</em>, type <em>string</em> and is used to name the <a href="/gettriossg/docs/v1/template">template</a> that the fragment is associated with</li>
-                    <li><strong>title</strong>: <em>required</em>, type <em>string</em> and is used to set the title tag of the web page</li>
+                    <li><strong>title</strong>: <em>required</em>, type <em>string</em> and is used to set the title tag of the page</li>
                     <li><strong>appendToTarget</strong>: <em>optional</em>, type <em>boolean</em>, default value <em>false</em></li>
                     <ul>
                         <li>if <em>true</em> Trio appends the fragment&apos;s content to the tag in the template that is decorated with the <em>data-trio-fragment</em> attribute</li>
@@ -205,27 +205,27 @@ This will be in the excerpt.
                     <li><strong>custom properties</strong>: <em>supported</em>, type <em>any supported front matter data type</em></li>
                 </ul>
 
-                <h3>Blog Specific Fragments</h3>
+                <h3 id="blogspecific">Blog Specific Fragments</h3>
 
                 <p>In addition to the above, <a href="/gettriossg/docs/v1/blogging">blog-specific fragment assets</a> - <em>tag</em>, <em>category</em> and <em>article</em> - support the following additional front matter properties.</p>
 
                 <h4>Tag Fragments</h4>
 
                 <ul>
-                    <li><strong>forTag</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em> and can be used in tag-based JavaScript callbacks to filter blog articles by their <em>tag property</em>.</li>
+                    <li><strong>forTag</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em> and can be used in tag-based callbacks to filter blog articles by their <em>tag property</em>.</li>
                 </ul>
 
                 <h4>Category Fragments</h4>
 
                 <ul>
-                    <li><strong>forCategory</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em> and can be used in tag-based JavaScript callbacks to filter articles by their <em>category property</em>.</li>
+                    <li><strong>forCategory</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em> and can be used in tag-based callbacks to filter articles by their <em>category property</em>.</li>
                 </ul>
 
                 <h4>Article Fragments</h4>
 
                 <ul>
-                    <li><strong>tag</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em> and can be used in tag-based JavaScript callbacks to find all matching blog articles by their <em>tag property</em>.</li>
-                    <li><strong>category</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em> and can be used in tag-based JavaScript callbacks to find all matching blog articles by their <em>category property</em>.</li>
+                    <li><strong>tag</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em> and can be used in tag-based callbacks to find all matching blog articles by their <em>tag property</em>.</li>
+                    <li><strong>category</strong>: <em>optional</em>, type <em>string</em>, default value <em>none</em> and can be used in tag-based callbacks to find all matching blog articles by their <em>category property</em>.</li>
                 </ul>
 
                 <h3>Includes</h3>
@@ -239,22 +239,22 @@ This will be in the excerpt.
                     <li><strong>custom properties</strong>: <em>not supported</em></li>
                 </ul>
 
-                <h3>Tag-Based JavaScript Callbacks</h3>
+                <h3>Tag-Based Callbacks</h3>
                 <ul>
                     <li><strong>dataDependencies</strong>: <em>optional</em>, type <em>list</em>, default value <em>none</em></li>
                     <ul>
-                        <li>a list of JSON data file dependencies. See <a href="/gettriossg/docs/v1/incrementalbuild">Incremental Build</a> for details.</li>
+                        <li>a list of JSON data file dependencies. See <a href="/gettriossg/docs/v1/tagbasedcallbacks#declaringinternaldependencies">Declaring Internal Dependencies To Trigger Incremental Builds</a> for details.</li>
                     </ul>
                     <li><strong>moduleDependencies</strong>: <em>optional</em>, type <em>list</em>, default value <em>none</em></li>
                     <ul>
-                        <li>a list of Node module dependencies. See <a href="/gettriossg/docs/v1/incrementalbuild">Incremental Build</a> for details.</li>
+                        <li>a list of Node module dependencies. See <a href="/gettriossg/docs/v1/tagbasedcallbacks#declaringinternaldependencies">Declaring Internal Dependencies To Trigger Incremental Builds</a> for details.</li>
                     </ul>
                     <li><strong>custom properties</strong>: <em>not supported</em></li>
                 </ul>
 
-                <h3>Blog Related Data Catalogs For Implementing Sophisticated Blog Sites</h3>
+                <h3 id="blogrelateddatacatalogs">Blog Related Data Catalogs For Implementing Sophisticated Blog Sites</h3>
 
-                <p>Trio uses the above blog-specific front matter properties to generate numerous blog related data catalogs for you. You can access these data catalogs in your tag-based JavaScript callbacks and you can view them in file <em>root/trio.manifest.json</em>.</p>
+                <p>Trio uses the above blog-specific front matter properties to generate numerous blog related data catalogs for you. You can access these data catalogs in your tag-based callbacks and you can view them in file <em>root/trio.manifest.json</em>.</p>
 
                 <p>There are many ways you can take advantage of these data catalogs, such as using them to create lists of articles grouped by tags in your tag pages or lists of articles grouped by category in your category pages, for instance. These are
                     common elements in many sophisticated blog sites and Trio makes it easy for you to implement them in your site.</p>
@@ -264,7 +264,7 @@ This will be in the excerpt.
                 <ul>
                     <li><a href="/gettriossg/docs/v1/fragment">Fragment</a></li>
                     <li><a href="/gettriossg/docs/v1/include">Include</a></li>
-                    <li><a href="/gettriossg/docs/v1/tagbasedjavascriptcallbacks">Tag-Based JavaScript Callbacks</a></li>
+                    <li><a href="/gettriossg/docs/v1/tagbasedcallbacks">Tag-Based Callbacks</a></li>
                     <li><a href="/gettriossg/docs/v1/blogging">Blogging</a></li>
                     <li><a href="/gettriossg/docs/v1/incrementalbuild">Incremental Build</a></li>
                 </ul>
@@ -277,7 +277,7 @@ This will be in the excerpt.
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-9 15:57:41.</span> </p>
+                    <p>Page Updated: <span>2019-6-11 17:08:36.</span> </p>
                 </section>
             </footer>
         </article>

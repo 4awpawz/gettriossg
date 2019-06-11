@@ -16,14 +16,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Cache-control" content="no-cache">
-    <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use YAML front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
+    <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
     <meta name="author" content="Jeffrey Schwartz">
     <meta name="generator" content="Trio v0.0.6">
-    <title>Tag-Based JavaScript Callbacks</title>
+    <title>Tag-Based Callbacks</title>
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.cadb0c00396bf02c515a4931aac75147.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.23e41876c98fb4f349730899fad2a12d.css">
     <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -99,10 +99,10 @@
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/pagegeneration">Page Generation</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/yamlfrontmatter">YAML Front Matter</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/frontmatter">Front Matter</a>
                         </li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/htmltagattributes">HTML Tag Attributes</a>
+                            <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/tagattributes">Tag Attributes</a>
                         </li>
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/template">Template</a>
@@ -118,7 +118,7 @@
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/metadata">Metadata</a></li>
                         <li class="doc-page-index__list-item">
-                            <a class="doc-page-index__list-item-link doc-page-index__list-item-link--current" href="/gettriossg/docs/v1/tagbasedjavascriptcallbacks">Tag-Based JavaScript Callbacks</a>
+                            <a class="doc-page-index__list-item-link doc-page-index__list-item-link--current" href="/gettriossg/docs/v1/tagbasedcallbacks">Tag-Based Callbacks</a>
                         </li>
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/scsssasscss">SCSS/SASS/CSS</a>
@@ -143,10 +143,12 @@
         <article class="doc-page-content">
             <section class="notification">Documentation is evolving and is a WIP</section>
             <section class="doc-page-content__copy">
-                <h1>Tag-Based JavaScript Callbacks</h1>
+                <h1>Tag-Based Callbacks</h1>
 
-                <p>Tag-based JavaScript callbacks are Node modules that are located in your project&apos;s <em>root/source/callbacks</em> folder, which Trio calls asynchronously using <em>async/await</em> when it encounters an HTML tag decorated with the
-                    <em>data-trio-callback</em> attribute.</p>
+                <p>Trio scans your composites for tags decorated with the <em>data-trio-callback</em> attribute and calls the modules they name in the root/source/callbacks folder <em>asynchronously</em> with a single object whose properties can be used
+                    along with cheerio to manipulate the composite <em>as if you were actually using jQuery to manipulate the DOM</em>.</p>
+
+                <p><mark>Internally Trio treats all you assets&apos; markup as simple text, and parses it using jQuery-like selector semantics using the awesome OS library called <a class="doc-page__decorated-link" target="_blank" href="https://www.npmjs.com/package/cheerio"><em>cheerio</em></a>. If you have ever used jQuery then you should already know how to use cheerio&apos;s selector semantics. If you have never used jQuery then you can learn its selector semantics by visiting <a href="https://jquery.com/">jquery.com</a>.</mark></p>
 
                 <figure>
                     <pre><code class="JavaScript">/*
@@ -166,7 +168,7 @@ module.exports = ({ $tag, site }) =&gt; {
             `);
     });
 };</code></pre>
-                    <figcaption>Tag-Based JavaScript Callback Example</figcaption>
+                    <figcaption>Tag-based callback Example</figcaption>
                 </figure>
 
                 <ul>
@@ -174,13 +176,13 @@ module.exports = ({ $tag, site }) =&gt; {
                     <li><strong>file type/content</strong>: .js/JavaScript</li>
                 </ul>
 
-                <h2>Declaring Tag-Based JavaScript Callbacks</h2>
+                <h2>Declaring Tag-Based Callbacks</h2>
 
-                <p>Declaring a tag-based JavaScript callback is as simple as picking any tag in a template, fragment or include asset and decorating it with the <em>data-trio-callback</em> attribute and assigning it the name of a callback in the <em>root/source/callbacks</em>                    folder:</p>
+                <p>Declaring a tag-based callback is as simple as picking any tag in a template, fragment or include asset and decorating it with the <em>data-trio-callback</em> attribute and assigning it the name of a callback in the <em>root/source/callbacks</em>                    folder:</p>
 
                 <figure>
                     <pre><code class="html">&lt;ul data-trio-callback=&quot;blogtaglist&quot;&gt;&lt;/ul&gt;</code></pre>
-                    <figcaption>Declaring A Tag-Based JavaScript Callback Example</figcaption>
+                    <figcaption>Declaring A Tag-based callback Example</figcaption>
                 </figure>
 
                 <h2>Implementing Callbacks</h2>
@@ -277,18 +279,17 @@ module.exports = ({ $tag, site }) =&gt; {
                     <figcaption>Targeting A Tag&apos;s Content Using $tag Example </figcaption>
                 </figure>
 
-                <h2>Declaring Internal Dependencies To Trigger Incremental Builds</h2>
+                <h2 id="declaringinternaldependencies">Declaring Internal Dependencies To Trigger Incremental Builds</h2>
 
-                <p>When using incremental build, Trio will detect that you have made modifications to your tag-based JavaScript callbacks, and it will trigger a build to regenerate only those pages whose assets relate by way of their chains of dependencies
-                    to the callback. However, Trio will not automatically trigger a build when:</p>
+                <p>When using incremental build, Trio will detect that you have made modifications to your tag-based callbacks, and it will trigger a build to regenerate only those pages whose assets relate by way of their chains of dependencies to the callback.
+                    However, Trio will not automatically trigger a build when:</p>
 
                 <ul>
-                    <li> it detects that you have made modifications to modules that your tag-based JavaScript callbacks might requires, such as to a library that you created in root/source/callbacks/lib</li>
-                    <li> it detects that you have made modifications to JSON files in the root/source/data folder that your tag-based JavaScript callbacks might require</li>
+                    <li> it detects that you have made modifications to modules that your tag-based callbacks might requires, such as to a library that you created in root/source/callbacks/lib</li>
+                    <li> it detects that you have made modifications to JSON files in the root/source/data folder that your tag-based callbacks might require</li>
                 </ul>
 
-                <p>To remedy these 2 situations, you can optionally add front matter to your tag-based JavaScript callbacks, and include in them the properties discussed below, that will inform Trio to trigger a build whenever these internal dependencies
-                    are modified.</p>
+                <p>To remedy these 2 situations, you can optionally add front matter to your tag-based callbacks, and include in them the properties discussed below, that will inform Trio to trigger a build whenever these internal dependencies are modified.</p>
 
                 <h3>Declaring Your Module Dependencies</h3>
                 <p>Declare your module dependencies using the <mark>moduleDependencies</mark> property.</p>
@@ -316,9 +317,10 @@ dataDependencies:
 
                 <ul>
                     <li><a href="/gettriossg/docs/v1/fragment">Fragment</a></li>
-                    <li><a href="/gettriossg/docs/v1/htmltagattributes">HTML Tag Attributes</a></li>
-                    <li><a href="/gettriossg/docs/v1/yamlfrontmatter">YAML Front Matter</a></li>
+                    <li><a href="/gettriossg/docs/v1/tagattributes">Tag Attributes</a></li>
+                    <li><a href="/gettriossg/docs/v1/yamlfrontmatter">Front Matter</a></li>
                     <li><a href="/gettriossg/docs/v1/metadata">Metadata</a></li>
+                    <li><a href="/gettriossg/docs/v1/incrementalbuild">Incremental Build</a></li>
                     <li><a target="_blank" href="https://www.npmjs.com/package/cheerio">cheerio</a></li>
                 </ul>
             </section>
@@ -330,7 +332,7 @@ dataDependencies:
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
             <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-9 15:57:41.</span> </p>
+                    <p>Page Updated: <span>2019-6-11 17:08:36.</span> </p>
                 </section>
             </footer>
         </article>
