@@ -23,8 +23,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.3c6adea05156bc7fcb0e4671b793b407.css">
-    <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
+    <link rel="stylesheet" href="/gettriossg/css/main.051791c037820028ccba5749c5e08703.css">
+    <script src="/gettriossg/scripts/highlight.pack.e497281e462342b50ccbb59b462856dd.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script>
@@ -35,14 +35,14 @@
         <section class="container header__container">
             <input class="hamburger-checkbox header__hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
             <label class="hamburger-helper header__hamburger-container" for="hamburger-checkbox">
-            <div class="hamburger">
-                <div class="hamburger__bun">
-                    <div class="hamburger__patty"></div>
-                    <div class="hamburger__patty"></div>
-                    <div class="hamburger__patty"></div>
+                <div class="hamburger">
+                    <div class="hamburger__bun">
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                    </div>
                 </div>
-            </div>
-        </label>
+            </label>
             <div class="header__promo">
                 <img class="header__promo-image" src="/gettriossg/media/trio-icon.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
                 <div class="header__promo-text">Trio
@@ -70,11 +70,11 @@
             <section class="doc-page-index__container">
                 <h2 class="doc-page-index__container-header">Trio v1</h2>
                 <label class="doc-page-index__container-header-version" for="versions">
-                        <select class="doc-page__header-version" name="versions" id="versions">
-                            <option value="v1">v1</option>
-                            <option value="prior v1">prior v1</option>
-                        </select>
-                    </label>
+                    <select class="doc-page__header-version" name="versions" id="versions">
+                        <option value="v1">v1</option>
+                        <option value="prior v1">prior v1</option>
+                    </select>
+                </label>
                 <aside class="doc-page-index__list-container">
                     <ul class="doc-page-index__list">
                         <li class="doc-page-index__list-item">
@@ -82,11 +82,11 @@
                         </li>
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/gettingstarted">Getting
-                                    Started</a>
+                                Started</a>
                         </li>
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/keyconcepts">Key
-                                    Concepts</a>
+                                Concepts</a>
                         </li>
                         <li class="doc-page-index__list-item">
                             <a class="doc-page-index__list-item-link" href="/gettriossg/docs/v1/guides">Guides</a>
@@ -184,8 +184,7 @@
                 <p>The <em>matter.excerpt</em> property is a string which contains the HTML, if any, from the front matter&apos;s excerpt.</p>
 
                 <h3>fragment.id</h3>
-                <p>The <em>id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory,
-                    fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
+                <p>The <em>id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory, fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
 
                 <h3>fragment.destPath</h3>
                 <p>The <em>destPath</em> property contains the path to the page in the the public folder.</p>
@@ -221,8 +220,7 @@
                 <p>The <em>related[n].title</em> property is the related article&apos;s title.</p>
 
                 <h5>fragment.relatedArticlesByCategory.related[n].id</h5>
-                <p>The <em>related[n].id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory,
-                    fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
+                <p>The <em>related[n].id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory, fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
 
                 <h5>fragment.relatedArticlesByCategory.related[n].excerpt</h5>
                 <p>The <em>related[n].excerpt</em> property is a string which contains the HTML, if any, from the front matter&apos;s excerpt.</p>
@@ -246,15 +244,13 @@
                 <p>The <em>related[n].title</em> property is the related article&apos;s title.</p>
 
                 <h5>fragment.relatedArticlesByTag[n].related[n].id</h5>
-                <p>The <em>related[n].id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory,
-                    fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
+                <p>The <em>related[n].id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory, fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
 
                 <h5>fragment.relatedArticlesByTag[n].related[n].excerpt</h5>
                 <p>The <em>related[n].excerpt</em> property is a string which contains the HTML, if any, from the front matter&apos;s excerpt.</p>
 
                 <h3>fragment.relatedArticlesByTagFlattened</h3>
-                <p>The <em>relatedArticlesByTagFlattened</em> property is an array that catalogs other articles related to this article and is similar to <em>fragment.relatedArticlesByTag</em> but flattened for when you aren&apos;t concerned about each related
-                    article&apos;s tag.</p>
+                <p>The <em>relatedArticlesByTagFlattened</em> property is an array that catalogs other articles related to this article and is similar to <em>fragment.relatedArticlesByTag</em> but flattened for when you aren&apos;t concerned about each related article&apos;s tag.</p>
 
                 <h4>fragment.relatedArticlesByTagFlattened[n].related</h4>
                 <p>The <em>relatedArticlesByTagFlattened[n].related</em> property is an array of relate articles.</p>
@@ -269,8 +265,7 @@
                 <p>The <em>related[n].title</em> property is the related article&apos;s title.</p>
 
                 <h5>fragment.relatedArticlesByTagFlattened[n].related[n].id</h5>
-                <p>The <em>related[n].id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory,
-                    fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
+                <p>The <em>related[n].id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory, fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
 
                 <h5>fragment.relatedArticlesByTagFlattened.related[n].excerpt</h5>
                 <p>The <em>related[n].excerpt</em> property is a string which contains the HTML, if any, from the front matter&apos;s excerpt.</p>
@@ -300,7 +295,7 @@
                 <p>The <em>articlesCount</em> property is an integer whose value is the site&apos;s total number of blog articles.</p>
 
                 <h3>articlesCatalog</h3>
-                <p>Only relevant for blog sites, the <em>articlesCatalog</em> property is an array that catalogs the site&apos;s blog article&apos;s sorted in ascending order by article date and article title. See <a class="doc-page__decorated-link" href="./#fragment">Property fragment</a>                    above for information pertaining to each array item&apos;s format.</p>
+                <p>Only relevant for blog sites, the <em>articlesCatalog</em> property is an array that catalogs the site&apos;s blog article&apos;s sorted in ascending order by article date and article title. See <a class="doc-page__decorated-link" href="./#fragment">Property fragment</a> above for information pertaining to each array item&apos;s format.</p>
 
                 <h3>categoriesCatalog</h3>
                 <p>Only relevant for blog sites that use categories, the <em>categoriesCatalog</em> property is an array that catalogs the site&apos;s blog articles grouped in ascending order by category.</p>
@@ -321,8 +316,7 @@
                 <p>The <em>related[n].title</em> property is the related article&apos;s title.</p>
 
                 <h5>categoriesCatalog.related[n].id</h5>
-                <p>The <em>related[n].id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory,
-                    fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
+                <p>The <em>related[n].id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory, fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
 
                 <h5>categoriesCatalog.related[n].excerpt</h5>
                 <p>The <em>related[n].excerpt</em> property is a string which contains the HTML, if any, from the front matter&apos;s excerpt.</p>
@@ -346,15 +340,13 @@
                 <p>The <em>related[n].title</em> property is the related article&apos;s title.</p>
 
                 <h5>tagsCatalog.related[n].id</h5>
-                <p>The <em>related[n].id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory,
-                    fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
+                <p>The <em>related[n].id</em> property is an integer whose value is the unique ID. It is used internally by Trio. It can be used to filter for fragments from frags, articlesCatalog, categoriesCatalog, tagsCatalog, fragment.relatedArticlesByCategory, fragment.relatedArticlesByTag and fragmentRelatedArticlesByTagFlattened. Do not rely on this value to remain constant from one build to next. <mark>Always retrieve it from the front matter directly</mark>.</p>
 
                 <h5>tagsCatalog.related[n].excerpt</h5>
                 <p>The <em>related[n].excerpt</em> property is a string which contains the HTML, if any, from the front matter&apos;s excerpt.</p>
 
                 <h3>dataCatalog</h3>
-                <p>The <em>dataCatalog</em> property is an array that catalogs the site&apos;s JSON files in root/source/data along with their content. Each item in the array represents a single JSON file. Please note that this catalog is not persisted to
-                    the root/trio.manifest.json file. See <a class="doc-page__decorated-link" href="/gettriossg/docs/v1/jsondata">JSON Data</a> for more information.</p>
+                <p>The <em>dataCatalog</em> property is an array that catalogs the site&apos;s JSON files in root/source/data along with their content. Each item in the array represents a single JSON file. Please note that this catalog is not persisted to the root/trio.manifest.json file. See <a class="doc-page__decorated-link" href="/gettriossg/docs/v1/jsondata">JSON Data</a> for more information.</p>
 
                 <h2>See Also</h2>
 
@@ -370,8 +362,8 @@
                     <p>&#xA9;2018 Jeffrey Schwartz All Rights Reserved.</p>
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
-            <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>2019-6-15 10:19:02.</span> </p>
+                            <strong>Trio <span>v0.0.6</span></strong></a>.</p>
+                    <p>Page Updated: <span>6/16/2019, 5:04:12 PM.</span> </p>
                 </section>
             </footer>
         </article>

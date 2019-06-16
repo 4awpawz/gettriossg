@@ -24,8 +24,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.3c6adea05156bc7fcb0e4671b793b407.css">
-    <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
+    <link rel="stylesheet" href="/gettriossg/css/main.051791c037820028ccba5749c5e08703.css">
+    <script src="/gettriossg/scripts/highlight.pack.e497281e462342b50ccbb59b462856dd.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script>
@@ -41,14 +41,14 @@
                 </div>
             </div>
             <label class="hamburger-helper" for="hamburger-checkbox">
-            <div class="hamburger header-hamburger">
-                <div class="hamburger__bun">
-                    <div class="hamburger__patty"></div>
-                    <div class="hamburger__patty"></div>
-                    <div class="hamburger__patty"></div>
+                <div class="hamburger header-hamburger">
+                    <div class="hamburger__bun">
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                    </div>
                 </div>
-            </div>
-        </label>
+            </label>
             <input class="hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
             <nav class="header__nav">
                 <ul class="header__nav-items">
@@ -68,9 +68,7 @@
     <section class="container">
         <main class="learnhowto">
             <h1 id="create-a-web-page">Create A Web Page</h1>
-            <p><strong>!</strong> Please review <a href="/gettriossg/docs/learn/howpagesarecomposed">How Pages Are Composed</a>, <a href="/gettriossg/docs/learn/frontmatter">Front Matter</a>, <a href="/gettriossg/docs/learn/metadata">Metadata</a> and
-                <a
-                    href="/gettriossg/docs/learn/javascriptcallbacks">JavaScript Callbacks</a> before proceeding with this exercise.</p>
+            <p><strong>!</strong> Please review <a href="/gettriossg/docs/learn/howpagesarecomposed">How Pages Are Composed</a>, <a href="/gettriossg/docs/learn/frontmatter">Front Matter</a>, <a href="/gettriossg/docs/learn/metadata">Metadata</a> and <a href="/gettriossg/docs/learn/javascriptcallbacks">JavaScript Callbacks</a> before proceeding with this exercise.</p>
             <h2 id="1-create-a-page-template">1. Create A Page Template</h2>
             <p>In your project&apos;s source/templates folder, create a new file named default.html and copy and paste the following markup into it.</p>
             <pre><code class="language-html">&lt;!DOCTYPE html&gt;
@@ -335,8 +333,7 @@ appendToTarget: true
 * Zambia
 * Zimbabwe</code></pre>
             <h3 id="add-the-include-to-our-page-template">Add The Include To Our Page Template</h3>
-            <p>Now we have to add our new include file source/includes/countries.md to our page template source/templates/default.html. We do so by adding a new tag that is adorned with the attribute data-trio-include=&quot;countries.md&quot;. In this exercise
-                we will use another section tag for this.</p>
+            <p>Now we have to add our new include file source/includes/countries.md to our page template source/templates/default.html. We do so by adding a new tag that is adorned with the attribute data-trio-include=&quot;countries.md&quot;. In this exercise we will use another section tag for this.</p>
             <p>Using your code editor, open the page template source/templates/default.html and append the section tag displayed below </p>
             <pre><code class="language-html">&lt;section data-trio-include=&quot;countries.md&quot;&gt;&lt;/section&gt;</code></pre>
             <p>to our page template source/templates/default.html so that it now looks like the following.</p>
@@ -358,14 +355,12 @@ appendToTarget: true
 &lt;/body&gt;
 
 &lt;/html&gt;</code></pre>
-            <p>Because we are still serving our project the browser should now render our list of countries as shown below. If for some reason your browser isn&apos;t showing these changes, from your terminal please run <code>trio b &amp;&amp; trio s</code>                from your project&apos;s root folder.</p>
+            <p>Because we are still serving our project the browser should now render our list of countries as shown below. If for some reason your browser isn&apos;t showing these changes, from your terminal please run <code>trio b &amp;&amp; trio s</code> from your project&apos;s root folder.</p>
             <img src="/gettriossg/media/helloworldandlistofcountries.1e6e5092cfeaa7ff53e10bd970d31aec.png">
 
             <h2 id="5-adding-content-dynamically-using-javascript-and-metadata">5. Adding Content Dynamically Using JavaScript And Metadata</h2>
-            <p>In step 4 above we created an include to add our list of countries to our page. While it is a perfectly acceptable to do it that way, the sad truth is that countries have to be added and removed from the list as the geopolitical nature of
-                the world changes. A better approach would be to periodically get the list from some online database, maybe by creating an NPM task that queries the United Nations countries database, and save the results of the query as a JSON file. For
-                this part of our exercise we are going to pretend that we did query a database and did get the results which we saved in the file source/data/countries.json.</p>
-            <h3 id="create-source-data-countries-json">Create source/data/countries.json</h3>
+            <p>In step 4 above we created an include to add our list of countries to our page. While it is a perfectly acceptable to do it that way, the sad truth is that countries have to be added and removed from the list as the geopolitical nature of the world changes. A better approach would be to periodically get the list from some online database, maybe by creating an NPM task that queries the United Nations countries database, and save the results of the query as a JSON file. For this part of our exercise we are going to pretend that we did query a database and did get the results which we saved in the file source/data/countries.json.</p>
+            <h3 id="create-sourcedatacountriesjson">Create source/data/countries.json</h3>
             <p>We will mock the results of our imaginary query of an online countries database so create the file source/data/countries.json and copy and paste the JSON array of countries below to the file.</p>
             <pre><code class="language-json">[&quot;Afghanistan&quot;,
 &quot;Albania&quot;,
@@ -562,7 +557,8 @@ appendToTarget: true
 &quot;Zimbabwe&quot;]</code></pre>
             <h3 id="create-the-javascript-callback">Create The JavaScript Callback</h3>
             <p>Next we will create our JavaScript callback to dynamically add our JSON array of countries to our page.</p>
-            <p>Create the file source/callbacks/countries.js, open it in your editor and copy and paste the following JavaScript code into the file.</p>
+            <p>Create the file source/callbacks/countries.js, open it in your editor and copy and paste the following JavaScript code
+                into the file.</p>
             <pre><code class="language-javascript">module.exports = ({ $, site }) =&gt; {
     const countries = site.dataCatalog.countries;
     let $target = $(&quot;#hello-world&quot;);
@@ -640,11 +636,8 @@ callback: countries
             <pre><code class="language-shell">trio b &amp;&amp; trio s</code></pre>
             <p>and once again you should see the page rendered but this time with an ordered list of countries.</p>
             <h3 id="summary">Summary</h3>
-            <p>Being able to compose web pages using just JavaScript and metadata is perhaps one of the best and most empowering features of Trio. The code responsible for dynamically composing web pages are neatly encapsulated in their own JavaScript modules
-                and our markup remains clean, uncluttered and free of template tags peppered throughout. This separation of concerns leads to a project that is easier to reason about and more maintainable.</p>
-            <p>We&apos;ve only just scratched the surface with this exercise. There is no end to what you can achieve with Trio&apos;s approach to composing web pages using JavaScript and metadata. Thinking about creating a portfolio? Callbacks and JSON
-                data catalogs will make it a snap. Thinking about creating a kick ass blog for yourself or your company, well Trio has you covered there as well as it has an extensive array of blog-specific metadata to help you build out your blog which
-                we will explore in the <a href="/gettriossg/docs/learn/buildingablog">Building A Blog</a> guide.</p>
+            <p>Being able to compose web pages using just JavaScript and metadata is perhaps one of the best and most empowering features of Trio. The code responsible for dynamically composing web pages are neatly encapsulated in their own JavaScript modules and our markup remains clean, uncluttered and free of template tags peppered throughout. This separation of concerns leads to a project that is easier to reason about and more maintainable.</p>
+            <p>We&apos;ve only just scratched the surface with this exercise. There is no end to what you can achieve with Trio&apos;s approach to composing web pages using JavaScript and metadata. Thinking about creating a portfolio? Callbacks and JSON data catalogs will make it a snap. Thinking about creating a kick ass blog for yourself or your company, well Trio has you covered there as well as it has an extensive array of blog-specific metadata to help you build out your blog which we will explore in the <a href="/gettriossg/docs/learn/buildingablog">Building A Blog</a> guide.</p>
         </main>
         <br>
         <a href="/gettriossg/docs/learn">&lt;&#xA0;Back To Learning Guides</a>
@@ -656,8 +649,8 @@ callback: countries
             <p>&#xA9;2018 Jeffrey Schwartz All Rights Reserved.</p>
             <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
             <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
-            <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-            <p>Page Updated: <span>2019-6-15 10:19:02.</span> </p>
+                    <strong>Trio <span>v0.0.6</span></strong></a>.</p>
+            <p>Page Updated: <span>6/16/2019, 5:04:12 PM.</span> </p>
         </div>
     </footer>
 

@@ -24,11 +24,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.3c6adea05156bc7fcb0e4671b793b407.css">
-    <script src="/gettriossg/scripts/highlight.pack.1f6d7ae76e52ec021f735faef0330f59.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad();
-    </script>
+    <link rel="stylesheet" href="/gettriossg/css/main.051791c037820028ccba5749c5e08703.css">
+    <script src="/gettriossg/scripts/highlight.pack.e497281e462342b50ccbb59b462856dd.js"></script>
 </head>
 
 <body>
@@ -36,14 +33,14 @@
         <section class="container header__container">
             <input class="hamburger-checkbox header__hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
             <label class="hamburger-helper header__hamburger-container" for="hamburger-checkbox">
-            <div class="hamburger">
-                <div class="hamburger__bun">
-                    <div class="hamburger__patty"></div>
-                    <div class="hamburger__patty"></div>
-                    <div class="hamburger__patty"></div>
+                <div class="hamburger">
+                    <div class="hamburger__bun">
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                    </div>
                 </div>
-            </div>
-        </label>
+            </label>
             <div class="header__promo">
                 <img class="header__promo-image" src="/gettriossg/media/trio-icon.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
                 <div class="header__promo-text">Trio
@@ -81,9 +78,7 @@
         <article class="benefit-1">
             <section class="container">
                 <h2>Build your static site using just the fundamental building blocks of the web!</h2>
-                <p>You use <em>HTML</em>, <em>CSS</em> and <em>JavaScript</em> to prototype and implement your design, which makes Trio the perfect tool for those who love to design in the browser.<br><br>Trio&apos;s use of common metaphors for its project
-                    assets, its approach to page composition, its organized collections of metadata and its tag-based callback mechanism serve to create an easy to learn and use, highly adaptable and powerful platform upon which to create your static
-                    sites.</p>
+                <p>You use <em>HTML</em>, <em>CSS</em> and <em>JavaScript</em> to prototype and implement your design, which makes Trio the perfect tool for those who love to design in the browser.<br><br>Trio&apos;s use of common metaphors for its project assets, its approach to page composition, its organized collections of metadata and its tag-based callback mechanism serve to create an easy to learn and use, highly adaptable and powerful platform upon which to create your static sites.</p>
             </section>
         </article>
 
@@ -111,14 +106,13 @@
         <article class="benefit-2">
             <section class="container benefit-2__copy-container">
                 <h2 class="benefit-2__copy-title">Extend Your Composites Using Tag-Based JavaScript (ES6+) Callbacks!</h2>
-                <p class="benefit-2__copy">Trio doesn&apos;t require a templating engine or a front-end framework for extending your composites. Instead, Trio exposes its <em>tag-based callback mechanism</em>.<br><br>Include the <em>data-trio-callback attribute</em> in any HTML
-                    tag and Trio will call the JavaScript module that it names, passing it the tag, and the metadata that Trio has collected.</p>
+                <p class="benefit-2__copy">Trio doesn&apos;t require a templating engine or a front-end framework for extending your composites. Instead, Trio exposes its <em>tag-based callback mechanism</em>.<br><br>Include the <em>data-trio-callback attribute</em> in any HTML tag and Trio will call the JavaScript module that it names, passing it the tag, and the metadata that Trio has collected.</p>
 
             </section>
             <section class="container">
                 <aside class="benefit-2__sample">
                     <h3 class="benefit-2__sample-title">Fragment asset source/fragments/products.html:</h3>
-                    <pre class="benefit-2__sample-example"><code class="benefit-2__sample-example-code">&lt;!--
+                    <pre class="html benefit-2__sample-example"><code class="html benefit-2__sample-example-code">&lt;!--
 template: products.html
 title: Products By Category
 appendToTarget: true
@@ -134,14 +128,14 @@ data: productsByCategory.json
 &lt;/ul&gt;
         </code></pre>
                     <h3 class="benefit-2__sample-title">Template asset source/templates/products.html:</h3>
-                    <pre class="benefit-2__sample-example"><code class="benefit-2__sample-example-code">&lt;!DOCTYPE html&gt;
+                    <pre class="benefit-2__sample-example"><code class="html benefit-2__sample-example-code">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
     &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
     &lt;title&gt;Document&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.3c6adea05156bc7fcb0e4671b793b407.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.051791c037820028ccba5749c5e08703.css&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;main&gt;
@@ -151,7 +145,7 @@ data: productsByCategory.json
 &lt;/html&gt;
         </code></pre>
                     <h3 class="benefit-2__sample-title">JSON asset source/data/productsByCategory.json:</h3>
-                    <pre class="benefit-2__sample-example"><code class="benefit-2__sample-example-code">[
+                    <pre class="benefit-2__sample-example"><code class="json benefit-2__sample-example-code">[
     {
         &quot;category&quot;: &quot;fruit&quot;,
         &quot;name&quot;: &quot;Red Delicious Apple&quot;,
@@ -178,7 +172,7 @@ data: productsByCategory.json
     },
     ...</code></pre>
                     <h3 class="benefit-2__sample-title">Tag-based JavaScript asset source/callbacks/listAllProductsByCategory.js:</h3>
-                    <pre class="benefit-2__sample-example"><code class="benefit-2__sample-example-code">module.exports = ({$tag, site}) =&gt;
+                    <pre class="benefit-2__sample-example"><code class="javascript benefit-2__sample-example-code">module.exports = ({$tag, site}) =&gt;
     site.dataCatalog.productsByCategory
         .filter(prod =&gt; prod.inStock)
         .forEach(prod =&gt; $tag.append(`
@@ -189,8 +183,7 @@ data: productsByCategory.json
             &lt;/li&gt;
         `));
         </code></pre>
-                    <h3 class="benefit-2__sample-title">Trio creates a composite from the above template and fragment assets. It then calls the tag-based callback declared in the fragment asset. The tag-based callback then extends the composite using the data from the productsByCategory.json
-                        file to produce the &quot;Product List By Category&quot; report.</h3>
+                    <h3 class="benefit-2__sample-title">Trio creates a composite from the above template and fragment assets. It then calls the tag-based callback declared in the fragment asset. The tag-based callback then extends the composite using the data from the productsByCategory.json file to produce the &quot;Product List By Category&quot; report.</h3>
                     <img src="/gettriossg/media/homepage_demoProductsByCategory.c68aa6709359c013f0746c9dd4548eab.png" alt="demo products by category image">
                 </aside>
             </section>
@@ -199,8 +192,7 @@ data: productsByCategory.json
         <article class="benefit-3">
             <section class="container">
                 <h2>Create Modern-Day Blogs With The Features That Your Readers Have Come To Expect</h2>
-                <p>Trio was built from the ground up to be used as a blogging platform.<br><br>So features, such as article categories and tags, category, tag, and archive pages, article page navigation, are a snap to implement using Trio&apos;s structured
-                    blog-specific metadata and its tag-based callback mechanism.</p>
+                <p>Trio was built from the ground up to be used as a blogging platform.<br><br>So features, such as article categories and tags, category, tag, and archive pages, article page navigation, are a snap to implement using Trio&apos;s structured blog-specific metadata and its tag-based callback mechanism.</p>
             </section>
         </article>
     </main>
@@ -211,10 +203,13 @@ data: productsByCategory.json
             <p>&#xA9;2018 Jeffrey Schwartz All Rights Reserved.</p>
             <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
             <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
-            <strong>Trio <span>v0.0.6</span></strong></a>.</p>
-            <p>Page Updated: <span>2019-6-15 10:19:02.</span> </p>
+                    <strong>Trio <span>v0.0.6</span></strong></a>.</p>
+            <p>Page Updated: <span>6/16/2019, 5:04:12 PM.</span> </p>
         </div>
     </footer>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
 
 </body>
 
