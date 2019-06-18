@@ -20,29 +20,21 @@
     <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
     <meta name="author" content="Jeffrey Schwartz">
     <meta name="generator" content="Trio v1.0.0-rc.1">
-    <title>Trio v0.0.1 Released</title>
+    <title>Trio Expo</title>
     <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
     <link rel="stylesheet" href="/gettriossg/css/main.894633e85b453e33e6c744be3d64f2b5.css">
     <script src="/gettriossg/scripts/highlight.pack.e497281e462342b50ccbb59b462856dd.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad();
-    </script>
 </head>
 
 <body>
     <header class="header header--fixed">
-        <div class="container">
-            <div class="header__promo">
-                <div class="header__promo-text">Trio
-                    <span class="header__promo-text-version">v1.0.0-rc.1</span>
-                    <span class="header__promo-text-version-name">Ikigai</span>
-                </div>
-            </div>
-            <label class="hamburger-helper" for="hamburger-checkbox">
-                <div class="hamburger header-hamburger">
+        <section class="container header__container">
+            <input class="hamburger-checkbox header__hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <label class="hamburger-helper header__hamburger-container" for="hamburger-checkbox">
+                <div class="hamburger">
                     <div class="hamburger__bun">
                         <div class="hamburger__patty"></div>
                         <div class="hamburger__patty"></div>
@@ -50,7 +42,13 @@
                     </div>
                 </div>
             </label>
-            <input class="hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <div class="header__promo">
+                <img class="header__promo-image" src="/gettriossg/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
+                <div class="header__promo-text">Trio
+                    <span class="header__promo-text-version">v1.0.0-rc.1</span>
+                    <span class="header__promo-text-version-name">(Ikigai)</span>
+                </div>
+            </div>
             <nav class="header__nav">
                 <ul class="header__nav-items">
                     <li class="header__nav-item">
@@ -60,21 +58,23 @@
                         <a class="header__nav-item-link" href="/gettriossg/docs/v1/">Docs</a>
                     </li>
                     <li class="header__nav-item header__nav-item--active">
+                        <a id="trio-blog-link" class="header__nav-item-link" href="/gettriossg/expo">Expo</a>
+                    </li>
+                    <li class="header__nav-item">
                         <a id="trio-blog-link" class="header__nav-item-link" href="/gettriossg/blog">Blog</a>
                     </li>
                 </ul>
             </nav>
-        </div>
+        </section>
     </header>
-    <section class="container">
-        <main class="learnhowto article">
-            <h1 id="trio-v001-is-now-public">Trio v0.0.1 Is Now Public</h1>
-            <p>I am very excited to announce the first public release of Trio, v0.0.1, on <a target="_blank" href="https://www.npmjs.com/package/@4awpawz/trio">NPM</a>. This release represents the culmination of months of work, not only on the code base itself but also on the documentation and the example blog.</p>
-            <p>In the coming weeks I will be publishing a series of &quot;how to&quot; articles and videos that demonstrate using Trio to create static web sites.</p>
-            <p>Trio is an open source project and it needs you, the community, to provide feedback, suggest new features and report issues and bugs. Please don&apos;t hesitate doing so <a target="_blank" href="https://github.com/4awpawz/trio/issues">here</a> and you can also reach <a target="_blank" href="https://twitter.com/jefftschwartz">me</a> on Twitter.</p>
-            <p>Pardon the shameless plug but if you enjoy using Trio please consider starring the <a target="_blank" href="https://github.com/4awpawz/trio">repo</a> and spreading the word :).</p>
-        </main>
-    </section>
+    <main class="container">
+        <h1 class="expo__title">Trio Expo</h1>
+
+        <section class="under-construction under-construction--constrained">
+            <p>Under</p>
+            <p>Construction</p>
+        </section>
+    </main>
     <footer class="footer">
         <div class="container">
             <p>Created by <a target="_blank" href="https://twitter.com/jefftschwartz"> <strong>@jefftschwartz</strong></a></p>
@@ -86,6 +86,9 @@
             <p>Page Updated: <span>6/18/2019, 12:32:28 PM.</span> </p>
         </div>
     </footer>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
 
 </body>
 
