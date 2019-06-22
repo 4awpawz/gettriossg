@@ -146,15 +146,17 @@
             <section class="doc-page-content__copy">
                 <h1>Page Generation</h1>
 
-                <p>When Trio outputs pages to the root/public folder, it employs a convention that results in URLs that are <a href="https://en.wikipedia.org/wiki/Permalink" target="_blank">permalink</a> friendly and easy to share externally, such as on social media or via email.</p>
+                <p>When Trio outputs pages to the file system, either to the public or to the release folders, it employs a folder structure and file naming convention that results in URLs that are <a href="https://en.wikipedia.org/wiki/Permalink" target="_blank">permalink</a> friendly and easy to share externally, such as on social media or via email.</p>
+
+                <p>For the remainder of this discussion, the folder named <em>target</em> is used to represent both the public or the release folders that Trio writes to. In both instances, Trio employs the same conventions, which is explained below.</p>
 
                 <h2>For Non Blog Article Pages</h2>
 
                 <ul>
-                    <li>File <em>source/fragments/index.md</em> would be output to <em>public/index.html</em> and its URL would be <em>/</em>.</li>
-                    <li>File <em>source/fragments/about.md</em> would be output to <em>public/about/index.html</em> and its URL would be <em>/about</em>.</li>
-                    <li>File <em>source/fragments/abc/index.md</em> would be output to <em>public/abc/index.html</em> and its URL would be <em>/abc</em>.</li>
-                    <li>File <em>source/fragments/abc/contact.md</em> would be output to <em>public/abc/contact/index.html</em> and its URL would be <em>/abc/contact</em>.</li>
+                    <li>File <em>source/fragments/index.md</em> would be output to <em>target/index.html</em> and its URL would be <em>/</em>.</li>
+                    <li>File <em>source/fragments/about.md</em> would be output to <em>target/about/index.html</em> and its URL would be <em>/about</em>.</li>
+                    <li>File <em>source/fragments/abc/index.md</em> would be output to <em>target/abc/index.html</em> and its URL would be <em>/abc</em>.</li>
+                    <li>File <em>source/fragments/abc/contact.md</em> would be output to <em>target/abc/contact/index.html</em> and its URL would be <em>/abc/contact</em>.</li>
                 </ul>
 
                 <p><mark>As the examples above demonstrate, when Trio creates your non blog-related pages, Trio will create the appropriate parent folders for the page if they don&apos;t already exist.</mark></p>
@@ -168,9 +170,9 @@
                         <li><strong>mm</strong>: is the 2 digit month</li>
                         <li><strong>dd</strong>: is the 2 digit day</li>
                     </ul>
-                    <li>File <em>source/fragments/blog/articles/2018-11-18-articlename.md</em> would be output to <em>public/blog/2018/11/18/articlename/index.html</em> and its URL would be <em>/blog/2018/11/18/articlename/</em>.
+                    <li>File <em>source/fragments/blog/articles/2018-11-18-articlename.md</em> would be output to <em>target/blog/2018/11/18/articlename/index.html</em> and its URL would be <em>/blog/2018/11/18/articlename/</em>.
                     </li>
-                    <li>File <em>source/fragments/blog/articles/2018-11-18-articlename.md</em> declares <em>category: abc</em> in its front matter and would be output to <em>public/blog/abc/2018/11/18/articlename/index.html</em> and its URL would be <em>/blog/abc/2018/11/18/articlename/</em>.</li>
+                    <li>File <em>source/fragments/blog/articles/2018-11-18-articlename.md</em> declares <em>category: abc</em> in its front matter and would be output to <em>target/blog/abc/2018/11/18/articlename/index.html</em> and its URL would be <em>/blog/abc/2018/11/18/articlename/</em>.</li>
                 </ul>
 
                 <p><mark>As the examples above demonstrate, when Trio creates your blog-related pages, Trio will create the appropriate parent folders for the page if they don&apos;t already exist.</mark></p>
@@ -218,7 +220,7 @@
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
                             <strong>Trio <span>v1.0.0-rc.1</span></strong></a>.</p>
-                    <p>Page Updated: <span>6/22/2019, 3:36:40 PM.</span> </p>
+                    <p>Page Updated: <span>6/22/2019, 6:39:45 PM.</span> </p>
                 </section>
             </footer>
         </article>
