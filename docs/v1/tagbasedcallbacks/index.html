@@ -148,7 +148,7 @@
 
                 <p>Trio scans your composites for tags decorated with the <em>data-trio-callback</em> attribute and calls the modules they name in the root/source/callbacks folder <em>asynchronously</em> with a single object whose properties can be used along with cheerio to manipulate the composite <em>as if you were actually using jQuery to manipulate the DOM</em>.</p>
 
-                <p><mark>Internally Trio treats all you assets&apos; markup as simple text, and parses it using jQuery-like selector semantics using the awesome OS library called <a class="doc-page__decorated-link" target="_blank" href="https://www.npmjs.com/package/cheerio"><em>cheerio</em></a>. If you have ever used jQuery then you should already know how to use cheerio&apos;s selector semantics. If you have never used jQuery then you can learn its selector semantics by visiting <a href="https://jquery.com/">jquery.com</a>.</mark></p>
+                <p><mark>Internally Trio treats all you assets&apos; markup as simple text, and parses it using jQuery-like selector syntax using the awesome OS library called <a class="doc-page__decorated-link" target="_blank" href="https://www.npmjs.com/package/cheerio"><em>cheerio</em></a>. If you have ever used jQuery then you should already know how to use cheerio&apos;s selector syntax. If you have never used jQuery then you can learn its selector syntax by visiting <a href="https://jquery.com/">jquery.com</a>.</mark></p>
 
                 <figure>
                     <pre><code class="JavaScript">/*
@@ -238,7 +238,7 @@ module.exports = ({ $tag, site }) =&gt; {
     });
     $.find(&quot;div.page-modified-date&quot;).append(new Date().toDateString());
 };</code></pre>
-                    <figcaption>Targeting A Composite&apos;s Content Using $tag Example </figcaption>
+                    <figcaption>Targeting A Composite&apos;s Content Using $tag Example</figcaption>
                 </figure>
 
                 <h3>$tag</h3>
@@ -247,7 +247,7 @@ module.exports = ({ $tag, site }) =&gt; {
                     <pre><code class="js">module.exports = ({ $tag }) =&gt; {
     $tag.append(new Date().toDateString());
 };</code></pre>
-                    <figcaption>Targeting A Tag&apos;s Content Using $tag Example </figcaption>
+                    <figcaption>Targeting A Tag&apos;s Content Using $tag Example</figcaption>
                 </figure>
 
                 <h3>site</h3>
@@ -263,7 +263,7 @@ module.exports = ({ $tag, site }) =&gt; {
         `);
     });
 };</code></pre>
-                    <figcaption>Targeting A Tag&apos;s Content Using $tag Example </figcaption>
+                    <figcaption>Targeting A Tag&apos;s Content Using $tag Example</figcaption>
                 </figure>
 
                 <h3>asset</h3>
@@ -276,12 +276,12 @@ module.exports = ({ $tag, site }) =&gt; {
     $tag.find(&quot;span.article__date&quot;).append(asset.articleDate);
     $tag.find(&quot;img.article__img&quot;).attr(&quot;src&quot;, `/media/${asset.matter.data.image}`);
 };</code></pre>
-                    <figcaption>Targeting A Tag&apos;s Content Using $tag Example </figcaption>
+                    <figcaption>Targeting A Tag&apos;s Content Using $tag Example</figcaption>
                 </figure>
 
                 <h2 id="declaringinternaldependencies">Declaring Internal Dependencies To Trigger Incremental Builds</h2>
 
-                <p>When using incremental build, Trio will detect that you have made modifications to your tag-based callbacks, and it will trigger a build to regenerate only those pages whose assets relate by way of their chains of dependencies to the callback. However, Trio will not automatically trigger a build when:</p>
+                <p>When using incremental build, Trio will detect that you have made modifications to your tag-based callbacks, and it will trigger a build to regenerate only those composites whose assets relate by way of their chains of dependencies to the modified callback. However, Trio will not automatically trigger a build when:</p>
 
                 <ul>
                     <li> it detects that you have made modifications to modules that your tag-based callbacks might requires, such as to a library that you created in root/source/callbacks/lib</li>
@@ -298,7 +298,7 @@ moduleDependencies:
 - ./lib/getDate
 - ./lib/getTime
 */</code></pre>
-                    <figcaption>Declaring Module Dependencies Example </figcaption>
+                    <figcaption>Declaring Module Dependencies Example</figcaption>
                 </figure>
 
                 <h3>Declaring Your JSON Data File Dependencies</h3>
@@ -309,9 +309,23 @@ dataDependencies:
 - contactInfo
 - portfolio
 */</code></pre>
-                    <figcaption>Declaring JSON File Dependencies Example </figcaption>
+                    <figcaption>Declaring JSON File Dependencies Example</figcaption>
                 </figure>
 
+                <h2 id="declaringexternaldependencies">Declaring External Dependencies On Metadata To Trigger Incremental Builds</h2>
+
+                <p>When using incremental build, Trio will detect that you have made modifications to your fragment, include, template and tag-based callback assets, and it will trigger a build to regenerate only those composites whose assets relate by way of their chains of dependencies to those modified assets. However, Trio will not regenerate composites whose own assets haven&apos;t changed but which consume the metadata generated from assets unrelated to this composites. such as for pages that contain lists of other pages (e.g. blog pages, tag pages, category pages, catalog pages, portfolio pages, etc.).</p>
+
+                <p>To remedy this situation, you can add the front matter <em>alwaysBuild</em> property to your fragment&apos;s front matter, which will cause Trio to always regenerate the composite related to the fragment.</p>
+
+                <figure>
+                    <pre><code class="html">&lt;!--
+template: blogpage.html
+title: Trio Blog | Official blog for Trio static site generator.
+alwaysBuild: true
+--&gt;</code></pre>
+                    <figcaption>Using The Front Matter alwaysBuild Property Example</figcaption>
+                </figure>
                 <h2>See Also</h2>
 
                 <ul>
@@ -331,7 +345,7 @@ dataDependencies:
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
                             <strong>Trio <span>v1.0.0-rc.1</span></strong></a>.</p>
-                    <p>Page Updated: <span>6/21/2019, 9:13:29 PM.</span> </p>
+                    <p>Page Updated: <span>6/22/2019, 8:34:54 AM.</span> </p>
                 </section>
             </footer>
         </article>
