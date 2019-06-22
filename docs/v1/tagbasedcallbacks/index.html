@@ -314,7 +314,7 @@ dataDependencies:
 
                 <h2 id="declaringexternaldependencies">Declaring External Dependencies On Metadata To Trigger Incremental Builds</h2>
 
-                <p>When using incremental build, Trio will detect that you have made modifications to your fragment, include, template and tag-based callback assets, and it will trigger a build to regenerate only those composites whose assets relate by way of their chains of dependencies to those modified assets. However, Trio will not regenerate composites whose own assets haven&apos;t changed but which consume the metadata generated from assets unrelated to this composites. such as for pages that contain lists of other pages (e.g. blog pages, tag pages, category pages, catalog pages, portfolio pages, etc.).</p>
+                <p>When using incremental build, Trio will detect that you have made modifications to your fragment, include, template and tag-based callback assets, and it will trigger a build to regenerate only those composites whose assets relate by way of their chains of dependencies to those modified assets. However, Trio will not regenerate composites whose own assets haven&apos;t changed but which consume the metadata generated from modified assets unrelated to these composites, such as when generating pages that contain lists of other pages (e.g. blog pages, tag pages, category pages, catalog pages, portfolio pages, etc.).</p>
 
                 <p>To remedy this situation, you can add the front matter <em>alwaysBuild</em> property to your fragment&apos;s front matter, which will cause Trio to always regenerate the composite related to the fragment.</p>
 
@@ -345,7 +345,7 @@ alwaysBuild: true
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
                             <strong>Trio <span>v1.0.0-rc.1</span></strong></a>.</p>
-                    <p>Page Updated: <span>6/22/2019, 8:34:54 AM.</span> </p>
+                    <p>Page Updated: <span>6/22/2019, 9:03:12 AM.</span> </p>
                 </section>
             </footer>
         </article>
