@@ -25,54 +25,82 @@
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.894633e85b453e33e6c744be3d64f2b5.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.4960fc692f17efedff08e9fd966dcf3a.css">
     <script src="/gettriossg/scripts/highlight.pack.e497281e462342b50ccbb59b462856dd.js"></script>
 </head>
 
 <body>
-    <header class="header header--fixed">
-        <section class="container header__container">
-            <input class="hamburger-checkbox header__hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
-            <label class="hamburger-helper header__hamburger-container" for="hamburger-checkbox">
-                <div class="hamburger">
-                    <div class="hamburger__bun">
-                        <div class="hamburger__patty"></div>
-                        <div class="hamburger__patty"></div>
-                        <div class="hamburger__patty"></div>
-                    </div>
-                </div>
-            </label>
-            <div class="header__promo">
-                <img class="header__promo-image" src="/gettriossg/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
-                <div class="header__promo-text">Trio
-                    <span class="header__promo-text-version">v1.0.0-rc.1</span>
-                    <span class="header__promo-text-version-name">(Ikigai)</span>
-                </div>
-            </div>
-            <nav class="header__nav">
-                <ul class="header__nav-items">
-                    <li class="header__nav-item">
-                        <a class="header__nav-item-link" href="/gettriossg">Home</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a class="header__nav-item-link" href="/gettriossg/docs/v1/">Docs</a>
-                    </li>
-                    <li class="header__nav-item">
-                        <a id="trio-blog-link" class="header__nav-item-link" href="/gettriossg/expo">Expo</a>
-                    </li>
-                    <li class="header__nav-item header__nav-item--active">
-                        <a id="trio-blog-link" class="header__nav-item-link" href="/gettriossg/blog">Blog</a>
-                    </li>
-                </ul>
-            </nav>
-        </section>
-    </header>
-    <main class="container">
-        <h1 class="blog__title">The Trio Blog</h1>
 
-        <section class="under-construction under-construction--constrained">
-            <p>Under</p>
-            <p>Construction</p>
+    <div class="blog-masthead">
+        <a class="blog-masthead__icon" href="/gettriossg/blog"></a>
+        <h1 class="blog-masthead__title">The Trio Blog</h1>
+        <p class="blog-masthead__subtitle">Releases, News, Stories, Gosip</p>
+    </div>
+    <main class="container blog-container">
+        <section class="blog-posts">
+
+            <article class="blog-post">
+                <a class="blog-post__link" href="/gettriossg/blog/releases/2019/06/19/v1.0.0-rc.1/">
+                    <h2 class="blog-post__articleTitle">Trio v1.0.0-rc.1</h2>
+                </a>
+                <div class="blog-post__articleDate">2019-06-19</div>
+                <p class="blog-post__articleExcerpt">This marks the first release candidate for Trio v1. The journey from v0.0.6, which served as a solid proof of concept, to now, has been a long and sometimes difficult one, but in the end I can truly say that it has been a labor of love. I hope you all enjoy it.
+                </p>
+            </article>
+
+            <article class="blog-post">
+                <a class="blog-post__link" href="/gettriossg/blog/releases/2019/01/28/v0.0.6released/">
+                    <h2 class="blog-post__articleTitle">Trio v0.0.6</h2>
+                </a>
+                <div class="blog-post__articleDate">2019-01-28</div>
+                <p class="blog-post__articleExcerpt">This release addresses an issue which would cause etc folder processing to ignore dot files. Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v006">changelog</a> for details.
+                </p>
+            </article>
+
+            <article class="blog-post">
+                <a class="blog-post__link" href="/gettriossg/blog/releases/2019/01/23/v0.0.5released/">
+                    <h2 class="blog-post__articleTitle">Trio v0.0.5</h2>
+                </a>
+                <div class="blog-post__articleDate">2019-01-23</div>
+                <p class="blog-post__articleExcerpt">This release addresses an issue which when generating the public destination paths for category pages would raise an exception. Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v005">changelog</a> for details.
+                </p>
+            </article>
+
+            <article class="blog-post">
+                <a class="blog-post__link" href="/gettriossg/blog/releases/2019/01/22/v0.0.4released/">
+                    <h2 class="blog-post__articleTitle">Trio v0.0.4</h2>
+                </a>
+                <div class="blog-post__articleDate">2019-01-22</div>
+                <p class="blog-post__articleExcerpt">This release adds support for files like favicon.ico, robots.txt, sitemaps, .nojekyll, etc. Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v004">changelog</a> for details.
+                </p>
+            </article>
+
+            <article class="blog-post">
+                <a class="blog-post__link" href="/gettriossg/blog/releases/2019/01/15/v0.0.3released/">
+                    <h2 class="blog-post__articleTitle">Trio v0.0.3</h2>
+                </a>
+                <div class="blog-post__articleDate">2019-01-15</div>
+                <p class="blog-post__articleExcerpt">This release adds a new configuration option, `&quot;nojekyll&quot;`, which when set to `true` instructs Trio to write a `.nojekyll` file to the public folder when generating a release build to completely bypass Jekyll processing on GitHub Pages. Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v003">changelog</a> for details.
+                </p>
+            </article>
+
+            <article class="blog-post">
+                <a class="blog-post__link" href="/gettriossg/blog/releases/2019/01/04/v0.0.2released/">
+                    <h2 class="blog-post__articleTitle">Trio v0.0.2</h2>
+                </a>
+                <div class="blog-post__articleDate">2019-01-04</div>
+                <p class="blog-post__articleExcerpt">This release addresses 2 blog related issues. Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v002">changelog</a> for details.
+                </p>
+            </article>
+
+            <article class="blog-post">
+                <a class="blog-post__link" href="/gettriossg/blog/releases/2018/12/22/v0.0.1released/">
+                    <h2 class="blog-post__articleTitle">Trio v0.0.1</h2>
+                </a>
+                <div class="blog-post__articleDate">2018-12-22</div>
+                <p class="blog-post__articleExcerpt">I am very excited to announce the first public release of Trio, v0.0.1, on <a target="_blank" href="https://www.npmjs.com/package/@4awpawz/trio">NPM</a>. This release represents the culmination of months of work, not only on the code base itself but also on the documentation and the example blog.
+                </p>
+            </article>
         </section>
     </main>
     <footer class="footer">
@@ -83,7 +111,7 @@
             <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
             <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
                     <strong>Trio <span>v1.0.0-rc.1</span></strong></a>.</p>
-            <p>Page Updated: <span>6/18/2019, 12:48:00 PM.</span> </p>
+            <p>Page Updated: <span>6/21/2019, 9:13:29 PM.</span> </p>
         </div>
     </footer>
     <script>

@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/gettriossg/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
     <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.894633e85b453e33e6c744be3d64f2b5.css">
+    <link rel="stylesheet" href="/gettriossg/css/main.4960fc692f17efedff08e9fd966dcf3a.css">
     <script src="/gettriossg/scripts/highlight.pack.e497281e462342b50ccbb59b462856dd.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -34,15 +34,10 @@
 
 <body>
     <header class="header header--fixed">
-        <div class="container">
-            <div class="header__promo">
-                <div class="header__promo-text">Trio
-                    <span class="header__promo-text-version">v1.0.0-rc.1</span>
-                    <span class="header__promo-text-version-name">Ikigai</span>
-                </div>
-            </div>
-            <label class="hamburger-helper" for="hamburger-checkbox">
-                <div class="hamburger header-hamburger">
+        <section class="container header__container">
+            <input class="hamburger-checkbox header__hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <label class="hamburger-helper header__hamburger-container" for="hamburger-checkbox">
+                <div class="hamburger">
                     <div class="hamburger__bun">
                         <div class="hamburger__patty"></div>
                         <div class="hamburger__patty"></div>
@@ -50,7 +45,13 @@
                     </div>
                 </div>
             </label>
-            <input class="hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <div class="header__promo">
+                <img class="header__promo-image" src="/gettriossg/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
+                <div class="header__promo-text">Trio
+                    <span class="header__promo-text-version">v1.0.0-rc.1</span>
+                    <span class="header__promo-text-version-name">(Ikigai)</span>
+                </div>
+            </div>
             <nav class="header__nav">
                 <ul class="header__nav-items">
                     <li class="header__nav-item">
@@ -60,11 +61,14 @@
                         <a class="header__nav-item-link" href="/gettriossg/docs/v1/">Docs</a>
                     </li>
                     <li class="header__nav-item">
-                        <a id="trio-blog-link" class="header__nav-item-link" href="/gettriossg/blog">Blog</a>
+                        <a class="header__nav-item-link" href="/gettriossg/expo">Expo</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" target="_blank" href="/gettriossg/blog">Blog</a>
                     </li>
                 </ul>
             </nav>
-        </div>
+        </section>
     </header>
     <section class="container">
         <main class="learnhowto">
@@ -130,7 +134,7 @@
             <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
             <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
                     <strong>Trio <span>v1.0.0-rc.1</span></strong></a>.</p>
-            <p>Page Updated: <span>6/18/2019, 12:48:00 PM.</span> </p>
+            <p>Page Updated: <span>6/21/2019, 9:13:29 PM.</span> </p>
         </div>
     </footer>
 
