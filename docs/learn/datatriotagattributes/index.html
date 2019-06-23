@@ -21,12 +21,12 @@
     <meta name="author" content="Jeffrey Schwartz">
     <meta name="generator" content="Trio v1.0.0-rc.1">
     <title>data-trio-* Tag Attributes</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="/gettriossg/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
-    <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.87f6903d3eb02a1b10230cdfefc8baea.css">
-    <script src="/gettriossg/scripts/highlight.pack.e497281e462342b50ccbb59b462856dd.js"></script>
+    <link rel="stylesheet" href="/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
+    <link rel="stylesheet" href="/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
+    <link rel="stylesheet" href="/css/main.87f6903d3eb02a1b10230cdfefc8baea.css">
+    <script src="/scripts/highlight.pack.e497281e462342b50ccbb59b462856dd.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script>
@@ -46,7 +46,7 @@
                 </div>
             </label>
             <div class="header__promo">
-                <img class="header__promo-image" src="/gettriossg/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
+                <img class="header__promo-image" src="/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
                 <div class="header__promo-text">Trio
                     <span class="header__promo-text-version">v1.0.0-rc.1</span>
                     <span class="header__promo-text-version-name">(Ikigai)</span>
@@ -55,16 +55,16 @@
             <nav class="header__nav">
                 <ul class="header__nav-items">
                     <li class="header__nav-item">
-                        <a class="header__nav-item-link" href="/gettriossg">Home</a>
+                        <a class="header__nav-item-link" href="/">Home</a>
                     </li>
                     <li class="header__nav-item header__nav-item--active">
-                        <a class="header__nav-item-link" href="/gettriossg/docs/v1/">Docs</a>
+                        <a class="header__nav-item-link" href="/docs/v1/">Docs</a>
                     </li>
                     <li class="header__nav-item">
-                        <a class="header__nav-item-link" href="/gettriossg/expo">Expo</a>
+                        <a class="header__nav-item-link" href="/expo">Expo</a>
                     </li>
                     <li class="header__nav-item">
-                        <a class="header__nav-item-link" target="_blank" href="/gettriossg/blog">Blog</a>
+                        <a class="header__nav-item-link" target="_blank" href="/blog">Blog</a>
                     </li>
                 </ul>
             </nav>
@@ -79,11 +79,11 @@
             <pre><code class="language-html">&lt;main data-trio-fragment&gt;&lt;/main&gt;</code></pre>
             <p>This attribute is used in page templates and instructs Trio to target this HTML tag when creating the composite consisting of the page fragment&apos;s content and this page template&apos;s content.</p>
             <p><strong>!</strong> <em>data-trio-fragment can be omitted if the page template is designed to be used by page fragments that do not contribute content.</em></p>
-            <p>By default, Trio replaces the HTML tag with the content from the page fragment. To append the content to this HTML tag, declare <code>appendToTarget: true</code> in your page fragment&apos;s front matter. For more information see <a href="/gettriossg/docs/learn/frontmatter/#appendtotarget">appendToTarget</a>.</p>
+            <p>By default, Trio replaces the HTML tag with the content from the page fragment. To append the content to this HTML tag, declare <code>appendToTarget: true</code> in your page fragment&apos;s front matter. For more information see <a href="/docs/learn/frontmatter/#appendtotarget">appendToTarget</a>.</p>
             <h2 id="data-trio-include"><code>data-trio-include</code></h2>
             <pre><code class="language-html">&lt;header data-trio-include=&quot;header.html&quot;&gt;&lt;/header&gt;</code></pre>
             <p>This attribute, which can be used in page fragments and page templates, instructs Trio to target this HTML tag when merging the specified include file&apos;s content.</p>
-            <p>By default, Trio replaces the HTML tag with the content from the include file. To append the content to this HTML tag, declare <code>appendToTarget: true</code> in your include file front matter. For more information see <a href="/gettriossg/docs/learn/frontmatter/#appendtotarget">appendToTarget</a>.</p>
+            <p>By default, Trio replaces the HTML tag with the content from the include file. To append the content to this HTML tag, declare <code>appendToTarget: true</code> in your include file front matter. For more information see <a href="/docs/learn/frontmatter/#appendtotarget">appendToTarget</a>.</p>
             <h3 id="static-vs-dynamic-includes">Static vs Dynamic Includes</h3>
             <p>Trio supports both <code>static</code> and <code>dynamic</code> include file declarations. Static include file declarations hard code the include file&apos;s name. Dynamic include file declarations use one level of indirection to resolve the include file&apos;s name.</p>
             <h4 id="static-include-file-declaration">Static Include File Declaration</h4>
@@ -129,7 +129,7 @@ header: complexheader.html
 &lt;img src=&quot;/xyz/media/mist-niagara-falls-river.jpg&quot;&gt;</code></pre>
         </main>
         <br>
-        <a href="/gettriossg/docs/learn">&lt;&#xA0;Back To Learning Guides</a>
+        <a href="/docs/learn">&lt;&#xA0;Back To Learning Guides</a>
     </section>
     <footer class="footer">
         <div class="container">
@@ -139,7 +139,7 @@ header: complexheader.html
             <p class="footer__copy">Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
             <p class="footer__copy">Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
                     <strong>Trio <span>v1.0.0-rc.1</span></strong></a>.</p>
-            <p class="footer__copy">Page Updated: <span>6/23/2019, 11:30:15 AM.</span> </p>
+            <p class="footer__copy">Page Updated: <span>6/23/2019, 12:08:11 PM.</span> </p>
         </div>
     </footer>
 

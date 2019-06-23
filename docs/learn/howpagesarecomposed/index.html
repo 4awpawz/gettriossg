@@ -21,12 +21,12 @@
     <meta name="author" content="Jeffrey Schwartz">
     <meta name="generator" content="Trio v1.0.0-rc.1">
     <title>How Pages Are Created</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/gettriossg/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="/gettriossg/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
-    <link rel="stylesheet" href="/gettriossg/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/gettriossg/css/main.87f6903d3eb02a1b10230cdfefc8baea.css">
-    <script src="/gettriossg/scripts/highlight.pack.e497281e462342b50ccbb59b462856dd.js"></script>
+    <link rel="stylesheet" href="/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
+    <link rel="stylesheet" href="/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
+    <link rel="stylesheet" href="/css/main.87f6903d3eb02a1b10230cdfefc8baea.css">
+    <script src="/scripts/highlight.pack.e497281e462342b50ccbb59b462856dd.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script>
@@ -46,7 +46,7 @@
                 </div>
             </label>
             <div class="header__promo">
-                <img class="header__promo-image" src="/gettriossg/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
+                <img class="header__promo-image" src="/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
                 <div class="header__promo-text">Trio
                     <span class="header__promo-text-version">v1.0.0-rc.1</span>
                     <span class="header__promo-text-version-name">(Ikigai)</span>
@@ -55,16 +55,16 @@
             <nav class="header__nav">
                 <ul class="header__nav-items">
                     <li class="header__nav-item">
-                        <a class="header__nav-item-link" href="/gettriossg">Home</a>
+                        <a class="header__nav-item-link" href="/">Home</a>
                     </li>
                     <li class="header__nav-item header__nav-item--active">
-                        <a class="header__nav-item-link" href="/gettriossg/docs/v1/">Docs</a>
+                        <a class="header__nav-item-link" href="/docs/v1/">Docs</a>
                     </li>
                     <li class="header__nav-item">
-                        <a class="header__nav-item-link" href="/gettriossg/expo">Expo</a>
+                        <a class="header__nav-item-link" href="/expo">Expo</a>
                     </li>
                     <li class="header__nav-item">
-                        <a class="header__nav-item-link" target="_blank" href="/gettriossg/blog">Blog</a>
+                        <a class="header__nav-item-link" target="_blank" href="/blog">Blog</a>
                     </li>
                 </ul>
             </nav>
@@ -85,7 +85,7 @@
                     <p>Page Templates, located in the source/templates folder, are HTML files that provide the overall structure of the web pages you create with Trio.</p>
                 </li>
             </ol>
-            <p><strong>!</strong> Besides the above, Trio unleashes the full power of JavaScript to empower you to further compose your web pages through its <a href="/gettriossg/docs/learn/javascriptcallbacks">JavaScript callback mechanism</a>.</p>
+            <p><strong>!</strong> Besides the above, Trio unleashes the full power of JavaScript to empower you to further compose your web pages through its <a href="/docs/learn/javascriptcallbacks">JavaScript callback mechanism</a>.</p>
             <h2 id="includes">Includes</h2>
             <p>For every include file Trio finds in the source/includes folder it performs the following action:</p>
             <ol>
@@ -110,14 +110,14 @@
                     <p>If the page fragment&apos;s front matter declares one or more JavaScript callbacks, Trio will synchronously call each of the callbacks, passing them a single argument called a context whose properties can be destructured and used by the callback to further compose the composite. </p>
                 </li>
                 <li>
-                    <p>Trio then saves the composite to the public folder with a path and file name as explained in <a href="/gettriossg/docs/learn/filenamesandpermalinks">File Names And Permalinks</a>.</p>
+                    <p>Trio then saves the composite to the public folder with a path and file name as explained in <a href="/docs/learn/filenamesandpermalinks">File Names And Permalinks</a>.</p>
                 </li>
             </ol>
             <h2 id="includes-and-page-fragments-used-for-side-effects-only">Includes And Page Fragments Used For Side Effects Only</h2>
             <p>It is perfectly acceptable for includes and page fragments to contain no content, in which case they are being used for side effects only, meaning that they declare JavaScript callbacks in their front matter which, when called, are used to dynamically compose their content.</p>
         </main>
         <br>
-        <a href="/gettriossg/docs/learn">&lt;&#xA0;Back To Learning Guides</a>
+        <a href="/docs/learn">&lt;&#xA0;Back To Learning Guides</a>
     </section>
     <footer class="footer">
         <div class="container">
@@ -127,7 +127,7 @@
             <p class="footer__copy">Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
             <p class="footer__copy">Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
                     <strong>Trio <span>v1.0.0-rc.1</span></strong></a>.</p>
-            <p class="footer__copy">Page Updated: <span>6/23/2019, 11:30:15 AM.</span> </p>
+            <p class="footer__copy">Page Updated: <span>6/23/2019, 12:08:11 PM.</span> </p>
         </div>
     </footer>
 
