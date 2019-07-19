@@ -19,12 +19,12 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
     <meta name="author" content="Jeffrey Schwartz">
-    <meta name="generator" content="Trio v1.0.0-rc.4">
+    <meta name="generator" content="Trio v1.0.0-rc.5">
     <title>Tag-Based Callbacks - Trio</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/css/main.e88b5fd5d4125c6144c7651470b67c80.css">
+    <link rel="stylesheet" href="/css/main.1a82353d4a86ccc4db0e6e3dd185dc79.css">
     <script src="/scripts/highlight.pack.e497281e462342b50ccbb59b462856dd.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -47,7 +47,7 @@
             <div class="header__promo">
                 <img class="header__promo-image" src="/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
                 <div class="header__promo-text">Trio
-                    <span class="header__promo-text-version">v1.0.0-rc.4</span>
+                    <span class="header__promo-text-version">v1.0.0-rc.5</span>
                     <span class="header__promo-text-version-name">(Ikigai)</span>
                 </div>
             </div>
@@ -70,7 +70,7 @@
     <main class="container doc-page">
         <aside class="doc-page-index">
             <section class="doc-page-index__container">
-                <h2 class="doc-page-index__container-header">Trio <span class="doc-page-index__container-header-version">v1.0.0-rc.4</span></h2>
+                <h2 class="doc-page-index__container-header">Trio <span class="doc-page-index__container-header-version">v1.0.0-rc.5</span></h2>
                 <aside class="doc-page-index__list-container">
                     <ul class="doc-page-index__list">
                         <li class="doc-page-index__list-item">
@@ -224,10 +224,11 @@ module.exports = ({ $tag, site }) =&gt; {
 
                 <h2>Argument Properties</h2>
 
-                <h3>$</h3>
+                <h3>$page</h3>
+                <p><mark>Please note that this property was originally named <em>$</em> but was renamed to <em>$page</em> in v1.0.0-rc.5.</mark></p>
                 <p>A <em>cheerio wrapper</em> around the composite. Use when targeting the composite&apos;s content.</p>
                 <figure>
-                    <pre><code class="js">module.exports = ({ $, site }) =&gt; {
+                    <pre><code class="js">module.exports = ({ $page, site }) =&gt; {
     site.tagsCatalog.forEach(item =&gt; {
         $.find(&quot;ul.tag__list&quot;).append(`
             &lt;li class=&quot;tag__list-item&quot;&gt;
@@ -238,7 +239,7 @@ module.exports = ({ $tag, site }) =&gt; {
     });
     $.find(&quot;div.page-modified-date&quot;).append(new Date().toDateString());
 };</code></pre>
-                    <figcaption>Targeting A Composite&apos;s Content Using $tag Example</figcaption>
+                    <figcaption>Targeting A Composite&apos;s Content Using $page Example</figcaption>
                 </figure>
 
                 <h3>$tag</h3>
@@ -344,8 +345,8 @@ alwaysBuild: true
                     <p>&#xA9;2018 Jeffrey Schwartz All Rights Reserved.</p>
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
-                            <strong>Trio <span>v1.0.0-rc.4</span></strong></a>.</p>
-                    <p>Page Updated: <span>7/9/2019, 8:22:09 AM.</span> </p>
+                            <strong>Trio <span>v1.0.0-rc.5</span></strong></a>.</p>
+                    <p>Page Updated: <span>7/19/2019, 10:29:43 AM.</span> </p>
                 </section>
             </footer>
         </article>
