@@ -19,7 +19,7 @@
     <meta http-equiv="Cache-control" content="no-cache">
     <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
     <meta name="author" content="Jeffrey Schwartz">
-    <meta name="generator" content="Trio v1.0.0-rc.6">
+    <meta name="generator" content="Trio v1.0.0">
     <title>Command Line - Trio</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
@@ -47,7 +47,7 @@
             <div class="header__promo">
                 <img class="header__promo-image" src="/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
                 <div class="header__promo-text">Trio
-                    <span class="header__promo-text-version">v1.0.0-rc.6</span>
+                    <span class="header__promo-text-version">v1.0.0</span>
                     <span class="header__promo-text-version-name">(Ikigai)</span>
                 </div>
             </div>
@@ -70,7 +70,7 @@
     <main class="container doc-page">
         <aside class="doc-page-index">
             <section class="doc-page-index__container">
-                <h2 class="doc-page-index__container-header">Trio <span class="doc-page-index__container-header-version">v1.0.0-rc.6</span></h2>
+                <h2 class="doc-page-index__container-header">Trio <span class="doc-page-index__container-header-version">v1.0.0</span></h2>
                 <aside class="doc-page-index__list-container">
                     <ul class="doc-page-index__list">
                         <li class="doc-page-index__list-item">
@@ -149,14 +149,15 @@
                 <p>Help is available to you in your terminal application:</p>
 
                 <ul>
-                    <li><strong>trio -h</strong>: display general help information</li>
-                    <li><strong>trio -h &lt;command&gt;</strong>: display command specific help information</li>
+                    <li><strong>trio --help | -h</strong>: display general help information</li>
+                    <li><strong>trio --help | -h &lt;command&gt;</strong>: display command specific help information</li>
                 </ul>
 
                 <p>The following commands are available to you in your terminal application:</p>
 
                 <ul>
-                    <li><strong>trio new &lt;path/to/project&gt;</strong>: creates an empty project in path/to/project</li>
+                    <li><strong>trio new | n &lt;path/to/project&gt;</strong>: creates a new bare project in path/to/project</li>
+                    <li><strong>trio new | n -s &lt;path/to/project&gt;</strong>: creates a new project with scaffolding in path/to/project <mark>introduced in v1.0.0</mark></li>
                     <li><strong>trio build | b</strong>: builds your site targeting the public folder</li>
                     <li><strong>trio build | b -i</strong>: incrementally builds your site targeting the public folder</li>
                     <li><strong>trio build | b -w</strong>: builds your site targeting the public folder any time a change is made to a file in the root/source folder</li>
@@ -189,8 +190,8 @@
                     <p>&#xA9;2018 Jeffrey Schwartz All Rights Reserved.</p>
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
-                            <strong>Trio <span>v1.0.0-rc.6</span></strong></a>.</p>
-                    <p>Page Updated: <span>7/23/2019, 5:12:46 PM.</span> </p>
+                            <strong>Trio <span>v1.0.0</span></strong></a>.</p>
+                    <p>Page Updated: <span>7/26/2019, 12:52:44 PM.</span> </p>
                 </section>
             </footer>
         </article>
