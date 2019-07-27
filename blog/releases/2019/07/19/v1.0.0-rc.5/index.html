@@ -25,7 +25,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
     <link rel="stylesheet" href="/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/css/main.1a82353d4a86ccc4db0e6e3dd185dc79.css">
+    <link rel="stylesheet" href="/css/main.73fbb7831c19c0ad82a950952a7a62df.css">
     <script src="/scripts/highlight.pack.e497281e462342b50ccbb59b462856dd.js"></script>
 </head>
 
@@ -40,23 +40,17 @@
         <article class="blog-post">
             <h2 class="blog-post__articleTitle">Trio v1.0.0-rc.5 (IKIGAI)</h2>
             <div class="blog-post__articleDate">2019-07-19</div>
-            <section class="blog-posts">
+            <section>
                 <p>This release includes 1 enhancement and 3 breaking changes. Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v100-rc5-ikigai">changelog</a> for details.</p>
 
                 <ul>
                     <li>For callbacks that throw exceptions, Trio would catch the exceptions and print just their messages to the console, leaving it up to the user to determine which module actually threw the exception. Now, when callbacks throw exceptions, Trio will also print their module names along with their messages to the console.</li>
                 </ul>
-                <h4 id="breaking-changes">Breaking Changes</h4>
+                <h3 id="breaking-changes">Breaking Changes</h3>
                 <ul>
-                    <li>
-                        <p>Fragment properties <code>destPath</code> (the generated page&apos;s target file path) and <code>url</code> (the generated page&apos;s URL) are now generated in all lowercase.</p>
-                    </li>
-                    <li>
-                        <p>Trio no longer generates a unique <code>id</code> property for fragments due to the expense in terms of the development time required to maintain their integrity during incremental builds. In its place, users should now use the fragment&apos;s <code>url</code> property, which is intrinsically always unique.</p>
-                    </li>
-                    <li>
-                        <p>Callback argument <code>$</code> has been renamed to <code>$page</code> for clarity and consistency.</p>
-                    </li>
+                    <li>Fragment properties <code>destPath</code> (the generated page&apos;s target file path) and <code>url</code> (the generated page&apos;s URL) are now generated in all lowercase.</li>
+                    <li>Trio no longer generates a unique <code>id</code> property for fragments due to the expense in terms of the development time required to maintain their integrity during incremental builds. In its place, users should now use the fragment&apos;s <code>url</code> property, which is intrinsically always unique.</li>
+                    <li>Callback argument <code>$</code> has been renamed to <code>$page</code> for clarity and consistency.</li>
                 </ul>
             </section>
         </article>
@@ -69,7 +63,7 @@
             <p class="footer__copy">Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
             <p class="footer__copy">Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
                     <strong>Trio <span>v1.0.0</span></strong></a>.</p>
-            <p class="footer__copy">Page Updated: <span>7/26/2019, 11:08:36 PM.</span> </p>
+            <p class="footer__copy">Page Updated: <span>7/27/2019, 10:57:34 AM.</span> </p>
         </div>
     </footer>
     <script>
