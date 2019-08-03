@@ -24,7 +24,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/css/main.11d203cc631edfe6781219b209f58685.css">
+    <link rel="stylesheet" href="/css/main.1cbce6b4bfdb55147260dd248f161b73.css">
     <script src="/scripts/highlight.pack.e497281e462342b50ccbb59b462856dd.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -178,6 +178,14 @@
 
                 <h2>Page Composition</h2>
 
+                When composing pages, Trio executes the following steps for each page:
+
+                <ul>
+                    <li>Content from fragment assets are inserted into their associated templates to create a composite.</li>
+                    <li>The composites are then searched for any include assets that may be declared. If found, Trio inserts the content from each include in the order in which the includes are declared in the composite.</li>
+                    <li>The composite is then searched for any tag-based callbacks that may be declared. If found, Trio calls each tag-based callback asynchronously in the order in which they are declared in the composite.</li>
+                </ul>
+
                 <figure>
                     <img src="/media/composite.15f2b20c3eca55f71ad9add373b4d51f.png" alt="composite image">
                     <figcaption>A Composite Of Project Assets</figcaption>
@@ -269,7 +277,7 @@
                     <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
                     <p>Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
                             <strong>Trio <span>v1.0.0</span></strong></a>.</p>
-                    <p>Page Updated: <span>7/31/2019, 1:45:00 PM.</span> </p>
+                    <p>Page Updated: <span>8/3/2019, 12:56:17 PM.</span> </p>
                 </section>
             </footer>
         </article>
