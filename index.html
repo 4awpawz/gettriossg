@@ -16,21 +16,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta http-equiv="Cache-control" content="no-cache">
-    <meta name="description" content="Trio is an open source toolkit for building static websites using HTML, CSS and JavaScript and requires almost zero configuration. You use front matter, JavaScript and Sass to quickly prototype and implement your designs, which makes Trio the perfect tool for those who love to design in the browser.">
+
+    <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
     <meta name="author" content="Jeffrey Schwartz">
-    <meta name="generator" content="Trio v1.1.1">
-    <title>Trio - For those who love HTML, CSS and JavaScript.</title>
+    <meta name="generator" content="Trio v2.0.0">
+    <title>Trio - JavaScript-driven static site generation.</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
-    <link rel="stylesheet" href="/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/css/main.1cbce6b4bfdb55147260dd248f161b73.css">
-    <script src="/scripts/highlight.pack.e497281e462342b50ccbb59b462856dd.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/e99f9d9469360bf567b3893d7fa1d627-main.css">
 </head>
 
-<body>
-    <header class="header header--fixed header--purple">
+<body class="home-page">
+    <header class="header header--fixed header--green">
         <section class="container header__container">
             <input class="hamburger-checkbox header__hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
             <label class="hamburger-helper header__hamburger-container" for="hamburger-checkbox">
@@ -43,10 +40,10 @@
                 </div>
             </label>
             <div class="header__promo">
-                <img class="header__promo-image" src="/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
+                <img class="header__promo-image" src="/media/b66d421676dcc7ac68959fd41c82c140-brand.svg" alt="Trio Icon">
                 <div class="header__promo-text">Trio
-                    <span class="header__promo-text-version">v1.1.1</span>
-                    <span class="header__promo-text-version-name">(Ikigai)</span>
+                    <span class="header__promo-text-version">v2.0.0</span>
+
                 </div>
             </div>
             <nav class="header__nav">
@@ -55,7 +52,7 @@
                         <a class="header__nav-item-link" href="/">Home</a>
                     </li>
                     <li class="header__nav-item">
-                        <a class="header__nav-item-link" href="/docs/v1/">Docs</a>
+                        <a class="header__nav-item-link" href="/docs/v2/">Docs</a>
                     </li>
 
                     <li class="header__nav-item">
@@ -65,161 +62,110 @@
             </nav>
         </section>
     </header>
-    <main class="container">
-        <article class="benefit-hero">
-            <section class="container">
-                <h1 class="benefit-hero__title">Trio</h1>
-                <h2 class="benefit-hero__subtitle">the static site generator built for those who love HTML, CSS and JavaScript</h2>
+    <main>
+        <div class="hero-primary-container">
+            <div class="hero-primary fixed-width-container">
+                <h1 class="hero-primary__header">Fast, Simple Yet Powerful JavaScript-Driven Static Site Generation.</h1>
                 <div class="buttons-tray">
-                    <a class="button-primary" href="/docs/v1/gettingstarted">Get&#xA0;Started</a>
-                    <a class="button-secondary" href="/docs/v1/keyconcepts">Key Concepts</a>
+                    <a class="button-primary" href="/docs/v2/gettingstarted">Get&#xA0;Started</a>
+                    <a class="button-secondary" href="/docs/v2/keyconcepts">Key&#xA0;Concepts</a>
                 </div>
-                <div class="donate-button-tray">
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                        <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="hosted_button_id" value="FQKMSA5MRHK4Y">
-                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button">
-                        <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                    </form>
-                </div>
-            </section>
-        </article>
-
-        <article class="benefit-1">
-            <section class="container">
-                <h2>Build your static site using just the fundamental building blocks of the web!</h2>
-                <p>You use <em>HTML</em>, <em>CSS</em> and <em>JavaScript</em> to prototype and implement your design, which makes Trio the perfect tool for those who love to design in the browser.<br><br>Trio&apos;s use of common metaphors for its project assets, its approach to page composition, its organized collections of metadata and its tag-based callback mechanism serve to create an easy to learn and use, highly adaptable and powerful platform upon which to create your static sites.</p>
-            </section>
-        </article>
-
-        <article class="benefit-4">
-            <h2 class="benefit-4__title">Features</h2>
-            <section class="container benefit-card-deck">
-                <article class="benefit-card-deck__card">
-                    <img class="benefit-deck__card-icon" src="/media/homepage_magnifyingglass.87531ca9f7299749d63315d0c4941982.png" alt="magnifying glass image">
-                    <h3 class="benefit-card-deck__card-title">Integrity<br>Checking!</h3>
-                    <p class="benefit-card-deck__card-copy">Checks your project&apos;s chains of dependencies and notifies you when assets can&apos;t be resolved.</p>
-                </article>
-                <article class="benefit-card-deck__card">
-                    <img class="benefit-deck__card-icon" src="/media/homepage_timer.63119889c69e80dc6e2b68f0956e2cfd.png" alt="timer image">
-                    <h3 class="benefit-card-deck__card-title">Incremental<br>Builds!</h3>
-                    <p class="benefit-card-deck__card-copy">Reduces project build times by limiting processing to only stale assets.</p>
-                </article>
-                <article class="benefit-card-deck__card">
-                    <img class="benefit-deck__card-icon" src="/media/homepage_tools.d14afae257601c772d69eeec3fe4e968.png" alt="tool image">
-                    <h3 class="benefit-card-deck__card-title">Built-in<br>Toolchain!</h3>
-                    <p class="benefit-card-deck__card-copy">Beautifies Your Markup<br>Sass Compilation<br> Vendor Prefixes<br> Minification<br> CSS Maps<br>Project Cache Busting</p>
-                </article>
-            </section>
-        </article>
-
-        <article class="benefit-2">
-            <section class="container benefit-2__copy-container">
-                <h2 class="benefit-2__copy-title">Extend Your Composites Using Tag-Based JavaScript (ES6+) Callbacks!</h2>
-                <p class="benefit-2__copy">Trio doesn&apos;t require a templating engine or a front-end framework for extending your composites. Instead, Trio exposes its <em>tag-based callback mechanism</em>.<br><br>Include the <em>data-trio-callback attribute</em> in any HTML tag and Trio will call the JavaScript module that it names, passing it the tag, and the metadata that Trio has collected.</p>
-            </section>
-            <section class="container">
-                <aside class="benefit-2__sample">
-                    <h3 class="benefit-2__sample-title">Fragment asset source/fragments/products.html:</h3>
-                    <pre class="html benefit-2__sample-example"><code class="html benefit-2__sample-example-code">&lt;!--
-template: products.html
-title: Products By Category
-appendToTarget: true
-data: productsByCategory.json
---&gt;
-&lt;h1 class=&quot;product-list-title&quot;&gt;Product List By Category&lt;/h1&gt;
-&lt;ul <em class="code-sample-emphasis">data-trio-callback=&quot;listAllProductsByCategory&quot;</em> class=&quot;product-list&quot;&gt;
-    &lt;li class=&quot;product-in-stock product-in-stock-heading&quot;&gt;
-        &lt;span&gt;Category&lt;/span&gt;
-        &lt;span&gt;Name&lt;/span&gt;
-        &lt;span&gt;Price &lt;span class=&quot;product-in-stock-heading--smaller&quot;&gt;(US$)&lt;/span&gt;&lt;/span&gt;
-    &lt;/li&gt;
-&lt;/ul&gt;
-        </code></pre>
-                    <h3 class="benefit-2__sample-title">Template asset source/templates/products.html:</h3>
-                    <pre class="benefit-2__sample-example"><code class="html benefit-2__sample-example-code">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.1cbce6b4bfdb55147260dd248f161b73.css&quot;&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;main&gt;
-        &lt;article data-trio-fragment&gt;&lt;/article&gt;
-    &lt;/main&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-        </code></pre>
-                    <h3 class="benefit-2__sample-title">JSON asset source/data/productsByCategory.json:</h3>
-                    <pre class="benefit-2__sample-example"><code class="json benefit-2__sample-example-code">[
-    {
-        &quot;category&quot;: &quot;fruit&quot;,
-        &quot;name&quot;: &quot;Red Delicious Apple&quot;,
-        &quot;price&quot;: 3.89,
-        &quot;inStock&quot;: true
-    },
-    {
-        &quot;category&quot;: &quot;fruit&quot;,
-        &quot;name&quot;: &quot;Chiquita Banana&quot;,
-        &quot;price&quot;: 0.79,
-        &quot;inStock&quot;: false
-    },
-    {
-        &quot;category&quot;: &quot;fruit&quot;,
-        &quot;name&quot;: &quot;Cherries&quot;,
-        &quot;price&quot;: 4.09,
-        &quot;inStock&quot;: true
-    },
-    {
-        &quot;category&quot;: &quot;vegetable&quot;,
-        &quot;name&quot;: &quot;Idaho Potato&quot;,
-        &quot;price&quot;: 2.49,
-        &quot;inStock&quot;: false
-    },
-    ...</code></pre>
-                    <h3 class="benefit-2__sample-title">Tag-Based JavaScript asset source/callbacks/listAllProductsByCategory.js:</h3>
-                    <pre class="benefit-2__sample-example"><code class="javascript benefit-2__sample-example-code">module.exports = ({$tag, site}) =&gt;
-    site.dataCatalog.productsByCategory
-        .filter(prod =&gt; prod.inStock)
-        .forEach(prod =&gt; $tag.append(`
-            &lt;li class=&quot;product-in-stock&quot;&gt;
-                &lt;span&gt;${prod.category}&lt;/span&gt;
-                &lt;span&gt;${prod.name}&lt;/span&gt;
-                &lt;span&gt;${prod.price.toFixed(2)}&lt;/span&gt;
-            &lt;/li&gt;
-        `));
-        </code></pre>
-                    <h3 class="benefit-2__sample-title">Trio creates a composite from the above template and fragment assets. It then calls the tag-based callback declared in the fragment asset. The tag-based callback then extends the composite using the data from the productsByCategory.json file to produce the &quot;Product List By Category&quot; report.</h3>
-                    <img src="/media/homepage_demoProductsByCategory.c68aa6709359c013f0746c9dd4548eab.png" alt="demo products by category image">
-                </aside>
-            </section>
-        </article>
-
-        <article class="benefit-3">
-            <section class="container">
-                <h2>Create Modern-Day Blogs With The Features Your Readers Have Come To Expect!</h2>
-                <p>Trio was built from the ground up to be used as a blogging platform.<br><br>So features, such as article categories and tags, category, tag, and archive pages, article page navigation, are a snap to implement using Trio&apos;s structured blog-specific metadata and its tag-based callback mechanism.</p>
-            </section>
-        </article>
-    </main>
-    <footer class="footer">
-        <div class="container">
-            <p class="footer__copy">Created by <a target="_blank" href="https://twitter.com/jefftschwartz"> <strong>@jefftschwartz</strong></a></p>
-            <p class="footer__copy">with <span class="footer__heart">&#x2665;</span> for the Web and passion for simplifying complex things.</p>
-            <p class="footer__copy">&#xA9;2018 Jeffrey Schwartz All Rights Reserved.</p>
-            <p class="footer__copy">Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a>.</p>
-            <p class="footer__copy">Built with <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#changelog">
-                    <strong>Trio <span>v1.1.1</span></strong></a>.</p>
-            <p class="footer__copy">Page Updated: <span>8/25/2019, 9:12:38 AM.</span> </p>
+            </div>
         </div>
-    </footer>
-    <script>
-        hljs.initHighlightingOnLoad();
-    </script>
 
+        <section class="fixed-width-container features">
+            <article class="feature">
+                <div class="feature__copy">
+                    <h2 class="feature__copy-heading">Really Fast.</h2>
+                    <p class="feature__copy-body">Trio caches every project asset per build, and only generates stale assets when building incrementally, dramatically reducing build times. And Trio is built on Node, and Node is really fast.</p>
+                </div>
+                <div class="feature__img-container">
+                    <img class="feature__img" src="/media/87616808e5c69fa3c05c75cf7cafb482-Green-rocket-clipart-2.png" alt="rocket ship">
+                </div>
+            </article>
+            <article class="feature feature--flip">
+                <div class="feature__copy">
+                    <h2 class="feature__copy-heading">Simple Yet Powerful.</h2>
+                    <p class="feature__copy-body">Trio has almost zero configuration, includes common build-time utilities in its toolchain, and doesn&apos;t require frameworks or templating languages.</p>
+                </div>
+                <div class="feature__img-container">
+                    <img class="feature__img" src="/media/f0869ce99680dec5cc68693323b612a5-kissclipart-electrician-cartoon-clipart-electrician-electricit-f470ea849d6f5bff.png" alt="rocket ship">
+                </div>
+            </article>
+            <article class="feature">
+                <div class="feature__copy">
+                    <h2 class="feature__copy-heading feature__copy-heading--push-down">JavaScript Driven</h2>
+                    <p class="feature__copy-body">Trio uses the JavaScript Node modules that you write to augment your composites with dynamic content. You have all the latest ES6+ goodies to work with without having to transpile your code.</p>
+                </div>
+                <div class="feature__img-container feature__img-container--race-car">
+                    <img class="feature__img" src="/media/6542f517021369cbc8c1b91be1950af9-car-with-js-in-a-circle.png" alt="race car">
+                </div>
+            </article>
+        </section>
+        <div class="hero-secondary-container">
+            <div class="hero-secondary fixed-width-container">
+                <h1 class="hero-secondary__header">What Are You Waiting For?</h1>
+                <div class="buttons-tray">
+                    <a class="button-primary" href="/docs/v2/gettingstarted">Get&#xA0;Started</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="fixed-width-container featurettes">
+            <article class="featurette">
+                <div class="featurette__copy">
+                    <h2 class="featurette__copy-heading">Integrity Checking</h2>
+                    <p class="featurette__copy-body">Checks your project&apos;s chains of dependencies and notifies you when assets can&apos;t be resolved.</p>
+                </div>
+            </article>
+            <article class="featurette">
+                <div class="featurette__copy">
+                    <h2 class="featurette__copy-heading">Incremental Builds</h2>
+                    <p class="featurette__copy-body">Dramatically reduces project build times by limiting processing to only stale assets.</p>
+                </div>
+
+            </article>
+            <article class="featurette">
+                <div class="featurette__copy">
+                    <h2 class="featurette__copy-heading">Built-In Toolchain</h2>
+                    <p class="featurette__copy-body">Trio&apos;s built-in toolchain beautifies generated markup, compiles your Sass with vendor prefixes and minification, generates CSS maps during development, and can optionally cache bust your project for release.</p>
+                </div>
+
+            </article>
+            <article class="featurette">
+                <div class="featurette__copy">
+                    <h2 class="featurette__copy-heading">Blogging Platform</h2>
+                    <p class="featurette__copy-body">Trio is built from the ground up to help you create modern-day blogs with the features your readers have come to expect, such as categories, tags, article pages, category pages, tag pages, landing pages, archive pages, and link navigation.</p>
+                </div>
+            </article>
+            <article class="featurette">
+                <div class="featurette__copy">
+                    <h2 class="featurette__copy-heading">Configuration</h2>
+                    <p class="featurette__copy-body">Trio was designed with the lofty goal of minimizing the amount of configuration that it requires to almost zero. Who likes configuration anyway, right?</p>
+                </div>
+
+            </article>
+            <article class="featurette">
+                <div class="featurette__copy">
+                    <h2 class="featurette__copy-heading">Command Line</h2>
+                    <p class="featurette__copy-body">Trio provides extensive command line functionality for getting help, building and serving your sites. It was crafted with the iterative code and test process in mind.</p>
+                </div>
+
+            </article>
+        </section>
+    </main>
+    <footer class="fixed-width-container footer">
+        <p class="show-the-love">&quot;Built with <span class="heart">&#x2665;</span> for the Web, and a passion for simplifying complex things.&quot;</p>
+
+        <p>&#xA9;<span>2018-2019</span> Jeffrey Schwartz All Rights Reserved</p>
+
+        <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
+
+        <p>Currently <a target="_blank" href="https://github.com/4awpawz/trio/releases/tag/v2.0.0"><span>v2.0.0</span></a></p>
+
+        <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
+        <p>Page Updated: <span>11/18/2019, 8:25:45 AM</span> </p>
+    </footer>
 </body>
 
 </html>

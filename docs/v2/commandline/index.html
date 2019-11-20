@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67538650-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-67538650-3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
+    <meta name="author" content="Jeffrey Schwartz">
+    <meta name="generator" content="Trio v2.0.0">
+    <title>Command Line - Trio</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/css/libs/highlight/bf6c14925e66edb1526b6c9489b3c042-github.css">
+    <link rel="stylesheet" href="/css/e99f9d9469360bf567b3893d7fa1d627-main.css">
+    <script src="/scripts/e497281e462342b50ccbb59b462856dd-highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+<body>
+    <header class="header header--fixed header--green">
+        <section class="container header__container">
+            <input class="hamburger-checkbox header__hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <label class="hamburger-helper header__hamburger-container" for="hamburger-checkbox">
+                <div class="hamburger">
+                    <div class="hamburger__bun">
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                    </div>
+                </div>
+            </label>
+            <div class="header__promo">
+                <img class="header__promo-image" src="/media/b66d421676dcc7ac68959fd41c82c140-brand.svg" alt="Trio Icon">
+                <div class="header__promo-text">Trio
+                    <span class="header__promo-text-version">v2.0.0</span>
+
+                </div>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/">Home</a>
+                    </li>
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/docs/v2/">Docs</a>
+                    </li>
+
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" target="_blank" href="/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <main class="container doc-page">
+        <aside class="doc-page-index">
+            <h2 class="doc-page-index__header">Trio <span class="doc-page-index__header-version">v2.0.0</span></h2>
+            <aside class="doc-page-index__list-container">
+                <ul class="doc-page-index__list">
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/upgrading">Upgrading</a>
+                        <div class="line"></div>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2">About</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/gettingstarted">Getting Started</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/keyconcepts">Key Concepts</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/projectstructure">Project Structure</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/pagegeneration">Page Generation</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/linkingconventions">Linking Conventions</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/frontmatter">Front Matter</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/tagattributes">Tag Attributes</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/template">Template</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/fragment">Fragment</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/include">Include</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/jsondata">JSON Data</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/metadata">Metadata</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/tagbasedcallbacks">Tag-Based Callbacks</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/scsssasscss">SCSS/SASS/CSS</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/blogging">Blogging</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/collections">Collections</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link doc-page-index__list-item-link--current" href="/docs/v2/commandline">Command Line</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/incrementalbuild">Incremental Build</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/configuration">Configuration</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v2/additionalresources">Additional Resources</a>
+                        <div class="line"></div>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="https://github.com/4awpawz/trio">Github Repo &amp; Issue Tracker</a>
+                    </li>
+                </ul>
+
+            </aside>
+        </aside>
+        <article class="doc-page-content">
+            <section class="notification">Documentation is evolving and is a WIP</section>
+            <section class="doc-page-content__copy">
+                <h1>Command Line</h1>
+
+                <p>Trio provides extensive command line functionality for getting help, building and serving your sites.</p>
+
+                <h2>Help</h2>
+                <h3>General Help Information</h3>
+                <pre><code class="hljs shell">$ trio --help | -h</code></pre>
+                <h3>Command Specific Help Information</h3>
+                <pre><code class="hljs shell">$ trio --help | -h &lt;command&gt;</code></pre>
+
+                <h2>Create A New Project</h2>
+                <h3>Create A Bare Project In Path</h3>
+                <pre><code class="hljs shell">$ trio new | n &lt;path/to/project&gt;</code></pre>
+                <h3>Create A Project With Scaffolding In Path</h3>
+                <blockquote class="note-tip">
+                    <p>A scaffold project when built generates a styled site that contains a full-featured <a href="/docs/v2/blogging">blog</a> and uses <a href="/docs/v2/collections">collections</a>, so examining its code while reading through the documentation is a great way to learn and master Trio.</p>
+                </blockquote>
+                <pre><code class="hljs shell">$ trio new | n -s &lt;path/to/project&gt;</code></pre>
+
+                <h2>Build Your Site</h2>
+
+                <blockquote class="note-tip">
+                    <h3>Build For Development Vs. Build For Release</h3>
+
+                    <p>Running <code><em>build</em></code> targets the root/public folder. Run this while developing your site. Trio generates a CSS map file and generates pages whose fragments are marked as a WIP.</p>
+
+                    <p>Running <code><em>release</em></code> targets the root/release folder. Run this prior to deploying your site. Trio doesn&apos;t generate a CSS map file and doesn&apos;t generate pages whose fragments are marked as a <a href="/docs/v2/pagegeneration#wip">WIP</a>. Trio will clean your site&apos;s pages of all their <em>data-trio-*</em> tag attributes and provides the option to cache bust the generated site.</p>
+                </blockquote>
+
+                <blockquote class="note-tip">
+                    <p>You can append <em>-m</em> to the following build commands to print out timing metrics.</p>
+                </blockquote>
+
+                <h3>Build Your Site For Development</h3>
+                <pre><code class="hljs shell">$ trio build | b</code></pre>
+
+                <h3>Build Your Site For Development Incrementally</h3>
+                <pre><code class="hljs shell">$ trio build | b -i</code></pre>
+
+                <h3>Build Your Site For Development With Watch</h3>
+                <pre><code class="hljs shell">$ trio build | b -w</code></pre>
+
+                <h3>Build Your Site For Development Incrementally With Watch</h3>
+                <pre><code class="hljs shell">$ trio build | b -iw</code></pre>
+
+                <h3>Build Your Site For Development With Watch And Serve It In The Default Browser</h3>
+                <pre><code class="hljs shell">$ trio build | b -ws</code></pre>
+
+                <h3>Build Your Site For Development Incrementally With Watch And Serve It In The Default Browser</h3>
+                <pre><code class="hljs shell">$ trio build | b -iws</code></pre>
+                <blockquote class="note-tip">
+                    <p>You can replace <em>-iws</em> above with the shortcut <em>-I</em>.</p>
+                </blockquote>
+
+                <h3>Build Your Site For Release</h3>
+
+                <blockquote class="note-tip">
+                    <p>You can append <em>-m</em> to the following release commands to print out timing metrics.</p>
+                </blockquote>
+
+                <pre><code class="hljs shell">$ trio release | r</code></pre>
+
+                <h3>Build Your Site For Release With Cache Busting</h3>
+                <pre><code class="hljs shell">$ trio release | r -b</code></pre>
+
+                <h2>Serve Your Site</h2>
+                <h3>Serve Your Development Builds</h3>
+                <pre><code class="hljs shell">$ trio serve | s</code></pre>
+
+                <h3>Serve Your Release Builds</h3>
+                <pre><code class="hljs shell">$ trio release | r</code></pre>
+
+                <h2>See Also</h2>
+
+                <ul>
+                    <li><a href="/docs/v2/projectstructure">Project Structure</a></li>
+                    <li><a href="/docs/v2/incrementalbuild">Incremental Build</a></li>
+                </ul>
+            </section>
+            <footer class="footer footer--hide-the-love">
+                <p class="show-the-love">&quot;Built with <span class="heart">&#x2665;</span> for the Web, and a passion for simplifying complex things.&quot;</p>
+
+                <p>&#xA9;<span>2018-2019</span> Jeffrey Schwartz All Rights Reserved</p>
+
+                <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
+
+                <p>Currently <a target="_blank" href="https://github.com/4awpawz/trio/releases/tag/v2.0.0"><span>v2.0.0</span></a></p>
+
+                <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
+                <p>Page Updated: <span>11/19/2019, 7:09:27 PM</span> </p>
+            </footer>
+        </article>
+    </main>
+</body>
+
+</html>
