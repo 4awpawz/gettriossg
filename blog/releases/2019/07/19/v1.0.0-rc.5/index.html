@@ -30,6 +30,41 @@
 </head>
 
 <body>
+    <header class="header header--fixed header--green">
+        <section class="container header__container">
+            <input class="hamburger-checkbox header__hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <label class="hamburger-helper header__hamburger-container" for="hamburger-checkbox">
+                <div class="hamburger">
+                    <div class="hamburger__bun">
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                    </div>
+                </div>
+            </label>
+            <div class="header__promo">
+                <img class="header__promo-image" src="/media/b66d421676dcc7ac68959fd41c82c140-brand.svg" alt="Trio Icon">
+                <div class="header__promo-text">Trio
+                    <span class="header__promo-text-version">v2.0.0</span>
+
+                </div>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/">Home</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/docs/v2/">Docs</a>
+                    </li>
+
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
     <div class="blog-masthead">
         <a class="blog-masthead__icon" href="/blog"></a>
         <p class="blog-masthead__title">The Trio Blog</p>
@@ -66,7 +101,7 @@
         <p>Currently <a target="_blank" href="https://github.com/4awpawz/trio/releases/tag/v2.0.0"><span>v2.0.0</span></a></p>
 
         <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
-        <p>Page Updated: <span>11/20/2019, 4:55:42 PM</span> </p>
+        <p>Page Updated: <span>11/21/2019, 7:45:08 AM</span> </p>
     </footer>
     <script>
         hljs.initHighlightingOnLoad();
