@@ -243,11 +243,11 @@ appendToTarget: true
 
                 <h2>Importing Uncached Internal Module Dependencies</h2>
 
-                <p>When your filter functions have their own internal module dependencies, you should import them using <a target="_blank" href="https://www.npmjs.com/package/require-uncached"><em>require-uncached</em></a> (or some similar package) to guarantee that you are always importing fresh, uncached copies of them and they reflect your most recent changes.</p>
+                <p>When your filter functions have their own internal module dependencies, you should import those dependencies using <a target="_blank" href="https://www.npmjs.com/package/import-fresh"><em>import-fresh</em></a> (or some similar package) to guarantee that you are always importing fresh, uncached copies of them and they reflect your most recent changes.</p>
 
                 <figure>
-                    <pre><code class="JavaScript"><mark>const requireUncached = require(&apos;require-uncached&apos;);</mark>
-<mark>const pageName = requireUncached(&quot;./lib/pageName&quot;);</mark>
+                    <pre><code class="JavaScript"><mark>const importFresh = require(&apos;import-fresh&apos;);</mark>
+<mark>const pageName = importFresh(&quot;./lib/pageName&quot;);</mark>
 module.exports = ({ site, collection }) =&gt;
     site.dataCatalog.team.map(item =&gt;
         ({ pageName: `${<mark>pageName</mark>(item.firstName, item.lastName)}`, item }));</code></pre>
@@ -313,7 +313,7 @@ module.exports = ({ site, collection }) =&gt;
                 <p>Currently <a target="_blank" href="https://github.com/4awpawz/trio/releases/tag/v2.0.0"><span>v2.0.0</span></a></p>
 
                 <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
-                <p>Page Updated: <span>11/28/2019, 1:17:29 PM</span> </p>
+                <p>Page Updated: <span>11/28/2019, 11:12:10 PM</span> </p>
             </footer>
         </article>
     </main>
