@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67538650-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-67538650-3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
+    <meta name="author" content="Jeffrey Schwartz">
+    <meta name="generator" content="Trio v3.0.0">
+    <title>Trio v3.0.0: Permalinkns And Other Goodies | Trio Blog</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/css/libs/github/7a25cddb2ef752830353f7e19a905735-github-markdown.css">
+    <link rel="stylesheet" href="/css/libs/highlight/bf6c14925e66edb1526b6c9489b3c042-github.css">
+    <link rel="stylesheet" href="/css/bccd168bd9365957fb146377ade225d3-main.css">
+    <script src="/scripts/e497281e462342b50ccbb59b462856dd-highlight.pack.js"></script>
+</head>
+
+<body>
+    <header class="header header--fixed header--green">
+        <section class="container header__container">
+            <input class="hamburger-checkbox header__hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <label class="hamburger-helper header__hamburger-container" for="hamburger-checkbox">
+                <div class="hamburger">
+                    <div class="hamburger__bun">
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                    </div>
+                </div>
+            </label>
+            <div class="header__promo">
+                <img class="header__promo-image" src="/media/b66d421676dcc7ac68959fd41c82c140-brand.svg" alt="Trio Icon">
+                <div class="header__promo-text">Trio
+                    <span class="header__promo-text-version">v3.0.0</span>
+
+                </div>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/">Home</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/docs/v3/">Docs</a>
+                    </li>
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <div class="blog-masthead">
+        <a class="blog-masthead__icon" href="/blog"></a>
+        <p class="blog-masthead__title">The Trio Blog</p>
+        <p class="blog-masthead__subtitle">Releases, News, Stories, Gossip</p>
+    </div>
+
+    <main class="container blog-container">
+        <article class="blog-post">
+            <h1 class="blog-post__article-title">Trio v3.0.0: Permalinkns And Other Goodies</h1>
+            <div class="blog-post__meta-container">Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2020-01-21</span> </div>
+            <section>
+                <h2 id="lots-of-goodies-for-you-in-this-release">Lots of goodies for you in this release.</h2>
+                <p>New features make this the most productive release of Trio yet, and major bug fixes make this the most stable release of Trio to date!</p>
+
+                <h2 id="new-permalinks">New! Permalinks.</h2>
+                <p>Though originally intended to provide flexibility as to where you wish to target the generation of your article pages, Trio&apos;s permalink implementation is general enough to be used for other use cases as well, such as grouping your fragment files into easily recognizable and manageable sub folders of root/source/fragments. Trio allows you to declare your permalinks in the trio.json configuration file as well as in individual fragments.</p>
+                <h2 id="new-you-now-have-total-control-as-to-how-you-structure-your-blogs">New! You now have total control as to how you structure your blogs.</h2>
+                <p><strong>* breaking change!</strong></p>
+                <p>The source/fragments/blog folder, including the source/fragments/blog/tag, source/fragments/blog/category and the source/fragments/blog/archive folders are now gone. The articles folder is now a direct child of source/fragments, and that&apos;s where it always should have been.</p>
+                <p>This is a breaking change and you might have to modify your projects&apos; blogs to conform to this change, but it is one that I hope you will all come to appreciate as you realize the flexibility that this, along with the new Permalinks feature, now affords you. I am truly sorry for any inconvenience that this may have caused you.</p>
+                <p><strong>* Tip #1: You can continue to use the blog folder to host your generated blog exactly as prior versions of Trio had done.</strong></p>
+                <p>To do so, you first have to make the source/fragments/blog/articles folder a direct child folder of the source/fragments folder. Then, you must add a permalink in trio.json that will direct Trio to generate your article pages in either the public/blog folder or in the release/blog/ folder, depending on which command you use to generate your project, which can be either build or release, respectively, as shown below:</p>
+                <pre><code class="language-json">permalinks: [
+    &quot;articles: blog&quot;
+]</code></pre>
+                <p><strong>* Tip #2: You can use an approach similar to Tip #1 above to name your generated blog&apos;s folder to something other than blog, such as to myblog, for example.</strong></p>
+                <p>To do so, move the articles folder out of the blog folder as described above. Then, like above, you must add a permalink in trio.json, but this one will trigger Trio to generate your articles, categores, tags and archive pages in a folder called myblog:</p>
+                <pre><code class="language-json">permalinks: [
+    &quot;articles, blog: myblog&quot;
+]</code></pre>
+                <h2 id="new-incremental-build-now-watches-triojson-for-changes">New! Incremental Build Now Watches trio.json For Changes.</h2>
+                <p>Now, when building incrementally while watching for changes, and you make changes in your project&apos;s trio.json configuration file, Trio will run a one-off build so that your changes can be applied to your site. You no longer have to terminate your incremental build, then run a one-off build to apply the changes you made in trio.json to your site, and then start another incremental build.</p>
+                <h2 id="new-enhanced-collection-dataset-validation">New! Enhanced Collection Dataset Validation.</h2>
+                <p><strong>* breaking change!</strong></p>
+                <p>Beginning with v3, Trio can now property validate and generate warning messages when an item in a collection dataset is missing one or both of its required properties, namely its page name, and the data associated with that page.</p>
+                <p>Prior to v3, you were able to name the property that you assigned the dataset item&apos;s data to to any legal property name as long as it adhered to JavaScript&apos;s object property naming conventions. However, this ambiguity prevented Trio from property validating each dataset item. To remedy this, beginning with v3.0.0, Trio requires that this property must be named &quot;data&quot;.</p>
+                <p>This is a breaking changes, and I am truly very sorry for any inconvenience that this may have caused you, but I hope you agree that insuring the data integrity of these dataset items is very important.</p>
+                <h2 id="improved-consistent-formating-for-error-and-warning-messages">Improved Consistent Formating For Error And Warning Messages.</h2>
+                <p>A lot of cruft had built up regarding how error and warning messages were formatted. This version of Trio has attempted to address that by providing a more consistent format for both error and warning messages.</p>
+                <h2 id="major-bug-fixes">Major Bug Fixes</h2>
+                <p>Fixed - A bug (issue #98) that prevented you from creating a new project at the command line from within the new project&apos;s target folder.</p>
+                <p>Fixed - A bug (issue #94) that would cause incremental build with watch to break when you would rename a fragment. Now, when you rename a fragment, Trio will run a one-off build to insure that its cache accurately represents the current state of your project.</p>
+                <p>Fixed - A bug (issue #93) that would sometimes prevent articles from being generated if they didn&apos;t declare a category in their front matter.</p>
+                <h2 id="upgrading-from-an-older-version-of-trio">Upgrading From An Older Version Of Trio.</h2>
+                <p>Whenever you upgrade to a new version of Trio, you should always run a one-off build to insure that Trio&apos;s cache is updated to its current expectations:</p>
+                <pre><code>$ trio build | b</code></pre>
+                <h2 id="changelog">Changelog</h2>
+                <p>Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v300">changelog</a> for details.</p>
+                <h2 id="your-financial-support-of-this-project-is-greatly-appreciated">Your Financial Support Of This Project Is Greatly Appreciated.</h2>
+                <p>Trio is an open source project and is therefore free of charge to use both for noncommercial and commercial use, but when you use Trio to create a new website, please consider donating a few bucks. It doesn&apos;t take very long, the process is secure, ant it will allow us to continue to support the community and to maintain and enhance Trio going forward.</p>
+                <br>
+                <div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="hosted_button_id" value="FQKMSA5MRHK4Y">
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button">
+                        <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                </div>
+                <br>
+                <p><a target="_blank" href="https://github.com/4awpawz/trio">Show your &#x2764;&#xFE0F;, add your &#x2605; to the Github repo.</a></p>
+            </section>
+        </article>
+    </main>
+    <footer class="container blog-container blogfooter">
+        <p class="show-the-love">&quot;Built with <span class="heart">&#x2665;</span> for the Web, and a passion for simplifying complex things.&quot;</p>
+
+        <p>&#xA9;<span>2018-2020</span> Jeffrey Schwartz All Rights Reserved</p>
+
+        <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
+
+        <p>Currently <a target="_blank" href="https://github.com/4awpawz/trio/releases/tag/v3.0.0"><span>v3.0.0</span></a></p>
+
+        <p><a href="/blog/releases/2020/01/21/v3.0.0/">About v3.0.0 </a></p>
+
+        <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
+
+        <p>Page Updated: <span>1/22/2020, 11:33:31 AM</span> </p>
+    </footer>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>

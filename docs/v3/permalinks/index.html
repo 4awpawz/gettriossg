@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67538650-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-67538650-3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
+    <meta name="author" content="Jeffrey Schwartz">
+    <meta name="generator" content="Trio v3.0.0">
+    <title>Collections - Trio</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/css/libs/highlight/bf6c14925e66edb1526b6c9489b3c042-github.css">
+    <link rel="stylesheet" href="/css/bccd168bd9365957fb146377ade225d3-main.css">
+    <script src="/scripts/e497281e462342b50ccbb59b462856dd-highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+<body>
+    <header class="header header--fixed header--green">
+        <section class="container header__container">
+            <input class="hamburger-checkbox header__hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <label class="hamburger-helper header__hamburger-container" for="hamburger-checkbox">
+                <div class="hamburger">
+                    <div class="hamburger__bun">
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                    </div>
+                </div>
+            </label>
+            <div class="header__promo">
+                <img class="header__promo-image" src="/media/b66d421676dcc7ac68959fd41c82c140-brand.svg" alt="Trio Icon">
+                <div class="header__promo-text">Trio
+                    <span class="header__promo-text-version">v3.0.0</span>
+
+                </div>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/">Home</a>
+                    </li>
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/docs/v3/">Docs</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <main class="container doc-page">
+        <aside class="doc-page-index">
+            <h2 class="doc-page-index__header">Trio <span class="doc-page-index__header-version">v3.0.0</span></h2>
+            <aside class="doc-page-index__list-container">
+                <ul class="doc-page-index__list">
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/upgrading">Upgrading</a>
+                        <div class="line"></div>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3">About</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/gettingstarted">Getting Started</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/keyconcepts">Key Concepts</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/projectstructure">Project Structure</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/pagegeneration">Page Generation</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/linkingconventions">Linking Conventions</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/frontmatter">Front Matter</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/tagattributes">Tag Attributes</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/template">Template</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/fragment">Fragment</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/include">Include</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/jsondata">JSON Data</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/metadata">Metadata</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/tagbasedcallbacks">Tag-Based Callbacks</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/scsssasscss">SCSS/SASS/CSS</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/blogging">Blogging</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/collections">Collections</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link doc-page-index__list-item-link--current" href="/docs/v3/permalinks">Permalinks</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/commandline">Command Line</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/incrementalbuild">Incremental Build</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/configuration">Configuration</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v3/additionalresources">Additional Resources</a>
+                        <div class="line"></div>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="https://github.com/4awpawz/trio">Github Repo &amp; Issue Tracker</a>
+                    </li>
+                </ul>
+
+            </aside>
+        </aside>
+        <article class="doc-page-content">
+            <section class="notification">Documentation is evolving and is a WIP</section>
+            <section class="doc-page-content__copy">
+                <h1>Permalinks</h1>
+
+                <p><mark>Introduced in v3.0.0</mark></p>
+
+                <p>Permalinks are used to modify how Trio generates the destination paths and ultimately the URLs of pages that it generates for your site.</p>
+
+                <p>Permalinks can be defined in trio.json as well as in the front matter of individual fragment files.</p>
+
+                <p>Though originally intended to provide flexibility as to where you wish to target the generation of your article pages, Trio&apos;s permalink implementation is general enough to be used for other use cases as well, such as grouping your fragment files into easily recognizable and manageable sub folders of root/source/fragments.</p>
+
+                <blockquote class="note-tip">
+                    <p>All fragments generated for collections that are targets of permalinks share the same permalink.</p>
+                </blockquote>
+
+                <h2 id="configuration-based-permalinks">Defining Permalinks In trio.json</h2>
+
+                <p>Permalinks that are defined in trio.json must declare one or more <em>target folders</em>, which Trio interprets as being relative to the root/source/fragments folder.</p>
+
+                <p>In addition, each permalink must declare the <em>destination path</em> that Trio should apply to all the fragments it finds in the target folders as well as their descendant folders. The destination paths of these permalinks are interpreted as being relative to the root/public (or root/release, if generating a release build) folder.</p>
+
+                <p>Parmalinks are defined in trio.json using <em>targets: destination pairs</em> surrounded by either single or double quotes (<em>&apos;</em> or <em>&quot;</em>), where <em>targets</em> is one or more target folders and where <em>destination</em> is the destination path that Trio should apply.</p>
+
+                <figure>
+                    <pre><code class="json"> &quot;permalinks&quot;: [
+    &quot;articles: blog&quot;
+]</code></pre>
+                    <figcaption>Example: Targeting A Single Folder With A Permalink</figcaption>
+                </figure>
+
+                <p>The permalink defined in the above example directs Trio to apply `/blog` as the destination path for all the fragments that it finds in the root/source/fragments/articles folder and its descendant folders.</p>
+
+                <p>You can also use a single permalink to target multiple folders in root/source/fragments with the same destination path as shown below:</p>
+
+                <blockquote class="note-tip">
+                    <p>You can target multiple folders with the same destination path by using a comma separated list of target folders.</p>
+                </blockquote>
+
+                <figure>
+                    <pre><code class="json"> &quot;permalinks&quot;: [
+    &quot;articles, categories, tags: blog&quot;
+]</code></pre>
+                    <figcaption>Example: Targeting Multiple Folders With A Permalink</figcaption>
+                </figure>
+
+                <p>The permalink defined in the above example directs Trio to apply `/blog` as the destination path for all the fragments that it finds in the root/source/fragments/articles, the root/source/fragments/categories, and the root/source/fragments/tags folders as well as in all their descendant folders.</p>
+
+                <h2 id="fragment-based-permalinks">Defining A Permalink In Fragment Front Matter.</h2>
+
+                <p>Permalinks defined in fragment front matter only affect the destination paths and ultimately the URLs that are generated for those particular fragments.</p>
+
+                <p>The destination paths are interpreted as being relative to the root/public (or root/release, if generating a release build) folder.</p>
+
+                <p>To define a permalink in a fragment&apos;s front matter, you include the <em>permalink</em> front matter property and assign it the <em>destination path</em> that Trio will use when it generates the destination path for the fragment.</p>
+
+                <p>The summary.md fragment in the following example provides summary information for the year 2019, and is located in the <em>source/fragments/history/2019/</em> folder along with other fragment files related to that year. Besides the 2019 folder, the history folder also contains numerous other folders for other prior years:</p>
+
+                <figure>
+                    <pre><code class="html">&lt;!--
+template: default
+title: 2019 Recap
+appendToTarget: true
+permalink: yearinreview/2019
+--&gt;</code></pre>
+                    <figcaption>Example: Targeting A Single Fragment With A Permalink</figcaption>
+                </figure>
+
+                <p>The permalink defined in the above example directs Trio to apply <em>/yearinreview/2019</em> as the destination path for the fragment.</p>
+
+                <p>As the above example also demonstrates, fragment-based permalinks provide you great flexibility over how you organize the fragments in your projects and how they will be hosted on the generated site.</p>
+
+                <h2>Permalink Precedence</h2>
+
+                <p>Permalinks defined in fragment front matter always take precedence over those defined in trio.json, which allows you to &quot;fine tune&quot; your site&apos;s permalink strategy to fit your specific domain requirements.</p>
+
+                <h2>See Also</h2>
+
+                <ul>
+                    <li><a href="/docs/v3/configuration">Configuration</a></li>
+                    <li><a href="/docs/v3/fragment">Fragment</a></li>
+                    <li><a href="/docs/v3/pagegeneration">Page Generation</a></li>
+                    <li><a href="/docs/v3/linkingconventions">Linking Conventions</a></li>
+                </ul>
+
+            </section>
+            <footer class="docfooter footer--hide-the-love">
+                <p class="show-the-love">&quot;Built with <span class="heart">&#x2665;</span> for the Web, and a passion for simplifying complex things.&quot;</p>
+
+                <p>&#xA9;<span>2018-2020</span> Jeffrey Schwartz All Rights Reserved</p>
+
+                <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
+
+                <p>Currently <a target="_blank" href="https://github.com/4awpawz/trio/releases/tag/v3.0.0"><span>v3.0.0</span></a></p>
+
+                <p><a href="/blog/releases/2020/01/21/v3.0.0/">About v3.0.0 </a></p>
+
+                <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
+
+                <p>Page Updated: <span>1/22/2020, 11:33:31 AM</span> </p>
+            </footer>
+        </article>
+    </main>
+</body>
+
+</html>
