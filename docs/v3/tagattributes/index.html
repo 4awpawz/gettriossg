@@ -24,7 +24,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/highlight/bf6c14925e66edb1526b6c9489b3c042-github.css">
-    <link rel="stylesheet" href="/css/bccd168bd9365957fb146377ade225d3-main.css">
+    <link rel="stylesheet" href="/css/9578fa04c609e058f7bd54b21a71a6b0-main.css">
     <script src="/scripts/e497281e462342b50ccbb59b462856dd-highlight.pack.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -154,8 +154,16 @@
             <section class="doc-page-content__copy">
                 <h1>Tag Attributes</h1>
 
-                <p><em>data-trio-*</em> tag attributes are used as markers to indicate that a specific action is associated with its HTML
-                    tag.</p>
+                <p><em>data-trio-*</em> tag attributes are used as markers to indicate that a specific action is associated with its HTML tag.</p>
+
+                <blockquote class="note-tip">
+                    <p>When building for release Trio removes all the data-trio-* attributes from the generated pages.</p>
+                </blockquote>
+
+                <blockquote class="note-tip">
+                    <p>You can add your own custom data-trio-* attributes to your markup which you can then target in your tag-based callbacks:</p>
+                    <pre><code>$page(&quot;[data-trio-myattribute&quot;).addClass(&quot;someCssClass&quot;)</code></pre>
+                </blockquote>
 
                 <h2 id="data-trio-fragment">data-trio-fragment</h2>
 
