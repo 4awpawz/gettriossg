@@ -236,6 +236,10 @@ appendToTarget: true
                     <p>Filter functions are called <em>synchronously</em>.</p>
                 </blockquote>
 
+                <blockquote class="note-tip">
+                    <p>Trio uses <em>import-fresh</em> internally to import uncached collection filter functions.</p>
+                </blockquote>
+
                 <figure>
                     <pre><code class="javascript">module.exports = ({ <mark>site</mark>, <mark>collection</mark> }) =&gt;
     site.dataCatalog.team.map(<mark>item</mark> =&gt;
