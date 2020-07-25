@@ -19,12 +19,12 @@
 
     <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
     <meta name="author" content="Jeffrey Schwartz">
-    <meta name="generator" content="Trio v3.1.0">
+    <meta name="generator" content="Trio v4.0.0">
     <title>Project Structure - Trio</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/highlight/bf6c14925e66edb1526b6c9489b3c042-github.css">
-    <link rel="stylesheet" href="/css/a7fb24a19a602df2314779f5e08262d3-main.css">
+    <link rel="stylesheet" href="/css/a575f1db8fa54d4703b5a68d86819b34-main.css">
     <script src="/scripts/e497281e462342b50ccbb59b462856dd-highlight.pack.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
@@ -47,7 +47,7 @@
             <div class="header__promo">
                 <img class="header__promo-image" src="/media/b66d421676dcc7ac68959fd41c82c140-brand.svg" alt="Trio Icon">
                 <div class="header__promo-text">Trio
-                    <span class="header__promo-text-version">v3.1.0</span>
+                    <span class="header__promo-text-version">v4.0.0</span>
 
                 </div>
             </div>
@@ -68,7 +68,7 @@
     </header>
     <main class="container doc-page">
         <aside class="doc-page-index">
-            <h2 class="doc-page-index__header">Trio <span class="doc-page-index__header-version">v3.1.0</span></h2>
+            <h2 class="doc-page-index__header">Trio <span class="doc-page-index__header-version">v4.0.0</span></h2>
             <aside class="doc-page-index__list-container">
                 <ul class="doc-page-index__list">
                     <li class="doc-page-index__list-item">
@@ -177,8 +177,7 @@
                 <p>Contains the following folders which are used for the development of your web site.</p>
 
                 <h3>root/source/callbacks/</h3>
-                <p>Contains tag-based callback modules, which are referenced by HTML tags in templates,
-                    fragments and includes using the data-trio-callback tag attribute. See <a href="/docs/v3/tagbasedcallbacks">Tag-Based Callbacks</a> for more information.</p>
+                <p>Contains tag-based callback modules, which are referenced by HTML tags in templates, fragments and includes using the <em>data-trio-callback</em> tag attribute. See <a href="/docs/v3/tagbasedcallbacks">Tag-Based Callbacks</a> for more information.</p>
 
                 <h3>root/source/css/</h3>
                 <p>Contains .css files.</p>
@@ -190,7 +189,7 @@
                 <p>Contains files, such as <em>favicon.ico, robots.txt, sitemaps, .nojekyll, .etc</em>, for example, that are copied &quot;as is&quot; to the site&apos;s root folder.</p>
 
                 <h3>root/source/filters/</h3>
-                <p>Contains collection filter modules <mark>introduced in v2.0.0.</mark>. See <a href="/docs/v3/collections">Collections</a> for more information.</p>
+                <p>Contains collection filter function modules <mark>introduced in v2.0.0.</mark>. See <a href="/docs/v3/collections">Collections</a> for more information.</p>
 
                 <h3>root/source/fragments/</h3>
                 <p>Contains .md and .html fragment files and folders.</p>
@@ -200,6 +199,9 @@
 
                 <h3>root/source/includes/</h3>
                 <p>Contains .md and .html include files.</p>
+
+                <h3>root/source/lib/</h3>
+                <p>Contains JavaScript modules that are required by tag-based callback modules and collection filter function modules. <em>Introduced in v4.0.0</em>.</p>
 
                 <h3>root/source/media/</h3>
                 <p>Contains media specific files (e.g. .jpg, .gif, .pdf, .etc).</p>
@@ -227,9 +229,7 @@
 
                 <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
 
-                <p>Currently <a target="_blank" href="https://github.com/4awpawz/trio/releases/tag/v3.1.0"><span>v3.1.0</span></a></p>
-
-                <p><a href="/blog/releases/2020/02/11/v3.1.0/">About v3.1.0 </a></p>
+                <p>Currently <span>v4.0.0</span></p>
 
                 <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
 

@@ -20,7 +20,7 @@
     <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
     <meta name="author" content="Jeffrey Schwartz">
     <meta name="generator" content="Trio v4.0.0">
-    <title>Trio v3.1.0</title>
+    <title>Trio v4.0.0</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/github/7a25cddb2ef752830353f7e19a905735-github-markdown.css">
@@ -76,18 +76,33 @@
 
     <main class="container blog-container">
         <article class="blog-post">
-            <h1 class="blog-post__article-title">Trio v3.1.0: Improved Developer Experience</h1>
-            <div class="blog-post__meta-container">Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2020-02-11</span> </div>
+            <h1 class="blog-post__article-title">Trio v4.0.0: The Commitment Remains The Developer Experience</h1>
+            <div class="blog-post__meta-container">Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2020-07-24</span> </div>
             <section>
-                <h2 id="two-new-features-to-improve-the-developer-experience">Two New Features To Improve The Developer Experience.</h2>
-                <p>Preserved include and fragment target tags and auto detection of new version.</p>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/EGlo9LzmOME" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
 
-                <h2 id="new-include-and-fragment-target-tags-are-now-preserved-when-appenddtotarget-is-false-and-you-are-building-for-development">New! Include and fragment target tags are now preserved when appenddToTarget is false and you are building for development.</h2>
-                <p>Prior to v3.1.0 include and fragment target tags that were being replaced with content would be removed from the generated markup when building for development. Beginning with v3.1.0 these tags are now preserved in the generated markup as commented out tags.</p>
-                <h2 id="new-trio-will-automatically-perform-a-one-off-build-for-you-when-you-build-incrementally-and-a-new-version-of-trio-is-detected">New! Trio will automatically perform a one-off build for you when you build incrementally and a new version of Trio is detected.</h2>
-                <p>Prior to v3.1.0 when you installed a new version of Trio you would have to remember to run a one-off build prior to building incrementally. This was necessary to insure that the project&apos;s cache was compatible with the new version. Beginning with v3.1.0 Trio now detects that you are using a new version and it will automatically perform a one-off build for you the first time you build incrementally.</p>
+                <h2 id="trio-v400-staying-true-to-the-cause">Trio v4.0.0: Staying True To The Cause.</h2>
+                <p>Back in January, when I released Trio v3.0.0, I made a personal commitment that for the foreseeable future my focus would remain improving the developer experience. Today I am releasing Trio v4.0.0 that continues to deliver on that commitment.</p>
+
+                <h3 id="trio-now-preserves-the-relative-paths-of-target-child-folders-when-resolving-permalinks">Trio now preserves the relative paths of target child folders when resolving permalinks.</h3>
+                <p>Prior to v4.0.0, the destination paths generated for the children of a permalink&apos;s target folder were all flattened, meaning they were all set to what was defined for the permalink&apos;s destination path. The result of this behaviour is that all files that match a permalink&apos;s target folder (either directly or are child folders of the target folder) all have the same destination path. This behaviour severely limited the usefulness of permalinks and didn&apos;t support all the imagined use cases for permalinks.</p>
+                <p>Beginning with v4.0.0, this behaviour has changed, and now the destination paths generated for children of a permalink&apos;s target folder are no longer flattened, and now reflect their relative path to the target folder&apos;s path.</p>
+                <p>As an example of v4&apos;s new permalink behavior, imagine that our project&apos;s source/fragments folder contains <em>subfolder/alpha.md</em>, <em>subfolder/beta.md</em>, and <em>subfolder/gamma.md</em> and our project&apos;s trio.json file contains a permalink defined as &quot;<em>subfolder: /</em>&quot;. When Trio generates our project, the root folder will contain <em>public/alpha/index.html, public/beta/index.html, and public/gamma/index.html</em>. Notice how Trio now preserves the subpaths of child folders relative to their target folder defined in the permalink.</p>
+                <h3 id="trio-now-assigns-meaningful-default-values-for-all-the-properties-in-site-metadata-and-triomanifestjson">Trio now assigns meaningful default values for all the properties in site metadata and trio.manifest.json.</h3>
+                <p>Prior to v4.0.0 both <em>site metadata</em> and <em>trio.manifest.json</em> could be missing properties if they had no values. This is no longer the case and beginning with v4.0.0 Trio now assigns meaningful default values for all the properties in site metadata and trio.manifest.json.</p>
+                <h3 id="trio-projects-now-include-a-sourcelib-folder">Trio projects now include a source/lib folder.</h3>
+                <p>The &quot;<em>source/lib</em>&quot; folder is now included in every new project that Trio generates. It merely serves as a convenience that provides your projects a recognizable folder for hosting code modules that are required by your project&apos;s <em>tag-based callback modules</em> and <em>collection filter modules</em>.</p>
+                <h3 id="trios-generated-projects-now-include-the-empty-folders-that-in-previous-versions-were-missing-because-git-doesnt-track-empty-folders">Trio&apos;s generated projects now include the empty folders that in previous versions were missing because Git doesn&apos;t track empty folders.</h3>
+                <p>This was particular to the scaffold project but Trio v4.0.0 now corrects this and generates the missing folders after it copies the scaffold project to its target folder.</p>
+                <h3 id="trio-no-longer-generates-spurious-warning-messages-when-validating-permalinks">Trio no longer generates spurious warning messages when validating permalinks.</h3>
+                <p>Permalink target folder validation prior to Trio v4.0.0 checks if <em>the permalink target path physically exists in the root/source/fragments folder</em>, which would not be the case if the target path is referencing a fragment that is generated via a collection (fragments generated from collection only exist in memory and <em>are never actually written to the source fragments folder</em>) and results in spurious warning messages.</p>
+                <p>Trio v4.0.0 eliminates these spurious warning messages by validating permalinks later in its site generation life-cycle and by validating the target folders against Trio&apos;s own internal metadata that it accumulates during site generation.</p>
+                <h3 id="trio-no-longer-includes-the-eslint-configuration-package-4awpawzeslint-config-4awpawzconfig-in-scaffold-projects">Trio no longer includes the ESLint configuration package @4awpawz/eslint-config-4awpawzconfig in scaffold projects.</h3>
+                <p>Due to frequent security alerts issued by NPM for ESLint-related modules it was decided to remove this package from the scaffold project because of the effort required to remain current with these frequent alerts. You can, however, install this package yourself should you so desire.</p>
                 <h2 id="changelog">Changelog</h2>
-                <p>Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v310">changelog</a> for details.</p>
+                <p>Please see the <a target="_blank" href="https://github.com/4awpawz/trio/#changelog">changelog</a> for details.</p>
                 <h2 id="your-financial-support-of-this-project-is-greatly-appreciated">Your Financial Support Of This Project Is Greatly Appreciated.</h2>
                 <p>Trio is an open source project and is therefore free of charge to use both for noncommercial and commercial use, but when you use Trio to create a new website, please consider donating a few bucks. It doesn&apos;t take very long, the process is secure, and it will allow us to continue to support the community and to maintain and enhance Trio going forward.</p>
                 <br>
@@ -101,6 +116,7 @@
                 </div>
                 <br>
                 <p><a target="_blank" href="https://github.com/4awpawz/trio">Show your &#x2764;&#xFE0F;, add your &#x2605; to the Github repo.</a></p>
+
             </section>
         </article>
     </main>
