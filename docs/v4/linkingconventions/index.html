@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67538650-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-67538650-3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
+    <meta name="author" content="Jeffrey Schwartz">
+    <meta name="generator" content="Trio v4.0.0">
+    <title>Linking Conventions - Trio</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/css/libs/highlight/bf6c14925e66edb1526b6c9489b3c042-github.css">
+    <link rel="stylesheet" href="/css/a575f1db8fa54d4703b5a68d86819b34-main.css">
+    <script src="/scripts/e497281e462342b50ccbb59b462856dd-highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+<body>
+    <header class="header header--fixed header--green">
+        <section class="container header__container">
+            <input class="hamburger-checkbox header__hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <label class="hamburger-helper header__hamburger-container" for="hamburger-checkbox">
+                <div class="hamburger">
+                    <div class="hamburger__bun">
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                    </div>
+                </div>
+            </label>
+            <div class="header__promo">
+                <img class="header__promo-image" src="/media/b66d421676dcc7ac68959fd41c82c140-brand.svg" alt="Trio Icon">
+                <div class="header__promo-text">Trio
+                    <span class="header__promo-text-version">v4.0.0</span>
+
+                </div>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/">Home</a>
+                    </li>
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/docs/v4/">Docs</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <main class="container doc-page">
+        <aside class="doc-page-index">
+            <h2 class="doc-page-index__header">Trio <span class="doc-page-index__header-version">v4.0.0</span></h2>
+            <aside class="doc-page-index__list-container">
+                <ul class="doc-page-index__list">
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/upgrading">Upgrading</a>
+                        <div class="line"></div>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4">About</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/gettingstarted">Getting Started</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/keyconcepts">Key Concepts</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/projectstructure">Project Structure</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/pagegeneration">Page Generation</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link doc-page-index__list-item-link--current" href="/docs/v4/linkingconventions">Linking Conventions</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/frontmatter">Front Matter</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/tagattributes">Tag Attributes</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/template">Template</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/fragment">Fragment</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/include">Include</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/jsondata">JSON Data</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/metadata">Metadata</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/tagbasedcallbacks">Tag-Based Callbacks</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/scsssasscss">SCSS/SASS/CSS</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/blogging">Blogging</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/collections">Collections</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/permalinks">Permalinks</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/commandline">Command Line</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/incrementalbuild">Incremental Build</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/configuration">Configuration</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v4/additionalresources">Additional Resources</a>
+                        <div class="line"></div>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="https://github.com/4awpawz/trio">Github Repo &amp; Issue Tracker</a>
+                    </li>
+                </ul>
+
+            </aside>
+        </aside>
+        <article class="doc-page-content">
+            <section class="notification">Documentation is evolving and is a WIP</section>
+            <section class="doc-page-content__copy">
+                <h1>Linking Conventions</h1>
+
+                <p>Trio supports the following linking conventions:</p>
+
+                <h2>Absolute URLs</h2>
+                <p><em>https://4awpawz.github.io/trio-docs-pages/docs/</em> is appropriate to use when linking to remote/non-internal resource but inappropriate to use when linking to your site&apos;s internal resources because it is brittle; a change in the sites domain would require a global refactoring of your site to change each occurrence.</p>
+
+                <h2>Site Relative URLs</h2>
+                <p><em>/docs</em> is appropriate for internal links; `/` means that the link is relative to the root of your site.</p>
+
+                <h2>Page Relative URLs</h2>
+                <p><em>../docs</em> is appropriate for internal links; `..` means it is relative to the page in which it is being used.</p>
+
+                <h2 id="baseurl">Base URL</h2>
+
+                <p>Some Web hosting services deploy sites in subfolders, and require that their <em>site relative</em> URLs begin with the subfolder&apos;s path.</p>
+
+                <p>For example, the site at <em>https://4awpawz.github.io/trio-docs-pages</em> is hosted on Github Pages, and linking internally with <em>&lt;a href=&quot;/docs/v1&quot;&gt;Documentation&lt;/a&gt;</em> wouldn&apos;t work but linking with <em>&lt;a href=&quot;/trio-docs-pages/docs/v1&quot;&gt;Documentation&lt;/a&gt;</em> would work.</p>
+
+                <p>In this case, you can decorate any HTML tag that has a <em>src</em> or <em>href</em> attribute using the <em>data-trio-link</em> attribute,</p>
+
+                <pre><code class="html">&lt;a <mark>data-trio-link</mark> href=&quot;/docs/v1&quot;&gt;Documentation&lt;/a&gt;</code></pre>
+
+                <p>and in your project&apos;s root/trio.json configuration file you would then assign the subfolder&apos;s path to <em>baseUrl</em>. When you build your site, Trio will prepend these URLs with the path that you assigned to baseUrl.</p>
+
+                <h2>See Also</h2>
+
+                <ul>
+                    <li><a href="/docs/v4/configuration">Configuration</a></li>
+                    <li><a href="/docs/v4/projectstructure">Project Structure</a></li>
+                </ul>
+
+            </section>
+            <footer class="docfooter footer--hide-the-love">
+                <p class="show-the-love">&quot;Built with <span class="heart">&#x2665;</span> for the Web, and a passion for simplifying complex things.&quot;</p>
+
+                <p>&#xA9;<span>2018-2020</span> Jeffrey Schwartz All Rights Reserved</p>
+
+                <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
+
+                <p>Currently <span>v4.0.0</span></p>
+
+                <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
+
+            </footer>
+        </article>
+    </main>
+</body>
+
+</html>
