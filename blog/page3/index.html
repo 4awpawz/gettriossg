@@ -20,7 +20,7 @@
     <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
     <meta name="author" content="Jeffrey Schwartz">
     <meta name="generator" content="Trio v4.0.0">
-    <title>Tutorials | Trio Blog</title>
+    <title>Trio Blog | Official blog for Trio static site generator</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/github/7a25cddb2ef752830353f7e19a905735-github-markdown.css">
@@ -68,9 +68,9 @@
         <a class="blog-masthead__icon" href="/blog"></a>
         <p class="blog-masthead__title">The Trio Blog</p>
         <ol class="blog-masthead__categories">
-            <li class="blog-masthead__category"><a href="/blog">Latest</a></li>
+            <li class="blog-masthead__category blog-masthead__category--active"><a href="/blog">Latest</a></li>
             <li class="blog-masthead__category"><a href="/blog/releases">Releases</a></li>
-            <li class="blog-masthead__category blog-masthead__category--active"><a href="/blog/tutorials">Tutorials</a></li>
+            <li class="blog-masthead__category"><a href="/blog/tutorials">Tutorials</a></li>
         </ol>
     </div>
 
@@ -79,31 +79,18 @@
             <section class="blog-posts">
                 <article class="blog-post">
                     <h1 class="blog-post__article-title">
-                        <a class="blog-post__link" href="/blog/tutorials/2020/08/15/announcing-page-composition-tutorials/">A Series Of Tutorials On Page Composition</a>
+                        <a class="blog-post__link" href="/blog/releases/2018/12/22/v0.0.1released/">Trio v0.0.1</a>
                     </h1>
                     <div class="blog-post__meta-container">
-                        Posted under <span class="blog-post__article-category">tutorials</span> on <span class="blog-post__article-date">2020-08-15</span> </div>
+                        Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2018-12-22</span> </div>
 
-                    <p class="blog-post__articleExcerpt">
-                    <div class="video-container">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/TZ-kKTgtzhc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <br>
-
-                    </p>
-                    <h2 id="page-composition-tutorials">Page Composition Tutorials</h2>
-                    <p>It is almost impossible to imagine a website today that doesn&apos;t require additional content beyond its basic HTML to provide the context needed for its web pages.</p>
-                    <p>Lets consider the Bio pages on a portfolio website that showcases the works of numerous artists. As artists come and go their Bio pages are either added, updated or removed from the site. If the site isn&apos;t very popular with artists then perhaps maintenance of these pages will be infrequent and could be done manually. But if the site is very popular then these pages might in fact require daily or even more frequent updates and thus a more automated approach to maintaining these pages would be beneficial.</p>
-                    <p>A preferable automated approach would be to provide a mechanism that would generate the artist bios whenever their information, which is maintained in separate files or in individual items within a file, are changed, added and deleted. In fact, such mechanisms already exist in the form of static site generators which, among other things, can easily be programmed to insert data found, for instance, in a JSON file into a document that will eventually be saved to your file system as an HTML file.</p>
-                    <p>As such it shouldn&apos;t come as a surprise to you that Trio provides a mechanism to do just that, and to take full advantage of Trio&apos;s site generation capabilities you need to understand how Trio <em>composes</em> your site&apos;s pages using <em>metadata</em>, <em>collection filter functions</em> and <em>tag-based callbacks</em>.</p>
-                    <p><em>To that end I am very pleased to announce that a series of tutorials will be posted here over the course of the next few weeks which will teach you how to compose your site&apos;s pages with dynamic content.</em></p>
-                    <p>If you would like to be notified when these tutorials are posted here then please consider following <em>@gettriossg</em> on Twitter.</p>
+                    <p class="blog-post__articleExcerpt"></p>
+                    <h2 id="first-public-release-of-trio">First Public Release Of Trio</h2>
+                    <p>I am very excited to announce the first public release of Trio, v0.0.1, on <a target="_blank" href="https://www.npmjs.com/package/@4awpawz/trio">NPM</a>. This release represents the culmination of months of work, not only on the code base itself but also on the documentation and the example blog.</p>
                     <p></p>
                 </article>
             </section>
-            <div class="navigator">
-
-                <a class="navigator__newer">Newer articles</a> <a class="navigator__older">Older articles</a>
+            <div class="navigator"><a class="navigator__newer navigator__newer--enabled" href="/blog/page2">Newer articles</a> <a class="navigator__older">Older articles</a>
 
             </div>
         </section>

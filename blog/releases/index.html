@@ -79,6 +79,22 @@
             <section class="blog-posts">
                 <article class="blog-post">
                     <h1 class="blog-post__article-title">
+                        <a class="blog-post__link" href="/blog/releases/2020/08/16/impending-v4.1.0/">What&apos;s Coming In Trio v4.1.0</a>
+                    </h1>
+                    <div class="blog-post__meta-container">
+                        Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2020-08-16</span> </div>
+
+                    <p class="blog-post__articleExcerpt"></p>
+                    <p>While you are enjoying the recently released Trio v4.0.0 we want you to know that Trio <em>v4.1.0</em> is already in the testing phase and will be released shortly.</p>
+                    <p>Although it wasn&apos;t explicitly stated in the documentation, tag-based callbacks that are declared on tags that are replaced by an include&apos;s or a fragment&apos;s content are never registered and therefore never called. <em>Trio V4.1.0 corrects this omission and now supports tag-based callbacks on these tags</em>.</p>
+                    <p>Support for these callbacks will allows you to directly target these tags in your tag-based callbacks using the callback&apos;s <em>$tag</em> parameter.</p>
+                    <p>Please note that this new behavior doesn&apos;t impact how Trio outputs these tags for development and release builds. As always, when building for development, Trio will still comment out these tags in the generated HTML document, and when building for release, Trio will not output these tags in the generated HTML document.</p>
+                    <p>If you would like to be notified when Trio v4.1.0 drops then please consider following <em>@gettriossg</em> on Twitter.</p>
+                    <p></p>
+                </article>
+
+                <article class="blog-post">
+                    <h1 class="blog-post__article-title">
                         <a class="blog-post__link" href="/blog/releases/2020/07/24/v4.0.0/">Trio v4.0.0: The Commitment Remains The Developer Experience</a>
                     </h1>
                     <div class="blog-post__meta-container">
@@ -206,24 +222,6 @@
                     <p class="blog-post__articleExcerpt"></p>
                     <h2 id="names-of-callbacks-that-throw-exceptions-are-now-reported">Names Of Callbacks That Throw Exceptions Are Now Reported</h2>
                     <p>This release includes 1 enhancement and 3 breaking changes. Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v100-rc5-ikigai">changelog</a> for details.</p>
-                    <p></p>
-                </article>
-
-                <article class="blog-post">
-                    <h1 class="blog-post__article-title">
-                        <a class="blog-post__link" href="/blog/releases/2019/07/08/v1.0.0-rc.4/">Trio v1.0.0-rc.4 (IKIGAI)</a>
-                    </h1>
-                    <div class="blog-post__meta-container">
-                        Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2019-07-08</span> </div>
-
-                    <p class="blog-post__articleExcerpt">
-                    <div class="video-container">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/igPVZrkPTt0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-
-                    </p>
-                    <h2 id="garbage-collection-fails-to-delete-original-blog-article-resolved">Garbage Collection Fails To Delete Original Blog Article Resolved</h2>
-                    <p>Addresses issue <a target="_blank" href="https://github.com/4awpawz/trio/issues/74">#74</a> which would cause garbage collection to fail to identify the original blog article to delete when the user changes the blog article&apos;s category. Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v100-rc4-ikigai">changelog</a> for details.</p>
                     <p></p>
                 </article>
             </section>

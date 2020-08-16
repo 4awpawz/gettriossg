@@ -21,17 +21,17 @@
     <meta name="author" content="Jeffrey Schwartz">
     <meta name="generator" content="Trio v4.0.0">
     <meta name="twitter:image" content="https://gettriossg.com/media/76c410f98336b312b96fd6756143d668-trio-social-media-image.png">
-    <meta name="twitter:description" content="Announcing a series of tutorials which will teach you how to compose your site&apos;s pages with dynamic content.">
-    <meta name="twitter:title" content="A Series Of Tutorials On Page Composition">
+    <meta name="twitter:description" content="While you are enjoying the recently released Trio v4.0.0 we want you to know that Trio v4.1.0 is already in the testing phase and will be released shortly.">
+    <meta name="twitter:title" content="What&apos;s Coming In Trio v4.1.0">
     <meta name="twitter:creator" content="@jefftschwartz">
     <meta name="twitter:site" content="@gettriossg">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:image" content="https://gettriossg.com/media/76c410f98336b312b96fd6756143d668-trio-social-media-image.png">
-    <meta property="og:url" content="https://gettriossg.com/blog/tutorials/2020/08/15/announcing-page-composition-tutorials/">
-    <meta property="og:description" content="Announcing a series of tutorials which will teach you how to compose your site&apos;s pages with dynamic content.">
-    <meta property="og:title" content="A Series Of Tutorials On Page Composition">
+    <meta property="og:url" content="https://gettriossg.com/blog/releases/2020-08-16-impending-v4.1.0.md">
+    <meta property="og:description" content="While you are enjoying the recently released Trio v4.0.0 we want you to know that Trio v4.1.0 is already in the testing phase and will be released shortly.">
+    <meta property="og:title" content="What&apos;s Coming In Trio v4.1.0">
     <meta property="og:type" content="article">
-    <title>A Series Of Tutorials On Page Composition | Trio Blog</title>
+    <title>What&apos;s Coming In Trio v4.1.0 | Trio Blog</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/github/7a25cddb2ef752830353f7e19a905735-github-markdown.css">
@@ -80,28 +80,21 @@
         <p class="blog-masthead__title">The Trio Blog</p>
         <ol class="blog-masthead__categories">
             <li class="blog-masthead__category"><a href="/blog">Latest</a></li>
-            <li class="blog-masthead__category"><a href="/blog/releases">Releases</a></li>
-            <li class="blog-masthead__category blog-masthead__category--active"><a href="/blog/tutorials">Tutorials</a></li>
+            <li class="blog-masthead__category blog-masthead__category--active"><a href="/blog/releases">Releases</a></li>
+            <li class="blog-masthead__category"><a href="/blog/tutorials">Tutorials</a></li>
         </ol>
     </div>
 
     <main class="container blog-container">
         <article class="blog-post">
-            <h1 class="blog-post__article-title">A Series Of Tutorials On Page Composition</h1>
-            <div class="blog-post__meta-container">Posted under <span class="blog-post__article-category">tutorials</span> on <span class="blog-post__article-date">2020-08-15</span> </div>
+            <h1 class="blog-post__article-title">What&apos;s Coming In Trio v4.1.0</h1>
+            <div class="blog-post__meta-container">Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2020-08-16</span> </div>
             <section>
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/TZ-kKTgtzhc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <br>
-
-                <h2 id="page-composition-tutorials">Page Composition Tutorials</h2>
-                <p>It is almost impossible to imagine a website today that doesn&apos;t require additional content beyond its basic HTML to provide the context needed for its web pages.</p>
-                <p>Lets consider the Bio pages on a portfolio website that showcases the works of numerous artists. As artists come and go their Bio pages are either added, updated or removed from the site. If the site isn&apos;t very popular with artists then perhaps maintenance of these pages will be infrequent and could be done manually. But if the site is very popular then these pages might in fact require daily or even more frequent updates and thus a more automated approach to maintaining these pages would be beneficial.</p>
-                <p>A preferable automated approach would be to provide a mechanism that would generate the artist bios whenever their information, which is maintained in separate files or in individual items within a file, are changed, added and deleted. In fact, such mechanisms already exist in the form of static site generators which, among other things, can easily be programmed to insert data found, for instance, in a JSON file into a document that will eventually be saved to your file system as an HTML file.</p>
-                <p>As such it shouldn&apos;t come as a surprise to you that Trio provides a mechanism to do just that, and to take full advantage of Trio&apos;s site generation capabilities you need to understand how Trio <em>composes</em> your site&apos;s pages using <em>metadata</em>, <em>collection filter functions</em> and <em>tag-based callbacks</em>.</p>
-                <p><em>To that end I am very pleased to announce that a series of tutorials will be posted here over the course of the next few weeks which will teach you how to compose your site&apos;s pages with dynamic content.</em></p>
-                <p>If you would like to be notified when these tutorials are posted here then please consider following <em>@gettriossg</em> on Twitter.</p>
+                <p>While you are enjoying the recently released Trio v4.0.0 we want you to know that Trio <em>v4.1.0</em> is already in the testing phase and will be released shortly.</p>
+                <p>Although it wasn&apos;t explicitly stated in the documentation, tag-based callbacks that are declared on tags that are replaced by an include&apos;s or a fragment&apos;s content are never registered and therefore never called. <em>Trio V4.1.0 corrects this omission and now supports tag-based callbacks on these tags</em>.</p>
+                <p>Support for these callbacks will allows you to directly target these tags in your tag-based callbacks using the callback&apos;s <em>$tag</em> parameter.</p>
+                <p>Please note that this new behavior doesn&apos;t impact how Trio outputs these tags for development and release builds. As always, when building for development, Trio will still comment out these tags in the generated HTML document, and when building for release, Trio will not output these tags in the generated HTML document.</p>
+                <p>If you would like to be notified when Trio v4.1.0 drops then please consider following <em>@gettriossg</em> on Twitter.</p>
 
                 <h2 id="your-financial-support-of-this-project-is-greatly-appreciated">Your Financial Support Of This Project Is Greatly Appreciated.</h2>
                 <p>Trio is an open source project and is therefore free of charge to use both for noncommercial and commercial use, but when you use Trio to create a new website, please consider donating a few bucks. It doesn&apos;t take very long, the process is secure, and it will allow us to continue to support the community and to maintain and enhance Trio going forward.</p>
@@ -120,7 +113,7 @@
             </section>
         </article>
         <div class="navigator">
-            <a class="navigator__newer">Newer articles</a> <a class="navigator__older">Older articles</a>
+            <a class="navigator__newer">Newer articles</a> <a class="navigator__older navigator__older--enabled" href="/blog/releases/2020/07/24/v4.0.0/">Older articles</a>
 
         </div>
     </main>

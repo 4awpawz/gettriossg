@@ -79,6 +79,22 @@
             <section class="blog-posts">
                 <article class="blog-post">
                     <h1 class="blog-post__article-title">
+                        <a class="blog-post__link" href="/blog/releases/2020/08/16/impending-v4.1.0/">What&apos;s Coming In Trio v4.1.0</a>
+                    </h1>
+                    <div class="blog-post__meta-container">
+                        Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2020-08-16</span> </div>
+
+                    <p class="blog-post__articleExcerpt"></p>
+                    <p>While you are enjoying the recently released Trio v4.0.0 we want you to know that Trio <em>v4.1.0</em> is already in the testing phase and will be released shortly.</p>
+                    <p>Although it wasn&apos;t explicitly stated in the documentation, tag-based callbacks that are declared on tags that are replaced by an include&apos;s or a fragment&apos;s content are never registered and therefore never called. <em>Trio V4.1.0 corrects this omission and now supports tag-based callbacks on these tags</em>.</p>
+                    <p>Support for these callbacks will allows you to directly target these tags in your tag-based callbacks using the callback&apos;s <em>$tag</em> parameter.</p>
+                    <p>Please note that this new behavior doesn&apos;t impact how Trio outputs these tags for development and release builds. As always, when building for development, Trio will still comment out these tags in the generated HTML document, and when building for release, Trio will not output these tags in the generated HTML document.</p>
+                    <p>If you would like to be notified when Trio v4.1.0 drops then please consider following <em>@gettriossg</em> on Twitter.</p>
+                    <p></p>
+                </article>
+
+                <article class="blog-post">
+                    <h1 class="blog-post__article-title">
                         <a class="blog-post__link" href="/blog/tutorials/2020/08/15/announcing-page-composition-tutorials/">A Series Of Tutorials On Page Composition</a>
                     </h1>
                     <div class="blog-post__meta-container">
@@ -97,7 +113,7 @@
                     <p>A preferable automated approach would be to provide a mechanism that would generate the artist bios whenever their information, which is maintained in separate files or in individual items within a file, are changed, added and deleted. In fact, such mechanisms already exist in the form of static site generators which, among other things, can easily be programmed to insert data found, for instance, in a JSON file into a document that will eventually be saved to your file system as an HTML file.</p>
                     <p>As such it shouldn&apos;t come as a surprise to you that Trio provides a mechanism to do just that, and to take full advantage of Trio&apos;s site generation capabilities you need to understand how Trio <em>composes</em> your site&apos;s pages using <em>metadata</em>, <em>collection filter functions</em> and <em>tag-based callbacks</em>.</p>
                     <p><em>To that end I am very pleased to announce that a series of tutorials will be posted here over the course of the next few weeks which will teach you how to compose your site&apos;s pages with dynamic content.</em></p>
-                    <p>If you would like to be notified when these tutorials are posted here please consider following <em>@gettriossg</em> on Twitter.</p>
+                    <p>If you would like to be notified when these tutorials are posted here then please consider following <em>@gettriossg</em> on Twitter.</p>
                     <p></p>
                 </article>
 
@@ -217,19 +233,6 @@
                     <p class="blog-post__articleExcerpt"></p>
                     <h2 id="added-sourcefragmentsblogarchive-for-blog-archive-pages">Added source/fragments/blog/archive For Blog Archive Pages</h2>
                     <p>This release includes 1 enhancement and 1 bug fix. Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v100-rc6-ikigai">changelog</a> for details.</p>
-                    <p></p>
-                </article>
-
-                <article class="blog-post">
-                    <h1 class="blog-post__article-title">
-                        <a class="blog-post__link" href="/blog/releases/2019/07/19/v1.0.0-rc.5/">Trio v1.0.0-rc.5 (IKIGAI)</a>
-                    </h1>
-                    <div class="blog-post__meta-container">
-                        Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2019-07-19</span> </div>
-
-                    <p class="blog-post__articleExcerpt"></p>
-                    <h2 id="names-of-callbacks-that-throw-exceptions-are-now-reported">Names Of Callbacks That Throw Exceptions Are Now Reported</h2>
-                    <p>This release includes 1 enhancement and 3 breaking changes. Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v100-rc5-ikigai">changelog</a> for details.</p>
                     <p></p>
                 </article>
             </section>
