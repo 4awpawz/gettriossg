@@ -20,7 +20,7 @@
     <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
     <meta name="author" content="Jeffrey Schwartz">
     <meta name="generator" content="Trio v4.1.0">
-    <title>Trio v4.0.0 | Trio Blog</title>
+    <title>Trio v4.1.0 | Trio Blog</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/github/7a25cddb2ef752830353f7e19a905735-github-markdown.css">
@@ -76,31 +76,16 @@
 
     <main class="container blog-container">
         <article class="blog-post">
-            <h1 class="blog-post__article-title">Trio v4.0.0: The Commitment Remains The Developer Experience</h1>
-            <div class="blog-post__meta-container">Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2020-07-24</span> </div>
+            <h1 class="blog-post__article-title">Trio v4.1.0: Tag-Based Callbacks</h1>
+            <div class="blog-post__meta-container">Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2020-08-17</span> </div>
             <section>
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/EGlo9LzmOME" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+                <h2 id="trio-v410">Trio v4.1.0</h2>
+                <p>It is with great pleasure that I announce the release of Trio v4.1.0.</p>
+                <h3 id="trio-now-supports-callbacks-declared-on-tags-that-are-replaced-by-include-and-fragment-content">Trio now supports callbacks declared on tags that are replaced by include and fragment content.</h3>
+                <p>Prior to v4.1.0, tag-based callbacks declared on tags that are replaced by an include&apos;s or a fragment&apos;s content are never registered and therefore never called. Trio V4.1.0 corrects this omission and now supports tag-based callbacks on these tags.</p>
+                <p>Support for these callbacks will allows you to directly target these tags in your tag-based callbacks using the callback&apos;s <em>$tag</em> parameter.</p>
+                <p>Please note that this new behavior doesn&apos;t impact how Trio outputs these tags for development and release builds. As always, when building for development, Trio will still comment out these tags in the generated HTML document, and when building for release, Trio will not output these tags in the generated HTML document.</p>
 
-                <h2 id="trio-v400-staying-true-to-the-cause">Trio v4.0.0: Staying True To The Cause.</h2>
-                <p>Back in January, when I released Trio v3.0.0, I made a personal commitment that for the foreseeable future my focus would remain improving the developer experience. Today I am releasing Trio v4.0.0 that continues to deliver on that commitment.</p>
-
-                <h3 id="trio-now-preserves-the-relative-paths-of-target-child-folders-when-resolving-permalinks">Trio now preserves the relative paths of target child folders when resolving permalinks.</h3>
-                <p>Prior to v4.0.0, the destination paths generated for the children of a permalink&apos;s target folder were all flattened, meaning they were all set to what was defined for the permalink&apos;s destination path. The result of this behaviour is that all files that match a permalink&apos;s target folder (either directly or are child folders of the target folder) all have the same destination path. This behaviour severely limited the usefulness of permalinks and didn&apos;t support all the imagined use cases for permalinks.</p>
-                <p>Beginning with v4.0.0, this behaviour has changed, and now the destination paths generated for children of a permalink&apos;s target folder are no longer flattened, and now reflect their relative path to the target folder&apos;s path.</p>
-                <p>As an example of v4&apos;s new permalink behavior, imagine that our project&apos;s source/fragments folder contains <em>subfolder/alpha.md</em>, <em>subfolder/beta.md</em>, and <em>subfolder/gamma.md</em> and our project&apos;s trio.json file contains a permalink defined as &quot;<em>subfolder: /</em>&quot;. When Trio generates our project, the root folder will contain <em>public/alpha/index.html, public/beta/index.html, and public/gamma/index.html</em>. Notice how Trio now preserves the subpaths of child folders relative to their target folder defined in the permalink.</p>
-                <h3 id="trio-now-assigns-meaningful-default-values-for-all-the-properties-in-site-metadata-and-triomanifestjson">Trio now assigns meaningful default values for all the properties in site metadata and trio.manifest.json.</h3>
-                <p>Prior to v4.0.0 both <em>site metadata</em> and <em>trio.manifest.json</em> could be missing properties if they had no values. This is no longer the case and beginning with v4.0.0 Trio now assigns meaningful default values for all the properties in site metadata and trio.manifest.json.</p>
-                <h3 id="trio-projects-now-include-a-sourcelib-folder">Trio projects now include a source/lib folder.</h3>
-                <p>The &quot;<em>source/lib</em>&quot; folder is now included in every new project that Trio generates. It merely serves as a convenience that provides your projects a recognizable folder for hosting code modules that are required by your project&apos;s <em>tag-based callback modules</em> and <em>collection filter modules</em>.</p>
-                <h3 id="trios-generated-projects-now-include-the-empty-folders-that-in-previous-versions-were-missing-because-git-doesnt-track-empty-folders">Trio&apos;s generated projects now include the empty folders that in previous versions were missing because Git doesn&apos;t track empty folders.</h3>
-                <p>This was particular to the scaffold project but Trio v4.0.0 now corrects this and generates the missing folders after it copies the scaffold project to its target folder.</p>
-                <h3 id="trio-no-longer-generates-spurious-warning-messages-when-validating-permalinks">Trio no longer generates spurious warning messages when validating permalinks.</h3>
-                <p>Permalink target folder validation prior to Trio v4.0.0 checks if <em>the permalink target path physically exists in the root/source/fragments folder</em>, which would not be the case if the target path is referencing a fragment that is generated via a collection (fragments generated from collection only exist in memory and <em>are never actually written to the source fragments folder</em>) and results in spurious warning messages.</p>
-                <p>Trio v4.0.0 eliminates these spurious warning messages by validating permalinks later in its site generation life-cycle and by validating the target folders against Trio&apos;s own internal metadata that it accumulates during site generation.</p>
-                <h3 id="trio-no-longer-includes-the-eslint-configuration-package-4awpawzeslint-config-4awpawzconfig-in-scaffold-projects">Trio no longer includes the ESLint configuration package @4awpawz/eslint-config-4awpawzconfig in scaffold projects.</h3>
-                <p>Due to frequent security alerts issued by NPM for ESLint-related modules it was decided to remove this package from the scaffold project because of the effort required to remain current with these frequent alerts. You can, however, install this package yourself should you so desire.</p>
                 <h2 id="changelog">Changelog</h2>
                 <p>Please see the <a target="_blank" href="https://github.com/4awpawz/trio/#changelog">changelog</a> for details.</p>
                 <h2 id="your-financial-support-of-this-project-is-greatly-appreciated">Your Financial Support Of This Project Is Greatly Appreciated.</h2>
@@ -120,7 +105,7 @@
             </section>
         </article>
         <div class="navigator">
-            <a class="navigator__newer navigator__newer--enabled" href="/blog/releases/2020/08/16/impending-v4.1.0/">Newer articles</a> <a class="navigator__older navigator__older--enabled" href="/blog/releases/2020/02/11/v3.1.0/">Older articles</a>
+            <a class="navigator__newer">Newer articles</a> <a class="navigator__older navigator__older--enabled" href="/blog/releases/2020/08/16/impending-v4.1.0/">Older articles</a>
 
         </div>
     </main>
