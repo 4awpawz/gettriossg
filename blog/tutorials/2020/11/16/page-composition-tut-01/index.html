@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67538650-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-67538650-3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
+    <meta name="author" content="Jeffrey Schwartz">
+    <meta name="generator" content="Trio v4.1.0">
+    <meta property="og:image" content="https://gettriossg.com/media/15f2b20c3eca55f71ad9add373b4d51f-composite.png">
+    <meta property="og:description" content="Teaches you how to create web pages using Trio&apos;s template, fragment and include project assets.">
+    <meta property="og:title" content="Basic Page Composition With Templates, Fragments And Includes">
+    <meta property="og:url" content="https://gettriossg.com/blog/tutorials/2020/11/05/composition-tut-01/">
+    <meta property="og:type" content="article">
+    <meta name="twitter:creator" content="@jefftschwartz">
+    <meta name="twitter:site" content="@gettriossg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Basic Page Composition With Templates, Fragments And Includes | Trio Blog</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/css/libs/github/7a25cddb2ef752830353f7e19a905735-github-markdown.css">
+    <link rel="stylesheet" href="/css/libs/highlight/bf6c14925e66edb1526b6c9489b3c042-github.css">
+    <link rel="stylesheet" href="/css/024d1bb4622acff709500764f2a78e07-main.css">
+    <script src="/scripts/e497281e462342b50ccbb59b462856dd-highlight.pack.js"></script>
+</head>
+
+<body>
+    <header class="header header--fixed header--green">
+        <section class="container header__container">
+            <input class="hamburger-checkbox header__hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <label class="hamburger-helper header__hamburger-container" for="hamburger-checkbox">
+                <div class="hamburger">
+                    <div class="hamburger__bun">
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                    </div>
+                </div>
+            </label>
+            <div class="header__promo">
+                <img class="header__promo-image" src="/media/b66d421676dcc7ac68959fd41c82c140-brand.svg" alt="Trio Icon">
+                <div class="header__promo-text">Trio
+                    <span class="header__promo-text-version">v4.1.0</span>
+
+                </div>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/">Home</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/docs/v4/">Docs</a>
+                    </li>
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <div class="blog-masthead">
+        <a class="blog-masthead__icon" href="/blog"></a>
+        <p class="blog-masthead__title">The Trio Blog</p>
+        <ol class="blog-masthead__categories">
+            <li class="blog-masthead__category"><a href="/blog">Latest</a></li>
+            <li class="blog-masthead__category"><a href="/blog/releases">Releases</a></li>
+            <li class="blog-masthead__category blog-masthead__category--active"><a href="/blog/tutorials">Tutorials</a></li>
+        </ol>
+    </div>
+
+    <main class="container blog-container">
+        <article class="blog-post">
+            <h1 class="blog-post__article-title">Basic Page Composition With Templates, Fragments And Includes</h1>
+            <div class="blog-post__meta-container">Posted under <span class="blog-post__article-category">tutorials</span> on <span class="blog-post__article-date">2020-11-16</span> </div>
+            <section>
+                <img src="/media/15f2b20c3eca55f71ad9add373b4d51f-composite.png" alt="a web page composition abstract">
+
+                <h2 id="prerequisites">Prerequisites</h2>
+                <p>Before proceeding with this tutorial, please familiarize yourself with Trio&apos;s <a href="/docs/v4/coreconcepts/">Core Concepts</a>.</p>
+                <h2 id="intention-of-this-tutorial">Intention Of This Tutorial</h2>
+                <p>In this tutorial we will explore Trio&apos;s basic page composition. Unlike advanced page composition, which will be the subject of the next tutorial, basic page composition centers around the use of template, fragment and include project assets to compose your HTML documents, and doesn&apos;t involve the use of any tag-based callbacks.</p>
+                <p>Our use case for this tutorial is trivial, we want Trio to generate an HTML page that contains a page header and a list containing the names of artist and their relevant information. If we were to hand code this HTML page, this is what it would look like:</p>
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Hand Coded&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;header&gt;Artists Registry&lt;/header&gt;
+    &lt;main&gt;
+        &lt;h2&gt;Artists&lt;/h2&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Terry Shannon&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Oil&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Glen Miller&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Watercolor&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Kris Jay&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Oil&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Riley Webb&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Oil&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Vic Christy&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Oil&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Caden Ray&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Watercolor&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Steff Hammer&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Oil&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Billie Noble&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Oil&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Danni Powell&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Watercolor&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Blair Gordonlist&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Oil&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/ul&gt;
+    &lt;/main&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+                <h2 id="create-a-new-project">Create A New Project</h2>
+                <p>In your terminal application, run the following <strong>command</strong> (please replace <em>&quot;path/to/new/project&quot;</em> with the actual path you would prefer for the location of your new project) to create a new project:</p>
+                <pre><code class="language-shell">trio new path/to/new/project</code></pre>
+                <h2 id="create-the-template-project-asset">Create The Template Project Asset</h2>
+                <p>In the project&apos;s <em>source/templates</em> folder, create a new <strong>template file</strong> named <em>default.html</em> and copy and paste the following markup into that file:</p>
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/024d1bb4622acff709500764f2a78e07-main.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header data-trio-include=&quot;header.md&quot;&gt;&lt;/header&gt;
+    &lt;main data-trio-fragment&gt;&lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                <p>Please notice that the above template project asset contains a single tag (in this case, a &quot;main&quot; tag) that is decorated with the <em>data-trio-fragment</em> attribute. When Trio finds such a tag decorated with this attribute in a template it will target it with any content it finds in the associated fragment. This isn&apos;t required if the fragment isn&apos;t contributing any content of its own.</p>
+                <h2 id="create-the-fragment-project-asset">Create The Fragment Project Asset</h2>
+                <p>In the project&apos;s <em>source/fragments</em> folder, create a new <strong>fragment file</strong> named <em>index.html</em> and copy and paste the following into that:</p>
+                <pre><code class="language-html">&lt;!--
+template: default
+title: Hard Coded In Fragment
+appendToTarget: true
+--&gt;
+
+&lt;h2&gt;Artists&lt;/h2&gt;
+&lt;ul&gt;
+    &lt;li&gt;Terry Shannon&lt;/li&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Medium: Oil&lt;/li&gt;
+            &lt;li&gt;Style: Impressionism&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;li&gt;Glen Miller&lt;/li&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Medium: Watercolor&lt;/li&gt;
+            &lt;li&gt;Style: Impressionism&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;li&gt;Kris Jay&lt;/li&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Medium: Oil&lt;/li&gt;
+            &lt;li&gt;Style: Impressionism&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;li&gt;Riley Webb&lt;/li&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Medium: Oil&lt;/li&gt;
+            &lt;li&gt;Style: Impressionism&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;li&gt;Vic Christy&lt;/li&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Medium: Oil&lt;/li&gt;
+            &lt;li&gt;Style: Impressionism&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;li&gt;Caden Ray&lt;/li&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Medium: Watercolor&lt;/li&gt;
+            &lt;li&gt;Style: Impressionism&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;li&gt;Steff Hammer&lt;/li&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Medium: Oil&lt;/li&gt;
+            &lt;li&gt;Style: Impressionism&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;li&gt;Billie Noble&lt;/li&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Medium: Oil&lt;/li&gt;
+            &lt;li&gt;Style: Impressionism&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;li&gt;Danni Powell&lt;/li&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Medium: Watercolor&lt;/li&gt;
+            &lt;li&gt;Style: Impressionism&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;li&gt;Blair Gordonlist&lt;/li&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Medium: Oil&lt;/li&gt;
+            &lt;li&gt;Style: Impressionism&lt;/li&gt;
+        &lt;/ul&gt;
+&lt;/ul&gt;</code></pre>
+                <p>Please notice how the above fragment project asset declares front matter at the very top of the file, in which it defines:</p>
+                <ol>
+                    <li>The required front matter property <em>template</em> with the name of the template file it is associated with and</li>
+                    <li>The required front matter property <em>title</em> with the title to be assigned to the generated document&apos;s title tag and</li>
+                    <li>The optional front matter property <em>appendToTarget</em> which Trio uses to determine if it should append to or replace the tag in the template that is decorated with the <em>data-trio-fragment</em> attribute with the fragment&apos;s content. By assigning true, Trio will append whatever content it finds in the associated fragment to this tag.</li>
+                </ol>
+                <h2 id="create-the-include-project-asset">Create The Include Project Asset</h2>
+                <p>In the project&apos;s <em>source/includes</em> folder, create a new <strong>include file</strong> named <em>header.md</em> and copy and paste the following into that:</p>
+                <pre><code class="language-md">&lt;!--
+appendToTarget: true
+--&gt;
+
+# Artists Registry</code></pre>
+                <p>Please notice how the above include project asset declares front matter at the very top of the file which defines the optional boolean front matter property <strong>appendToTarget</strong>, which Trio uses to determine if it should append to or replace the tag in the template that is decorated with the data-trio-include=&quot;header.md&quot; attribute with the include&apos;s content. By assigning true, Trio will append whatever content it finds in the fragment to this tag.</p>
+                <h2 id="build-and-run-the-project">Build And Run The Project</h2>
+                <p>Now that we have composed our intended page using a template and a fragment and an include, we are ready to <strong>build</strong> our site and <strong>render</strong> the page in the browser. In your terminal application, please run the following commands from the root folder of your project:</p>
+                <pre><code class="language-shell">trio build; trio serve</code></pre>
+                <p>If you prefer, you can use the abbreviated forms of these commands instead:</p>
+                <pre><code class="language-shell">trio b; trio s</code></pre>
+                <p>The <em>build</em> command instructs Trio to do a one-off build of your site <em>for development</em> and to place the site&apos;s generated output into the project&apos;s <em>public/</em> folder. The <em>serve</em> command instructs Trio to serve the project&apos;s <em>public/</em> folder&apos;s content in the browser.</p>
+                <p>When rendered in the browser the page that you created, <em>public/index.html</em>, should look like the following:</p>
+                <img src="/media/tutorials/composition/9b34a0fae2f96ec98601de9df74ac6f6-hardcodedinfragment.png" alt="image">
+
+                <p>You can also view the content of the generated HTML document, which resides in <em>public/index.html</em>, by simply opening it in your editor of choice or by running <code>cat public/index.html</code> from the root of your project in the terminal. Let&apos;s take a look at it now:</p>
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Hard Coded In Fragment&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/024d1bb4622acff709500764f2a78e07-main.css&quot;&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;header data-trio-include=&quot;header.md&quot;&gt;
+        &lt;h1 id=&quot;artists-registry&quot;&gt;Artists Registry&lt;/h1&gt;
+    &lt;/header&gt;
+    &lt;main data-trio-fragment&gt;
+        &lt;h2&gt;Artists&lt;/h2&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Terry Shannon&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Oil&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Glen Miller&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Watercolor&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Kris Jay&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Oil&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Riley Webb&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Oil&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Vic Christy&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Oil&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Caden Ray&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Watercolor&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Steff Hammer&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Oil&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Billie Noble&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Oil&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Danni Powell&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Watercolor&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;li&gt;Blair Gordonlist&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;Medium: Oil&lt;/li&gt;
+                &lt;li&gt;Style: Impressionism&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/ul&gt;
+    &lt;/main&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+                <p>From the above we can see that Trio in fact did as we had requested it to do by appending the fragment&apos;s content to the template&apos;s <em>main tag</em> that was <strong>decorated</strong> with the <em>data-trio-fragment</em> attribute and by appending the include&apos;s content to the template&apos;s <em>header tag</em> that was <strong>decorated</strong> with the <em>data-trio-include=&quot;header.md&quot;</em> attribute.</p>
+                <p>Also note that because we built the project for development using Trio&apos;s <em>build</em> command, Trio preserved all the data-trio-* attributes. If we had instead built the project using Trio&apos;s <em>release</em> command, which is used to build your project prior to its release, Trio would have removed all the <em>data-trio-*</em> attributes from the generated pages.</p>
+                <h3 id="extra-credit">Extra Credit</h3>
+                <p>Generate the site again but this time either remove the <em>appendToTarget</em> front matter property from the fragment&apos;s front matter or set it&apos;s value to <em>false</em>. Now view the generated <em>index.html</em> file in your project&apos;s <em>public/</em> folder. Can you spot the difference in the generated output?</p>
+                <h2 id="takeaways-from-this-tutorial">Takeaways From This Tutorial</h2>
+                <ol>
+                    <li>Trio&apos;s web page generation process is called page composition.</li>
+                    <li>Each web page that Trio generates and writes to the file system as an <em>.html</em> file is made from (i.e. composed from) numerous project assets.</li>
+                    <li>Until Trio actually writes the web page to the file system, it exists purely in the computer&apos;s memory and is referred to as a <em>composite</em>.</li>
+                    <li>At a minimum, every web page that Trio creates must be composed from a single <em>template</em> project asset, and a single <em>fragment</em> project asset, both of which can optionally include one or more <em>include</em> project assets. As this is the most basic form of page composition that Trio provides it is called <em>basic page composition</em>.</li>
+                    <li>Basic page composition, unlike advanced page composition, doesn&apos;t involve any JavaScript; it only involves the <em>content</em> that is contributed by fragment, template, and include project assets and tags decorated with the data-trio-fragment attribute, and tags decorated with the data-trio-include attribute.</li>
+                    <li><em>template</em> project assets are used to provides your web page with its general layout and structure. They may optionally also provide a target tag that Trio will apply the associated fragment&apos;s content to. They must always be an <em>.html</em> file and they should include the <em>!DOCTYPE</em> document preamble, the <em>html</em>, the <em>head</em> and the <em>body</em> sections typically found in an HTML document.</li>
+                    <li><em>fragment</em> project assets are used to direct Trio to generate a composite from a <em>template</em> project asset. They must always include front matter at the very top of the file. They can optionally contribute their own content to the composite. They may be either an <em>.html</em> or a <em>.md</em> file.</li>
+                    <li><em>include</em> project assets are used to add reusable blocks of content (e.g. headers, footers, etc.) to the composites created from fragment and template project assets. They can optionally include front matter at the very top of the file.</li>
+                    <li>There is a <em>one to one relationship</em> between a fragment project asset and a template project asset, meaning that a fragment can only be associated with a single template.</li>
+                    <li>There can be a <em>many to one relationship</em> between a single template and multiple fragments, meaning that multiple fragments can be associated with the same template.</li>
+                </ol>
+                <h2 id="conclusion">Conclusion</h2>
+                <p>This tutorial examined how you can use Trio&apos;s basic page composition to create your site&apos;s HTML documents. Basic page composition, while simple to grasp and implement, is limiting in that you can only compose your HTML documents with the contents of your template, fragment and include project assets - it doesn&apos;t support augmenting your composites with data you define in fragment front matter or in JSON data files.</p>
+                <p>In the next set of tutorials in this series we will examine using Trio&apos;s advanced page composition to compose your HTML documents with dynamic content found in fragment front matter and in JSON data files, along with implementing tag-based callbacks.</p>
+            </section>
+        </article>
+        <section class="donation-request">
+            <h2>Your Financial Support Of This Project Is Greatly Appreciated</h2>
+            <p>Trio is an open source project and is therefore free of charge to use both for noncommercial and commercial use, but when you use Trio to create a new website, please consider donating a few bucks. It doesn&apos;t take very long, the process is secure, and it will allow us to continue to support the community and to maintain and enhance Trio going forward.</p>
+            <br>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="FQKMSA5MRHK4Y">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button">
+                <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+            <br>
+            <p><a target="_blank" href="https://github.com/4awpawz/trio">Show your &#x2764;&#xFE0F;, add your &#x2605; to the Github repo.</a></p>
+        </section>
+
+        <div class="navigator">
+            <a class="navigator__newer">Newer articles</a> <a class="navigator__older navigator__older--enabled" href="/blog/tutorials/2020/08/19/page-composition-tut-intro/">Older articles</a>
+
+        </div>
+    </main>
+    <footer class="container blog-container blogfooter">
+        <p class="show-the-love">&quot;Built with <span class="heart">&#x2665;</span> for the Web, and a passion for simplifying complex things.&quot;</p>
+
+        <p>&#xA9;<span>2018-2020</span> Jeffrey Schwartz All Rights Reserved</p>
+
+        <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
+
+        <p>Currently <span>v4.1.0</span></p>
+
+        <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
+
+    </footer>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>
