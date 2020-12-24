@@ -19,13 +19,13 @@
 
     <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
     <meta name="author" content="Jeffrey Schwartz">
-    <meta name="generator" content="Trio v4.2.0">
+    <meta name="generator" content="Trio v4.3.0">
     <title>Trio Blog | Official blog for Trio static site generator</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/github/7a25cddb2ef752830353f7e19a905735-github-markdown.css">
     <link rel="stylesheet" href="/css/libs/highlight/bf6c14925e66edb1526b6c9489b3c042-github.css">
-    <link rel="stylesheet" href="/css/3b1c3c7cc14fe733d81e3e4cd674e782-main.css">
+    <link rel="stylesheet" href="/css/1fb2986139b6eebcdc4c64a4862ad083-main.css">
     <script src="/scripts/e497281e462342b50ccbb59b462856dd-highlight.pack.js"></script>
 </head>
 
@@ -45,7 +45,7 @@
             <div class="header__promo">
                 <img class="header__promo-image" src="/media/b66d421676dcc7ac68959fd41c82c140-brand.svg" alt="Trio Icon">
                 <div class="header__promo-text">T<span class="header__promo-text-smallcaps">rio</span>
-                    <span class="header__promo-text-version">v4.2.0</span>
+                    <span class="header__promo-text-version">v4.3.0</span>
 
                 </div>
             </div>
@@ -77,6 +77,61 @@
     <main class="container blog-container">
         <section>
             <section class="blog-posts">
+                <article class="blog-post">
+                    <h1 class="blog-post__article-title">
+                        <a class="blog-post__link" href="/blog/tutorials/2020/08/15/announcing-page-composition-tutorials/">A Series Of Tutorials On Page Composition</a>
+                    </h1>
+                    <div class="blog-post__meta-container">
+                        Posted under <span class="blog-post__article-category">tutorials</span> on <span class="blog-post__article-date">2020-08-15</span> </div>
+
+                    <p class="blog-post__articleExcerpt">
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/TZ-kKTgtzhc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <br>
+
+                    </p>
+                    <h2 id="page-composition-tutorials">Page Composition Tutorials</h2>
+                    <p>It is almost impossible to imagine a website today that doesn&apos;t require additional content beyond its basic HTML to provide the context needed for its web pages.</p>
+                    <p>Lets consider the Bio pages on a portfolio website that showcases the works of numerous artists. As artists come and go their Bio pages are either added, updated or removed from the site. If the site isn&apos;t very popular with artists then perhaps maintenance of these pages will be infrequent and could be done manually. But if the site is very popular then these pages might in fact require daily or even more frequent updates and thus a more automated approach to maintaining these pages would be beneficial.</p>
+                    <p>A preferable automated approach would be to provide a mechanism that would generate the artist bios whenever their information, which is maintained in separate files or in individual items within a file, are changed, added and deleted. In fact, such mechanisms already exist in the form of static site generators which, among other things, can easily be programmed to insert data found, for instance, in a JSON file into a document that will eventually be saved to your file system as an HTML file.</p>
+                    <p>As such it shouldn&apos;t come as a surprise to you that Trio provides a mechanism to do just that, and to take full advantage of Trio&apos;s site generation capabilities you need to understand how Trio <em>composes</em> your site&apos;s pages using <em>metadata</em>, <em>collection filter functions</em> and <em>tag-based callbacks</em>.</p>
+                    <p><em>To that end I am very pleased to announce that a series of tutorials will be posted here over the course of the next few weeks which will teach you how to compose your site&apos;s pages with dynamic content.</em></p>
+                    <p>If you would like to be notified when these tutorials are posted here then please consider following <em>@gettriossg</em> on Twitter.</p>
+                    <p></p>
+                </article>
+
+                <article class="blog-post">
+                    <h1 class="blog-post__article-title">
+                        <a class="blog-post__link" href="/blog/releases/2020/07/24/v4.0.0/">Trio v4.0.0: The Commitment Remains The Developer Experience</a>
+                    </h1>
+                    <div class="blog-post__meta-container">
+                        Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2020-07-24</span> </div>
+
+                    <p class="blog-post__articleExcerpt">
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/EGlo9LzmOME" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    </p>
+                    <h2 id="trio-v400-staying-true-to-the-cause">Trio v4.0.0: Staying True To The Cause.</h2>
+                    <p>Back in January, when I released Trio v3.0.0, I made a personal commitment that for the foreseeable future my focus would remain improving the developer experience. Today I am releasing Trio v4.0.0 that continues to deliver on that commitment.</p>
+                    <p></p>
+                </article>
+
+                <article class="blog-post">
+                    <h1 class="blog-post__article-title">
+                        <a class="blog-post__link" href="/blog/releases/2020/02/11/v3.1.0/">Trio v3.1.0: Improved Developer Experience</a>
+                    </h1>
+                    <div class="blog-post__meta-container">
+                        Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2020-02-11</span> </div>
+
+                    <p class="blog-post__articleExcerpt"></p>
+                    <h2 id="two-new-features-to-improve-the-developer-experience">Two New Features To Improve The Developer Experience.</h2>
+                    <p>Preserved include and fragment target tags and auto detection of new version.</p>
+                    <p></p>
+                </article>
+
                 <article class="blog-post">
                     <h1 class="blog-post__article-title">
                         <a class="blog-post__link" href="/blog/releases/2020/01/21/v3.0.0/">Trio v3.0.0: Permalinkns And Other Goodies</a>
@@ -177,50 +232,6 @@
                     <p>This release includes 1 enhancement and 3 breaking changes. Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v100-rc5-ikigai">changelog</a> for details.</p>
                     <p></p>
                 </article>
-
-                <article class="blog-post">
-                    <h1 class="blog-post__article-title">
-                        <a class="blog-post__link" href="/blog/releases/2019/07/08/v1.0.0-rc.4/">Trio v1.0.0-rc.4 (IKIGAI)</a>
-                    </h1>
-                    <div class="blog-post__meta-container">
-                        Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2019-07-08</span> </div>
-
-                    <p class="blog-post__articleExcerpt">
-                    <div class="video-container">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/igPVZrkPTt0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-
-                    </p>
-                    <h2 id="garbage-collection-fails-to-delete-original-blog-article-resolved">Garbage Collection Fails To Delete Original Blog Article Resolved</h2>
-                    <p>Addresses issue <a target="_blank" href="https://github.com/4awpawz/trio/issues/74">#74</a> which would cause garbage collection to fail to identify the original blog article to delete when the user changes the blog article&apos;s category. Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v100-rc4-ikigai">changelog</a> for details.</p>
-                    <p></p>
-                </article>
-
-                <article class="blog-post">
-                    <h1 class="blog-post__article-title">
-                        <a class="blog-post__link" href="/blog/releases/2019/07/03/v1.0.0-rc.3/">Trio v1.0.0-rc.3 (IKIGAI)</a>
-                    </h1>
-                    <div class="blog-post__meta-container">
-                        Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2019-07-03</span> </div>
-
-                    <p class="blog-post__articleExcerpt"></p>
-                    <h2 id="tag-based-callback-dependency-resolution-failure-resolved">Tag-based Callback Dependency Resolution Failure Resolved</h2>
-                    <p>Addresses issue <a target="_blank" href="https://github.com/4awpawz/trio/issues/73">#73</a> which would cause dependency resolution to fail if tag-based callbacks are declared with their <code>.js</code> file extensions. Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v100-rc3-ikigai">changelog</a> for details.</p>
-                    <p></p>
-                </article>
-
-                <article class="blog-post">
-                    <h1 class="blog-post__article-title">
-                        <a class="blog-post__link" href="/blog/releases/2019/06/29/v1.0.0-rc.2/">Trio v1.0.0-rc.2 (IKIGAI)</a>
-                    </h1>
-                    <div class="blog-post__meta-container">
-                        Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2019-06-29</span> </div>
-
-                    <p class="blog-post__articleExcerpt"></p>
-                    <h2 id="html-files-wrongly-interpreted-as-markdown-resolved">HTML Files Wrongly Interpreted As Markdown Resolved</h2>
-                    <p>Addresses issue <a target="_blank" href="https://github.com/4awpawz/trio/issues/72">#72</a> which would cause include assets with <code>.html</code> file extension to be wrongly interpreted as markdown files. Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v100-rc2-ikigai">changelog</a> for details.</p>
-                    <p></p>
-                </article>
             </section>
             <div class="navigator"><a class="navigator__newer navigator__newer--enabled" href="/blog">Newer articles</a> <a class="navigator__older navigator__older--enabled" href="/blog/page3">Older articles</a>
 
@@ -234,7 +245,7 @@
 
         <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
 
-        <p>Currently <span>v4.2.0</span></p>
+        <p>Currently <span>v4.3.0</span></p>
 
         <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
 

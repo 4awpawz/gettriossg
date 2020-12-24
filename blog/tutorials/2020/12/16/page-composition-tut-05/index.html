@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67538650-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-67538650-3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
+    <meta name="author" content="Jeffrey Schwartz">
+    <meta name="generator" content="Trio v4.3.0">
+    <meta property="og:image" content="https://gettriossg.com/media/15f2b20c3eca55f71ad9add373b4d51f-composite.png">
+    <meta property="og:description" content="In this multipart tutorial you will learn how to use Trio&apos;s advanced page composition along with its collections feature to create a catalog of the flags of the world website.">
+    <meta property="og:title" content="Advanced Page Composition And Collections: Part 2) Main Catalog Page">
+    <meta property="og:url" content="https://gettriossg.com/blog/tutorials/2020/12/16/page-composition-tut-05/">
+    <meta property="og:type" content="article">
+    <meta name="twitter:creator" content="@jefftschwartz">
+    <meta name="twitter:site" content="@gettriossg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Advanced Page Composition And Collections: Part 2) Main Catalog Page | Trio Blog</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/css/libs/github/7a25cddb2ef752830353f7e19a905735-github-markdown.css">
+    <link rel="stylesheet" href="/css/libs/highlight/bf6c14925e66edb1526b6c9489b3c042-github.css">
+    <link rel="stylesheet" href="/css/1fb2986139b6eebcdc4c64a4862ad083-main.css">
+    <script src="/scripts/e497281e462342b50ccbb59b462856dd-highlight.pack.js"></script>
+</head>
+
+<body>
+    <header class="header header--fixed header--green">
+        <section class="container header__container">
+            <input class="hamburger-checkbox header__hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <label class="hamburger-helper header__hamburger-container" for="hamburger-checkbox">
+                <div class="hamburger">
+                    <div class="hamburger__bun">
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                    </div>
+                </div>
+            </label>
+            <div class="header__promo">
+                <img class="header__promo-image" src="/media/b66d421676dcc7ac68959fd41c82c140-brand.svg" alt="Trio Icon">
+                <div class="header__promo-text">T<span class="header__promo-text-smallcaps">rio</span>
+                    <span class="header__promo-text-version">v4.3.0</span>
+
+                </div>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/">Home</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/docs/v4/">Docs</a>
+                    </li>
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <div class="blog-masthead">
+        <a class="blog-masthead__icon" href="/blog"></a>
+        <p class="blog-masthead__title">The T<span class="blog-masthead__title-smallcaps">rio</span> Blog</p>
+        <ol class="blog-masthead__categories">
+            <li class="blog-masthead__category"><a href="/blog">Latest</a></li>
+            <li class="blog-masthead__category"><a href="/blog/releases">Releases</a></li>
+            <li class="blog-masthead__category blog-masthead__category--active"><a href="/blog/tutorials">Tutorials</a></li>
+        </ol>
+    </div>
+
+    <main class="container blog-container">
+        <article class="blog-post">
+            <h1 class="blog-post__article-title">Advanced Page Composition And Collections: Part 2) Main Catalog Page</h1>
+            <div class="blog-post__meta-container">Posted under <span class="blog-post__article-category">tutorials</span> on <span class="blog-post__article-date">2020-12-16</span> </div>
+            <section>
+                <img src="/media/15f2b20c3eca55f71ad9add373b4d51f-composite.png" alt="a web page composition abstract">
+
+                <h2 id="prerequisites">Prerequisites</h2>
+                <p>Before proceeding with this tutorial, please familiarize yourself with Trio&apos;s <a href="/docs/v4/coreconcepts/">Core Concepts</a>, <a href="/docs/v4/tagbasedcallbacks/"> Tag-Based Callbacks</a>, <a href="/docs/v4/metadata/">Metadata</a>, and <a href="/docs/v4/collections/">Collections</a>.</p>
+                <p>Also, if you haven&apos;t already installed this tutorial&apos;s starter project then please follow the instructions given in the <a href="/blog/tutorials/2020/12/12/page-composition-tut-04/">Advanced Page Composition And Collections: Part 1) Tutorial Introduction And Starter Project Setup</a> tutorial.</p>
+                <h2 id="intention-of-this-tutorial">Intention Of This Tutorial</h2>
+                <p>In this tutorial we will use what we have already learned about Trio&apos;s <em>advanced page composition</em> to create the landing page for our Flags Of The World website, which will list each flag of the world along with the geographical location that it pertains to.</p>
+                <h2 id="create-the-template-project-asset">Create The Template Project Asset</h2>
+                <p>In the project&apos;s <em>root/source/templates</em> folder, first delete the <em>.gitkeep</em> file, and then create a new <strong>template file</strong> named <em>catalog.html</em> and copy and paste the following markup into that file:</p>
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../css/1fb2986139b6eebcdc4c64a4862ad083-main.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;main class=&quot;catalog&quot;&gt;
+        &lt;h1 class=&quot;catalog__page-title&quot;&gt;Flags Of The World&lt;/h1&gt;
+        &lt;ul class=&quot;catalog__list&quot; data-trio-callback=&quot;catalog&quot;&gt;&lt;/ul&gt;
+    &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                <p>Please notice that the above template project asset doesn&apos;t contains a tag that is decorated with the <em>data-trio-fragment</em> attribute. That is because the fragment that will be associated with this template (see below) will not be contributing any content of its own into the composite. Instead, the tag-based callback that is declared in this template&apos;s unordered list <em>&lt;ul&gt;</em> tag will be solely responsible for this composite&apos;s content, which it will dynamically generate using the data found in the <em>root/source/data/world.json</em> file and which it will append to the template&apos;s unordered list tag.</p>
+                <h2 id="create-the-fragment-project-asset">Create The Fragment Project Asset</h2>
+                <p>In the project&apos;s <em>root/source/fragments</em> folder, first delete the <em>.gitkeep</em> file, and then create a new <strong>fragment file</strong> named <em>index.html</em> and copy and paste the following into that:</p>
+                <pre><code class="language-html">&lt;!--
+template: catalog
+title: Home | Flags Of The World
+--&gt;</code></pre>
+                <p>Please notice how the above fragment project asset declares front matter at the very top of the file, in which it defines:</p>
+                <ol>
+                    <li>The required front matter property <em>template</em> with the name of the template file it is associated with and</li>
+                    <li>The required front matter property <em>title</em> with the title to be assigned to the generated document&apos;s title tag and</li>
+                </ol>
+                <p>Also, please note that fragment project asset&apos;s front matter does not define the optional front matter property <em>appendToTarget</em> because the fragment is not contributing any content of its own to the composite.</p>
+                <p>And finally, please notice that though this fragment has no content of its own to contribute to the composite it is still required because, as we learned in the tutorial about <a href="/blog/tutorials/2020/11/16/page-composition-tut-01/">basic page composition</a>, every page that Trio generates must be defined by a project fragment asset and a project template asset.</p>
+                <h2 id="the-json-file">The JSON File</h2>
+                <p>In the starter project&apos;s <em>root/source/data</em> folder you will find the <em>world.json</em> file, which is an array of 249 items which contain the data for each flag of the world. The following is only a very small sample of the actual file:</p>
+                <pre><code class="language-JSON">[
+{&quot;id&quot;:4,&quot;name&quot;:&quot;Afghanistan&quot;,&quot;alpha2&quot;:&quot;af&quot;,&quot;alpha3&quot;:&quot;afg&quot;,&quot;img&quot;:&quot;af.png&quot;},
+{&quot;id&quot;:248,&quot;name&quot;:&quot;&#xC5;land Islands&quot;,&quot;alpha2&quot;:&quot;ax&quot;,&quot;alpha3&quot;:&quot;ala&quot;,&quot;img&quot;:&quot;ax.png&quot;},
+{&quot;id&quot;:8,&quot;name&quot;:&quot;Albania&quot;,&quot;alpha2&quot;:&quot;al&quot;,&quot;alpha3&quot;:&quot;alb&quot;,&quot;img&quot;:&quot;al.png&quot;},
+{&quot;id&quot;:12,&quot;name&quot;:&quot;Algeria&quot;,&quot;alpha2&quot;:&quot;dz&quot;,&quot;alpha3&quot;:&quot;dza&quot;,&quot;img&quot;:&quot;dz.png&quot;},
+.
+.
+.
+]</code></pre>
+                <p>The following describes the key: value pairs of the items in the file:</p>
+                <ul>
+                    <li>&quot;id&quot; - a number, the <em>unique id</em> of the item</li>
+                    <li>&quot;name&quot; - a string, the <em>geographical location that this items flags pertains</em> to, also used to sort the file in ascending &quot;name&quot; order</li>
+                    <li>&quot;alpha2&quot; - a string, the <em>2 character code</em> for the flag and its geographical location</li>
+                    <li>&quot;alpha3&quot; - a string, the <em>3 character code</em> for the flag and its geographical location</li>
+                    <li>&quot;img&quot; - a string, the path to the flag&apos;s <em>.png</em> image residing in the site&apos;s media/flags/128x128/ folder</li>
+                </ul>
+                <h2 id="create-the-tag-based-callback">Create The Tag-Based Callback</h2>
+                <p>In the project&apos;s <em>root/source/callbacks</em> folder, first delete the <em>.gitkeep</em> file, and then create a new <strong>javascript file</strong> named <em>catalog.js</em> and copy and paste the following into that:</p>
+                <pre><code class="language-js">/*
+dataDependency: world
+*/
+
+module.exports = ({ $tag, site }) =&gt; {
+    const size = &quot;128x128&quot;;
+    site.dataCatalog.world.forEach(item =&gt; {
+        $tag.append(`
+            &lt;li class=&quot;catalog__list-item&quot;&gt;
+                &lt;img src=&quot;media/flags/${size}/${item.img}&quot; alt=&quot;${item.name} flag&quot;&gt;
+                &lt;a class=&quot;catalog__list-item-link&quot; href=&quot;/country/${item.name.toLowerCase()}/&quot;&gt;
+                    &lt;p class=&quot;catalog__list-item-name&quot;&gt;${item.name}&lt;/p&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+        `);
+    });
+};</code></pre>
+                <p>This <em>tag-based callback</em> does the following:</p>
+                <ol>
+                    <li>It iterates over the items in the <em>root/source/data/world.json</em> file using:</li>
+                </ol>
+                <pre><code class="language-javascript">site.dataCatalog.world.forEach(item =&gt; {</code></pre>
+                <ol start="2">
+                    <li>Then appends each item&apos;s data to the tag in the template project asset that was decorated with the data-trio-callback tag:</li>
+                </ol>
+                <pre><code class="language-javascript">$tag.append(`
+    &lt;li class=&quot;catalog__list-item&quot;&gt;
+        &lt;img src=&quot;media/flags/${size}/${item.img}&quot; alt=&quot;${item.name} flag&quot;&gt;
+        &lt;a class=&quot;catalog__list-item-link&quot; href=&quot;/country/${item.name.toLowerCase()}/&quot;&gt;
+            &lt;p class=&quot;catalog__list-item-name&quot;&gt;${item.name}&lt;/p&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+`);</code></pre>
+                <h2 id="build-and-run-the-project">Build And Run The Project</h2>
+                <p>Now that we have composed our intended page using a template, a fragment, data from a JSON file, and a tag-based callback we are ready to <strong>build</strong> our site and <strong>render</strong> the page in the browser. In your terminal application, please run the following commands from the root folder of your project:</p>
+                <pre><code class="language-shell">trio build; trio serve</code></pre>
+                <p>If you prefer, you can use the abbreviated forms of these commands instead:</p>
+                <pre><code class="language-shell">trio b; trio s</code></pre>
+                <p>The <em>build</em> command instructs Trio to do a one-off build of your site <em>for development</em> and to place the site&apos;s generated output into the project&apos;s <em>public/</em> folder. The <em>serve</em> command instructs Trio to serve the project&apos;s <em>public/</em> folder&apos;s content in the browser.</p>
+                <p>When <em>public/index.html</em>, the landing page for the Flags Of The World website, is rendered in the browser it should look like the following:</p>
+                <img src="/media/tutorials/composition/5dc8b0bf575342530102aef90a67fedd-fotwlandingpage.png" alt="image of Flags Of The World landing page">
+
+                <p>While the page is rendered in your browser please scroll through the contents of the landing page. Please note that the links to the detail flag pages are broken because the detail flag pages aren&apos;t implemented yet but they will be implemented in the next tutorial.</p>
+                <p>You can also view the content of the generated HTML document, which resides in <em>public/index.html</em>, by simply opening it in your editor of choice or by running <code>cat public/index.html</code> from the root of your project in the terminal. Let&apos;s take a look at it now:</p>
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Home | Flags Of The World&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../css/1fb2986139b6eebcdc4c64a4862ad083-main.css&quot;&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;main class=&quot;catalog&quot;&gt;
+        &lt;h1 class=&quot;catalog__page-title&quot;&gt;Flags Of The World&lt;/h1&gt;
+        &lt;ul class=&quot;catalog__list&quot; data-trio-callback=&quot;catalog&quot;&gt;
+            &lt;li class=&quot;catalog__list-item&quot;&gt;
+                &lt;img src=&quot;media/flags/128x128/af.png&quot; alt=&quot;Afghanistan flag&quot;&gt;
+                &lt;a class=&quot;catalog__list-item-link&quot; href=&quot;/country/afghanistan/&quot;&gt;
+                    &lt;p class=&quot;catalog__list-item-name&quot;&gt;Afghanistan&lt;/p&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+
+            &lt;li class=&quot;catalog__list-item&quot;&gt;
+                &lt;img src=&quot;media/flags/128x128/ax.png&quot; alt=&quot;&amp;#xC5;land Islands flag&quot;&gt;
+                &lt;a class=&quot;catalog__list-item-link&quot; href=&quot;/country/&amp;#xE5;land islands/&quot;&gt;
+                    &lt;p class=&quot;catalog__list-item-name&quot;&gt;&amp;#xC5;land Islands&lt;/p&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+
+            &lt;li class=&quot;catalog__list-item&quot;&gt;
+                &lt;img src=&quot;media/flags/128x128/al.png&quot; alt=&quot;Albania flag&quot;&gt;
+                &lt;a class=&quot;catalog__list-item-link&quot; href=&quot;/country/albania/&quot;&gt;
+                    &lt;p class=&quot;catalog__list-item-name&quot;&gt;Albania&lt;/p&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+
+            &lt;li class=&quot;catalog__list-item&quot;&gt;
+                &lt;img src=&quot;media/flags/128x128/dz.png&quot; alt=&quot;Algeria flag&quot;&gt;
+                &lt;a class=&quot;catalog__list-item-link&quot; href=&quot;/country/algeria/&quot;&gt;
+                    &lt;p class=&quot;catalog__list-item-name&quot;&gt;Algeria&lt;/p&gt;
+                &lt;/a&gt;
+            &lt;/li&gt;
+            .
+            .
+            .
+        &lt;/ul&gt;
+    &lt;/main&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+                <p>From the above we can see that the tag-based callback <em>root/source/callbacks/catalog.js</em> declared by the <em>&lt;ul&gt;</em> tag that is decorated with the <em>data-trio-callback</em> attribute in the template</p>
+                <pre><code class="language-html">&lt;ul class=&quot;catalog__list&quot; data-trio-callback=&quot;catalog&quot;&gt;&lt;/ul&gt;</code></pre>
+                <p>was called and that it did dynamically generate the list items from the <em>root/source/data/world.json</em> file and appended them as content to the <em>&lt;ul&gt;</em> tag.</p>
+                <h2 id="conclusion">Conclusion</h2>
+                <p>This tutorial examined how using Trio&apos;s advanced page composition we can add <em>dynamic content contributed by a JSON file located in the root/source/data folder</em> to your site&apos;s HTML documents.</p>
+                <p>In the next tutorial in this series we will explore Trio&apos;s <em>collections</em> feature and use it to generate each of the 249 detail flag pages for us.</p>
+            </section>
+        </article>
+        <section class="donation-request">
+            <h2>Your Financial Support Of This Project Is Greatly Appreciated</h2>
+            <p>Trio is an open source project and is therefore free of charge to use both for noncommercial and commercial use, but when you use Trio to create a new website, please consider donating a few bucks. It doesn&apos;t take very long, the process is secure, and it will allow us to continue to support the community and to maintain and enhance Trio going forward.</p>
+            <br>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="FQKMSA5MRHK4Y">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button">
+                <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+            <br>
+            <p><a target="_blank" href="https://github.com/4awpawz/trio">Show your &#x2764;&#xFE0F;, add your &#x2605; to the Github repo.</a></p>
+        </section>
+
+        <div class="navigator">
+            <a class="navigator__newer navigator__newer--enabled" href="/blog/tutorials/2020/12/19/page-composition-tut-06/">Newer articles</a> <a class="navigator__older navigator__older--enabled" href="/blog/tutorials/2020/12/12/page-composition-tut-04/">Older articles</a>
+
+        </div>
+    </main>
+    <footer class="container blog-container blogfooter">
+        <p class="show-the-love">&quot;Built with <span class="heart">&#x2665;</span> for the Web, and a passion for simplifying complex things.&quot;</p>
+
+        <p>&#xA9;<span>2018-2020</span> Jeffrey Schwartz All Rights Reserved</p>
+
+        <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
+
+        <p>Currently <span>v4.3.0</span></p>
+
+        <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
+
+    </footer>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>

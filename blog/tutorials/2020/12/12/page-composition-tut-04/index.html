@@ -21,14 +21,14 @@
     <meta name="author" content="Jeffrey Schwartz">
     <meta name="generator" content="Trio v4.3.0">
     <meta property="og:image" content="https://gettriossg.com/media/15f2b20c3eca55f71ad9add373b4d51f-composite.png">
-    <meta property="og:description" content="An Introduction To Page Composition">
-    <meta property="og:title" content="Page Composition Tutorials - Introduction">
-    <meta property="og:url" content="https://gettriossg.com/blog/tutorials/2020/08/15/announcing-page-composition-tutorials/">
+    <meta property="og:description" content="In this multipart tutorial you will learn how to use Trio&apos;s advanced page composition along with its collections feature to create a catalog of the flags of the world website.">
+    <meta property="og:title" content="Advanced Page Composition And Collections: Part 1) Tutorial Introduction And Starter Project Setup">
+    <meta property="og:url" content="https://gettriossg.com/blog/tutorials/2020/12/12/page-composition-tut-04/">
     <meta property="og:type" content="article">
     <meta name="twitter:creator" content="@jefftschwartz">
     <meta name="twitter:site" content="@gettriossg">
     <meta name="twitter:card" content="summary_large_image">
-    <title>Page Composition Tutorials: Introduction | Trio Blog</title>
+    <title>Advanced Page Composition And Collections: Part 1) Tutorial Introduction And Starter Project Setup | Trio Blog</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/github/7a25cddb2ef752830353f7e19a905735-github-markdown.css">
@@ -84,28 +84,47 @@
 
     <main class="container blog-container">
         <article class="blog-post">
-            <h1 class="blog-post__article-title">Page Composition Tutorials Introduction</h1>
-            <div class="blog-post__meta-container">Posted under <span class="blog-post__article-category">tutorials</span> on <span class="blog-post__article-date">2020-08-19</span> </div>
+            <h1 class="blog-post__article-title">Advanced Page Composition And Collections: Part 1) Tutorial Introduction And Starter Project Setup</h1>
+            <div class="blog-post__meta-container">Posted under <span class="blog-post__article-category">tutorials</span> on <span class="blog-post__article-date">2020-12-12</span> </div>
             <section>
-                <p>The process of assembling your site&apos;s web pages with Trio is referred to as composition.</p>
-                <p>Trio&apos;s use of project assets, namely <a href="/docs/v4/template">templates</a>, <a href="/docs/v4/fragment">fragments</a>, <a href="/docs/v4/include">includes</a>, <a href="/docs/v4/jsondata">JSON data files</a>, and <a href="/docs/v4/metadata">metadata</a>, all of which are exposed to <a href="/docs/v4/tagbasedcallbacks">tag-based callbacks</a>, allow Trio to excel as a web page composition tool. This is perhaps best demonstrated by the following abstract:</p>
                 <img src="/media/15f2b20c3eca55f71ad9add373b4d51f-composite.png" alt="a web page composition abstract">
 
-                <p>Therefore, as developers of static websites, we need to understand how to effectively use Trio&apos;s project assets in our own static site projects. Having this understanding will often reveal that there is more than one way to compose our pages, allowing us to pick the best approach for the task.</p>
-                <p>The tutorials in this series will teach you how to use Trio&apos;s project assets to compose your site&apos;s web pages. Each tutorial will introduce new concepts and provide concrete examples that you can read, code, and run for yourselves. Tutorials may also provide you with additional links to content, such as video content, as well as links to Trio&apos;s own technical documentation, that will serve to further demonstrate and reinforce what you have read and learned in the tutorials and finally, most of the tutorials in this series will provide you with a list of <em>takeaways</em>, which are a summarized list of the core concepts presented in the tutorial.</p>
-                <h2 id="requirements">Requirements</h2>
-                <p>If you don&apos;t already have Trio and Node installed then please follow the instructions at <a href="/docs/v4/gettingstarted">Getting Started</a> to install them.</p>
-                <h2 id="available-tutorials">Available Tutorials</h2>
-                <p><strong>Please follow <em>@gettriossg</em> on Twitter to get notified when new articles in this series become available!</strong></p>
+                <h2 id="prerequisites">Prerequisites</h2>
+                <p>Before proceeding with this tutorial, please familiarize yourself with Trio&apos;s <a href="/docs/v4/coreconcepts/">Core Concepts</a>, <a href="/docs/v4/tagbasedcallbacks/"> Tag-Based Callbacks</a>, <a href="/docs/v4/metadata/">Metadata</a>, and <a href="/docs/v4/collections/">Collections</a>.</p>
+                <h2 id="intention-of-this-tutorial">Intention Of This Tutorial</h2>
+                <p>As was stated at the conclusion of the previous tutorial, <a href="/blog/tutorials/2020/12/11/page-composition-tut-03/">Advanced Page Composition With JSON Data</a>, this next multipart tutorial forgoes the trivial and presents a real world use case - a catalog site, one very much like what you might expect from a web store, but in this case its catalog doesn&apos;t contain things for sale, but rather it contains images of all the flags of the world along with their relevant information which you are free to explore.</p>
+                <p>Aptly named &quot;Flags Of The World&quot;, the site has a total of 250 pages consisting of:</p>
                 <ol>
-                    <li><a href="/blog/tutorials/2020/11/16/page-composition-tut-01/">Basic Page Composition With Templates, Fragments And Includes</a> - posted on 2020/11/16</li>
-                    <li><a href="/blog/tutorials/2020/12/10/page-composition-tut-02/">Advanced Page Composition With Fragment Front Matter</a> - posted on 2020/12/10</li>
-                    <li><a href="/blog/tutorials/2020/12/11/page-composition-tut-03/">Advanced Page Composition With JSON Data</a> - posted on 2020/12/11</li>
-                    <li><a href="/blog/tutorials/2020/12/12/page-composition-tut-04/">Advanced Page Composition And Collections: Part 1) Tutorial Introduction And Starter Project Setup</a> - posted on 2020/12/24</li>
-                    <li><a href="/blog/tutorials/2020/12/16/page-composition-tut-05/">Advanced Page Composition And Collections: Part 2) Main Catalog Page</a> - posted on 2020/12/24</li>
-                    <li><a href="/blog/tutorials/2020/12/19/page-composition-tut-06/">Advanced Page Composition And Collections: Part 3) 249 Detail Pages</a> - posted on 2020/12/24
-                    </li>
+                    <li>1 <em>landing page</em> that is created using Trio&apos;s advanced page composition (along with the data from the <em>root/source/data/world.json</em> file) that lists all the flags of the world along with their geographic location.</li>
+                    <li>249 <em>detail pages</em> that are generated using Trio&apos;s collections feature (along with the data from the same <em>root/source/data/world.json</em> file used to create the landing page) that lists all the relevant information for each flag of the world.</li>
                 </ol>
+                <h3 id="video-demo-of-project">Video Demo Of Project</h3>
+                <p>The video below discusses Trio&apos;s collection feature and demonstrates the &quot;Flags Of The World&quot; website that this multipart tutorial will teach you how to build.</p>
+                <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/E-I9aeiU-xE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+                <h2 id="installing-the-starter-project">Installing The Starter Project</h2>
+                <p>As a convenience to you, a starter project has been created that already includes all the necessary project assets, including:</p>
+                <ol>
+                    <li>All 249 root/source/media/flags/128x128/*.png files.</li>
+                    <li>The root/source/data/world.json file, which is an array of items sorted in ascending order by &quot;name&quot; where each item contains the following keys and value:<ul>
+                            <li>&quot;id&quot; - a number, the <em>unique id</em> of the item</li>
+                            <li>&quot;name&quot; - a string, the <em>geographical location that this items flags pertains</em> to, also used to sort the file in ascending &quot;name&quot; order</li>
+                            <li>&quot;alpha2&quot; - a string, the <em>2 character code</em> for the flag and its geographical location</li>
+                            <li>&quot;alpha3&quot; - a string, the <em>3 character code</em> for the flag and its geographical location</li>
+                            <li>&quot;img&quot; - a string, the path to the flag&apos;s <em>.png</em> image residing in the site&apos;s media/flags/128x128/ folder</li>
+                        </ul>
+                    </li>
+                    <li>All the root/source/sass/*.scss files.</li>
+                </ol>
+                <p>To install the starter project, please open your terminal application, navigate to a folder in which you want to install the starter project and at the command line please enter the following:</p>
+                <pre><code class="language-console">git clone https://github.com/4awpawz/fotw-starter-project.git</code></pre>
+                <p>As you will not be permitted to push changes to the upstream repo, you can now delete the starter project&apos;s <em>.git/</em> folder. From the root folder of the starter project, please run the following command.</p>
+                <pre><code class="language-console">rm -rf .git</code></pre>
+                <p>You can, if you desire, then run</p>
+                <pre><code class="language-console">git init</code></pre>
+                <p>from the root folder of the starter project to initialize a new git repository specifically for your starter project.</p>
+                <h2 id="conclusion">Conclusion</h2>
+                <p>With the starter project now installed, you can now proceed to the <a href>next part</a> of this tutorial.</p>
             </section>
         </article>
         <section class="donation-request">
@@ -123,7 +142,7 @@
         </section>
 
         <div class="navigator">
-            <a class="navigator__newer navigator__newer--enabled" href="/blog/tutorials/2020/11/16/page-composition-tut-01/">Newer articles</a> <a class="navigator__older navigator__older--enabled" href="/blog/tutorials/2020/08/15/announcing-page-composition-tutorials/">Older articles</a>
+            <a class="navigator__newer navigator__newer--enabled" href="/blog/tutorials/2020/12/16/page-composition-tut-05/">Newer articles</a> <a class="navigator__older navigator__older--enabled" href="/blog/tutorials/2020/12/11/page-composition-tut-03/">Older articles</a>
 
         </div>
     </main>
