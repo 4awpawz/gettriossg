@@ -33,11 +33,14 @@
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/github/7a25cddb2ef752830353f7e19a905735-github-markdown.css">
     <link rel="stylesheet" href="/css/libs/highlight/bf6c14925e66edb1526b6c9489b3c042-github.css">
-    <link rel="stylesheet" href="/css/967b8f853959520a8fc2ad8c63be4665-main.css">
+    <link rel="stylesheet" href="/css/78fb3cb557ec3c04e4f5aad1de931e6b-main.css">
     <script src="/scripts/e497281e462342b50ccbb59b462856dd-highlight.pack.js"></script>
 </head>
 
 <body>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v9.0" nonce="6AlX9x9d"></script>
     <header class="header header--fixed header--green">
         <section class="container header__container">
             <input class="hamburger-checkbox header__hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
@@ -86,8 +89,7 @@
         <article class="blog-post">
             <h1 class="blog-post__article-title">Advanced Page Composition And Collections: Part 2) Main Catalog Page</h1>
             <div class="blog-post__meta-container">Posted under <span class="blog-post__article-category">tutorials</span> on <span class="blog-post__article-date">2020-12-16</span> </div>
-            <section>
-                <img src="/media/15f2b20c3eca55f71ad9add373b4d51f-composite.png" alt="a web page composition abstract">
+            <section><img src="/media/15f2b20c3eca55f71ad9add373b4d51f-composite.png" alt="a web page composition abstract">
 
                 <h2 id="prerequisites">Prerequisites</h2>
                 <p>Before proceeding with this tutorial, please familiarize yourself with Trio&apos;s <a href="/docs/v4/coreconcepts/">Core Concepts</a>, <a href="/docs/v4/tagbasedcallbacks/"> Tag-Based Callbacks</a>, <a href="/docs/v4/metadata/">Metadata</a>, and <a href="/docs/v4/collections/">Collections</a>.</p>
@@ -103,7 +105,7 @@
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
     &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
     &lt;title&gt;Document&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../css/967b8f853959520a8fc2ad8c63be4665-main.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../css/78fb3cb557ec3c04e4f5aad1de931e6b-main.css&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;main class=&quot;catalog&quot;&gt;
@@ -199,7 +201,7 @@ module.exports = ({ $tag, site }) =&gt; {
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
     &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
     &lt;title&gt;Home | Flags Of The World&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../css/967b8f853959520a8fc2ad8c63be4665-main.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../css/78fb3cb557ec3c04e4f5aad1de931e6b-main.css&quot;&gt;
 &lt;/head&gt;
 
 &lt;body&gt;
@@ -263,6 +265,7 @@ module.exports = ({ $tag, site }) =&gt; {
             <p><a target="_blank" href="https://github.com/4awpawz/trio">Show your &#x2764;&#xFE0F;, add your &#x2605; to the Github repo.</a></p>
         </section>
 
+        <div class="fb-comments" data-href="https://gettriossg.com/blog/tutorials/2020/12/16/page-composition-tut-05/" data-width="100%" data-numposts="5"></div>
         <div class="navigator">
             <a class="navigator__newer navigator__newer--enabled" href="/blog/tutorials/2020/12/19/page-composition-tut-06/">Newer articles</a> <a class="navigator__older navigator__older--enabled" href="/blog/tutorials/2020/12/12/page-composition-tut-04/">Older articles</a>
 
@@ -271,7 +274,7 @@ module.exports = ({ $tag, site }) =&gt; {
     <footer class="container blog-container blogfooter">
         <p class="show-the-love">&quot;Built with <span class="heart">&#x2665;</span> for the Web, and a passion for simplifying complex things.&quot;</p>
 
-        <p>&#xA9;<span>2018-2020</span> Jeffrey Schwartz All Rights Reserved</p>
+        <p>&#xA9;<span>2018-2021</span> Jeffrey Schwartz All Rights Reserved</p>
 
         <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
 
