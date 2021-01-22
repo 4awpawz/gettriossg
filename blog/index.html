@@ -19,7 +19,7 @@
 
     <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
     <meta name="author" content="Jeffrey Schwartz">
-    <meta name="generator" content="Trio v4.3.1">
+    <meta name="generator" content="Trio v5.0.0">
     <title>Trio Blog | Official blog for Trio static site generator</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
@@ -45,7 +45,7 @@
             <div class="header__promo">
                 <img class="header__promo-image" src="/media/b66d421676dcc7ac68959fd41c82c140-brand.svg" alt="Trio Icon">
                 <div class="header__promo-text">T<span class="header__promo-text-smallcaps">rio</span>
-                    <span class="header__promo-text-version">v4.3.1</span>
+                    <span class="header__promo-text-version">v5.0.0</span>
 
                 </div>
             </div>
@@ -55,7 +55,7 @@
                         <a class="header__nav-item-link" href="/">Home</a>
                     </li>
                     <li class="header__nav-item">
-                        <a class="header__nav-item-link" href="/docs/v4/">Docs</a>
+                        <a class="header__nav-item-link" href="/docs/v5/">Docs</a>
                     </li>
                     <li class="header__nav-item header__nav-item--active">
                         <a class="header__nav-item-link" href="/blog">Blog</a>
@@ -77,6 +77,21 @@
     <main class="container blog-container">
         <section>
             <section class="blog-posts">
+                <article class="blog-post">
+                    <h1 class="blog-post__article-title">
+                        <a class="blog-post__link" href="/blog/releases/2021/01/22/v5.0.0/">Trio v5.0.0: Dart SASS</a>
+                    </h1>
+                    <div class="blog-post__meta-container">
+                        Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2021-01-22</span> </div>
+
+                    <p class="blog-post__articleExcerpt"></p>
+                    <h2 id="trio-v500">Trio v5.0.0</h2>
+                    <p>It is with great pleasure that I announce the release of Trio v5.0.0.</p>
+                    <h3 id="trio-is-now-using-dart-sass-as-its-sass-compiler">Trio is now using Dart Sass as its Sass Compiler</h3>
+                    <p>Trio is no longer using Node Sass as it and Lib Sass have been deprecated. Please note that this is a breaking change that could impact your stylesheets (Please see <a href="https://sass-lang.com/blog/libsass-is-deprecated#how-do-i-migrate">https://sass-lang.com/blog/libsass-is-deprecated#how-do-i-migrate</a> for more information).</p>
+                    <p></p>
+                </article>
+
                 <article class="blog-post">
                     <h1 class="blog-post__article-title">
                         <a class="blog-post__link" href="/blog/tutorials/2020/12/19/page-composition-tut-06/">Advanced Page Composition And Collections: Part 3) 249 Detail Pages</a>
@@ -173,13 +188,13 @@
 
                     <p class="blog-post__articleExcerpt"></p>
                     <p>The process of assembling your site&apos;s web pages with Trio is referred to as composition.</p>
-                    <p>Trio&apos;s use of project assets, namely <a href="/docs/v4/template">templates</a>, <a href="/docs/v4/fragment">fragments</a>, <a href="/docs/v4/include">includes</a>, <a href="/docs/v4/jsondata">JSON data files</a>, and <a href="/docs/v4/metadata">metadata</a>, all of which are exposed to <a href="/docs/v4/tagbasedcallbacks">tag-based callbacks</a>, allow Trio to excel as a web page composition tool. This is perhaps best demonstrated by the following abstract:</p>
+                    <p>Trio&apos;s use of project assets, namely <a href="/docs/v5/template">templates</a>, <a href="/docs/v5/fragment">fragments</a>, <a href="/docs/v5/include">includes</a>, <a href="/docs/v5/jsondata">JSON data files</a>, and <a href="/docs/v5/metadata">metadata</a>, all of which are exposed to <a href="/docs/v5/tagbasedcallbacks">tag-based callbacks</a>, allow Trio to excel as a web page composition tool. This is perhaps best demonstrated by the following abstract:</p>
                     <img src="/media/15f2b20c3eca55f71ad9add373b4d51f-composite.png" alt="a web page composition abstract">
 
                     <p>Therefore, as developers of static websites, we need to understand how to effectively use Trio&apos;s project assets in our own static site projects. Having this understanding will often reveal that there is more than one way to compose our pages, allowing us to pick the best approach for the task.</p>
                     <p>The tutorials in this series will teach you how to use Trio&apos;s project assets to compose your site&apos;s web pages. Each tutorial will introduce new concepts and provide concrete examples that you can read, code, and run for yourselves. Tutorials may also provide you with additional links to content, such as video content, as well as links to Trio&apos;s own technical documentation, that will serve to further demonstrate and reinforce what you have read and learned in the tutorials and finally, most of the tutorials in this series will provide you with a list of <em>takeaways</em>, which are a summarized list of the core concepts presented in the tutorial.</p>
                     <h2 id="requirements">Requirements</h2>
-                    <p>If you don&apos;t already have Trio and Node installed then please follow the instructions at <a href="/docs/v4/gettingstarted">Getting Started</a> to install them.</p>
+                    <p>If you don&apos;t already have Trio and Node installed then please follow the instructions at <a href="/docs/v5/gettingstarted">Getting Started</a> to install them.</p>
                     <h2 id="available-tutorials">Available Tutorials</h2>
                     <p><strong>Please follow <em>@gettriossg</em> on Twitter to get notified when new articles in this series become available!</strong></p>
                     <ol>
@@ -209,22 +224,6 @@
                     <p>Please note that this new behavior doesn&apos;t impact how Trio outputs these tags for development and release builds. As always, when building for development, Trio will still comment out these tags in the generated HTML document, and when building for release, Trio will not output these tags in the generated HTML document.</p>
                     <p></p>
                 </article>
-
-                <article class="blog-post">
-                    <h1 class="blog-post__article-title">
-                        <a class="blog-post__link" href="/blog/releases/2020/08/16/impending-v4.1.0/">What&apos;s Coming In Trio v4.1.0</a>
-                    </h1>
-                    <div class="blog-post__meta-container">
-                        Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2020-08-16</span> </div>
-
-                    <p class="blog-post__articleExcerpt"></p>
-                    <p>While you are enjoying the recently released Trio v4.0.0 we want you to know that Trio <em>v4.1.0</em> is already in the testing phase and will be released shortly.</p>
-                    <p>Although it wasn&apos;t explicitly stated in the documentation, tag-based callbacks that are declared on tags that are replaced by an include&apos;s or a fragment&apos;s content are never registered and therefore never called. <em>Trio V4.1.0 corrects this omission and now supports tag-based callbacks on these tags</em>.</p>
-                    <p>Support for these callbacks will allows you to directly target these tags in your tag-based callbacks using the callback&apos;s <em>$tag</em> parameter.</p>
-                    <p>Please note that this new behavior doesn&apos;t impact how Trio outputs these tags for development and release builds. As always, when building for development, Trio will still comment out these tags in the generated HTML document, and when building for release, Trio will not output these tags in the generated HTML document.</p>
-                    <p>If you would like to be notified when Trio v4.1.0 drops then please consider following <em>@gettriossg</em> on Twitter.</p>
-                    <p></p>
-                </article>
             </section>
             <div class="navigator"><a class="navigator__newer">Newer articles</a> <a class="navigator__older navigator__older--enabled" href="/blog/page2">Older articles</a>
 
@@ -238,7 +237,7 @@
 
         <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
 
-        <p>Currently <span>v4.3.1</span></p>
+        <p>Currently <span>v5.0.0</span></p>
 
         <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
 

@@ -19,7 +19,7 @@
 
     <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
     <meta name="author" content="Jeffrey Schwartz">
-    <meta name="generator" content="Trio v4.3.1">
+    <meta name="generator" content="Trio v5.0.0">
     <meta property="og:image" content="https://gettriossg.com/media/15f2b20c3eca55f71ad9add373b4d51f-composite.png">
     <meta property="og:description" content="This tutorial teaches you how to use Trio&apos;s advanced page composition to add dynamic content from JSON Data to your web pages.">
     <meta property="og:title" content="Advanced Page Composition With JSON Data">
@@ -56,7 +56,7 @@
             <div class="header__promo">
                 <img class="header__promo-image" src="/media/b66d421676dcc7ac68959fd41c82c140-brand.svg" alt="Trio Icon">
                 <div class="header__promo-text">T<span class="header__promo-text-smallcaps">rio</span>
-                    <span class="header__promo-text-version">v4.3.1</span>
+                    <span class="header__promo-text-version">v5.0.0</span>
 
                 </div>
             </div>
@@ -66,7 +66,7 @@
                         <a class="header__nav-item-link" href="/">Home</a>
                     </li>
                     <li class="header__nav-item">
-                        <a class="header__nav-item-link" href="/docs/v4/">Docs</a>
+                        <a class="header__nav-item-link" href="/docs/v5/">Docs</a>
                     </li>
                     <li class="header__nav-item header__nav-item--active">
                         <a class="header__nav-item-link" href="/blog">Blog</a>
@@ -92,7 +92,7 @@
             <section><img src="/media/15f2b20c3eca55f71ad9add373b4d51f-composite.png" alt="a web page composition abstract">
 
                 <h2 id="prerequisites">Prerequisites</h2>
-                <p>Before proceeding with this tutorial, please familiarize yourself with Trio&apos;s <a href="/docs/v4/coreconcepts/">Core Concepts</a>, <a href="/docs/v4/tagbasedcallbacks/"> Tag-Based Callbacks</a>, and <a href="/docs/v4/metadata/">Metadata</a>.</p>
+                <p>Before proceeding with this tutorial, please familiarize yourself with Trio&apos;s <a href="/docs/v5/coreconcepts/">Core Concepts</a>, <a href="/docs/v5/tagbasedcallbacks/"> Tag-Based Callbacks</a>, and <a href="/docs/v5/metadata/">Metadata</a>.</p>
                 <h2 id="intention-of-this-tutorial">Intention Of This Tutorial</h2>
                 <p>In this tutorial we will continue to explore Trio&apos;s advanced page composition but now we will be using the data found in the JSON files located in the <em>root/source/data</em> folder to add dynamic content to your site&apos;s HTML pages.</p>
                 <p>Once again our use case for this tutorial is trivial and is the same as it was for the previous tutorial. We want Trio to generate an HTML page that contains a page header and a list containing the names of artist and their relevant information. If we were to hand code this HTML page, this is what it would look like:</p>
@@ -431,7 +431,7 @@ appendToTarget: true
                 <h3 id="extra-credit">Extra Credit</h3>
                 <p>After each development build of your project, Trio persists most of the metadata that it collects to a file named <em>root/trio.manifest.json</em>. Please open this file now with your editor to view its contents. Please take note of this file&apos;s structure, particularly its top level keys and their associated values and how they relate to the project you created for this tutorial. Can you find the list of artists that you defined in the front matter of this project&apos;s fragment? What other keys and values do you see that match those of this tutorial&apos;s project?</p>
                 <p>The cool thing about this file is that you can reference it when you are coding your tag-based callbacks, like when you can&apos;t remember where to look for a particular piece of metadata that you are interested in.</p>
-                <p>Also, please refer to the <a href="/docs/v4/metadata/">Metadata</a> doc page whenever you have a question about some aspect of Trio&apos;s collection of metadata.</p>
+                <p>Also, please refer to the <a href="/docs/v5/metadata/">Metadata</a> doc page whenever you have a question about some aspect of Trio&apos;s collection of metadata.</p>
                 <h2 id="takeaways-from-this-tutorial">Takeaways From This Tutorial</h2>
                 <ol>
                     <li>Unlike basic page composition, Trio&apos;s <em>advanced page composition allows you to incorporate dynamic content into you site&apos;s pages</em> via Trio&apos;s tag-based callbacks, which can be declared multiple times throughout your project&apos;s template, fragment and include project assets.</li>
@@ -441,7 +441,7 @@ appendToTarget: true
                 </ol>
                 <h2 id="conclusion">Conclusion</h2>
                 <p>This tutorial examined how you can use Trio&apos;s advanced page composition to add <em>dynamic content contributed by a JSON file located in the root/source/data folder</em> to your site&apos;s HTML documents.</p>
-                <p>In the next tutorial in this series we will finally leave the trivial use cases behind and create something much more substantial that combines basic and advanced page composition along with <a href="/docs/v4/collections/">collections</a>, which are groups of pages that are dynamically generated by Trio that you would otherwise have to manually create yourself. Collections are one of if not Trio&apos;s most powerful and dynamic feature and it&apos;s what makes Trio an awesome platform for creating blogs, portfolios, and catalogs.</p>
+                <p>In the next tutorial in this series we will finally leave the trivial use cases behind and create something much more substantial that combines basic and advanced page composition along with <a href="/docs/v5/collections/">collections</a>, which are groups of pages that are dynamically generated by Trio that you would otherwise have to manually create yourself. Collections are one of if not Trio&apos;s most powerful and dynamic feature and it&apos;s what makes Trio an awesome platform for creating blogs, portfolios, and catalogs.</p>
             </section>
         </article>
         <section class="donation-request">
@@ -472,7 +472,7 @@ appendToTarget: true
 
         <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
 
-        <p>Currently <span>v4.3.1</span></p>
+        <p>Currently <span>v5.0.0</span></p>
 
         <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
 
