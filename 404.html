@@ -15,36 +15,37 @@
         overflow-wrap: break-word;
         word-break: break-word;
     }
+    body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+    }
     .page {
         font-family: Helvetica, sans-serif;
-        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
     }
     .page__responsecode {
-        width: 100%;
-        text-align: center;
         font-size: 8rem;
         line-height: 1;
         color: #ccc;
         margin-bottom: 2.5rem;
     }
     .page__oops {
-        width: 100%;
-        text-align: center;
         font-size: 3rem;
         font-weight: 900;
         color: #555;
         margin-bottom: .7rem;
     }
     .page__message {
-        width: 100%;
-        text-align: center;
         font-size: 1.4rem;
         color: #999;
         margin-bottom: 8rem;
-    }
-    .page__button-container {
-        width: 100%;
-        text-align: center;
     }
     .page__button {
         font-size: 1.2rem;
@@ -54,6 +55,34 @@
         color: white;
         padding: 1rem 2rem;
         border-radius: 10px;
+        display: inline-block;
+    }
+    @media (max-height: 500px) {
+        .page__responsecode {
+            font-size: 5rem;
+        }
+        .page__oops {
+            font-size: 2rem;
+        }
+        .page__message {
+            margin-bottom: 2rem;
+        }
+    }
+    @media (max-height: 359px) {
+        .page__responsecode {
+            font-size: 3rem;
+        }
+        .page__oops {
+            font-size: 1.5rem;
+        }
+        .page__message {
+        font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        .page__button {
+            font-size: 1rem;
+            padding: .5rem 1rem;
+        }
     }
     </style>
 </head>
@@ -63,7 +92,7 @@
         <div class="page__responsecode">404</div>
         <div class="page__oops">OOPS!</div>
         <div class="page__message">Sorry, this page isn't here.</div>
-        <div class="page__button-container"><a class="page__button" href="/">GO TO HOMEPAGE</a></div.page__button-container>
+        <a class="page__button" href="/">GO TO HOMEPAGE</a>
     </div>
 </body>
 
