@@ -20,7 +20,7 @@
     <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
     <meta name="author" content="Jeffrey Schwartz">
     <meta name="generator" content="Trio v5.0.0">
-    <meta property="og:image" content="https://gettriossg.com/media/15f2b20c3eca55f71ad9add373b4d51f-composite.png">
+    <meta property="og:image" content="https://gettriossg.com/media/composite.15f2b20c3eca55f71ad9add373b4d51f.png">
     <meta property="og:description" content="This tutorial teaches you how to use Trio&apos;s advanced page composition to add dynamic content from JSON Data to your web pages.">
     <meta property="og:title" content="Advanced Page Composition With JSON Data">
     <meta property="og:url" content="https://gettriossg.com/blog/tutorials/2020/12/11/page-composition-tut-03/">
@@ -31,10 +31,10 @@
     <title>Advanced Page Composition With JSON Data | Trio Blog</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="/css/libs/github/7a25cddb2ef752830353f7e19a905735-github-markdown.css">
-    <link rel="stylesheet" href="/css/libs/highlight/bf6c14925e66edb1526b6c9489b3c042-github.css">
-    <link rel="stylesheet" href="/css/9cd8c59bb7edc0bc7383db556c5dadb8-main.css">
-    <script src="/scripts/e497281e462342b50ccbb59b462856dd-highlight.pack.js"></script>
+    <link rel="stylesheet" href="/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
+    <link rel="stylesheet" href="/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
+    <link rel="stylesheet" href="/css/main.a9d6dbfd4314344ed1ad535ec6e55e0a.css">
+    <script src="/scripts/highlight.e497281e462342b50ccbb59b462856dd.pack.js"></script>
 </head>
 
 <body>
@@ -54,7 +54,7 @@
                 </div>
             </label>
             <div class="header__promo">
-                <img class="header__promo-image" src="/media/b66d421676dcc7ac68959fd41c82c140-brand.svg" alt="Trio Icon">
+                <img class="header__promo-image" src="/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
                 <div class="header__promo-text">T<span class="header__promo-text-smallcaps">rio</span>
                     <span class="header__promo-text-version">v5.0.0</span>
 
@@ -81,6 +81,7 @@
         <ol class="blog-masthead__categories">
             <li class="blog-masthead__category"><a href="/blog">Latest</a></li>
             <li class="blog-masthead__category"><a href="/blog/releases">Releases</a></li>
+            <li class="blog-masthead__category"><a href="/blog/news">News</a></li>
             <li class="blog-masthead__category blog-masthead__category--active"><a href="/blog/tutorials">Tutorials</a></li>
         </ol>
     </div>
@@ -89,7 +90,7 @@
         <article class="blog-post">
             <h1 class="blog-post__article-title">Advanced Page Composition With JSON Data</h1>
             <div class="blog-post__meta-container">Posted under <span class="blog-post__article-category">tutorials</span> on <span class="blog-post__article-date">2020-12-11</span> </div>
-            <section><img src="/media/15f2b20c3eca55f71ad9add373b4d51f-composite.png" alt="a web page composition abstract">
+            <section><img src="/media/composite.15f2b20c3eca55f71ad9add373b4d51f.png" alt="a web page composition abstract">
 
                 <h2 id="prerequisites">Prerequisites</h2>
                 <p>Before proceeding with this tutorial, please familiarize yourself with Trio&apos;s <a href="/docs/v5/coreconcepts/">Core Concepts</a>, <a href="/docs/v5/tagbasedcallbacks/"> Tag-Based Callbacks</a>, and <a href="/docs/v5/metadata/">Metadata</a>.</p>
@@ -185,7 +186,7 @@
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
     &lt;title&gt;Document&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/9cd8c59bb7edc0bc7383db556c5dadb8-main.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.a9d6dbfd4314344ed1ad535ec6e55e0a.css&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;header data-trio-include=&quot;header.md&quot;&gt;&lt;/header&gt;
@@ -339,7 +340,7 @@ appendToTarget: true
                 <pre><code class="language-shell">trio b; trio s</code></pre>
                 <p>The <em>build</em> command instructs Trio to do a one-off build of your site <em>for development</em> and to place the site&apos;s generated output into the project&apos;s <em>public/</em> folder. The <em>serve</em> command instructs Trio to serve the project&apos;s <em>public/</em> folder&apos;s content in the browser.</p>
                 <p>When rendered in the browser the page that you created, <em>public/index.html</em>, should look like the following:</p>
-                <img src="/media/tutorials/composition/e43bc0a2ac898c160bafdf784c02f5b1-commonresult.png" alt="image">
+                <img src="/media/tutorials/composition/commonresult.e43bc0a2ac898c160bafdf784c02f5b1.png" alt="image">
 
                 <p>You can also view the content of the generated HTML document, which resides in <em>public/index.html</em>, by simply opening it in your editor of choice or by running <code>cat public/index.html</code> from the root of your project in the terminal. Let&apos;s take a look at it now:</p>
                 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
@@ -349,7 +350,7 @@ appendToTarget: true
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
     &lt;title&gt;Coded Using JSON Data &amp;amp; Tag-based Callback&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/9cd8c59bb7edc0bc7383db556c5dadb8-main.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.a9d6dbfd4314344ed1ad535ec6e55e0a.css&quot;&gt;
 &lt;/head&gt;
 
 &lt;body&gt;
