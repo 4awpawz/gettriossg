@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67538650-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-67538650-3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
+    <meta name="author" content="Jeffrey Schwartz">
+    <meta name="generator" content="Trio v6.0.0">
+    <title>SCSS/SASS/CSS - Trio</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
+    <link rel="stylesheet" href="/css/main.e986c6f99f6fb4efa94668554f5b4be2.css">
+    <script src="/scripts/highlight.e497281e462342b50ccbb59b462856dd.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</head>
+
+<body>
+    <header class="header header--fixed header--green">
+        <section class="container header__container">
+            <input class="hamburger-checkbox header__hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <label class="hamburger-helper header__hamburger-container" for="hamburger-checkbox">
+                <div class="hamburger">
+                    <div class="hamburger__bun">
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                    </div>
+                </div>
+            </label>
+            <div class="header__promo">
+                <img class="header__promo-image" src="/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
+                <div class="header__promo-text">T<span class="header__promo-text-smallcaps">rio</span>
+                    <span class="header__promo-text-version">v6.0.0</span>
+
+                </div>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/">Home</a>
+                    </li>
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/docs/v6/">Docs</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <main class="container doc-page">
+        <aside class="doc-page-index">
+            <h2 class="doc-page-index__header">T<span class="doc-page-index__header-smallcaps">rio</span> <span class="doc-page-index__header-version">v6.0.0</span></h2>
+            <aside class="doc-page-index__list-container">
+                <ul class="doc-page-index__list">
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/upgrading">Upgrading</a>
+                        <div class="line"></div>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6">About</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/gettingstarted">Getting Started</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/coreconcepts">Core Concepts</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/projectstructure">Project Structure</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/pagegeneration">Page Generation</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/linkingconventions">Linking Conventions</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/frontmatter">Front Matter</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/tagattributes">Tag Attributes</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/template">Template</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/fragment">Fragment</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/include">Include</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/jsondata">JSON Data</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/metadata">Metadata</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/tagbasedcallbacks">Tag-Based Callbacks</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link doc-page-index__list-item-link--current" href="/docs/v6/scsssasscss">SCSS/SASS/CSS</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/blogging">Blogging</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/collections">Collections</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/permalinks">Permalinks</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/commandline">Command Line</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/incrementalbuild">Incremental Build</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/configuration">Configuration</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/additionalresources">Additional Resources</a>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="/docs/v6/faq">FAQ</a>
+                        <div class="line"></div>
+                    </li>
+                    <li class="doc-page-index__list-item">
+                        <a class="doc-page-index__list-item-link" href="https://github.com/4awpawz/trio">Github Repo &amp; Issue Tracker</a>
+                    </li>
+                </ul>
+
+            </aside>
+        </aside>
+        <article class="doc-page-content">
+            <section class="notification">Documentation is evolving and is a WIP</section>
+            <section class="doc-page-content__copy">
+                <h1 id="scsssasscss">SCSS/SASS/CSS</h1>
+                <p>SCSS, SASS, and CSS are supported.</p>
+                <h2 id="scss-and-sass">.scss and .sass</h2>
+                <p>These files reside in the <em>root/source/sass</em> folder.</p>
+                <p>When generating your site, Trio compiles your Sass to the <em>public/css</em> or <em>release/css</em> folders with <em>vendor prefixing</em>, <em>minification</em>, and <em>CSS source maps</em> (please see below) for both development and release builds.</p>
+                <blockquote class="note-tip">Beginning with Trio v6.0.0 <em>CSS source map file generation</em> is configurable for both <em>development</em> and <em>release</em> builds. By default, Trio will generate CSS source map files for both development and release builds. You can, however, override this default behavior by declaring the following in your <em>trio.json</em> file and setting the <em>development</em> and <em>release</em> properties accordingly:
+
+                    <pre><code class="language-json">&quot;sassSourceMaps&quot;: {
+    &quot;development&quot;: [true | false],
+    &quot;release&quot;: [true | false]
+}</code></pre>
+                </blockquote>
+
+                <h2 id="css">.css</h2>
+                <blockquote class="note-tip">
+                    If you rename your *.css files to *.scss and maintain them in the root/source/sass folder your style sheets can take advantage of Sass build features, such as vendor prefixing, file minification, and CSS map file generation. This is possible because _CSS is a subset of Sass_.
+                </blockquote>
+
+                <p>These files reside in the <em>root/source/css</em> folder.</p>
+                <p>When generating your site, Trio <em>copies</em> these files to the public/css folder.</p>
+            </section>
+            <footer class="docfooter footer--hide-the-love">
+                <p class="show-the-love">&quot;Built with <span class="heart">&#x2665;</span> for the Web, and a passion for simplifying complex things.&quot;</p>
+
+                <p>&#xA9;<span>2018-2021</span> Jeffrey Schwartz All Rights Reserved</p>
+
+                <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
+
+                <p>Currently <span>v6.0.0</span></p>
+
+                <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
+
+            </footer>
+        </article>
+    </main>
+    <script src="/scripts/main.js"></script>
+</body>
+
+</html>

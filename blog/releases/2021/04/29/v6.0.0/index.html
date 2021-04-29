@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67538650-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-67538650-3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
+    <meta name="author" content="Jeffrey Schwartz">
+    <meta name="generator" content="Trio v6.0.0">
+    <meta name="twitter:image" content="https://gettriossg.com/media/trio-social-media-image.76c410f98336b312b96fd6756143d668.png">
+    <meta name="twitter:description" content="It is with great pleasure that I announce the release of Trio v6.0.0.">
+    <meta name="twitter:title" content="Trio v6.0.0">
+    <meta name="twitter:creator" content="@jefftschwartz">
+    <meta name="twitter:site" content="@gettriossg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://gettriossg.com/media/trio-social-media-image.76c410f98336b312b96fd6756143d668.png">
+    <meta property="og:url" content="https://gettriossg.com/blog/releases/2021/04/27/v6.0.0/">
+    <meta property="og:description" content="It is with great pleasure that I announce the release of Trio v6.0.0.">
+    <meta property="og:title" content="Trio v6.0.0">
+    <meta property="og:type" content="article">
+    <title>Trio v6.0.0 | Trio Blog</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
+    <link rel="stylesheet" href="/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
+    <link rel="stylesheet" href="/css/main.e986c6f99f6fb4efa94668554f5b4be2.css">
+    <script src="/scripts/highlight.e497281e462342b50ccbb59b462856dd.pack.js"></script>
+</head>
+
+<body>
+    <header class="header header--fixed header--green">
+        <section class="container header__container">
+            <input class="hamburger-checkbox header__hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <label class="hamburger-helper header__hamburger-container" for="hamburger-checkbox">
+                <div class="hamburger">
+                    <div class="hamburger__bun">
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                    </div>
+                </div>
+            </label>
+            <div class="header__promo">
+                <img class="header__promo-image" src="/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
+                <div class="header__promo-text">T<span class="header__promo-text-smallcaps">rio</span>
+                    <span class="header__promo-text-version">v6.0.0</span>
+
+                </div>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/">Home</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/docs/v6/">Docs</a>
+                    </li>
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <div class="blog-masthead">
+        <a class="blog-masthead__icon" href="/blog"></a>
+        <p class="blog-masthead__title">The T<span class="blog-masthead__title-smallcaps">rio</span> Blog</p>
+        <ol class="blog-masthead__categories">
+            <li class="blog-masthead__category"><a href="/blog">Latest</a></li>
+            <li class="blog-masthead__category blog-masthead__category--active"><a href="/blog/releases">Releases</a></li>
+            <li class="blog-masthead__category"><a href="/blog/news">News</a></li>
+            <li class="blog-masthead__category"><a href="/blog/tutorials">Tutorials</a></li>
+        </ol>
+    </div>
+
+    <main class="container blog-container">
+        <article class="blog-post">
+            <h1 class="blog-post__article-title">Trio v6.0.0</h1>
+            <div class="blog-post__meta-container">Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2021-04-29</span> </div>
+            <section>
+                <p>It is with great pleasure that I announce the release of Trio v6.0.0.</p>
+                <h2 id="highlights">Highlights</h2>
+                <h3 id="an-improved-release-workflow-that-now-supports-javascript-bundling">An Improved Release Workflow That Now Supports JavaScript Bundling</h3>
+                <p>Prior to Trio v6.0.0 cache busting was initiated by running the command <code>trio release -b</code>. The problem is that this didn&apos;t allow the developer to run their NPM package.json scripts, such as those that might bundle their JavaScript modules, before they cache busted the site. Removing the <code>-b</code> option from the <code>trio release</code> command and implementing a standalone <code>trio cachebust</code> command that can be called after running <code>trio release</code> corrects this and allows for an &quot;open&quot; workflow, such as using NPM scripts in your package.json file</p>
+                <pre><code class="language-json">&quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+    &quot;parcelBuild&quot;: &quot;parcel watch source/jsBundle/main.js --no-cache --out-dir public/scripts --public-url /scripts/&quot;,
+    &quot;trioBuild&quot;: &quot;trio b -I&quot;,
+    &quot;build&quot;: &quot;concurrently --kill-others \&quot;npm run trioBuild\&quot; \&quot;npm run parcelBuild\&quot; &quot;,
+    &quot;release&quot;: &quot;trio r &amp;&amp; parcel build source/jsBundle/main.js --no-cache --out-dir release/scripts --public-url /scripts/ &amp;&amp; trio cachebust -m &amp;&amp; trio s -r&quot;
+},</code></pre>
+                <p>for development builds</p>
+                <pre><code class="language-shell"># run npm script to bundle JavaScript into public/scripts folder
+npm run build</code></pre>
+                <p>and for release builds.</p>
+                <pre><code class="language-shell"># run npm script to bundle JavaScript into release/scripts folder
+npm run release</code></pre>
+                <p>If your site uses a JavaScript bundler (e.g. Parcel, Browserify, Webpack) to package its runtime JavaScript then <em>do not host those modules in root/source/scripts</em>. Instead, <em>create a new folder in root/source, for example <em>jsBundle</em>, and host them there</em>. Please see <a href="/docs/v6/projectstructure">Project Structure</a> for details.</p>
+                <h3 id="new-css-source-map-generation-options">New CSS Source Map Generation Options</h3>
+                <p>Trio now offers sensible configuration options for controlling the generation of CSS map files for both <em>development</em> and <em>release</em> builds.</p>
+                <p>From within <em>trio.json</em> you can now configure source map generation using the following:</p>
+                <pre><code class="language-json">&quot;sassSourceMaps&quot;: {
+    &quot;development&quot;: [true | false],
+    &quot;release&quot;: [true | false]
+}</code></pre>
+                <p>Both development and release builds default to <code>true</code>.</p>
+                <h3 id="improved-cache-busting-a-breaking-change">Improved Cache Busting, A Breaking Change</h3>
+                <p>Trio v6.0.0 has upgraded its toolchain to use version <code>v1.0.0</code> of the browser cache buster <a target="_blank" href="https://www.npmjs.com/package/@4awpawz/buster">Buster</a>, which eliminates a bug that would result in URLs being hashed twice. This would occur when a URL points to a file whose file name is used in part in another file&apos;s name. This <em>naming convention</em> is common for JavaScript map files and CSS map files.</p>
+                <p>For example, when hashing the file names for the files [<em>mybundle.js<em>] and [</em>mybundle.js</em>.map] Buster would ultimately hash [<em>mybundle.js</em>.map] as [hash-hash-<em>mybundle.js</em>.map].</p>
+                <p>Please note that beginning with Buster v1.0.0, your site&apos;s internal URLs are required to be <em>site releative</em>. This requirement is a breaking change from previous versions of Buster. What does this mean for your existing Trio projects that are using Trio&apos;s cache busting? Existing projects&apos; internal URLs that aren&apos;t already site relative will need to be converted. Please see <a href="/docs/v6/linkingconventions/">Linking Conventions</a> and <a target="_blank" href="https://github.com/4awpawz/buster#project-relative-file-paths-and-site-relative-urls">Buster&apos;s documentation</a> for details.</p>
+                <h2 id="changelog">Changelog</h2>
+                <p>Please see the <a target="_blank" href="https://github.com/4awpawz/trio/issues?q=is%3Aissue+milestone%3Av6.0.0+is%3Aclosed">changelog</a> for details.</p>
+
+            </section>
+        </article>
+        <section class="donation-request">
+            <h2>Your Financial Support Of This Project Is Greatly Appreciated</h2>
+            <p>Trio is an open source project and is therefore free of charge to use both for noncommercial and commercial use, but when you use Trio to create a new website, please consider donating a few bucks. It doesn&apos;t take very long, the process is secure, and it will allow us to continue to support the community and to maintain and enhance Trio going forward.</p>
+            <br>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="FQKMSA5MRHK4Y">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button">
+                <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+            <br>
+            <p><a target="_blank" href="https://github.com/4awpawz/trio">Show your &#x2764;&#xFE0F;, add your &#x2605; to the Github repo.</a></p>
+        </section>
+
+        <div class="navigator">
+            <a class="navigator__newer">Newer articles</a> <a class="navigator__older navigator__older--enabled" href="/blog/releases/2021/01/22/v5.0.0/">Older articles</a>
+
+        </div>
+    </main>
+    <footer class="container blog-container blogfooter">
+        <p class="show-the-love">&quot;Built with <span class="heart">&#x2665;</span> for the Web, and a passion for simplifying complex things.&quot;</p>
+
+        <p>&#xA9;<span>2018-2021</span> Jeffrey Schwartz All Rights Reserved</p>
+
+        <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
+
+        <p>Currently <span>v6.0.0</span></p>
+
+        <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
+
+    </footer>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>
