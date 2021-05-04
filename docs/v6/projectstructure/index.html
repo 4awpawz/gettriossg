@@ -19,7 +19,7 @@
 
     <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
     <meta name="author" content="Jeffrey Schwartz">
-    <meta name="generator" content="Trio v6.0.0">
+    <meta name="generator" content="Trio v6.0.1">
     <title>Project Structure - Trio</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
@@ -47,7 +47,7 @@
             <div class="header__promo">
                 <img class="header__promo-image" src="/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
                 <div class="header__promo-text">T<span class="header__promo-text-smallcaps">rio</span>
-                    <span class="header__promo-text-version">v6.0.0</span>
+                    <span class="header__promo-text-version">v6.0.1</span>
 
                 </div>
             </div>
@@ -68,7 +68,7 @@
     </header>
     <main class="container doc-page">
         <aside class="doc-page-index">
-            <h2 class="doc-page-index__header">T<span class="doc-page-index__header-smallcaps">rio</span> <span class="doc-page-index__header-version">v6.0.0</span></h2>
+            <h2 class="doc-page-index__header">T<span class="doc-page-index__header-smallcaps">rio</span> <span class="doc-page-index__header-version">v6.0.1</span></h2>
             <aside class="doc-page-index__list-container">
                 <ul class="doc-page-index__list">
                     <li class="doc-page-index__list-item">
@@ -155,7 +155,9 @@
         <article class="doc-page-content">
             <section class="notification">Documentation is evolving and is a WIP</section>
             <section class="doc-page-content__copy">
-                <h1>Project Structure</h1>
+                <h1 id="project-structure">Project Structure</h1>
+
+                <blockquote class="note-important">Should your projects require additional folders to support tasks that <em>fall outside of Trio&apos;s build and release workflows</em>, such a those to bundle your site&apos;s runtime JavaScript for example, please create them as children of the <a href="#root-source">root/source/</a> folder and add them to Trio&apos;s <a href="/docs/v6/configuration#ignore">ignore</a> configuration property to prevent them from polluting Trio&apos;s metadata and from interfering with Trio&apos;s <em>build and release workflows</em>.</blockquote>
 
                 <p>The following describes a Trio project&apos;s file and folder structure:</p>
 
@@ -176,7 +178,7 @@
                 <h3>root/release/</h3>
                 <p>Folder targeted by the <em>release</em> command. See <a href="/docs/v6/commandline">Command Line</a> for details.</p>
 
-                <h3>root/source/</h3>
+                <h3 id="root-source">root/source/</h3>
                 <p>Contains the following folders which are used for the development of your web site.</p>
 
                 <h3>root/source/callbacks/</h3>
@@ -215,7 +217,7 @@
                 <h3>root/source/scripts/</h3>
                 <p>Contains run-time JavaScript files. When building your site Trio copies these JavaScript files to either <em>root/public/scripts</em> or <em>root/release/scripts</em>.</p>
 
-                <blockquote class="note-tip">If your site uses a JavaScript bundler (e.g. Parcel, Browserify, Webpack) to package its runtime JavaScript then do not host those modules in root/source/scripts. Instead, create a new folder in root/source, for example <em>jsBundle</em>, and host them there.</blockquote>
+                <blockquote class="note-tip">If your site uses a JavaScript bundler (e.g. Parcel, Browserify, Webpack) to package its runtime JavaScript then do not host those modules in root/source/scripts. Instead, create a new folder, <em>jsBundle</em> for example, in root/source/ and host them there. You must also configure Trio to ignore these folders to prevent them from polluting Trio&apos;s metadata and from interfering with Trio&apos;s build and release workflows. See <a href="#project-structure">above</a> for more information.</blockquote>
 
                 <h3>root/source/templates/</h3>
                 <p>Contains .html template files.</p>
@@ -234,7 +236,7 @@
 
                 <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
 
-                <p>Currently <span>v6.0.0</span></p>
+                <p>Currently <span>v6.0.1</span></p>
 
                 <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
 
