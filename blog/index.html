@@ -19,7 +19,7 @@
 
     <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
     <meta name="author" content="Jeffrey Schwartz">
-    <meta name="generator" content="Trio v6.0.1">
+    <meta name="generator" content="Trio v6.0.2">
     <title>Trio Blog | Official blog for Trio static site generator</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
@@ -45,7 +45,7 @@
             <div class="header__promo">
                 <img class="header__promo-image" src="/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
                 <div class="header__promo-text">T<span class="header__promo-text-smallcaps">rio</span>
-                    <span class="header__promo-text-version">v6.0.1</span>
+                    <span class="header__promo-text-version">v6.0.2</span>
 
                 </div>
             </div>
@@ -78,6 +78,23 @@
     <main class="container blog-container">
         <section>
             <section class="blog-posts">
+                <article class="blog-post">
+                    <h1 class="blog-post__article-title">
+                        <a class="blog-post__link" href="/blog/releases/2021/05/05/v6.0.2/">Trio v6.0.2</a>
+                    </h1>
+                    <div class="blog-post__meta-container">
+                        Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2021-05-05</span> </div>
+
+                    <p class="blog-post__articleExcerpt"></p>
+                    <p>It is with great pleasure that I announce the release of Trio v6.0.2.</p>
+                    <h2 id="highlights">Highlights</h2>
+                    <h3 id="this-is-a-point-release">This Is A Point Release</h3>
+                    <p>This release address issue #131 and now checks if the source folders actually exists prior to copying the their files.</p>
+                    <h2 id="changelog">Changelog</h2>
+                    <p>Please see the <a target="_blank" href="https://github.com/4awpawz/trio/issues?q=is%3Aissue+milestone%3Av6.0.2+is%3Aclosed">changelog</a> for details.</p>
+                    <p></p>
+                </article>
+
                 <article class="blog-post">
                     <h1 class="blog-post__article-title">
                         <a class="blog-post__link" href="/blog/releases/2021/05/04/v6.0.1/">Trio v6.0.1</a>
@@ -238,21 +255,6 @@ npm run release</code></pre>
 
                     </p>
                 </article>
-
-                <article class="blog-post">
-                    <h1 class="blog-post__article-title">
-                        <a class="blog-post__link" href="/blog/releases/2020/12/05/v4.2.0/">Trio v4.2.0: Improved Developer Experience</a>
-                    </h1>
-                    <div class="blog-post__meta-container">
-                        Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2020-12-05</span> </div>
-
-                    <p class="blog-post__articleExcerpt"></p>
-                    <h2 id="trio-v420">Trio v4.2.0</h2>
-                    <p>It is with great pleasure that I announce the release of Trio v4.2.0.</p>
-                    <h3 id="trio-now-ignores-and-reports-fragments-that-do-not-have-front-matter-defined">Trio now ignores and reports fragments that do not have front matter defined.</h3>
-                    <p>Prior to v4.2.0, fragment files that did not have front matter generated errors that were confusing and unnecessary (as far as the user is concerned). These fragments are now reported to the console but otherwise ignored during the build process.</p>
-                    <p></p>
-                </article>
             </section>
             <div class="navigator"><a class="navigator__newer">Newer articles</a> <a class="navigator__older navigator__older--enabled" href="/blog/page2">Older articles</a>
 
@@ -266,7 +268,7 @@ npm run release</code></pre>
 
         <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
 
-        <p>Currently <span>v6.0.1</span></p>
+        <p>Currently <span>v6.0.2</span></p>
 
         <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
 
