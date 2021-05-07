@@ -19,7 +19,7 @@
 
     <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
     <meta name="author" content="Jeffrey Schwartz">
-    <meta name="generator" content="Trio v6.0.3">
+    <meta name="generator" content="Trio v6.0.4">
     <meta property="og:image" content="https://gettriossg.com/media/composite.15f2b20c3eca55f71ad9add373b4d51f.png">
     <meta property="og:description" content="This tutorial teaches you how to use Trio&apos;s advanced page composition to add dynamic content from JSON Data to your web pages.">
     <meta property="og:title" content="Advanced Page Composition With JSON Data">
@@ -33,7 +33,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
     <link rel="stylesheet" href="/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/css/main.e986c6f99f6fb4efa94668554f5b4be2.css">
+    <link rel="stylesheet" href="/css/main.4b2a5f9c7adbe257cbaa59fea2e9b98d.css">
     <script src="/scripts/highlight.e497281e462342b50ccbb59b462856dd.pack.js"></script>
 </head>
 
@@ -56,7 +56,7 @@
             <div class="header__promo">
                 <img class="header__promo-image" src="/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
                 <div class="header__promo-text">T<span class="header__promo-text-smallcaps">rio</span>
-                    <span class="header__promo-text-version">v6.0.3</span>
+                    <span class="header__promo-text-version">v6.0.4</span>
 
                 </div>
             </div>
@@ -174,10 +174,12 @@
     &lt;/main&gt;
 &lt;/body&gt;
 
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;
+</code></pre>
                 <h2 id="create-a-new-project">Create A New Project</h2>
                 <p>In your terminal application, run the following <strong>command</strong> (please replace <em>&quot;path/to/new/project&quot;</em> with the actual path you would prefer for the location of your new project) to create a new project:</p>
-                <pre><code class="language-shell">trio new path/to/new/project</code></pre>
+                <pre><code class="language-shell">trio new path/to/new/project
+</code></pre>
                 <h2 id="create-the-template-project-asset">Create The Template Project Asset</h2>
                 <p>In the project&apos;s <em>root/source/templates</em> folder, create a new <strong>template file</strong> named <em>default.html</em> and copy and paste the following markup into that file:</p>
                 <pre><code class="language-html">&lt;!DOCTYPE html&gt;
@@ -186,13 +188,14 @@
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
     &lt;title&gt;Document&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.e986c6f99f6fb4efa94668554f5b4be2.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.4b2a5f9c7adbe257cbaa59fea2e9b98d.css&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;header data-trio-include=&quot;header.md&quot;&gt;&lt;/header&gt;
     &lt;main data-trio-fragment&gt;&lt;/main&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;
+</code></pre>
                 <p>Please notice that the above template project asset contains a single tag (in this case, a &quot;main&quot; tag) that is decorated with the <em>data-trio-fragment</em> attribute. When Trio finds such a tag decorated with this attribute in a template it will target it with any content it finds in the associated fragment. This isn&apos;t required if the fragment isn&apos;t contributing any content of its own.</p>
                 <h2 id="create-the-fragment-project-asset">Create The Fragment Project Asset</h2>
                 <p>In the project&apos;s <em>root/source/fragments</em> folder, create a new <strong>fragment file</strong> named <em>index.html</em> and copy and paste the following into that:</p>
@@ -203,7 +206,8 @@ appendToTarget: true
 --&gt;
 
 &lt;h2&gt;Artists&lt;/h2&gt;
-&lt;ul data-trio-callback=&quot;artistlistfromjsondata&quot;&gt;&lt;/ul&gt;</code></pre>
+&lt;ul data-trio-callback=&quot;artistlistfromjsondata&quot;&gt;&lt;/ul&gt;
+</code></pre>
                 <p>Please notice how the above fragment project asset declares front matter at the very top of the file, in which it defines:</p>
                 <ol>
                     <li>The required front matter property <em>template</em> with the name of the template file it is associated with and</li>
@@ -211,7 +215,8 @@ appendToTarget: true
                     <li>The optional front matter property <em>appendToTarget</em> which Trio uses to determine if it should append to or replace the tag in the template that is decorated with the <em>data-trio-fragment</em> attribute with the fragment&apos;s content. By assigning true, Trio will append whatever content it finds in the associated fragment to this tag.</li>
                 </ol>
                 <p>Also, please notice that the fragment&apos;s markup contains an <em>unordered list tag</em> decorated with the <em>data-trio-callback</em> attribute and that it is assigned the <em>name of the tag-based callback</em> (see below) which is located in the <em>root/source/callbacks</em> folder.</p>
-                <pre><code class="language-html">&lt;ul data-trio-callback=&quot;artistlistfromjsondata&quot;&gt;&lt;/ul&gt;</code></pre>
+                <pre><code class="language-html">&lt;ul data-trio-callback=&quot;artistlistfromjsondata&quot;&gt;&lt;/ul&gt;
+</code></pre>
                 <p>Notice also that the <em>file type</em> of the tag-based callback is always assumed to be &apos;<em>.js</em>&apos; and can be omitted.</p>
                 <p>Tags decorated with the <em>data-trio-callback</em> attribute direct Trio to call the tag-based callbacks that they name, which in this case is <em>root/source/callbacks/artistlistfromjsondata.js</em>.</p>
                 <h2 id="create-the-json-file">Create The JSON File</h2>
@@ -267,7 +272,8 @@ appendToTarget: true
         &quot;medium&quot;: &quot;Oil&quot;,
         &quot;style&quot;: &quot;Pop Art&quot;
     }
-]</code></pre>
+]
+</code></pre>
                 <h2 id="create-the-tag-based-callback">Create The Tag-Based Callback</h2>
                 <p>In the project&apos;s <em>root/source/callbacks</em> folder, create a new <strong>javascript file</strong> named <em>artistlistfromjsondata.js</em> and copy and paste the following into that:</p>
                 <pre><code class="language-js">/*
@@ -287,16 +293,19 @@ module.exports = ({ $tag, site }) =&gt; {
             &lt;/ul&gt;
         `);
     });
-};</code></pre>
+};
+</code></pre>
                 <p>This _tag-based callback does the following:</p>
                 <ol>
                     <li>It accesses the array of artists declared in the <em>root/source/data/artists.json</em> file using <em>site.dataCatalog</em>:</li>
                 </ol>
-                <pre><code class="language-javascript">site.dataCatalog.artists</code></pre>
+                <pre><code class="language-javascript">site.dataCatalog.artists
+</code></pre>
                 <ol start="2">
                     <li>Then sorts the artists array by artist <em>name</em> using:</li>
                 </ol>
-                <pre><code class="language-javascript">site.dataCatalog.artists.sort((a, b) =&gt; a.name.localeCompare(b.name))</code></pre>
+                <pre><code class="language-javascript">site.dataCatalog.artists.sort((a, b) =&gt; a.name.localeCompare(b.name))
+</code></pre>
                 <ol start="3">
                     <li>Then appends each artist&apos;s data to the tag that was decorated with the <em>data-trio-callback</em> attribute using:</li>
                 </ol>
@@ -308,7 +317,8 @@ module.exports = ({ $tag, site }) =&gt; {
             &lt;li&gt;Style: ${artist.style}&lt;/li&gt;
         &lt;/ul&gt;
     `);
-});</code></pre>
+});
+</code></pre>
                 <h3 id="how-trio-calls-your-tag-based-callbacks">How Trio Calls Your Tag-Based Callbacks</h3>
                 <p>When Trio encounters a tag decorated with the <em>data-trio-callback</em> attribute, it calls the named callback passing it a single object which contains the following properties:</p>
                 <ol>
@@ -324,20 +334,24 @@ $(&apos;h2.title&apos;).text(&apos;Hello there!&apos;);
 $(&apos;h2&apos;).addClass(&apos;welcome&apos;);
 
 $.html();
-//=&gt; &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h2 class=&quot;title welcome&quot;&gt;Hello there!&lt;/h2&gt;&lt;/body&gt;&lt;/html&gt;</code></pre>
+//=&gt; &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h2 class=&quot;title welcome&quot;&gt;Hello there!&lt;/h2&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre>
                 <h2 id="create-the-include-project-asset">Create The Include Project Asset</h2>
                 <p>In the project&apos;s <em>source/includes</em> folder, create a new <strong>include file</strong> named <em>header.md</em> and copy and paste the following into that:</p>
                 <pre><code class="language-md">&lt;!--
 appendToTarget: true
 --&gt;
 
-# Artists Registry</code></pre>
+# Artists Registry
+</code></pre>
                 <p>Please notice how the above include project asset declares front matter at the very top of the file which defines the optional boolean front matter property <strong>appendToTarget</strong>, which Trio uses to determine if it should append to or replace the tag in the template that is decorated with the data-trio-include=&quot;header.md&quot; attribute with the include&apos;s content. By assigning true, Trio will append whatever content it finds in the include to this tag.</p>
                 <h2 id="build-and-run-the-project">Build And Run The Project</h2>
                 <p>Now that we have composed our intended page using a template, a fragment, and an include we are ready to <strong>build</strong> our site and <strong>render</strong> the page in the browser. In your terminal application, please run the following commands from the root folder of your project:</p>
-                <pre><code class="language-shell">trio build; trio serve</code></pre>
+                <pre><code class="language-shell">trio build; trio serve
+</code></pre>
                 <p>If you prefer, you can use the abbreviated forms of these commands instead:</p>
-                <pre><code class="language-shell">trio b; trio s</code></pre>
+                <pre><code class="language-shell">trio b; trio s
+</code></pre>
                 <p>The <em>build</em> command instructs Trio to do a one-off build of your site <em>for development</em> and to place the site&apos;s generated output into the project&apos;s <em>public/</em> folder. The <em>serve</em> command instructs Trio to serve the project&apos;s <em>public/</em> folder&apos;s content in the browser.</p>
                 <p>When rendered in the browser the page that you created, <em>public/index.html</em>, should look like the following:</p>
                 <img src="/media/tutorials/composition/commonresult.e43bc0a2ac898c160bafdf784c02f5b1.png" alt="image">
@@ -350,7 +364,7 @@ appendToTarget: true
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
     &lt;title&gt;Coded Using JSON Data &amp;amp; Tag-based Callback&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.e986c6f99f6fb4efa94668554f5b4be2.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.4b2a5f9c7adbe257cbaa59fea2e9b98d.css&quot;&gt;
 &lt;/head&gt;
 
 &lt;body&gt;
@@ -423,11 +437,13 @@ appendToTarget: true
     &lt;/main&gt;
 &lt;/body&gt;
 
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;
+</code></pre>
                 <p>From the above we can see that Trio in fact did as we had requested it to do by appending the fragment&apos;s content to the template&apos;s <em>main tag</em> that was <strong>decorated</strong> with the <em>data-trio-fragment</em> attribute and by appending the include&apos;s content to the template&apos;s <em>header tag</em> that was <strong>decorated</strong> with the <em>data-trio-include=&quot;header.md&quot;</em> attribute.</p>
                 <p>Also note that because we built the project for development using Trio&apos;s <em>build</em> command, Trio preserved all the data-trio-* attributes. If we had instead built the project using Trio&apos;s <em>release</em> command, which is used to build your project prior to its release, Trio would have removed all the <em>data-trio-*</em> attributes from the generated pages.</p>
                 <p>And of course please note that the tag-based callback <em>root/source/callbacks/artistlistfromjsondata.js</em> declared by the <em>&lt;ul&gt;</em> tag that is decorated with the <em>data-trio-callback</em> attribute in the fragment</p>
-                <pre><code class="language-html">&lt;ul data-trio-callback=&quot;artistlistfromjsondata&quot;&gt;&lt;/ul&gt;</code></pre>
+                <pre><code class="language-html">&lt;ul data-trio-callback=&quot;artistlistfromjsondata&quot;&gt;&lt;/ul&gt;
+</code></pre>
                 <p>was called and that it did dynamically generate list items from the artists array defined in the root/source/data/artists.json file and appended them as content to the <em>&lt;ul&gt;</em> tag.</p>
                 <h3 id="extra-credit">Extra Credit</h3>
                 <p>After each development build of your project, Trio persists most of the metadata that it collects to a file named <em>root/trio.manifest.json</em>. Please open this file now with your editor to view its contents. Please take note of this file&apos;s structure, particularly its top level keys and their associated values and how they relate to the project you created for this tutorial. Can you find the list of artists that you defined in the front matter of this project&apos;s fragment? What other keys and values do you see that match those of this tutorial&apos;s project?</p>
@@ -473,7 +489,7 @@ appendToTarget: true
 
         <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
 
-        <p>Currently <span>v6.0.3</span></p>
+        <p>Currently <span>v6.0.4</span></p>
 
         <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
 

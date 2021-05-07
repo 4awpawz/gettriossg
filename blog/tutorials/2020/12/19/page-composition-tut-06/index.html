@@ -19,7 +19,7 @@
 
     <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
     <meta name="author" content="Jeffrey Schwartz">
-    <meta name="generator" content="Trio v6.0.3">
+    <meta name="generator" content="Trio v6.0.4">
     <meta property="og:image" content="https://gettriossg.com/media/composite.15f2b20c3eca55f71ad9add373b4d51f.png">
     <meta property="og:description" content="In this multipart tutorial you will learn how to use Trio&apos;s advanced page composition along with its collections feature to create a catalog of the flags of the world website.">
     <meta property="og:title" content="Advanced Page Composition And Collections: Part 3) 249 Detail Pages">
@@ -33,7 +33,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
     <link rel="stylesheet" href="/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/css/main.e986c6f99f6fb4efa94668554f5b4be2.css">
+    <link rel="stylesheet" href="/css/main.4b2a5f9c7adbe257cbaa59fea2e9b98d.css">
     <script src="/scripts/highlight.e497281e462342b50ccbb59b462856dd.pack.js"></script>
 </head>
 
@@ -56,7 +56,7 @@
             <div class="header__promo">
                 <img class="header__promo-image" src="/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
                 <div class="header__promo-text">T<span class="header__promo-text-smallcaps">rio</span>
-                    <span class="header__promo-text-version">v6.0.3</span>
+                    <span class="header__promo-text-version">v6.0.4</span>
 
                 </div>
             </div>
@@ -126,7 +126,7 @@
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
     &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
     &lt;title&gt;Document&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.e986c6f99f6fb4efa94668554f5b4be2.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.4b2a5f9c7adbe257cbaa59fea2e9b98d.css&quot;&gt;
     &lt;script src=&quot;/scripts/main.js&quot;&gt;&lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
@@ -134,7 +134,8 @@
         &lt;h1 class=&quot;flag-country__page-title&quot;&gt;Flags Of The World&lt;/h1&gt;
     &lt;/main&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;
+</code></pre>
                 <p>Please notice that the above template project asset contains a single tag (in this case, a &quot;main&quot; tag) that is decorated with the data-trio-fragment attribute. When Trio finds such a tag decorated with this attribute in a template it will target it with any content it finds in the associated fragment. This isn&apos;t required if the fragment isn&apos;t contributing any content of its own.</p>
                 <p>Also, please notice that the same &quot;main&quot; tag is decorated with the data-trio-callback attribute and that it is assigned the name of the tag-based callback (see below), &quot;country&quot;, which is located in the root/source/callbacks folder.</p>
                 <h2 id="create-the-fragment-project-asset">Create The Fragment Project Asset</h2>
@@ -150,7 +151,8 @@ collection:
 &lt;div class=&quot;flag-country__flag-container&quot;&gt;&lt;/div&gt;
 &lt;div class=&quot;flag-country__alpha2-code&quot;&gt;&lt;/div&gt;
 &lt;div class=&quot;flag-country__alpha3-code&quot;&gt;&lt;/div&gt;
-&lt;a id=&quot;catalog-link&quot; href=&quot;/&quot;&gt;&lt;p class=&quot;flag-country__catalog-link&quot;&gt;Return To Catalog&lt;/p&gt;&lt;/a&gt;</code></pre>
+&lt;a id=&quot;catalog-link&quot; href=&quot;/&quot;&gt;&lt;p class=&quot;flag-country__catalog-link&quot;&gt;Return To Catalog&lt;/p&gt;&lt;/a&gt;
+</code></pre>
                 <p>Please notice how the above fragment project asset declares front matter at the very top of the file, in which it defines:</p>
                 <ol>
                     <li>The required front matter property <em>template</em> with the name of the template file it is associated with.</li>
@@ -168,7 +170,8 @@ collection:
 .
 .
 .
-]</code></pre>
+]
+</code></pre>
                 <p>The following describes the key: value pairs of the items in the file:</p>
                 <ul>
                     <li>&quot;id&quot; - a number, the <em>unique id</em> of the item</li>
@@ -181,7 +184,8 @@ collection:
                 <p>In the project&apos;s <em>root/source/filters</em> folder, first delete the <em>.gitkeep</em> file, and then create a new <strong>javascript file</strong> named <em>countryFilter.js</em> and copy and paste the following into that:</p>
                 <pre><code class="language-javascript">module.exports = ({ site }) =&gt;
     site.dataCatalog.world.map(country =&gt;
-        ({ data: country, pageName: country.name }));</code></pre>
+        ({ data: country, pageName: country.name }));
+</code></pre>
                 <p>The above collection filter function maps each country record in the <em>root/source/data/world.json</em> file, which it accesses via <em>site.dataCatalog.world</em>, to a collectionDatasetItem by:</p>
                 <ol>
                     <li>Assigning the whole country record to the collectionDatasetItem&apos;s <em>data</em> property.</li>
@@ -206,14 +210,17 @@ module.exports = ({ $tag, $page, asset }) =&gt; {
     $tag.find(&quot;div.flag-country__alpha3-code&quot;).append(`
         &lt;span class=&quot;flag-country__label&quot;&gt;ISO 3166-1 Alpha3 Code:&lt;/span&gt; ${asset.collection.data.alpha3}
     `);
-};</code></pre>
+};
+</code></pre>
                 <p>When fragments declare collections, Trio will pass all the properties in the collectionDatasetItem to each tag-based callback it finds in the composite via the tag-based callback&apos;s <em>asset</em> argument, specifically by way of the <em>asset.collection</em> property.</p>
                 <p>The tag-based callback above uses the <em>asset.collection.data</em> property, which references the record from the root/source/data/world.json file that the collection filter function assigned to the collectionDatasetItem&apos;s data property, to format the HTML and content required by the page.</p>
                 <h2 id="build-and-run-the-project">Build And Run The Project</h2>
                 <p>Now that we have composed our intended 249 detail pages using a template, a fragment, data from a JSON file, a collection filter function, and a tag-based callback, we are ready to <strong>build</strong> our site and <strong>render</strong> the site in the browser. In your terminal application, please run the following commands from the root folder of your project:</p>
-                <pre><code class="language-shell">trio build; trio serve</code></pre>
+                <pre><code class="language-shell">trio build; trio serve
+</code></pre>
                 <p>If you prefer, you can use the abbreviated forms of these commands instead:</p>
-                <pre><code class="language-shell">trio b; trio s</code></pre>
+                <pre><code class="language-shell">trio b; trio s
+</code></pre>
                 <p>The <em>build</em> command instructs Trio to do a one-off build of your site <em>for development</em> and to place the site&apos;s generated output into the project&apos;s <em>public/</em> folder. The <em>serve</em> command instructs Trio to serve the project&apos;s <em>public/</em> folder&apos;s content in the browser.</p>
                 <p>Now that we have implemented the 249 detail flag pages using a collection, please click on any one of the flags listed in the landing page to render its detail page which, depending on the flag you clicked on, will look similar to the following:</p>
                 <img src="/media/tutorials/composition/fotwdetailpage.fe2cbf70f2b5d476bf239a191e19cf1d.png" alt="image of Flags Of The World detail page">
@@ -227,7 +234,7 @@ module.exports = ({ $tag, $page, asset }) =&gt; {
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
     &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
     &lt;title&gt;Map | Virgin Islands (U.S.)&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.e986c6f99f6fb4efa94668554f5b4be2.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.4b2a5f9c7adbe257cbaa59fea2e9b98d.css&quot;&gt;
     &lt;script src=&quot;/scripts/main.js&quot;&gt;&lt;/script&gt;
 &lt;/head&gt;
 
@@ -250,9 +257,11 @@ module.exports = ({ $tag, $page, asset }) =&gt; {
     &lt;/main&gt;
 &lt;/body&gt;
 
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;
+</code></pre>
                 <p>From the above we can see that the tag-based callback <em>root/source/callbacks/country.js</em> declared by the <em>&lt;main&gt;</em> tag that is decorated with the <em>data-trio-callback</em> attribute in the template</p>
-                <pre><code class="language-html">&lt;main data-trio-fragment data-trio-callback=&quot;country&quot; class=&quot;flag-country&quot;&gt;</code></pre>
+                <pre><code class="language-html">&lt;main data-trio-fragment data-trio-callback=&quot;country&quot; class=&quot;flag-country&quot;&gt;
+</code></pre>
                 <p>was called and that it did dynamically generate the flag details from the individual items in the <em>root/source/data/world.json</em> file and appended them as content to the <em>&lt;main&gt;</em> tag.</p>
                 <h2 id="conclusion">Conclusion</h2>
                 <p>This tutorial concludes our examination of Trio&apos;s advanced page composition with collections and demonstrates how we can <em>dynamically generate HTML documents from metadata</em>, such as from the root/source/data/world.json file used in this tutorial.</p>
@@ -287,7 +296,7 @@ module.exports = ({ $tag, $page, asset }) =&gt; {
 
         <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
 
-        <p>Currently <span>v6.0.3</span></p>
+        <p>Currently <span>v6.0.4</span></p>
 
         <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
 

@@ -19,14 +19,14 @@
 
     <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
     <meta name="author" content="Jeffrey Schwartz">
-    <meta name="generator" content="Trio v6.0.3">
+    <meta name="generator" content="Trio v6.0.4">
 
     <title>Trio v3.0.0 | Trio Blog</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
     <link rel="stylesheet" href="/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/css/main.e986c6f99f6fb4efa94668554f5b4be2.css">
+    <link rel="stylesheet" href="/css/main.4b2a5f9c7adbe257cbaa59fea2e9b98d.css">
     <script src="/scripts/highlight.e497281e462342b50ccbb59b462856dd.pack.js"></script>
 </head>
 
@@ -46,7 +46,7 @@
             <div class="header__promo">
                 <img class="header__promo-image" src="/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
                 <div class="header__promo-text">T<span class="header__promo-text-smallcaps">rio</span>
-                    <span class="header__promo-text-version">v6.0.3</span>
+                    <span class="header__promo-text-version">v6.0.4</span>
 
                 </div>
             </div>
@@ -94,12 +94,14 @@
                 <p>To do so, you first have to make the source/fragments/blog/articles folder a direct child folder of the source/fragments folder. Then, you must add a permalink in trio.json that will direct Trio to generate your article pages in either the public/blog folder or in the release/blog/ folder, depending on which command you use to generate your project, which can be either build or release, respectively, as shown below:</p>
                 <pre><code class="language-json">permalinks: [
     &quot;articles: blog&quot;
-]</code></pre>
+]
+</code></pre>
                 <p><strong>* Tip #2: You can use an approach similar to Tip #1 above to name your generated blog&apos;s folder to something other than blog, such as to myblog, for example.</strong></p>
                 <p>To do so, move the articles folder out of the blog folder as described above. Then, like above, you must add a permalink in trio.json, but this one will trigger Trio to generate your articles, categores, tags and archive pages in a folder called myblog:</p>
                 <pre><code class="language-json">permalinks: [
     &quot;articles, blog: myblog&quot;
-]</code></pre>
+]
+</code></pre>
                 <h2 id="new-incremental-build-now-watches-triojson-for-changes">New! Incremental Build Now Watches trio.json For Changes.</h2>
                 <p>Now, when building incrementally while watching for changes, and you make changes in your project&apos;s trio.json configuration file, Trio will run a one-off build so that your changes can be applied to your site. You no longer have to terminate your incremental build, then run a one-off build to apply the changes you made in trio.json to your site, and then start another incremental build.</p>
                 <h2 id="new-enhanced-collection-dataset-validation">New! Enhanced Collection Dataset Validation.</h2>
@@ -115,7 +117,8 @@
                 <p>Fixed - A bug (issue #93) that would sometimes prevent articles from being generated if they didn&apos;t declare a category in their front matter.</p>
                 <h2 id="upgrading-from-an-older-version-of-trio">Upgrading From An Older Version Of Trio.</h2>
                 <p>Whenever you upgrade to a new version of Trio, you should always run a one-off build to insure that Trio&apos;s cache is updated to its current expectations:</p>
-                <pre><code>$ trio build | b</code></pre>
+                <pre><code>$ trio build | b
+</code></pre>
                 <h2 id="changelog">Changelog</h2>
                 <p>Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v300">changelog</a> for details.</p>
             </section>
@@ -146,7 +149,7 @@
 
         <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
 
-        <p>Currently <span>v6.0.3</span></p>
+        <p>Currently <span>v6.0.4</span></p>
 
         <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
 

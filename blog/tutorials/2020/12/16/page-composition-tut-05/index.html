@@ -19,7 +19,7 @@
 
     <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
     <meta name="author" content="Jeffrey Schwartz">
-    <meta name="generator" content="Trio v6.0.3">
+    <meta name="generator" content="Trio v6.0.4">
     <meta property="og:image" content="https://gettriossg.com/media/composite.15f2b20c3eca55f71ad9add373b4d51f.png">
     <meta property="og:description" content="In this multipart tutorial you will learn how to use Trio&apos;s advanced page composition along with its collections feature to create a catalog of the flags of the world website.">
     <meta property="og:title" content="Advanced Page Composition And Collections: Part 2) Main Catalog Page">
@@ -33,7 +33,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
     <link rel="stylesheet" href="/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/css/main.e986c6f99f6fb4efa94668554f5b4be2.css">
+    <link rel="stylesheet" href="/css/main.4b2a5f9c7adbe257cbaa59fea2e9b98d.css">
     <script src="/scripts/highlight.e497281e462342b50ccbb59b462856dd.pack.js"></script>
 </head>
 
@@ -56,7 +56,7 @@
             <div class="header__promo">
                 <img class="header__promo-image" src="/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
                 <div class="header__promo-text">T<span class="header__promo-text-smallcaps">rio</span>
-                    <span class="header__promo-text-version">v6.0.3</span>
+                    <span class="header__promo-text-version">v6.0.4</span>
 
                 </div>
             </div>
@@ -106,7 +106,7 @@
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
     &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
     &lt;title&gt;Document&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../css/main.e986c6f99f6fb4efa94668554f5b4be2.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../css/main.4b2a5f9c7adbe257cbaa59fea2e9b98d.css&quot;&gt;
 &lt;/head&gt;
 &lt;body&gt;
     &lt;main class=&quot;catalog&quot;&gt;
@@ -114,14 +114,16 @@
         &lt;ul class=&quot;catalog__list&quot; data-trio-callback=&quot;catalog&quot;&gt;&lt;/ul&gt;
     &lt;/main&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;
+</code></pre>
                 <p>Please notice that the above template project asset doesn&apos;t contains a tag that is decorated with the <em>data-trio-fragment</em> attribute. That is because the fragment that will be associated with this template (see below) will not be contributing any content of its own into the composite. Instead, the tag-based callback that is declared in this template&apos;s unordered list <em>&lt;ul&gt;</em> tag will be solely responsible for this composite&apos;s content, which it will dynamically generate using the data found in the <em>root/source/data/world.json</em> file and which it will append to the template&apos;s unordered list tag.</p>
                 <h2 id="create-the-fragment-project-asset">Create The Fragment Project Asset</h2>
                 <p>In the project&apos;s <em>root/source/fragments</em> folder, first delete the <em>.gitkeep</em> file, and then create a new <strong>fragment file</strong> named <em>index.html</em> and copy and paste the following into that:</p>
                 <pre><code class="language-html">&lt;!--
 template: catalog
 title: Home | Flags Of The World
---&gt;</code></pre>
+--&gt;
+</code></pre>
                 <p>Please notice how the above fragment project asset declares front matter at the very top of the file, in which it defines:</p>
                 <ol>
                     <li>The required front matter property <em>template</em> with the name of the template file it is associated with and</li>
@@ -139,7 +141,8 @@ title: Home | Flags Of The World
 .
 .
 .
-]</code></pre>
+]
+</code></pre>
                 <p>The following describes the key: value pairs of the items in the file:</p>
                 <ul>
                     <li>&quot;id&quot; - a number, the <em>unique id</em> of the item</li>
@@ -166,12 +169,14 @@ module.exports = ({ $tag, site }) =&gt; {
             &lt;/li&gt;
         `);
     });
-};</code></pre>
+};
+</code></pre>
                 <p>This <em>tag-based callback</em> does the following:</p>
                 <ol>
                     <li>It iterates over the items in the <em>root/source/data/world.json</em> file using:</li>
                 </ol>
-                <pre><code class="language-javascript">site.dataCatalog.world.forEach(item =&gt; {</code></pre>
+                <pre><code class="language-javascript">site.dataCatalog.world.forEach(item =&gt; {
+</code></pre>
                 <ol start="2">
                     <li>Then appends each item&apos;s data to the tag in the template project asset that was decorated with the data-trio-callback tag:</li>
                 </ol>
@@ -182,12 +187,15 @@ module.exports = ({ $tag, site }) =&gt; {
             &lt;p class=&quot;catalog__list-item-name&quot;&gt;${item.name}&lt;/p&gt;
         &lt;/a&gt;
     &lt;/li&gt;
-`);</code></pre>
+`);
+</code></pre>
                 <h2 id="build-and-run-the-project">Build And Run The Project</h2>
                 <p>Now that we have composed our intended page using a template, a fragment, data from a JSON file, and a tag-based callback we are ready to <strong>build</strong> our site and <strong>render</strong> the page in the browser. In your terminal application, please run the following commands from the root folder of your project:</p>
-                <pre><code class="language-shell">trio build; trio serve</code></pre>
+                <pre><code class="language-shell">trio build; trio serve
+</code></pre>
                 <p>If you prefer, you can use the abbreviated forms of these commands instead:</p>
-                <pre><code class="language-shell">trio b; trio s</code></pre>
+                <pre><code class="language-shell">trio b; trio s
+</code></pre>
                 <p>The <em>build</em> command instructs Trio to do a one-off build of your site <em>for development</em> and to place the site&apos;s generated output into the project&apos;s <em>public/</em> folder. The <em>serve</em> command instructs Trio to serve the project&apos;s <em>public/</em> folder&apos;s content in the browser.</p>
                 <p>When <em>public/index.html</em>, the landing page for the Flags Of The World website, is rendered in the browser it should look like the following:</p>
                 <img src="/media/tutorials/composition/fotwlandingpage.5dc8b0bf575342530102aef90a67fedd.png" alt="image of Flags Of The World landing page">
@@ -202,7 +210,7 @@ module.exports = ({ $tag, site }) =&gt; {
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
     &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
     &lt;title&gt;Home | Flags Of The World&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../css/main.e986c6f99f6fb4efa94668554f5b4be2.css&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;../../css/main.4b2a5f9c7adbe257cbaa59fea2e9b98d.css&quot;&gt;
 &lt;/head&gt;
 
 &lt;body&gt;
@@ -243,9 +251,11 @@ module.exports = ({ $tag, site }) =&gt; {
     &lt;/main&gt;
 &lt;/body&gt;
 
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;
+</code></pre>
                 <p>From the above we can see that the tag-based callback <em>root/source/callbacks/catalog.js</em> declared by the <em>&lt;ul&gt;</em> tag that is decorated with the <em>data-trio-callback</em> attribute in the template</p>
-                <pre><code class="language-html">&lt;ul class=&quot;catalog__list&quot; data-trio-callback=&quot;catalog&quot;&gt;&lt;/ul&gt;</code></pre>
+                <pre><code class="language-html">&lt;ul class=&quot;catalog__list&quot; data-trio-callback=&quot;catalog&quot;&gt;&lt;/ul&gt;
+</code></pre>
                 <p>was called and that it did dynamically generate the list items from the <em>root/source/data/world.json</em> file and appended them as content to the <em>&lt;ul&gt;</em> tag.</p>
                 <h2 id="conclusion">Conclusion</h2>
                 <p>This tutorial examined how using Trio&apos;s advanced page composition we can add <em>dynamic content contributed by a JSON file located in the root/source/data folder</em> to your site&apos;s HTML documents.</p>
@@ -280,7 +290,7 @@ module.exports = ({ $tag, site }) =&gt; {
 
         <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
 
-        <p>Currently <span>v6.0.3</span></p>
+        <p>Currently <span>v6.0.4</span></p>
 
         <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
 

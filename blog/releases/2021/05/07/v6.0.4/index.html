@@ -20,8 +20,18 @@
     <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
     <meta name="author" content="Jeffrey Schwartz">
     <meta name="generator" content="Trio v6.0.4">
-
-    <title>Trio v1.0.0-rc.5 | Trio Blog</title>
+    <meta name="twitter:image" content="https://gettriossg.com/media/trio-social-media-image.76c410f98336b312b96fd6756143d668.png">
+    <meta name="twitter:description" content="It is with great pleasure that I announce the release of Trio v6.0.4.">
+    <meta name="twitter:title" content="Trio v6.0.4">
+    <meta name="twitter:creator" content="@jefftschwartz">
+    <meta name="twitter:site" content="@gettriossg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://gettriossg.com/media/trio-social-media-image.76c410f98336b312b96fd6756143d668.png">
+    <meta property="og:url" content="https://gettriossg.com/blog/releases/2021/05/07/v6.0.4/">
+    <meta property="og:description" content="It is with great pleasure that I announce the release of Trio v6.0.4.">
+    <meta property="og:title" content="Trio v6.0.4">
+    <meta property="og:type" content="article">
+    <title>Trio v6.0.4 | Trio Blog</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
@@ -78,21 +88,18 @@
 
     <main class="container blog-container">
         <article class="blog-post">
-            <h1 class="blog-post__article-title">Trio v1.0.0-rc.5 (IKIGAI)</h1>
-            <div class="blog-post__meta-container">Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2019-07-19</span> </div>
+            <h1 class="blog-post__article-title">Trio v6.0.4</h1>
+            <div class="blog-post__meta-container">Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2021-05-07</span> </div>
             <section>
-                <h2 id="names-of-callbacks-that-throw-exceptions-are-now-reported">Names Of Callbacks That Throw Exceptions Are Now Reported</h2>
-                <p>This release includes 1 enhancement and 3 breaking changes. Please see the <a target="_blank" href="https://github.com/4awpawz/trio/tree/master#v100-rc5-ikigai">changelog</a> for details.</p>
+                <p>It is with great pleasure that I announce the release of Trio v6.0.4.</p>
+                <h2 id="highlights">Highlights</h2>
+                <h3 id="this-is-a-point-release">This Is A Point Release</h3>
+                <p>Issue #135: Upgrade Node to v14 LTS and upgrade Trio&apos;s dependencies.</p>
+                <p>Issue #134: Module lib/generator/sassRender.js must call toString() when writing the postcssResult.map to a file.</p>
+                <p>Issue #136: A circular dependency discovered in lib/utils/getFileModifiedTime.js after upgrading Node to v14 LTs and Trio&apos;s dependencies.</p>
+                <h2 id="changelog">Changelog</h2>
+                <p>Please see the <a target="_blank" href="https://github.com/4awpawz/trio/issues?q=is%3Aissue+milestone%3Av6.0.4+is%3Aclosed">changelog</a> for details.</p>
 
-                <ul>
-                    <li>For callbacks that throw exceptions, Trio would catch the exceptions and print just their messages to the console, leaving it up to the user to determine which module actually threw the exception. Now, when callbacks throw exceptions, Trio will also print their module names along with their messages to the console.</li>
-                </ul>
-                <h2 id="breaking-changes">Breaking Changes</h2>
-                <ul>
-                    <li>Fragment properties <code>destPath</code> (the generated page&apos;s target file path) and <code>url</code> (the generated page&apos;s URL) are now generated in all lowercase.</li>
-                    <li>Trio no longer generates a unique <code>id</code> property for fragments due to the expense in terms of the development time required to maintain their integrity during incremental builds. In its place, users should now use the fragment&apos;s <code>url</code> property, which is intrinsically always unique.</li>
-                    <li>Callback argument <code>$</code> has been renamed to <code>$page</code> for clarity and consistency.</li>
-                </ul>
             </section>
         </article>
         <section class="donation-request">
@@ -110,7 +117,7 @@
         </section>
 
         <div class="navigator">
-            <a class="navigator__newer navigator__newer--enabled" href="/blog/releases/2019/07/23/v1.0.0-rc.6/">Newer articles</a> <a class="navigator__older navigator__older--enabled" href="/blog/releases/2019/07/08/v1.0.0-rc.4/">Older articles</a>
+            <a class="navigator__newer">Newer articles</a> <a class="navigator__older navigator__older--enabled" href="/blog/releases/2021/05/06/v6.0.3/">Older articles</a>
 
         </div>
     </main>

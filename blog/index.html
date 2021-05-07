@@ -19,13 +19,13 @@
 
     <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
     <meta name="author" content="Jeffrey Schwartz">
-    <meta name="generator" content="Trio v6.0.3">
+    <meta name="generator" content="Trio v6.0.4">
     <title>Trio Blog | Official blog for Trio static site generator</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
     <link rel="stylesheet" href="/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
-    <link rel="stylesheet" href="/css/main.e986c6f99f6fb4efa94668554f5b4be2.css">
+    <link rel="stylesheet" href="/css/main.4b2a5f9c7adbe257cbaa59fea2e9b98d.css">
     <script src="/scripts/highlight.e497281e462342b50ccbb59b462856dd.pack.js"></script>
 </head>
 
@@ -45,7 +45,7 @@
             <div class="header__promo">
                 <img class="header__promo-image" src="/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
                 <div class="header__promo-text">T<span class="header__promo-text-smallcaps">rio</span>
-                    <span class="header__promo-text-version">v6.0.3</span>
+                    <span class="header__promo-text-version">v6.0.4</span>
 
                 </div>
             </div>
@@ -78,6 +78,25 @@
     <main class="container blog-container">
         <section>
             <section class="blog-posts">
+                <article class="blog-post">
+                    <h1 class="blog-post__article-title">
+                        <a class="blog-post__link" href="/blog/releases/2021/05/07/v6.0.4/">Trio v6.0.4</a>
+                    </h1>
+                    <div class="blog-post__meta-container">
+                        Posted under <span class="blog-post__article-category">releases</span> on <span class="blog-post__article-date">2021-05-07</span> </div>
+
+                    <p class="blog-post__articleExcerpt"></p>
+                    <p>It is with great pleasure that I announce the release of Trio v6.0.4.</p>
+                    <h2 id="highlights">Highlights</h2>
+                    <h3 id="this-is-a-point-release">This Is A Point Release</h3>
+                    <p>Issue #135: Upgrade Node to v14 LTS and upgrade Trio&apos;s dependencies.</p>
+                    <p>Issue #134: Module lib/generator/sassRender.js must call toString() when writing the postcssResult.map to a file.</p>
+                    <p>Issue #136: A circular dependency discovered in lib/utils/getFileModifiedTime.js after upgrading Node to v14 LTs and Trio&apos;s dependencies.</p>
+                    <h2 id="changelog">Changelog</h2>
+                    <p>Please see the <a target="_blank" href="https://github.com/4awpawz/trio/issues?q=is%3Aissue+milestone%3Av6.0.4+is%3Aclosed">changelog</a> for details.</p>
+                    <p></p>
+                </article>
+
                 <article class="blog-post">
                     <h1 class="blog-post__article-title">
                         <a class="blog-post__link" href="/blog/releases/2021/05/06/v6.0.3/">Trio v6.0.3</a>
@@ -147,13 +166,16 @@
     &quot;trioBuild&quot;: &quot;trio b -I&quot;,
     &quot;build&quot;: &quot;concurrently --kill-others \&quot;npm run trioBuild\&quot; \&quot;npm run parcelBuild\&quot; &quot;,
     &quot;release&quot;: &quot;trio r &amp;&amp; parcel build source/jsBundle/main.js --no-cache --out-dir release/scripts --public-url /scripts/ &amp;&amp; trio cachebust -m &amp;&amp; trio s -r&quot;
-},</code></pre>
+},
+</code></pre>
                     <p>for development builds</p>
                     <pre><code class="language-shell"># run npm script to bundle JavaScript into public/scripts folder
-npm run build</code></pre>
+npm run build
+</code></pre>
                     <p>and for release builds.</p>
                     <pre><code class="language-shell"># run npm script to bundle JavaScript into release/scripts folder
-npm run release</code></pre>
+npm run release
+</code></pre>
                     <p>If your site uses a JavaScript bundler (e.g. Parcel, Browserify, Webpack) to package its runtime JavaScript then <em>do not host those modules in root/source/scripts</em>. Instead, <em>create a new folder in root/source, for example <em>jsBundle</em>, and host them there</em>. Please see <a href="/docs/v6/projectstructure">Project Structure</a> for details.</p>
                     <h3 id="new-css-source-map-generation-options">New CSS Source Map Generation Options</h3>
                     <p>Trio now offers sensible configuration options for controlling the generation of CSS map files for both <em>development</em> and <em>release</em> builds.</p>
@@ -161,11 +183,12 @@ npm run release</code></pre>
                     <pre><code class="language-json">&quot;sassSourceMaps&quot;: {
     &quot;development&quot;: [true | false],
     &quot;release&quot;: [true | false]
-}</code></pre>
+}
+</code></pre>
                     <p>Both development and release builds default to <code>true</code>.</p>
                     <h3 id="improved-cache-busting-a-breaking-change">Improved Cache Busting, A Breaking Change</h3>
                     <p>Trio v6.0.0 has upgraded its toolchain to use version <code>v1.0.0</code> of the browser cache buster <a target="_blank" href="https://www.npmjs.com/package/@4awpawz/buster">Buster</a>, which eliminates a bug that would result in URLs being hashed twice. This would occur when a URL points to a file whose file name is used in part in another file&apos;s name. This <em>naming convention</em> is common for JavaScript map files and CSS map files.</p>
-                    <p>For example, when hashing the file names for the files [<em>mybundle.js<em>] and [</em>mybundle.js</em>.map] Buster would ultimately hash [<em>mybundle.js</em>.map] as [hash-hash-<em>mybundle.js</em>.map].</p>
+                    <p>For example, when hashing the file names for the files [<em>mybundle.js</em>] and [<em>mybundle.js</em>.map] Buster would ultimately hash [<em>mybundle.js</em>.map] as [hash-hash-<em>mybundle.js</em>.map].</p>
                     <p>Please note that beginning with Buster v1.0.0, your site&apos;s internal URLs are required to be <em>site releative</em>. This requirement is a breaking change from previous versions of Buster. What does this mean for your existing Trio projects that are using Trio&apos;s cache busting? Existing projects&apos; internal URLs that aren&apos;t already site relative will need to be converted. Please see <a href="/docs/v6/linkingconventions/">Linking Conventions</a> and <a target="_blank" href="https://github.com/4awpawz/buster#project-relative-file-paths-and-site-relative-urls">Buster&apos;s documentation</a> for details.</p>
                     <h2 id="changelog">Changelog</h2>
                     <p>Please see the <a target="_blank" href="https://github.com/4awpawz/trio/issues?q=is%3Aissue+milestone%3Av6.0.0+is%3Aclosed">changelog</a> for details.</p>
@@ -248,18 +271,6 @@ npm run release</code></pre>
 
                     </p>
                 </article>
-
-                <article class="blog-post">
-                    <h1 class="blog-post__article-title">
-                        <a class="blog-post__link" href="/blog/tutorials/2020/12/11/page-composition-tut-03/">Advanced Page Composition With JSON Data</a>
-                    </h1>
-                    <div class="blog-post__meta-container">
-                        Posted under <span class="blog-post__article-category">tutorials</span> on <span class="blog-post__article-date">2020-12-11</span> </div>
-
-                    <p class="blog-post__articleExcerpt"><img src="/media/composite.15f2b20c3eca55f71ad9add373b4d51f.png" alt="a web page composition abstract">
-
-                    </p>
-                </article>
             </section>
             <div class="navigator"><a class="navigator__newer">Newer articles</a> <a class="navigator__older navigator__older--enabled" href="/blog/page2">Older articles</a>
 
@@ -273,7 +284,7 @@ npm run release</code></pre>
 
         <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
 
-        <p>Currently <span>v6.0.3</span></p>
+        <p>Currently <span>v6.0.4</span></p>
 
         <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
 
