@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67538650-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-67538650-3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="Fast, simple yet powerful JavaScript-driven static site generation.">
+    <meta name="author" content="Jeffrey Schwartz">
+    <meta name="generator" content="Trio v6.1.0">
+    <meta property="og:image" content="https://gettriossg.com/media/javascriptbundling/javascriptbundler.jpg">
+    <meta property="og:description" content="In this tutorial you will learn how to bundle your site&apos;s runtime JavaScript.">
+    <meta property="og:title" content="Bundling Your Site&apos;s Runtime JavaScript">
+    <meta property="og:url" content="https://gettriossg.com/blog/tutorials/2021/06/02/javascript-bundling/">
+    <meta property="og:type" content="article">
+    <meta name="twitter:creator" content="@jefftschwartz">
+    <meta name="twitter:site" content="@gettriossg">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Bundling Your Site&apos;s Runtime JavaScript | Trio Blog</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/css/libs/github/github-markdown.7a25cddb2ef752830353f7e19a905735.css">
+    <link rel="stylesheet" href="/css/libs/highlight/github.bf6c14925e66edb1526b6c9489b3c042.css">
+    <link rel="stylesheet" href="/css/main.eb42624acc7648ab4d529a6ad9c96e53.css">
+    <script src="/scripts/highlight.e497281e462342b50ccbb59b462856dd.pack.js"></script>
+</head>
+
+<body>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v9.0" nonce="6AlX9x9d"></script>
+    <header class="header header--fixed header--green">
+        <section class="container header__container">
+            <input class="hamburger-checkbox header__hamburger-checkbox" type="checkbox" id="hamburger-checkbox" autocomplete="off">
+            <label class="hamburger-helper header__hamburger-container" for="hamburger-checkbox">
+                <div class="hamburger">
+                    <div class="hamburger__bun">
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                        <div class="hamburger__patty"></div>
+                    </div>
+                </div>
+            </label>
+            <div class="header__promo">
+                <img class="header__promo-image" src="/media/brand.b66d421676dcc7ac68959fd41c82c140.svg" alt="Trio Icon">
+                <div class="header__promo-text">T<span class="header__promo-text-smallcaps">rio</span>
+                    <span class="header__promo-text-version">v6.1.0</span>
+
+                </div>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__nav-items">
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/">Home</a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a class="header__nav-item-link" href="/docs/v6/">Docs</a>
+                    </li>
+                    <li class="header__nav-item header__nav-item--active">
+                        <a class="header__nav-item-link" href="/blog">Blog</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+    <div class="blog-masthead">
+        <a class="blog-masthead__icon" href="/blog"></a>
+        <p class="blog-masthead__title">The T<span class="blog-masthead__title-smallcaps">rio</span> Blog</p>
+        <ol class="blog-masthead__categories">
+            <li class="blog-masthead__category"><a href="/blog">Latest</a></li>
+            <li class="blog-masthead__category"><a href="/blog/releases">Releases</a></li>
+            <li class="blog-masthead__category"><a href="/blog/news">News</a></li>
+            <li class="blog-masthead__category blog-masthead__category--active"><a href="/blog/tutorials">Tutorials</a></li>
+        </ol>
+    </div>
+
+    <main class="container blog-container">
+        <article class="blog-post">
+            <h1 class="blog-post__article-title">Bundling Your Site&apos;s Runtime JavaScript</h1>
+            <div class="blog-post__meta-container">Posted under <span class="blog-post__article-category">tutorials</span> on <span class="blog-post__article-date">2021-06-02</span> </div>
+            <section><img src="/media/tutorials/javascriptbundling/javascriptbundler.9a5de88b7b8dbf72b13342ef5c732b03.jpg" alt="javascript packages">
+
+                <h2 id="intention-of-this-tutorial">Intention Of This Tutorial</h2>
+                <p>This tutorial is based on <a href="https://github.com/4awpawz/bundlewithparcel">this repo</a> and demonstrates how to integrate the bundling of your site&apos;s JavaScript runtime into Trio&apos;s <em>build</em> and <em>release</em> work flows. While this tutorial uses the bundler <a target="_blank" href="https://parceljs.org/">Parcel</a> to create the JavaScript runtime you are free to use your JavaScript bundler of choice.</p>
+
+                <h2 id="prerequisites">Prerequisites</h2>
+                <p>This tutorial assumes that you have Trio installed and that you have a basic knowledge of how to use Trio&apos;s project assets to create web pages.</p>
+                <h2 id="steps">Steps</h2>
+                <ol>
+                    <li><a href="#create-a-new-project">Create A New Project</a></li>
+                    <li><a href="#install-the-projects-dependencies">Install The Project&apos;s Dependencies</a></li>
+                    <li><a href="#create-our-projects-build-scripts">Create Our Project&apos;s Build Scripts</a></li>
+                    <li>Create The Site&apos;s Default Web Page<ol>
+                            <li><a href="#create-the-indexmd-fragment">Create The index.md Fragment</a></li>
+                            <li><a href="#create-the-defaulthtml-template">Create The default.html Template</a></li>
+                        </ol>
+                    </li>
+                    <li>Create The JavaScript Application Using ES6 Modules<ol>
+                            <li><a href="#create-the-jsbundle-folder">Create The jsBundle Folder</a></li>
+                            <li><a href="#have-trio-ignore-the-jsbundle-folder">Have Trio Ignore The jsBundle Folder</a></li>
+                            <li><a href="#create-the-sourcejsbundleitworkedjs-module">Create The source/jsBundle/itworked.js Module</a></li>
+                            <li><a href="#create-the-sourcejsbundlemainjs-module">Create The source/jsBundle/main.js Module</a></li>
+                        </ol>
+                    </li>
+                    <li>Add Additional Resources<ol>
+                            <li><a href="#add-the-happy-dancegif-image">Add The happy-dance.gif Image</a></li>
+                            <li><a href="#add-the-mainscss-file">Add The main.scss File</a></li>
+                        </ol>
+                    </li>
+                    <li>Build And Run<ol>
+                            <li><a href="#build-for-development">Build For Development</a></li>
+                            <li><a href="#build-for-release">Build For Release</a></li>
+                        </ol>
+                    </li>
+                </ol>
+                <h2 id="create-a-new-project">Create A New Project</h2>
+                <p>From the terminal please run the following command to create a new bare Trio project</p>
+                <pre><code class="language-javascript">trio new &lt;path/to/project&gt;
+</code></pre>
+                <p>and make it the current working directory.</p>
+                <h2 id="install-the-projects-dependencies">Install The Project&apos;s Dependencies</h2>
+                <p>From the terminal please run the following command to create the <em>package.json</em> file</p>
+                <pre><code class="language-shell">npm init -y
+</code></pre>
+                <p>and then please run the following command in the terminal to install the project&apos;s development dependencies:</p>
+                <pre><code class="language-shell">npm i -D parcel-bundler concurrently
+</code></pre>
+                <h2 id="create-our-projects-build-scripts">Create Our Project&apos;s Build Scripts</h2>
+                <p>Now we will add a few scripts to <em>package.json</em>&apos;s <em>scripts</em> property that will be used for building our site for both development and for release.</p>
+                <p>Using your editor, please open the <em>package.json</em> file and then <strong>replace</strong> its <em>&quot;scripts&quot;</em> property with the following and then save the file:</p>
+                <pre><code class="language-json">&quot;scripts&quot;: {
+    &quot;parcel-watch&quot;: &quot;parcel watch source/jsBundle/main.js --no-cache --out-dir source/scripts --public-url /scripts/&quot;,
+    &quot;trioBuild&quot;: &quot;trio b -I&quot;,
+    &quot;build&quot;: &quot;concurrently --kill-others \&quot;npm run trioBuild\&quot; \&quot;npm run parcel-watch\&quot;&quot;,
+    &quot;release&quot;: &quot;trio r &amp;&amp; parcel build source/jsBundle/main.js --no-cache --out-dir release/scripts --public-url /scripts/ &amp;&amp; trio c -m &amp;&amp; trio s -r&quot;
+},
+</code></pre>
+                <p>The <em>build</em> script is used to build the site for development and the <em>release</em> script is used to build the site for release. If you aren&apos;t familiar with the differences between the two <a href="/docs/v6/commandline/#build_your_site">here</a>&apos;s an explanation.</p>
+                <h2 id="create-the-sites-default-web-page">Create The Site&apos;s Default Web Page</h2>
+                <h3 id="create-the-indexmd-fragment">Create The index.md Fragment</h3>
+                <p>In the <em>source/fragments</em> folder create a new file named <em>index.md</em> and then copy and paste the following markdown into it and then save the file:</p>
+                <pre><code class="language-md">&lt;!--
+template: default
+appendToTarget: true
+title: Bundling With Parcel
+--&gt;
+</code></pre>
+                <h3 id="create-the-defaulthtml-template">Create The default.html Template</h3>
+                <p>In the _source/templates folder create a new file named <em>default.html</em> and then copy and paste the following markdown into it and then save the file:</p>
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.eb42624acc7648ab4d529a6ad9c96e53.css&quot;&gt;
+    &lt;script defer src=&quot;/scripts/main.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;main data-trio-fragment&gt;
+        &lt;d class=&quot;something-went-wrong something-went-wrong--shown&quot;&gt;
+            &lt;h1&gt;Bundling With Parcel Example&lt;/h1&gt;
+            &lt;p class=&quot;copy copy--error&quot;&gt;Whoops! Something went wrong.&lt;/p&gt;
+        &lt;/d&gt;
+        &lt;d class=&quot;it-worked it-worked--hidden&quot;&gt;
+            &lt;h1&gt;Bundling With Parcel Example&lt;/h1&gt;
+            &lt;img src=&quot;/media/happy-dance.gif&quot;alt=&quot;happy dance gif image&quot;&gt;
+            &lt;p class=&quot;copy&quot;&gt;JavaScript bundling worked&lt;span class=&quot;exclamation&quot;&gt;!&lt;/span&gt;&lt;/p&gt;
+    &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+                <h2 id="create-the-javascript-application-using-es6-modules">Create The JavaScript Application Using ES6 Modules</h2>
+                <h3 id="create-the-jsbundle-folder">Create The jsBundle Folder</h3>
+                <p>First we must create a folder to host our site&apos;s JavaScript bundle. In the project&apos;s <em>source/</em> folder please create a new child folder named <em>jsBundle/</em>.</p>
+                <h3 id="have-trio-ignore-the-jsbundle-folder">Have Trio Ignore The jsBundle Folder</h3>
+                <p>Now we must instruct Trio to ignore the <em>jsBundle</em> folder so that it wont respond to changes we make inside of it which would interfere with its build and release workflows. Please copy and paste the following into the <em>trio.json</em> file located in the project&apos;s root folder and then save the file:</p>
+                <pre><code class="language-json">{
+    &quot;ignore&quot;: &quot;jsBundle&quot;
+}
+</code></pre>
+                <h3 id="create-the-sourcejsbundleitworkedjs-module">Create The source/jsBundle/itworked.js Module</h3>
+                <p>In your site&apos;s <em>source/jsBundle</em> folder please create a new file named <em>itworked.js</em> and then copy and paste the following code into that file and then save the file.</p>
+                <pre><code class="language-javascript">export default () =&gt; {
+    document.getElementsByClassName(&quot;something-went-wrong&quot;)[0]
+        .setAttribute(&quot;class&quot;,&quot;something-went-wrong something-went-wrong--hidden&quot;);
+    document.getElementsByClassName(&quot;it-worked&quot;)[0]
+        .setAttribute(&quot;class&quot;, &quot;it-worked it-worked--shown&quot;);
+};
+</code></pre>
+                <h3 id="create-the-sourcejsbundlemainjs-module">Create The source/jsBundle/main.js Module</h3>
+                <p>In your site&apos;s <em>source/jsBundle</em> folder please create a new file named <em>main.js</em> and then copy and paste the following code into that file and then save the file:</p>
+                <pre><code class="language-javascript">import itworked from &quot;./itworked&quot;;
+
+itworked();
+</code></pre>
+                <h2 id="add-additional-resources">Add Additional Resources</h2>
+                <h3 id="add-the-happy-dancegif-image">Add The happy-dance.gif Image</h3>
+                <p>Please copy the <em>happy-dance.gif</em> image below to your project&apos;s source/media folder.</p>
+                <img src="/media/tutorials/javascriptbundling/happy-dance.2c9d0dafca7bfe9aef244f50cf3bbbca.gif">
+
+                <h3 id="add-the-mainscss-file">Add The main.scss File</h3>
+                <p>In your project&apos;s <em>source/scss/</em> folder please create a file named <em>main.scss</em> and then copy and paste the following into it and then save the file:</p>
+                <pre><code class="language-css">$font-size: 2rem;
+
+main {
+    width: 100vw;
+}
+
+h1 {
+    color: #a03b9d;
+    font-size: $font-size;
+    text-align: center;
+}
+
+img {
+    max-width: 30rem;
+    min-width: 10rem;
+    margin: auto;
+    height: auto;
+}
+
+.copy {
+    color: #edb83a;
+    font-weight: bold;
+    font-size: $font-size;
+    &amp;--error {
+        color: #f00;
+    }
+    text-align: center;
+}
+
+.exclamation {
+    color: black;
+}
+
+.something-went-wrong {
+    display: flex;
+    flex-flow: column nowrap;
+    font-size: $font-size;
+    &amp;--hidden {
+        display: none;
+    }
+}
+
+.it-worked {
+    display: none;
+    &amp;--shown {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+}
+</code></pre>
+                <h2 id="build-and-run">Build And Run</h2>
+                <p>Please open your terminal and make sure that this project&apos;s root folder is the current working directory.</p>
+                <h3 id="build-for-development">Build For Development</h3>
+                <p>Please run the following command to build the project for development and serve it in the browser:</p>
+                <pre><code class="language-shell">npm run build
+</code></pre>
+                <h3 id="build-for-release">Build For Release</h3>
+                <p>Please run the following command to build the project for release and serve it in the browser:</p>
+                <pre><code class="language-shell">npm run release
+</code></pre>
+            </section>
+        </article>
+        <section class="donation-request">
+            <h2>Your Financial Support Of This Project Is Greatly Appreciated</h2>
+            <p>Trio is an open source project and is therefore free of charge to use both for noncommercial and commercial use, but when you use Trio to create a new website, please consider donating a few bucks. It doesn&apos;t take very long, the process is secure, and it will allow us to continue to support the community and to maintain and enhance Trio going forward.</p>
+            <br>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="FQKMSA5MRHK4Y">
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button">
+                <img alt border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+            <br>
+            <p><a target="_blank" href="https://github.com/4awpawz/trio">Show your &#x2764;&#xFE0F;, add your &#x2605; to the Github repo.</a></p>
+        </section>
+
+        <div class="fbcomments">
+            <div class="fb-comments" data-href="https://gettriossg.com/blog/tutorials/2021/06/02/javascript-bundling/" data-width="100%" data-numposts="5"></div>
+        </div>
+        <div class="navigator"><a class="navigator__newer">Newer articles</a> <a class="navigator__older navigator__older--enabled" href="/blog/tutorials/2020/12/19/page-composition-tut-06/">Older articles</a>
+
+        </div>
+    </main>
+    <footer class="container blog-container blogfooter">
+        <p class="show-the-love">&quot;Built with <span class="heart">&#x2665;</span> for the Web, and a passion for simplifying complex things.&quot;</p>
+
+        <p>&#xA9;<span>2018-2021</span> Jeffrey Schwartz All Rights Reserved</p>
+
+        <p>Code licensed <a target="_blank" href="https://github.com/4awpawz/trio/blob/master/LICENSE">MIT</a>, docs <a target="_blank" href="https://creativecommons.org/licenses/by/3.0/">CC By 3.0</a></p>
+
+        <p>Currently <span>v6.1.0</span></p>
+
+        <p><a href="https://github.com/4awpawz/trio#changelog" target="_blank">Changelog</a></p>
+
+    </footer>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>
