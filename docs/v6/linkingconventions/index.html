@@ -167,16 +167,29 @@
             <section class="doc-page-content__copy">
                 <h1>Linking Conventions</h1>
 
-                <p>Trio supports the following linking conventions:</p>
+                <h2>Linking Conventions For Pages</h2>
 
-                <h2>Absolute URLs</h2>
-                <p><em>https://4awpawz.github.io/trio-docs-pages/docs/</em> is appropriate to use when linking to remote/non-internal resource but inappropriate to use when linking to your site&apos;s internal resources because it is brittle; a change in the sites domain would require a global refactoring of your site to change each occurrence.</p>
+                <p>Trio supports the following linking conventions for pages:</p>
 
-                <h2>Site Relative URLs</h2>
-                <p><em>/docs</em> is appropriate for internal links; `/` means that the link is relative to the root of your site.</p>
+                <li>Absolute URLs (e.g. &lt;a href=&quot;https://somesite.com/blog/&quot;&gt;) are appropriate to use when linking to both remote pages and to your site&apos;s internal pages.</li>
 
-                <h2>Page Relative URLs</h2>
-                <p><em>../docs</em> is appropriate for internal links; `..` means it is relative to the page in which it is being used.</p>
+                <li>Site Relative URLS (e.g. &lt;a href=&quot;/blog/&quot;&gt;) are appropriate to use when linking to your site&apos;s internal pages.</li>
+
+                <li>Page Relative URLs (e.g. &lt;a href=&quot;../blog/&quot;&gt;) are appropriate to use when linking to your site&apos;s internal pages.</li>
+
+                <h2>Linking Conventions For Assets</h2>
+
+                <p>Trio supports the following linking conventions for assets (e.g. .js, .css, .jpg, etc.):</p>
+
+                <blockquote class="note-important">
+                    <p>If you intend to <a href="/docs/v6/commandline#cache-bust">cache bust your site&apos;s assets</a> then you are required to construct your site&apos;s asset URLs using either <em>site relative</em> or <em>absolute</em> URLs.</p>
+                </blockquote>
+
+                <li>Absolute URLs (e.g. &lt;a href=&quot;https://somesite.com/media/roaringlion.jpg&quot;&gt;) are appropriate to use when linking to both remote assets and to your site&apos;s internal assets and when used to link to your site&apos;s internal assets are compatible with Trio&apos;s cache busting feature.</li>
+
+                <li>Site Relative URLS (e.g. &lt;a href=&quot;/media/roaringlion.jpg&quot;&gt;) are appropriate to use when linking to your site&apos;s internal assets and are compatible with Trio&apos;s cache busting feature.</li>
+
+                <li>Page Relative URLs (e.g. &lt;a href=&quot;../media/roaringlion.jpg&quot;&gt;) are appropriate to use when linking to your site&apos;s internal assets but are not compatible with Trio&apos;s cache busting feature.</li>
 
                 <h2 id="baseurl">Base URL</h2>
 
@@ -194,6 +207,7 @@
 
                 <ul>
                     <li><a href="/docs/v6/configuration">Configuration</a></li>
+                    <li><a href="/docs/v6/pagegeneration">Page Generation</a></li>
                     <li><a href="/docs/v6/projectstructure">Project Structure</a></li>
                 </ul>
 
